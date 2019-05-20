@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "pipenv run python manage.py runserver"
+  }
+}
