@@ -1,3 +1,3 @@
 # Art/Re/Art Web
 
-Companion website to the Art/Re/Art experiential art events in and around Morganton, NC.
+Companion website for a series of pop up art events in downtown Morganton, NC.
