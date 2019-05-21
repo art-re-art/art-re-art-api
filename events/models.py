@@ -12,6 +12,9 @@ class Event(models.Model):
         related_name='events',
     )
 
+    def __str__(self):
+        return self.title
+
 
 class EventLocation(models.Model):
     title = models.CharField(
@@ -31,3 +34,6 @@ class EventLocation(models.Model):
     )
     latitude = models.FloatField()
     longitude = models.FloatField()
+
+    def __str__(self):
+        return self.title
