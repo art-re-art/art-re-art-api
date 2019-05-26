@@ -1,1 +1,10 @@
+# django
 /db.sqlite3
+/artreart/static
+
+# node
+/node_modules
+/.cache
+
+# macos
+.DS_Store

@@ -116,6 +116,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "artreart/static"),
+]
+
 
 # Heroku
 # https://devcenter.heroku.com/articles/django-app-configuration
