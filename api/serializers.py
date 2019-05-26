@@ -6,7 +6,7 @@ from artists.models import Artist, ArtistMedium
 
 class ArtistSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Event
+        model = Artist
         fields = ("url", "name", "instagram", "website", "medium", "events")
 
 
