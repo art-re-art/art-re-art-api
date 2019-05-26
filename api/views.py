@@ -1,11 +1,27 @@
 from rest_framework import viewsets
 
 from events.models import Event, EventLocation
-from .serializers import EventSerializer, EventLocationSerializer
+from artists.models import Artist, ArtistMedium
+from .serializers import (
+    EventSerializer,
+    EventLocationSerializer,
+    ArtistSerializer,
+    ArtistMediumSerializer,
+)
+
+
+class ArtistViewSet(viewsets.ModelViewSet):
+    queryset = Artist.objects.all()
+    serializer_class = ArtistSerializer
+
+
+class ArtistMediumViewSet(viewsets.ModelViewSet):
+    queryset = ArtistMedium.objects.all()
+    serializer_class = ArtistMediumSerializer
 
 
 class EventViewSet(viewsets.ModelViewSet):
-    queryset = Event.objects.all().order_by('-datetime')
+    queryset = Event.objects.all().order_by("-datetime")
     serializer_class = EventSerializer
 
 

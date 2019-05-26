@@ -6,11 +6,13 @@ from . import views
 
 
 router = routers.DefaultRouter()
-router.register(r'events', views.EventViewSet)
-router.register(r'eventlocations', views.EventLocationViewSet)
+router.register(r"events", views.EventViewSet)
+router.register(r"eventlocations", views.EventLocationViewSet)
+router.register(r"artists", views.ArtistViewSet)
+router.register(r"artistmedium", views.ArtistMediumViewSet)
 
 
 urlpatterns = [
-    path('', include(router.urls)),
-    path('auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path("", include(router.urls)),
+    path("auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]

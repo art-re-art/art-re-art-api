@@ -24,6 +24,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'home',
     'events',
+    'artists',
     'api',
 
     'rest_framework',
