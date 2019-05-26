@@ -15,6 +15,20 @@ class Event(models.Model):
         return self.title
 
     @property
+    def month(self):
+        return self.datetime.strftime('%b')
+
+    @property
+    def day(self):
+        return self.datetime.strftime('%d')
+
+    @property
+    def time(self):
+        return self.datetime.strftime('%I:%M %p')
+
+
+
+    @property
     def mobile_link(self):
         return ":".join(["event", str(self.id)])
 
