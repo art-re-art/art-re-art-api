@@ -5,13 +5,29 @@
 
 {% block body %}
   <div
-    style="width: 100vw; height: 100vh;"
-    class="d-flex justify-content-center align-items-center"
+    class="m-3"
   >
-    <img
-      src="{% static 'images/logo.png' %}"
-      alt="Art/Re/Art Logo"
-      style="max-width: 100vw; max-height: 100vh;"
-    />
+    <div
+      style="width: 100vw; height: 70vh;"
+      class="d-flex justify-content-center align-items-center"
+    >
+      <img
+        src="{% static 'images/logo.png' %}"
+        alt="Art/Re/Art Logo"
+        style="max-width: 100vw; max-height: 70vh;"
+      />
+    </div>
+    <div
+      style="width: 100vw; height: 30vh;"
+      class="d-flex justify-content-center align-items-center"
+    >
+      <a
+        href="https://expo.io/@overshard/art-re-art"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        {{ events.first.qrcode|stringformat:"s"|safe }}
+      </a>
+    </div>
   </div>
 {% endblock %}

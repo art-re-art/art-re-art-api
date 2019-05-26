@@ -2,7 +2,10 @@
   "private": true,
   "scripts": {
     "start": "concurrently \"pipenv run python manage.py runserver\" \"webpack --watch\"",
-    "build": "webpack --mode \"production\""
+    "build": "webpack --mode \"production\"",
+    "migrate": "pipenv run python manage.py migrate",
+    "makemigrations": "pipenv run python manage.py makemigrations",
+    "createsuperuser": "pipenv run python manage.py createsuperuser"
   },
   "devDependencies": {
     "autoprefixer": "^9.5.1",

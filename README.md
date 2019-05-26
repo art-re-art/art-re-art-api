@@ -6,6 +6,8 @@ Companion website for a series of pop up art events in downtown Morganton, NC.
 
     pipenv install --dev
     npm i
+    npm run-script migrate
+    npm run-script createsuperuser
     npm start
 
 ## Running django commands
@@ -13,6 +15,12 @@ Companion website for a series of pop up art events in downtown Morganton, NC.
 Use standard pipenv run for django management commands:
 
     pipenv run python manage.py makemigrations
+
+A few commands have npm scripts:
+
+    npm run-script migrate
+    npm run-script makemigrations
+    npm run-script createsuperuser
 
 ## Deploying
 
