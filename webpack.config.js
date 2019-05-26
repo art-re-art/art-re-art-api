@@ -5,7 +5,6 @@ const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 
 module.exports = {
-  watch: true,
   mode: "development",
   devtool: "source-map",
   stats: {
