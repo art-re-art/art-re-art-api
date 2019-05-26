@@ -128,3 +128,8 @@ STATICFILES_DIRS = [
 # https://devcenter.heroku.com/articles/django-app-configuration
 
 django_heroku.settings(locals())
+
+
+# Custom
+
+BASE_URL = 'https://artreart.com'

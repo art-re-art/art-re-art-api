@@ -1,4 +1,7 @@
 from django.db import models
+from django.urls import reverse
+from django.conf import settings
+
 from xml.etree import ElementTree
 import qrcode
 import qrcode.image.svg
@@ -19,13 +22,13 @@ class Artist(models.Model):
         return self.name
 
     @property
-    def mobile_link(self):
-        return ":".join(["artist", str(self.id)])
+    def api_url(self):
+        return settings.BASE_URL + reverse("artist-detail", kwargs={"pk": self.pk})
 
     @property
     def qrcode(self):
         factory = qrcode.image.svg.SvgImage
-        img = qrcode.make(self.mobile_link, image_factory=factory)
+        img = qrcode.make(self.api_url, image_factory=factory)
         svg = ElementTree.tostring(img.get_image(), encoding="utf-8", method="xml")
         return svg.decode("utf-8")
 
