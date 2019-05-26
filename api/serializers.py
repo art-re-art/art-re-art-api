@@ -17,9 +17,13 @@ class ArtistMediumSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class EventSerializer(serializers.HyperlinkedModelSerializer):
+    artists = serializers.HyperlinkedRelatedField(
+        many=True, read_only=True, view_name="artist-detail"
+    )
+
     class Meta:
         model = Event
-        fields = ("url", "title", "datetime", "location")
+        fields = ("url", "title", "datetime", "location", "artists")
 
 
 class EventLocationSerializer(serializers.HyperlinkedModelSerializer):
