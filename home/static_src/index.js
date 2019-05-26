@@ -1,1 +1,2 @@
-import "./scripts/home.js";
+import "./scripts/home";
+import "./styles/home.scss";

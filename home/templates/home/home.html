@@ -1,13 +1,10 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <script src="{% static 'bundle.js' %}"></script>
-  </head>
-  <body>
-    <h1>Hi! :)</h1>
-    <p><a href="/admin/">Admin</a></p>
-    <p><a href="/api/">API</a></p>
-  </body>
-</html>
+{% block title %}Home{% endblock %}
+
+{% block body %}
+  <h1>Hi! :)</h1>
+  <p><a href="/admin/">Admin</a></p>
+  <p><a href="/api/">API</a></p>
+{% endblock %}
