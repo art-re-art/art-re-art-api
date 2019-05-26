@@ -15,6 +15,9 @@ class Artist(models.Model):
         to="events.Event", related_name="artists", blank=True
     )
 
+    def __str__(self):
+        return self.name
+
     @property
     def mobile_link(self):
         return ":".join(["artist", str(self.id)])
