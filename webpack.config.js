@@ -1,14 +1,17 @@
 const path = require("path");
 const ProvidePlugin = require("webpack").ProvidePlugin;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
+const autoprefixer = require("autoprefixer");
+const cssnano = require("cssnano");
 
 module.exports = {
   mode: "development",
   devtool: "source-map",
   stats: {
     entrypoints: false
+  },
+  performance: {
+    hints: false
   },
   entry: ["./artreart/static_src/index.js", "./home/static_src/index.js"],
   output: {
@@ -40,10 +43,7 @@ module.exports = {
           {
             loader: "postcss-loader",
             options: {
-              plugins: [
-                autoprefixer,
-                cssnano,
-              ]
+              plugins: [autoprefixer, cssnano]
             }
           },
           "sass-loader"
