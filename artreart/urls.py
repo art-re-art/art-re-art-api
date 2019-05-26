@@ -10,5 +10,7 @@ urlpatterns = [
     )),
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
+    path('events/', include('events.urls')),
+    path('artists/', include('artists.urls')),
     path('', include('home.urls')),
 ]
