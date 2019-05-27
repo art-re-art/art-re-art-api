@@ -16,6 +16,13 @@
   }
 }
 
+.navbar__date {
+  button {
+    border: none;
+    border-bottom: 1px dotted $dark-grey !important;
+  }
+}
+
 // ============================
 // Hamburger
 // ============================
