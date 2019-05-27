@@ -107,13 +107,22 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
+
+TIME_FORMAT = '%g:%i %A'
+
+TIME_INPUT_FORMATS = [
+    '%g:%i %A',
+    '%H:%M',
+]
+
+USE_THOUSAND_SEPARATOR = True
 
 
 # Static files (CSS, JavaScript, Images)
@@ -126,12 +135,20 @@ STATICFILES_DIRS = [
 ]
 
 
-# Heroku
-# https://devcenter.heroku.com/articles/django-app-configuration
+# STD
+# https://docs.djangoproject.com/en/2.2/ref/settings/
 
-django_heroku.settings(locals())
+PREPEND_WWW = os.environ.get('PREPEND_WWW', False)
+
+SECURE_SSL_REDIRECT = os.environ.get('SECURE_SSL_REDIRECT', False)
 
 
 # Custom
 
 BASE_URL = 'https://artreart.com'
+
+
+# Heroku
+# https://devcenter.heroku.com/articles/django-app-configuration
+
+django_heroku.settings(locals())
