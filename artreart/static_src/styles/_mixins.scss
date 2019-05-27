@@ -1,0 +1,37 @@
+// ============================
+// Media Query Mixins
+// ============================
+
+$bpIncrement: 0.01px;
+
+$xl: 1200px;
+$lg: 992px;
+$md: 768px;
+$sm: 576px;
+
+$min: min-width;
+$max: max-width;
+
+@mixin mediaQuery($constraint, $viewport1, $viewport2: null) {
+
+  @if $constraint == $min {
+
+    @media screen and ($min: $viewport1) {
+      @content;
+    }
+
+  } @else if $constraint == $max {
+
+    @media screen and ($max: $viewport1 - $bpIncrement) {
+      @content;
+    }
+
+  } @else {
+
+    @media screen and ($min: $viewport1) and ($max: $viewport2 - $bpIncrement) {
+      @content;
+    }
+
+  }
+
+}

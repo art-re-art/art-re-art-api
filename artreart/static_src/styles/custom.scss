@@ -1,0 +1,32 @@
+@import '_variables';
+
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// variable overrides
+$primary: $brand;
+$body-color: $dark-grey;
+$font-family-sans-serif: $primary-font;
+$headings-font-family: $secondary-font;
+$headings-font-weight: 700;
+$headings-margin-bottom: 1rem;
+
+// pagination variable overrides
+$pagination-color: fade-out($black, .25);
+$pagination-hover-bg: fade-out($brand, .75);
+$pagination-hover-border-color: fade-out($brand, .5);
+$pagination-active-color: $white;
+$pagination-active-bg: $brand;
+$pagination-active-border-color: $brand;
+
+// alert variable overrides
+$alert-margin-bottom: 0;
+$alert-border-radius: 0;
+
+// Required
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+// Bootstrap and its default variables
+@import "node_modules/bootstrap/scss/bootstrap";

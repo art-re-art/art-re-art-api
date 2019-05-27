@@ -1,11 +1,28 @@
-// popper.js
+// ============================
+// Third Party
+// ============================
+
 import "popper.js";
 
-// bootstrap
+// ============================
+// Bootstrap
+// ============================
+
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-// artreart
+// ============================
+// ART/RE/ART
+// ============================
+
+// Scripts
 import "./scripts/artreart";
+import "./scripts/webfonts";
+
+// Styles
+import "./styles/custom.scss";
 import "./styles/artreart.scss";
+
+// Images
 import "./images/logo.png";
+import "./images/artreart-red.png";
