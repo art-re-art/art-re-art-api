@@ -26,3 +26,4 @@ import "./styles/artreart.scss";
 // Images
 import "./images/logo.png";
 import "./images/artreart-red.png";
+import "./images/bg.png";

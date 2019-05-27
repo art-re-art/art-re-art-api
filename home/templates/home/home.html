@@ -4,13 +4,14 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-  <div class="m-3">
-    <div style="width: 100vw; height: calc(100vh - 56px - 2rem);" class="d-flex justify-content-center align-items-center">
-      <img
-        src="{% static 'images/logo.png' %}"
-        alt="Art/Re/Art Logo"
-        style="max-width: 100vw; max-height: calc(100vh - 56px - 2rem);"
-      />
+  <div class="position-relative banner p-3 p-lg-5" style="background-image: url('{% static "images/bg.png" %}'); background-size: cover; background-position: center center;">
+    <div class="d-flex justify-content-end align-items-center">
+      <div class="banner__list d-flex flex-column justify-content-end">
+        <a href="#" class="banner__link bg-primary text-white display-3 p-3 m-3">Shows</a>
+        <a href="#" class="banner__link bg-primary text-white display-3 p-3 m-3">Artists</a>
+        <a href="#" class="banner__link bg-primary text-white display-3 p-3 m-3">Galery</a>
+        <a href="#" class="banner__link bg-primary text-white display-3 p-3 m-3">About</a>
+      </div>
     </div>
   </div>
 {% endblock %}
