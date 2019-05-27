@@ -20,10 +20,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./scripts/artreart";
 import "./scripts/webfonts";
 import "./scripts/objectfitimages";
+import "./scripts/nav";
 
 // Styles
 import "./styles/custom.scss";
 import "./styles/artreart.scss";
+import "./styles/nav.scss";
+import "./styles/footer.scss";
 
 // Images
 import "./images/logo.png";

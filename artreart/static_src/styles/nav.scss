@@ -1,0 +1,16 @@
+@import '_variables';
+@import '_placeholders';
+@import '_mixins';
+
+// ============================
+// Navbar
+// ============================
+
+.navbar {
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s;
+
+  &.navbar--scrolled {
+    border-color: $black;
+  }
+}

@@ -1,0 +1,21 @@
+@import '_variables';
+@import '_placeholders';
+@import '_mixins';
+
+// ============================
+// Footer Sign Up
+// ============================
+
+.footer__input {
+  background: $brand;
+  border: 2px solid $brand;
+  transition: background .2s;
+  color: $white;
+  padding: .5rem 1rem;
+  font-size: 1.2rem;
+
+  &:focus {
+    background: $black;
+    box-shadow: none;
+  }
+}
