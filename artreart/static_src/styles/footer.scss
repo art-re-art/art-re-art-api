@@ -2,6 +2,10 @@
 @import '_placeholders';
 @import '_mixins';
 
+.footer {
+  border-top: 3px solid $black;
+}
+
 // ============================
 // Footer Sign Up
 // ============================
