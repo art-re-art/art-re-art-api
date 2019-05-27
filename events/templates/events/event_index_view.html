@@ -10,7 +10,9 @@
     <div class="col-sm-4 py-5">
       <div class="card w-100">
         <div class="card-img-top text-center">
-          {{ event.qrcode|safe }}
+          <a href="{{ event.api_url }}" target="_blank">
+            {{ event.qrcode|safe }}
+          </a>
         </div>
         <div class="card-body">
           <h5 class="card-title">{{ event.title }}</h5>

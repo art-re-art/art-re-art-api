@@ -10,7 +10,9 @@
     <div class="col-sm-4 py-5">
       <div class="card w-100">
         <div class="card-img-top text-center">
-          {{ artist.qrcode|safe }}
+          <a href="{{ artist.api_url }}" target="_blank">
+            {{ artist.qrcode|safe }}
+          </a>
         </div>
         <div class="card-body">
           <h5 class="card-title">{{ artist.name }}</h5>
