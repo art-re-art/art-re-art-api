@@ -1,0 +1,14 @@
+@import '_variables';
+@import '_placeholders';
+@import '_mixins';
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+}
+
+main {
+  flex-grow: 1;
+}
