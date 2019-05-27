@@ -11,6 +11,36 @@
   transition: border-color .2s;
 
   &.navbar--scrolled {
-    border-color: $black;
+    border-color: black;
   }
 }
+
+// ============================
+// Hamburger
+// ============================
+
+#hamburgerClose {
+  display: none;
+}
+
+
+// ============================
+// Main Menu
+// ============================
+
+.menu {
+  // @extend %absolute;
+  height: 100vh;
+  width: 100%;
+  // z-index: -1;
+  display: none;
+  overflow: auto;
+  // padding-top: $logoHeight-sm;
+
+  &__wrapper {
+    width: 100%;
+    // min-height: calc(100vh - $logoHeight-sm);
+    flex: 1;
+  }
+}
+

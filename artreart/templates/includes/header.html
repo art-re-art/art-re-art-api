@@ -1,15 +1,18 @@
 {% load static %}
 
  <header class="fixed-top">
-  <nav class="navbar bg-white">
+  <div class="navbar bg-white align-items-stretch">
     <a class="navbar-brand" href="/"><img src="{% static 'images/artreart-red.png' %}" alt="ART/RE/ART" height="75" /></a>
-    <div class="navbar__date">Oct 5th 2019</div>
-    <button class="hamburger h-100" type="button" aria-controls="menu" aria-expanded="false" aria-label="Toggle menu">
-      <div class="hamburger__lines">
-        <div class="hamburger__line hamburger__line--1"></div>
-        <div class="hamburger__line hamburger__line--2"></div>
-        <div class="hamburger__line hamburger__line--3"></div>
-      </div>
+    <div class="navbar__date d-flex flex-column align-items-center justify-content-center">
+      <small class="font-2 text-uppercase font-weight-bold">Next Show:</small>
+      <span>Oct 5th 2019</span>
+    </div>
+    <button id="hamburger" class="hamburger d-flex align-items-center border-0 bg-transparent text-primary" type="button" aria-controls="menu" aria-expanded="false" aria-label="Toggle menu">
+      <span id="hamburgerOpen">MENU</span>
+      <span id="hamburgerClose">CLOSE</span>
     </button>
-  </nav>
+  </div>
+  <div id="menu" class="menu bg-primary">
+    <div class="menu__wrapper d-flex justify-content-stretch align-items-stretch"></div>
+  </div>
 </header>
