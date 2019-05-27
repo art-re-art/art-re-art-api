@@ -18,6 +18,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Scripts
 import "./scripts/artreart";
 import "./scripts/webfonts";
+import "./scripts/objectfitimages";
 
 // Styles
 import "./styles/custom.scss";
