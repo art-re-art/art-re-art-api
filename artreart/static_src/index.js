@@ -2,6 +2,7 @@
 // Third Party
 // ============================
 
+// Popper Tooltips
 import "popper.js";
 
 // ============================
