@@ -35,7 +35,7 @@ class Event(models.Model):
     @property
     def qrcode(self):
         factory = qrcode.image.svg.SvgImage
-        img = qrcode.make(self.api_url, image_factory=factory)
+        img = qrcode.make(self.api_url, box_size=20, image_factory=factory)
         svg = ElementTree.tostring(img.get_image(), encoding="utf-8", method="xml")
         return svg.decode("utf-8")
 
