@@ -19,7 +19,7 @@
 .navbar__date {
   button {
     border: none;
-    border-bottom: 1px dotted $dark-grey !important;
+    border-bottom: 1px dotted fade-out($black, .65);
   }
 }
 
