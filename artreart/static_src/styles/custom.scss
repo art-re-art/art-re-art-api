@@ -5,11 +5,17 @@
 
 // variable overrides
 $primary: $brand;
+$dark: $black;
 $body-color: $dark-grey;
 $font-family-sans-serif: $primary-font;
 $headings-font-family: $secondary-font;
 $headings-font-weight: 700;
 $headings-margin-bottom: 1rem;
+
+// border radius
+$border-radius: 0;
+$border-radius-lg: 0;
+$border-radius-sm: 0;
 
 // pagination variable overrides
 $pagination-color: fade-out($black, .25);
