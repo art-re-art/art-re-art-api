@@ -17,7 +17,8 @@ module.exports = {
     "./artreart/static_src/index.js",
     "./home/static_src/index.js",
     "./events/static_src/index.js",
-    "./artists/static_src/index.js"
+    "./artists/static_src/index.js",
+    "./about/static_src/index.js"
   ],
   output: {
     path: path.resolve(__dirname, "artreart/static"),

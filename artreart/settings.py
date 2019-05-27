@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'events',
     'artists',
     'api',
+    'about',
 
     'rest_framework',
 
