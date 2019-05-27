@@ -10,7 +10,8 @@
   border-bottom: 3px solid transparent;
   transition: border-color .2s;
 
-  &.navbar--scrolled {
+  &.navbar--scrolled,
+  &.navbar--opened {
     border-color: black;
   }
 }
