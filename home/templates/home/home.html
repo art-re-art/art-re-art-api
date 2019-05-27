@@ -7,8 +7,8 @@
   <div class="position-relative banner p-3 p-lg-5" style="background-image: url('{% static "images/bg.png" %}'); background-size: cover; background-position: center center;">
     <div class="d-flex justify-content-end align-items-end">
       <div class="banner__list d-flex flex-column justify-content-end align-items-end">
-        <a href="#" class="banner__link bg-primary text-white display-3 p-3 m-3">Shows</a>
-        <a href="#" class="banner__link bg-primary text-white display-3 p-3 m-3">Artists</a>
+        <a href="{% url 'event_index' %}" class="banner__link bg-primary text-white display-3 p-3 m-3">Shows</a>
+        <a href="{% url 'artist_index' %}" class="banner__link bg-primary text-white display-3 p-3 m-3">Artists</a>
         <a href="#" class="banner__link bg-primary text-white display-3 p-3 m-3">Gallery</a>
         <a href="#" class="banner__link bg-primary text-white display-3 p-3 m-3">About</a>
       </div>
