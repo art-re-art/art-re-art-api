@@ -12,3 +12,144 @@ body {
 main {
   flex-grow: 1;
 }
+
+// ============================
+// Utilities
+// ============================
+
+// prevent content from being too stretched on wide screens
+.w-max,
+.container-fluid {
+  max-width: 2000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+// backgrounds
+.bg-primary {
+  &--dark {
+    background: darken($brand, 12%) !important;
+  }
+
+  &--trans {
+    background: fade-out($brand, .75) !important;
+  }
+}
+
+.bg-black {
+  background: $black !important;
+
+  &--trans {
+    background: fade-out($black, .75) !important;
+  }
+}
+
+.trans {
+  &--5 {
+    opacity: .5 !important;
+  }
+}
+
+.font-2 {
+  font-family: $secondary-font !important;
+}
+
+// ============================
+// Typography
+// ============================
+
+h1,
+.h1 {
+  @include mediaQuery($min, $lg) {
+    font-size: 3.5rem;
+    line-height: 4rem;
+    letter-spacing: 1px;
+  }
+}
+
+h5,
+.h5 {
+  font-family: $primary-font;
+  font-size: .9rem;
+  line-height: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+p,
+.rich-text ul,
+.rich-text ol {
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+.p--sm {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+// ============================
+// Buttons
+// ============================
+
+.btn {
+  transition: background .25s ease-in-out;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:not(:disabled):not(.disabled):active {
+    box-shadow: none;
+  }
+}
+
+.btn.btn-primary {
+  margin-top: 3px;
+  margin-bottom: 3px;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:not(:disabled):not(.disabled):active {
+    box-shadow: none;
+  }
+}
+
+button:focus,
+a:focus,
+li:focus {
+  outline: none;
+}
+
+// ============================
+// Forms
+// ============================
+
+.small-form {
+  max-width: 600px;
+  margin: auto;
+}
+
+input,
+input.form-control,
+textarea,
+textarea.form-control,
+select,
+select.form-control {
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+select,
+select.form-control {
+  -webkit-appearance: none;
+}
+
+label,
+.col-form-label {
+  // font-weight: 700;
+  // font-size: .9rem;
+}
