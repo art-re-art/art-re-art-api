@@ -1,9 +1,9 @@
 {% load static %}
 
  <header class="fixed-top">
-  <div class="navbar bg-white align-items-stretch">
-    <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/artreart-red.png' %}" alt="ART/RE/ART" height="75" class="navbar__logo" /></a>
-    <div class="navbar__date flex-grow-1 d-flex flex-column align-items-center justify-content-center">
+  <div class="navbar bg-white align-items-stretch p-0">
+    <a class="navbar-brand p-1" href="{% url 'home' %}"><img src="{% static 'images/artreart-red.png' %}" alt="ART/RE/ART" height="75" class="navbar__logo" /></a>
+    <div class="navbar__date p-1 flex-grow-1 d-flex flex-column align-items-center justify-content-center">
       <small class="font-2 text-uppercase font-weight-bold">Next Show:</small>
       <button
         type="button"
@@ -16,7 +16,7 @@
         {{ latest_event.datetime|date:'N jS, Y' }}
       </button>
     </div>
-    <button id="hamburger" class="hamburger d-flex align-items-center border-0 bg-transparent text-primary" type="button" aria-controls="menu" aria-expanded="false" aria-label="Toggle menu">
+    <button id="hamburger" class="hamburger d-flex align-items-center border-0 bg-transparent text-primary px-3 py-1" type="button" aria-controls="menu" aria-expanded="false" aria-label="Toggle menu">
       <span id="hamburgerOpen">MENU</span>
       <span id="hamburgerClose">CLOSE</span>
     </button>
