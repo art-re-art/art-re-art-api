@@ -20,6 +20,16 @@
   }
 }
 
+.navbar__logo {
+  height: $logoHeight;
+  transition: height .2s;
+
+  .navbar--scrolled &,
+  .navbar--opened & {
+    height: $logoHeight-sm;
+  }
+}
+
 .navbar__date {
   button {
     border: none;
