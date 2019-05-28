@@ -24,7 +24,7 @@
   height: $logoHeight;
   transition: height .2s;
 
-  @include mediaQuery($max, $md) {
+  @include mediaQuery($max, $lg) {
     height: $logoHeight-sm;
   }
 
