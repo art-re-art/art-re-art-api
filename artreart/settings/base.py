@@ -103,10 +103,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-TIME_FORMAT = '%g:%i %A'
+TIME_FORMAT = '%I:%M %p'
 
 TIME_INPUT_FORMATS = [
-    '%g:%i %A',
+    '%I:%M %p',
     '%H:%M',
 ]
 
