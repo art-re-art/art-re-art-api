@@ -21,16 +21,6 @@ ALLOWED_HOSTS = [
 
 PREPEND_WWW = True
 
-SECURE_SSL_REDIRECT = True
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'http')
-
-USE_X_FORWARDED_HOST = True
-
-SESSION_COOKIE_SECURE = True
-
-CSRF_COOKIE_SECURE = True
-
 
 # Heroku
 # https://devcenter.heroku.com/articles/django-app-configuration
