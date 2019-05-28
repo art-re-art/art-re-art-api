@@ -24,6 +24,10 @@
   height: $logoHeight;
   transition: height .2s;
 
+  @include mediaQuery($max, $md) {
+    height: $logoHeight-sm;
+  }
+
   .navbar--scrolled &,
   .navbar--opened & {
     height: $logoHeight-sm;
