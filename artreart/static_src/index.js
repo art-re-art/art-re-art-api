@@ -31,4 +31,5 @@ import "./styles/footer.scss";
 // Images
 import "./images/logo.png";
 import "./images/artreart-red.png";
+import "./images/favicon.png";
 import "./images/bg.png";
