@@ -11,23 +11,35 @@
 </div>
 <div class="container-fluid p-3 p-lg-4 p-xl-5">
   <div class="container p-0">
-    <h2>The Website</h2>
-    {{ about.website }}
-    <hr/>
-    <h2>The Down Low</h2>
-    {{ about.description }}
-    <hr/>
-    <h2>The Developers</h2>
-    {% for developer in about.developers.all %}
-      {{ developer.name }}
-    {% endfor %}
-    <hr />
-    <h2>FAQs</h2>
-    {% for faq in about.faqs.all %}
-      {{ faq.question }}
-      {{ faq.answer }}
+    <div class="my-3 my-lg-4 my-xl-5">
+      <h2>The Website</h2>
+      <p>{{ about.website }}</p>
+    </div>
+    <div class="my-3 my-lg-4 my-xl-5">
+      <h2>The Down Low</h2>
+      <p>{{ about.description }}</p>
+    </div>
+    <div class="my-3 my-lg-4 my-xl-5">
+      <h2>The Organizers</h2>
+      <p>Nancy VanNoppen, Alexander Collett, Jean C. VanNoppen, Derek Long, Ellen VanNoppen, Jean B. VanNoppen, Allen VanNoppen, Rob Chilress, Kayla Oelhafen</p>
+    </div>
+    <div class="my-3 my-lg-4 my-xl-5">
+      <h2>The Developers</h2>
+      <p>
+      {% for developer in about.developers.all %}
+        {{ developer.name }},
+      {% endfor %}
+      </p>
+    </div>
+    <div class="my-3 my-lg-4 my-xl-5">
+      <h2>FAQs</h2>
       <hr/>
-    {% endfor %}
+      {% for faq in about.faqs.all %}
+        <h3 class="h4">{{ faq.question }}</h3>
+        <p>{{ faq.answer }}</p>
+        <hr/>
+      {% endfor %}
+    </div>
   </div>
 </div>
 {% endblock %}
