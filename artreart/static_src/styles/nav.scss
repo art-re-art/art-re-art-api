@@ -7,8 +7,12 @@
 // ============================
 
 .navbar {
-  border-bottom: 3px solid transparent;
+  border-bottom: 3px solid $black;
   transition: border-color .2s;
+
+  .template-homepage & {
+    border-color: transparent;
+  }
 
   &.navbar--scrolled,
   &.navbar--opened {
