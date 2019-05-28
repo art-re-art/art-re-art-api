@@ -23,6 +23,8 @@ PREPEND_WWW = True
 
 SECURE_SSL_REDIRECT = True
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 # Heroku
 # https://devcenter.heroku.com/articles/django-app-configuration
