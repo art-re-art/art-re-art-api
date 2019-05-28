@@ -2,10 +2,19 @@
 
  <header class="fixed-top">
   <div class="navbar bg-white align-items-stretch">
-    <a class="navbar-brand" href="/"><img src="{% static 'images/artreart-red.png' %}" alt="ART/RE/ART" height="75" /></a>
+    <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/artreart-red.png' %}" alt="ART/RE/ART" height="75" /></a>
     <div class="navbar__date flex-grow-1 d-flex flex-column align-items-center justify-content-center">
       <small class="font-2 text-uppercase font-weight-bold">Next Show:</small>
-      <button type="button" class="p-0 bg-transparent" data-toggle="popover" data-trigger="focus" data-placement="bottom" title="5pm - 10pm" data-content="202 S. Sterling St., Morganton, NC 28655">Oct 5th 2019</button>
+      <button
+        type="button"
+        class="p-0 bg-transparent"
+        data-toggle="popover"
+        data-trigger="focus"
+        data-placement="bottom"
+        title="{{ latest_event.datetime|date:'P' }}" data-content="{{ latest_event.location.street}}, {{ latest_event.location.city }}, {{ latest_event.location.state }} {{ latest_event.location.postal }}"
+      >
+        {{ latest_event.datetime|date:'N jS, Y' }}
+      </button>
     </div>
     <button id="hamburger" class="hamburger d-flex align-items-center border-0 bg-transparent text-primary" type="button" aria-controls="menu" aria-expanded="false" aria-label="Toggle menu">
       <span id="hamburgerOpen">MENU</span>

@@ -13,6 +13,9 @@ class Event(models.Model):
         to="events.EventLocation", on_delete=models.CASCADE, related_name="events"
     )
 
+    class Meta:
+        ordering = ['-datetime']
+
     def __str__(self):
         return self.title
 

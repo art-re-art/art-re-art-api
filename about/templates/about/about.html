@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+  {{ about.title }}
+  <hr/>
+  {{ about.website }}
+  <hr/>
+  {{ about.description }}
+  <hr/>
+  {% for developer in about.developers.all %}
+    {{ developer.name }}
+    <hr/>
+  {% endfor %}
+  {% for faq in about.faqs.all %}
+    {{ faq.question }}
+    {{ faq.answer }}
+    <hr/>
+  {% endfor %}
+{% endblock %}

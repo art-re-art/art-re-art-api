@@ -21,7 +21,7 @@ class ArtistMediumViewSet(viewsets.ModelViewSet):
 
 
 class EventViewSet(viewsets.ModelViewSet):
-    queryset = Event.objects.all().order_by("-datetime")
+    queryset = Event.objects.all()
     serializer_class = EventSerializer
 
 
