@@ -6,7 +6,11 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-top: 104px;
+  padding-top: $logoHeight-sm;
+
+  @include mediaQuery($min, $lg) {
+    padding-top: $logoHeight;
+  }
 }
 
 main {
