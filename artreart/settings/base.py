@@ -15,8 +15,10 @@ INSTALLED_APPS = [
     'artists',
     'api',
     'about',
+    'forms',
 
     'rest_framework',
+    'crispy_forms',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -121,3 +123,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "artreart/static"),
 ]
+
+
+# Crispy forms
+# https://django-crispy-forms.readthedocs.io/en/latest/
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
