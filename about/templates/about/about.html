@@ -22,9 +22,7 @@
     <div class="my-3 my-lg-4 my-xl-5">
       <h2>The Developers</h2>
       <p>
-      {% for developer in about.developers.all %}
-        {{ developer.name }},
-      {% endfor %}
+        {{ about.developers.all|join:", "}}
       </p>
     </div>
     <div class="my-3 my-lg-4 my-xl-5">
