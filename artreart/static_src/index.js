@@ -5,6 +5,9 @@
 // Popper Tooltips
 import "popper.js";
 
+// Fontisto
+import "fontisto/css/fontisto/fontisto.css";
+
 // ============================
 // Bootstrap
 // ============================
