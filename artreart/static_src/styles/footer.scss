@@ -7,6 +7,32 @@
 }
 
 // ============================
+// Footer Links
+// ============================
+
+.footer__link {
+  position: relative;
+  padding-bottom: 1rem;
+  font-size: 1.2rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: $brand;
+    transition: bottom .2s;
+  }
+
+  &:hover::after {
+    bottom: 15px;
+  }
+}
+
+// ============================
 // Footer Sign Up
 // ============================
 
