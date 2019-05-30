@@ -15,7 +15,7 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Artist
-        fields = ("url", "name", "instagram", "website", "medium", "events")
+        fields = ("url", "name", "instagram", "website", "medium", "events", "qrcode")
 
 
 class EventLocationSerializer(serializers.HyperlinkedModelSerializer):
@@ -47,4 +47,4 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Event
-        fields = ("url", "title", "datetime", "month", "day", "time", "location", "artists")
+        fields = ("url", "title", "datetime", "month", "day", "time", "location", "artists", "qrcode")

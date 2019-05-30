@@ -14,20 +14,17 @@ module.exports = {
     hints: false
   },
   entry: [
-    "./artreart/static_src/index.js",
-    "./home/static_src/index.js",
-    "./events/static_src/index.js",
-    "./artists/static_src/index.js",
-    "./about/static_src/index.js"
+    "./client/static_src/index.js"
   ],
   output: {
-    path: path.resolve(__dirname, "artreart/static"),
+    path: path.resolve(__dirname, "client/static"),
     filename: "bundle.js"
   },
   resolve: {
     alias: {
       "~": path.resolve(__dirname)
-    }
+    },
+    extensions: ["*", ".js", ".jsx"]
   },
   plugins: [
     new ProvidePlugin({
@@ -41,6 +38,12 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: "babel-loader",
+        options: { presets: ["@babel/env", "@babel/preset-react"] }
+      },
       {
         test: /\.(sc|c)ss$/,
         use: [

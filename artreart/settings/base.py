@@ -10,10 +10,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # Application definition
 
 INSTALLED_APPS = [
-    'home',
+    'api',
+    'client',
     'events',
     'artists',
-    'api',
     'about',
     'forms',
 
@@ -43,9 +43,7 @@ ROOT_URLCONF = 'artreart.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'artreart/templates')
-        ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,7 +119,7 @@ USE_THOUSAND_SEPARATOR = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "artreart/static"),
+    os.path.join(BASE_DIR, "client/static"),
 ]
 
 

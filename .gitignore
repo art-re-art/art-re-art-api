@@ -1,6 +1,7 @@
 # django
 /db.sqlite3
 /artreart/static
+/client/static
 
 # node
 /node_modules
