@@ -5,7 +5,7 @@ import moment from "moment";
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { event: [] };
+    this.state = { event: {} };
   }
 
   componentDidMount() {

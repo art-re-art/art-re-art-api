@@ -4,10 +4,12 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-import Home from "./pages/Home";
-import About from "./pages/About";
+import Event from "./pages/Event";
 import Events from "./pages/Events";
+import Artist from "./pages/Artist";
 import Artists from "./pages/Artists";
+import About from "./pages/About";
+import Home from "./pages/Home";
 import NoMatch from "./pages/NoMatch";
 
 export default class App extends React.Component {
@@ -18,10 +20,12 @@ export default class App extends React.Component {
           <Header />
           <div className="content">
             <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/about/" component={About} />
+              <Route path="/events/:id/" component={Event} />
               <Route path="/events/" component={Events} />
+              <Route path="/artists/:id/" component={Artist} />
               <Route path="/artists/" component={Artists} />
+              <Route path="/about/" component={About} />
+              <Route path="/" exact component={Home} />
               <Route component={NoMatch} />
             </Switch>
           </div>
