@@ -1,4 +1,5 @@
 import React from "react";
+import { Spinner } from "react-bootstrap";
 
 export default class Event extends React.Component {
   constructor(props) {
@@ -20,6 +21,15 @@ export default class Event extends React.Component {
   }
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <div className="p-5 w-100 d-flex justify-content-center align-items-center flex-column">
+          <Spinner animation="border" />
+          <div>Loading...</div>
+        </div>
+      );
+    }
+
     return (
       <div className="event-page my-5">
         <div className="container">

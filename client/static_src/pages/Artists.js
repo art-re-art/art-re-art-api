@@ -1,11 +1,12 @@
 import React from "react";
+import { Spinner } from "react-bootstrap";
 
 import Artist from "../components/Artist";
 
 export default class Artists extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { artists: [] };
+    this.state = { artists: [], isLoading: true };
   }
 
   componentDidMount() {
@@ -16,12 +17,22 @@ export default class Artists extends React.Component {
       })
       .then(data => {
         this.setState({
-          artists: data
+          artists: data,
+          isLoading: false
         });
       });
   }
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <div className="p-5 w-100 d-flex justify-content-center align-items-center flex-column">
+          <Spinner animation="border" />
+          <div>Loading...</div>
+        </div>
+      );
+    }
+
     return (
       <div className="artist-page my-5">
         <div className="container">

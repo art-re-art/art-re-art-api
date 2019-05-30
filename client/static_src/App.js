@@ -16,9 +16,9 @@ export default class App extends React.Component {
   render() {
     return (
       <Router>
-        <div className="app">
+        <div className="app d-flex flex-column min-vh-100">
           <Header />
-          <div className="content">
+          <div className="content flex-grow">
             <Switch>
               <Route path="/events/:id/" component={Event} />
               <Route path="/events/" component={Events} />

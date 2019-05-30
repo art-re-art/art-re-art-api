@@ -2,20 +2,6 @@
 @import '_placeholders';
 @import '_mixins';
 
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding-top: $logoHeight-sm;
-
-  @include mediaQuery($min, $lg) {
-    padding-top: $logoHeight;
-  }
-}
-
-main {
-  flex-grow: 1;
-}
 
 // ============================
 // Utilities

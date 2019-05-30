@@ -22,7 +22,7 @@ export default class Header extends React.Component {
   }
   render() {
     return (
-      <header className="fixed-top">
+      <header>
         <div className="navbar navbar-light navbar-expand-lg bg-white align-items-stretch p-0">
           <div className="col col-sm-4 pl-0 d-flex align-items-center">
             <Link to="/" className="navbar-brand py-1 px-2 px-md-3">

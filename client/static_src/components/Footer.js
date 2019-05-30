@@ -5,7 +5,7 @@ import Mailchimp from "./Mailchimp";
 export default class Footer extends React.Component {
   render() {
     return (
-      <footer className="footer">
+      <footer className="footer mt-auto">
         <div className="container-fluid py-3 py-lg-5">
           <div className="row">
             <div className="col-lg-8 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-left">
