@@ -1,5 +1,4 @@
 import React from "react";
-import { Spinner } from "react-bootstrap";
 
 import Event from "../components/Event";
 
@@ -27,7 +26,6 @@ export default class Events extends React.Component {
     if (this.state.isLoading) {
       return (
         <div className="p-5 w-100 d-flex justify-content-center align-items-center flex-column">
-          <Spinner animation="border" />
           <div>Loading...</div>
         </div>
       );

@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
+import logo from "../images/artreart-red.png";
+
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +20,6 @@ export default class Header extends React.Component {
           event: data[0]
         });
       });
-    $('[data-toggle="popover"]').popover();
   }
   render() {
     return (
@@ -27,7 +28,7 @@ export default class Header extends React.Component {
           <div className="col col-sm-4 pl-0 d-flex align-items-center">
             <Link to="/" className="navbar-brand py-1 px-2 px-md-3">
               <img
-                src="/static/images/artreart-red.png"
+                src={logo}
                 alt="ART/RE/ART"
                 height="75"
                 className="navbar__logo"
@@ -38,21 +39,9 @@ export default class Header extends React.Component {
             <small className="font-2 text-uppercase font-weight-bold">
               Next Show:
             </small>
-            <button
-              type="button"
-              className="p-0 bg-transparent"
-              data-toggle="popover"
-              data-trigger="focus"
-              data-placement="bottom"
-              data-content={
-                this.state.event.location
-                  ? this.state.event.location.street
-                  : null
-              }
-              title={this.state.event.title}
-            >
+            <div>
               {moment(this.state.event.datetime).format("LLLL")}
-            </button>
+            </div>
           </div>
 
           <button

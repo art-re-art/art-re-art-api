@@ -13,9 +13,7 @@ module.exports = {
   performance: {
     hints: false
   },
-  entry: [
-    "./client/static_src/index.js"
-  ],
+  entry: ["./client/static_src/index.js"],
   output: {
     path: path.resolve(__dirname, "client/static"),
     filename: "bundle.js"
@@ -65,7 +63,8 @@ module.exports = {
             loader: "file-loader",
             options: {
               name: "[name].[ext]",
-              outputPath: "images"
+              outputPath: "images",
+              publicPath: "/static/images/"
             }
           }
         ]
@@ -77,7 +76,8 @@ module.exports = {
             loader: "file-loader",
             options: {
               name: "[name].[ext]",
-              outputPath: "fonts"
+              outputPath: "fonts",
+              publicPath: "/static/fonts/"
             }
           }
         ]

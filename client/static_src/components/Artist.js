@@ -1,29 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Col, Card } from "antd";
+
+const { Meta } = Card;
 
 export default class Artist extends React.Component {
   render() {
     return (
-      <div className="artist col-sm-4">
-        <div className="card">
-          <Link to={`/artists/${this.props.id}/`}>
-            <div
-              className="card-img-top text-center"
-              dangerouslySetInnerHTML={{ __html: this.props.qrcode }}
-            />
-          </Link>
-          <div className="card-body">
-            <h5 className="card-title">{this.props.name}</h5>
-            <p className="card-text">
-              {this.props.medium
+      <Col span={8}>
+        <Link to={`/artists/${this.props.id}/`}>
+          <Card
+            hoverable
+            cover={
+              <div
+                style={{ textAlign: "center" }}
+                dangerouslySetInnerHTML={{ __html: this.props.qrcode }}
+              />
+            }
+          >
+            <Meta
+              title={this.props.name}
+              description={this.props.medium
                 .map(medium => {
                   return medium.title;
                 })
                 .join(", ")}
-            </p>
-          </div>
-        </div>
-      </div>
+            />
+          </Card>
+        </Link>
+      </Col>
     );
   }
 }

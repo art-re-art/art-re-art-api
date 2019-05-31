@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import "./vendor";
+import 'antd/dist/antd.css';
 
 import App from "./App";
 
