@@ -5,8 +5,7 @@ import Background from "../images/bg.png";
 
 export default class Home extends React.Component {
   componentDidMount() {
-    document.title =
-      "A series of pop up art events in downtown Morganton, NC. | Art/Re/Art";
+    console.log(this.props);
   }
 
   render() {

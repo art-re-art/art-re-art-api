@@ -24,6 +24,7 @@ export default class App extends React.Component {
           <Sider
             breakpoint="lg"
             collapsedWidth="0"
+            theme="light"
             onBreakpoint={broken => {
               console.log(broken);
             }}
@@ -38,7 +39,7 @@ export default class App extends React.Component {
                 style={{ width: "100%", padding: 15 }}
               />
             </div>
-            <Menu theme="dark" mode="inline" defaultSelectedKeys={["4"]}>
+            <Menu theme="light" mode="inline" defaultSelectedKeys={["1"]}>
               <Menu.Item key="1">
                 <Link to="/">
                   <Icon type="user" />

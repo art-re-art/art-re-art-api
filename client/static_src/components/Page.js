@@ -26,7 +26,7 @@ export default class Page extends React.Component {
         </Header>
         <Content style={{ margin: "24px 16px 0" }}>
           <div style={{ padding: 24, background: "#fff", minHeight: "75vh" }}>
-            <PageComponent />
+            <PageComponent {...this.props} />
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
