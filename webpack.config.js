@@ -8,10 +8,16 @@ module.exports = {
   mode: "development",
   devtool: "source-map",
   stats: {
-    entrypoints: false
+    children: false,
+    entrypoints: false,
+    hash: false,
+    modules: false,
+    version: false
   },
   performance: {
-    hints: false
+    hints: false,
+    maxEntrypointSize: 5000000,
+    maxAssetSize: 5000000
   },
   entry: ["./client/static_src/index.js"],
   output: {
@@ -40,7 +46,10 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         loader: "babel-loader",
-        options: { presets: ["@babel/env", "@babel/preset-react"] }
+        options: {
+          presets: ["@babel/env", "@babel/preset-react"],
+          plugins: [["import", { libraryName: "antd", style: "css" }]]
+        }
       },
       {
         test: /\.(sc|c)ss$/,
