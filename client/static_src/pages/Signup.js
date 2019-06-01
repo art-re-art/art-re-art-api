@@ -2,7 +2,7 @@ import React from "react";
 
 import { Steps, Typography, Row, Col } from "antd";
 
-import WrappedRegistrationForm from "../components/SignupArtistForm";
+import ArtistForm from "../components/SignupArtistForm";
 
 const { Step } = Steps;
 const { Title } = Typography;
@@ -26,7 +26,7 @@ export default class Signup extends React.Component {
     return (
       <div className="container">
         <FormSteps />
-        <WrappedRegistrationForm />
+        <ArtistForm />
       </div>
     );
   }
