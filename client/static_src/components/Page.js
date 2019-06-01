@@ -48,7 +48,7 @@ export default class Page extends React.Component {
         </Content>
         <Footer style={{ backgroundColor: "white", padding: "5em" }}>
           <Row gutter={36}>
-            <Col span={12}>
+            <Col xl={12} lg={24}>
               <div
                 style={{
                   fontSize: "3em",
@@ -82,7 +82,7 @@ export default class Page extends React.Component {
                 Instagram
               </a>
             </Col>
-            <Col span={12}>
+            <Col xl={12} lg={24}>
               <Mailchimp />
             </Col>
           </Row>
