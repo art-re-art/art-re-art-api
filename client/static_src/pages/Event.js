@@ -24,7 +24,7 @@ export default class Event extends React.Component {
     }
 
     return (
-      <div className="event-page my-5">
+      <div className="container">
         <div className="container">
           <div className="row">
             <div className="col">

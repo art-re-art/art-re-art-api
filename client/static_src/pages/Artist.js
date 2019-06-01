@@ -27,7 +27,7 @@ export default class Artist extends React.Component {
     }
 
     return (
-      <div className="artist-page my-5">
+      <div className="container">
         <div className="container">
           <div className="row">
             <div className="col">

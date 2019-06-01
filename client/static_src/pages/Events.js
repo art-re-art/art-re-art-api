@@ -15,12 +15,10 @@ export default class Events extends React.Component {
         return data.json();
       })
       .then(data => {
-        setTimeout(() => {
-          this.setState({
-            events: data,
-            isLoading: false
-          });
-        }, 2000);
+        this.setState({
+          events: data,
+          isLoading: false
+        });
       });
   }
 

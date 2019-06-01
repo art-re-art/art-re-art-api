@@ -1,15 +1,13 @@
 import React from "react";
 import { Collapse, Typography, Row, Divider } from "antd";
 
-import "../styles/About.less";
-
 const { Title, Paragraph } = Typography;
 const { Panel } = Collapse;
 
 export default class About extends React.Component {
   render() {
     return (
-      <div className="about-page">
+      <div className="container">
         <Row>
           <Title level={2}>The Down Low</Title>
           <Paragraph>
