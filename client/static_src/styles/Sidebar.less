@@ -18,9 +18,19 @@
   height: 280px;
 
   &__image {
-    width: 500px;
-    transform: rotate(-90deg);
-    transform-origin: 50% 100%;
+    width: 150px;
+
+    @media (min-width: 993px) {
+      width: 500px;
+      transform: rotate(-90deg);
+      transform-origin: 50% 100%;
+    }
+  }
+}
+
+.ant-menu {
+  @media (min-width: 993px) {
+    margin-top: auto;
   }
 }
 
@@ -28,7 +38,10 @@
   padding: 1em;
   background: black;
   color: white;
-  margin-top: auto;
+
+  @media (max-width: 992px) {
+    margin-top: auto;
+  }
 
   &__title {
     font-size: "1.4em";
