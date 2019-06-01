@@ -1,6 +1,8 @@
 import React from "react";
 
-import { Row } from "antd";
+import { Row, Typography } from "antd";
+
+const { Paragraph } = Typography;
 
 import Artist from "../components/Artist";
 import Loading from "../components/Loading";
@@ -28,6 +30,7 @@ export default class Artists extends React.Component {
 
     return (
       <Row gutter={24} style={{ padding: "2em" }}>
+        <Paragraph>Meet some of the artists who have participated in ART/RE/ART events.</Paragraph>
         {this.state.artists.map(artist => (
           <Artist key={artist.url} {...artist} />
         ))}
