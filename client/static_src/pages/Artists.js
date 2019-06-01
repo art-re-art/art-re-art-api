@@ -27,7 +27,7 @@ export default class Artists extends React.Component {
     }
 
     return (
-      <Row gutter={24} style={{ padding: 24 }}>
+      <Row gutter={24} style={{ padding: "2em" }}>
         {this.state.artists.map(artist => (
           <Artist key={artist.url} {...artist} />
         ))}
