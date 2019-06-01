@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Col, Card } from "antd";
+import { Col, Card, Tag } from "antd";
 
 const { Meta } = Card;
 
@@ -22,9 +22,8 @@ export default class Artist extends React.Component {
               title={this.props.name}
               description={this.props.medium
                 .map(medium => {
-                  return medium.title;
-                })
-                .join(", ")}
+                  return <Tag color="#ff0000">{medium.title}</Tag>;
+                })}
             />
           </Card>
         </Link>
