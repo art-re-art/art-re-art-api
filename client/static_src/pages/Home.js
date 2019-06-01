@@ -8,55 +8,58 @@ export default class Home extends React.Component {
     return (
       <header>
         <div
-          className="position-relative banner p-3 p-lg-5"
           style={{
             backgroundImage: `url('${Background}')`,
             backgroundSize: "cover",
-            backgroundPosition: "center center",
-            height: "75vh"
+            backgroundPosition: "center center"
           }}
         >
-          <div className="d-flex justify-content-center justify-content-lg-end align-items-end">
-            <div
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "end",
+              flexDirection: "column",
+              height: "50vh",
+              padding: "2em"
+            }}
+          >
+            <Link
+              to="/events/"
               style={{
-                display: "flex",
-                flexDirection: "column"
+                backgroundColor: "red",
+                padding: ".5em",
+                color: "white",
+                fontSize: "3em",
+                margin: ".5em"
               }}
             >
-              <Link
-                to="/events/"
-                style={{
-                  backgroundColor: "red",
-                  padding: ".5em",
-                  color: "white",
-                  fontSize: "3em"
-                }}
-              >
-                Shows
-              </Link>
-              <Link
-                to="/artists/"
-                style={{
-                  backgroundColor: "red",
-                  padding: ".5em",
-                  color: "white",
-                  fontSize: "3em"
-                }}
-              >
-                Artists
-              </Link>
-              <Link
-                to="/about/"
-                style={{
-                  backgroundColor: "red",
-                  padding: ".5em",
-                  color: "white",
-                  fontSize: "3em"
-                }}
-              >
-                About
-              </Link>
-            </div>
+              Shows
+            </Link>
+            <Link
+              to="/artists/"
+              style={{
+                backgroundColor: "red",
+                padding: ".5em",
+                color: "white",
+                fontSize: "3em",
+                margin: ".5em"
+              }}
+            >
+              Artists
+            </Link>
+            <Link
+              to="/about/"
+              style={{
+                backgroundColor: "red",
+                padding: ".5em",
+                color: "white",
+                fontSize: "3em",
+                margin: ".5em"
+              }}
+            >
+              About
+            </Link>
           </div>
         </div>
 
@@ -64,8 +67,8 @@ export default class Home extends React.Component {
           style={{
             backgroundColor: "black",
             color: "white",
-            fontSize: "2em",
-            padding: 30
+            fontSize: "1.5em",
+            padding: "2em"
           }}
         >
           <p>

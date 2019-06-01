@@ -1,12 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Layout, Menu, Icon } from "antd";
+import moment from "moment";
 
 import Logo from "../images/artreart-red.png";
+import "../styles/Sidebar.scss";
 
 const { Sider } = Layout;
 
 export default class Sidebar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { event: {} };
+  }
+
+  componentDidMount() {
+    fetch("/api/events/")
+      .then(data => {
+        return data.json();
+      })
+      .then(data => {
+        this.setState({
+          event: data[0]
+        });
+      });
+  }
+
   render() {
     return (
       <Sider
@@ -53,6 +72,29 @@ export default class Sidebar extends React.Component {
             </Link>
           </Menu.Item>
         </Menu>
+        <div
+          style={{
+            padding: "1em",
+            background: "black",
+            color: "white"
+          }}
+        >
+          <div
+            style={{
+              fontSize: "1.4em",
+              fontWeight: "bold"
+            }}
+          >
+            {this.state.event.title}
+          </div>
+          <div>{moment(this.state.event.datetime).format("LLLL")}</div>
+          {this.state.event.location ? (
+            <div>
+              <div>{this.state.event.location.title}</div>
+              <div>{this.state.event.location.street}</div>
+            </div>
+          ) : null}
+        </div>
       </Sider>
     );
   }

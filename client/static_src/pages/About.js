@@ -1,18 +1,9 @@
 import React from "react";
 
 export default class About extends React.Component {
-  componentDidMount() {
-    document.title = "About | Art/Re/Art";
-  }
-
   render() {
     return (
       <div className="about-page">
-        <div className="bg-black p-3 text-white">
-          <div className="container p-0">
-            <h1 className="font-1">About</h1>
-          </div>
-        </div>
         <div className="container-fluid p-3 p-lg-4 p-xl-5">
           <div className="container p-0">
             <div className="my-3 my-lg-4 my-xl-5">

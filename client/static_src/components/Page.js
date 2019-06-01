@@ -1,8 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Layout, Menu, Icon, PageHeader } from "antd";
+import { Layout, Row, Col } from "antd";
 
-const { Header, Content, Footer, Sider } = Layout;
+import Background from "../images/bg.png";
+
+import Mailchimp from "./Mailchimp";
+
+const { Header, Content, Footer } = Layout;
 
 export default class Page extends React.Component {
   componentDidMount() {
@@ -18,32 +21,69 @@ export default class Page extends React.Component {
           style={{
             background: "#fff",
             padding: 0,
-            flex: 1,
-            alignItems: "center"
+            backgroundImage: `url('${Background}')`,
+            backgroundSize: "cover",
+            height: "auto",
+            borderBottom: "10px solid black"
           }}
         >
-          <PageHeader title={this.props.title} subTitle={this.props.subtitle} />
+          <h1
+            style={{
+              color: "white",
+              margin: ".5em",
+              padding: ".5em 1em",
+              fontSize: "3em",
+              background: "red",
+              fontWeight: "bold",
+              display: "inline-block"
+            }}
+          >
+            {this.props.title}
+          </h1>
         </Header>
-        <Content style={{ margin: "24px 16px 0" }}>
-          <div style={{ padding: 24, background: "#fff", minHeight: "75vh" }}>
-            <PageComponent {...this.props} />
-          </div>
+        <Content>
+          <PageComponent {...this.props} />
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          <a
-            href="mailto:hello@artreart.com"
-            className="footer__link text-decoration-none mb-4"
-          >
-            hello@artreart.com
-          </a>
-          <a
-            href="https://www.instagram.com/art_re_art/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer__link text-decoration-none mb-4"
-          >
-            Instagram
-          </a>
+        <Footer style={{ backgroundColor: "white", padding: "5em" }}>
+          <Row gutter={36}>
+            <Col span={12}>
+              <div
+                style={{
+                  fontSize: "3em",
+                  fontWeight: "bold"
+                }}
+              >
+                Let's connect.
+              </div>
+              <a
+                href="mailto:hello@artreart.com"
+                style={{
+                  fontSize: "2em",
+                  display: "block",
+                  borderBottom: "2px solid red",
+                  color: "red"
+                }}
+              >
+                hello@artreart.com
+              </a>
+              <a
+                href="https://www.instagram.com/art_re_art/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontSize: "2em",
+                  display: "block",
+                  borderBottom: "2px solid red",
+                  color: "red"
+                }}
+              >
+                Instagram
+              </a>
+            </Col>
+            <Col span={12}>
+              <Mailchimp />
+            </Col>
+          </Row>
         </Footer>
       </Layout>
     );

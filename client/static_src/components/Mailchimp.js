@@ -14,10 +14,15 @@ const CustomForm = ({ status, message, onValidated }) => {
     });
 
   return (
-    <div
-      className="w-100"
-    >
-      <div className="display-4 mb-4">Newsletter signup.</div>
+    <div>
+      <div
+        style={{
+          fontSize: "3em",
+          fontWeight: "bold"
+        }}
+      >
+        Newsletter signup.
+      </div>
       {status === "sending" && <div style={{ color: "blue" }}>sending...</div>}
       {status === "error" && (
         <div
@@ -32,22 +37,40 @@ const CustomForm = ({ status, message, onValidated }) => {
         />
       )}
       <div className="my-3 d-flex flex-column">
-      <input
-        ref={node => (name = node)}
-        type="text"
-        placeholder="Your name"
-        className="footer__input"
-      />
+        <input
+          ref={node => (name = node)}
+          type="text"
+          placeholder="Your name"
+          style={{
+            background: "red",
+            border: "2px solid red",
+            transition: "background .2s",
+            color: "#fff",
+            padding: ".5rem 1rem",
+            fontSize: "1.2rem",
+            marginBottom: ".5em",
+            width: "100%"
+          }}
+        />
       </div>
       <div className="my-3 d-flex flex-column">
-      <input
-        ref={node => (email = node)}
-        type="email"
-        placeholder="Your email"
-        className="footer__input"
-      />
+        <input
+          ref={node => (email = node)}
+          type="email"
+          placeholder="Your email"
+          style={{
+            background: "red",
+            border: "2px solid red",
+            transition: "background .2s",
+            color: "#fff",
+            padding: ".5rem 1rem",
+            fontSize: "1.2rem",
+            marginBottom: ".5em",
+            width: "100%"
+          }}
+        />
       </div>
-      <button className="btn btn-dark" onClick={submit}>
+      <button onClick={submit}>
         Submit
       </button>
     </div>

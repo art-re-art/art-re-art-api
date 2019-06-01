@@ -13,6 +13,16 @@ import About from "./pages/About";
 import Home from "./pages/Home";
 import NoMatch from "./pages/NoMatch";
 
+import "./styles/App.scss";
+
+import WebFont from "webfontloader";
+
+WebFont.load({
+  google: {
+    families: ["Inconsolata", "Open Sans:700"]
+  }
+});
+
 export default class App extends React.Component {
   render() {
     return (
