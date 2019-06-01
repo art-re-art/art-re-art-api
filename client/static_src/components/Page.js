@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Row, Col } from "antd";
+import { Layout, Row, Col, Typography } from "antd";
 
 import Background from "../images/bg.jpg";
 
@@ -28,7 +28,7 @@ export default class Page extends React.Component {
               borderBottom: "10px solid black"
             }}
           >
-            <h1
+            <Typography.Title
               style={{
                 color: "white",
                 margin: ".5em",
@@ -40,7 +40,7 @@ export default class Page extends React.Component {
               }}
             >
               {this.props.title}
-            </h1>
+            </Typography.Title>
           </Header>
         ) : null}
         <Content>
