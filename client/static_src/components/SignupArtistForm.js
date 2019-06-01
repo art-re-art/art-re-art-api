@@ -95,6 +95,10 @@ class ArtistForm extends React.Component {
               {
                 required: true,
                 message: "Please input your city!"
+              },
+              {
+                max: 255,
+                message: "Your city name is too long!"
               }
             ]
           })(<Input />)}
@@ -121,12 +125,26 @@ class ArtistForm extends React.Component {
         </Form.Item>
         <Form.Item label="Website">
           {getFieldDecorator("website", {
-            rules: [{ required: false, message: "Please input website!" }]
+            rules: [
+              {
+                type: "url",
+                message:
+                  "This is not a valid URL! Make sure you include the 'http://' or 'https://'."
+              },
+              { required: false, message: "Please input website!" }
+            ]
           })(<Input />)}
         </Form.Item>
         <Form.Item label="Instagram">
           {getFieldDecorator("instagram", {
-            rules: [{ required: false, message: "Please input instagram!" }]
+            rules: [
+              {
+                type: "url",
+                message:
+                  "This is not a valid URL! Make sure you include the 'http://' or 'https://'."
+              },
+              { required: false, message: "Please input instagram!" }
+            ]
           })(<Input />)}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
