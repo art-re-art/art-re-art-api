@@ -7,7 +7,7 @@ const { Meta } = Card;
 export default class Artist extends React.Component {
   render() {
     return (
-      <Col xl={8} lg={12} md={12} sm={24}>
+      <Col xl={8} lg={12} md={12} sm={24} style={{ padding: '1rem' }}>
         <Link to={`/artists/${this.props.id}/`}>
           <Card
             hoverable
