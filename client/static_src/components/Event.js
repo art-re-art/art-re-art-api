@@ -8,7 +8,7 @@ const { Meta } = Card;
 export default class Event extends React.Component {
   render() {
     return (
-      <Col span={8}>
+      <Col xl={8} lg={12} md={12} sm={24}>
         <Link to={`/events/${this.props.id}/`}>
           <Card
             hoverable
