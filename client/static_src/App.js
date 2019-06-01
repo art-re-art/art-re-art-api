@@ -15,7 +15,7 @@ import NoMatch from "./pages/NoMatch";
 
 import "./images/favicon.png";
 
-import "./styles/App.scss";
+import "./styles/App.less";
 
 import WebFont from "webfontloader";
 

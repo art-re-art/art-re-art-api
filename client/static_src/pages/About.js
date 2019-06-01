@@ -1,7 +1,7 @@
 import React from "react";
 import { Collapse } from "antd";
 
-import "../styles/About.scss";
+import "../styles/About.less";
 
 export default class About extends React.Component {
   render() {

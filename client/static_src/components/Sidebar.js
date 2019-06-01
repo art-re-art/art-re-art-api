@@ -4,7 +4,7 @@ import { Layout, Menu, Icon } from "antd";
 import moment from "moment";
 
 import Logo from "../images/artreart-red.png";
-import "../styles/Sidebar.scss";
+import "../styles/Sidebar.less";
 
 const { Sider } = Layout;
 

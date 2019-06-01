@@ -3,6 +3,7 @@ const ProvidePlugin = require("webpack").ProvidePlugin;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
+const antdTheme = require("./antd.theme");
 
 module.exports = {
   mode: "development",
@@ -48,11 +49,11 @@ module.exports = {
         loader: "babel-loader",
         options: {
           presets: ["@babel/env", "@babel/preset-react"],
-          plugins: [["import", { libraryName: "antd", style: "css" }]]
+          plugins: [["import", { libraryName: "antd", style: true }]]
         }
       },
       {
-        test: /\.(sc|c)ss$/,
+        test: /\.(le|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
@@ -62,7 +63,13 @@ module.exports = {
               plugins: [autoprefixer, cssnano]
             }
           },
-          "sass-loader"
+          {
+            loader: "less-loader",
+            options: {
+              javascriptEnabled: true,
+              modifyVars: antdTheme
+            }
+          }
         ]
       },
       {
