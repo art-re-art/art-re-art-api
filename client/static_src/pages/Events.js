@@ -1,7 +1,10 @@
 import React from "react";
-import { Row } from "antd";
+import { Row, Col, Spin, Card } from "antd";
 
 import Event from "../components/Event";
+import Loading from "../components/Loading";
+
+const { Meta } = Card;
 
 export default class Events extends React.Component {
   state = { events: [], isLoading: true };
@@ -12,16 +15,18 @@ export default class Events extends React.Component {
         return data.json();
       })
       .then(data => {
-        this.setState({
-          events: data,
-          isLoading: false
-        });
+        setTimeout(() => {
+          this.setState({
+            events: data,
+            isLoading: false
+          });
+        }, 2000);
       });
   }
 
   render() {
     if (this.state.isLoading) {
-      return <div>Loading...</div>;
+      return <Loading />;
     }
 
     return (

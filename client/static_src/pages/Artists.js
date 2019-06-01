@@ -3,6 +3,7 @@ import React from "react";
 import { Row } from "antd";
 
 import Artist from "../components/Artist";
+import Loading from "../components/Loading";
 
 export default class Artists extends React.Component {
   state = { artists: [], isLoading: true };
@@ -22,7 +23,7 @@ export default class Artists extends React.Component {
 
   render() {
     if (this.state.isLoading) {
-      return <div>Loading...</div>;
+      return <Loading />;
     }
 
     return (

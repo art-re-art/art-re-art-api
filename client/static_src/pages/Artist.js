@@ -1,5 +1,7 @@
 import React from "react";
 
+import Loading from "../components/Loading";
+
 export default class Artist extends React.Component {
   state = { artist: {}, isLoading: true };
 
@@ -20,9 +22,7 @@ export default class Artist extends React.Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <div className="p-5 w-100 d-flex justify-content-center align-items-center flex-column">
-          <div>Loading...</div>
-        </div>
+        <Loading />
       );
     }
 
