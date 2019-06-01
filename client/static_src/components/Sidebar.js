@@ -9,7 +9,13 @@ import "../styles/Sidebar.less";
 const { Sider } = Layout;
 
 export default class Sidebar extends React.Component {
-  state = { event: {} };
+  state = { event: {}, collapsed: true, broken: false };
+
+  toggle = () => {
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
+  };
 
   componentDidMount() {
     fetch("/api/events/")
@@ -31,13 +37,28 @@ export default class Sidebar extends React.Component {
         theme="light"
         onBreakpoint={broken => {
           console.log(broken);
+          this.setState({ collapsed: broken, broken: broken });
         }}
         onCollapse={(collapsed, type) => {
           console.log(collapsed, type);
         }}
+        trigger={null}
+        collapsible
+        collapsed={this.state.collapsed}
       >
+        {this.state.broken ? (
+          <Icon
+            className="trigger"
+            type={this.state.collapsed ? "menu" : "close"}
+            onClick={this.toggle}
+          />
+        ) : null}
         <div className="sidebar-logo">
-          <img src={Logo} alt="Art/Re/Art Logo" className="sidebar-logo__image" />
+          <img
+            src={Logo}
+            alt="Art/Re/Art Logo"
+            className="sidebar-logo__image"
+          />
         </div>
         <Menu theme="light" mode="inline" defaultSelectedKeys={["1"]}>
           <Menu.Item key="1">
@@ -71,16 +92,18 @@ export default class Sidebar extends React.Component {
             </Link>
           </Menu.Item>
         </Menu>
-        <div className="sidebar-event">
-          <div className="sidebar-event__title">{this.state.event.title}</div>
-          <div>{moment(this.state.event.datetime).format("LLLL")}</div>
-          {this.state.event.location ? (
-            <div>
-              <div>{this.state.event.location.title}</div>
-              <div>{this.state.event.location.street}</div>
-            </div>
-          ) : null}
-        </div>
+        <Link to={`/events/${this.state.event.id}/`}>
+          <div className="sidebar-event">
+            <div className="sidebar-event__title">{this.state.event.title}</div>
+            <div>{moment(this.state.event.datetime).format("LLLL")}</div>
+            {this.state.event.location ? (
+              <div>
+                <div>{this.state.event.location.title}</div>
+                <div>{this.state.event.location.street}</div>
+              </div>
+            ) : null}
+          </div>
+        </Link>
       </Sider>
     );
   }
