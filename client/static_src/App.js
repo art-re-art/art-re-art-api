@@ -42,13 +42,13 @@ export default class App extends React.Component {
             <Menu theme="light" mode="inline" defaultSelectedKeys={["1"]}>
               <Menu.Item key="1">
                 <Link to="/">
-                  <Icon type="user" />
+                  <Icon type="home" />
                   <span className="nav-text">Home</span>
                 </Link>
               </Menu.Item>
               <Menu.Item key="2">
                 <Link to="/about/">
-                  <Icon type="user" />
+                  <Icon type="question-circle" />
                   <span className="nav-text">About</span>
                 </Link>
               </Menu.Item>
@@ -60,7 +60,7 @@ export default class App extends React.Component {
               </Menu.Item>
               <Menu.Item key="4">
                 <Link to="/events/">
-                  <Icon type="user" />
+                  <Icon type="calendar" />
                   <span className="nav-text">Shows</span>
                 </Link>
               </Menu.Item>
