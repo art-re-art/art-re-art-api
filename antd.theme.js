@@ -10,6 +10,6 @@ module.exports = {
   'input-padding-vertical-base': '.5rem',
   'input-padding-vertical-lg': '1rem',
   'input-placeholder-color': 'white',
-  'input-bg': 'red',
+  'input-bg': 'black',
   'input-color': 'white'
 }
