@@ -46,7 +46,7 @@ export default class Page extends React.Component {
         <Content>
           <PageComponent {...this.props} />
         </Content>
-        <Footer style={{ backgroundColor: "white", padding: "5em" }}>
+        <Footer className="footer" style={{ backgroundColor: "white", padding: "5em" }}>
           <Row gutter={36}>
             <Col xl={12} lg={24} style={{ padding: '1rem' }}>
               <div
