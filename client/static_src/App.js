@@ -94,6 +94,7 @@ export default class App extends React.Component {
                 <Page
                   {...props}
                   component={Home}
+                  hideHeader
                   title="Home"
                   subtitle="We are Art/Re/Art"
                 />

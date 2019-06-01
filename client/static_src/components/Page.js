@@ -17,30 +17,32 @@ export default class Page extends React.Component {
 
     return (
       <Layout style={{ marginLeft: 200 }}>
-        <Header
-          style={{
-            background: "#fff",
-            padding: 0,
-            backgroundImage: `url('${Background}')`,
-            backgroundSize: "cover",
-            height: "auto",
-            borderBottom: "10px solid black"
-          }}
-        >
-          <h1
+        {!this.props.hideHeader ? (
+          <Header
             style={{
-              color: "white",
-              margin: ".5em",
-              padding: ".5em 1em",
-              fontSize: "3em",
-              background: "red",
-              fontWeight: "bold",
-              display: "inline-block"
+              background: "#fff",
+              padding: 0,
+              backgroundImage: `url('${Background}')`,
+              backgroundSize: "cover",
+              height: "auto",
+              borderBottom: "10px solid black"
             }}
           >
-            {this.props.title}
-          </h1>
-        </Header>
+            <h1
+              style={{
+                color: "white",
+                margin: ".5em",
+                padding: ".5em 1em",
+                fontSize: "3em",
+                background: "red",
+                fontWeight: "bold",
+                display: "inline-block"
+              }}
+            >
+              {this.props.title}
+            </h1>
+          </Header>
+        ) : null}
         <Content>
           <PageComponent {...this.props} />
         </Content>
