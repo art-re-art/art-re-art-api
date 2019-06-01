@@ -13,6 +13,8 @@ import About from "./pages/About";
 import Home from "./pages/Home";
 import NoMatch from "./pages/NoMatch";
 
+import "./images/favicon.png";
+
 import "./styles/App.scss";
 
 import WebFont from "webfontloader";
