@@ -35,19 +35,9 @@ export default class Sidebar extends React.Component {
         onCollapse={(collapsed, type) => {
           console.log(collapsed, type);
         }}
-        style={{
-          overflow: "auto",
-          height: "100vh",
-          position: "fixed",
-          left: 0
-        }}
       >
-        <div className="logo">
-          <img
-            src={Logo}
-            alt="Art/Re/Art Logo"
-            style={{ width: "100%", padding: 15 }}
-          />
+        <div className="sidebar-logo">
+          <img src={Logo} alt="Art/Re/Art Logo" className="sidebar-logo__image" />
         </div>
         <Menu theme="light" mode="inline" defaultSelectedKeys={["1"]}>
           <Menu.Item key="1">
@@ -75,21 +65,8 @@ export default class Sidebar extends React.Component {
             </Link>
           </Menu.Item>
         </Menu>
-        <div
-          style={{
-            padding: "1em",
-            background: "black",
-            color: "white"
-          }}
-        >
-          <div
-            style={{
-              fontSize: "1.4em",
-              fontWeight: "bold"
-            }}
-          >
-            {this.state.event.title}
-          </div>
+        <div className="sidebar-event">
+          <div className="sidebar-event__title">{this.state.event.title}</div>
           <div>{moment(this.state.event.datetime).format("LLLL")}</div>
           {this.state.event.location ? (
             <div>
