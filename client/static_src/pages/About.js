@@ -1,6 +1,8 @@
 import React from "react";
 import { Collapse } from "antd";
 
+import "../styles/About.scss";
+
 export default class About extends React.Component {
   render() {
     return (
