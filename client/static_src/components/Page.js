@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout, Row, Col } from "antd";
 
-import Background from "../images/bg.png";
+import Background from "../images/bg.jpg";
 
 import Mailchimp from "./Mailchimp";
 
@@ -20,7 +20,7 @@ export default class Page extends React.Component {
         {!this.props.hideHeader ? (
           <Header
             style={{
-              background: "#fff",
+              background: "#000",
               padding: 0,
               backgroundImage: `url('${Background}')`,
               backgroundSize: "cover",

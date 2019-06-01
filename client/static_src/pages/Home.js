@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Background from "../images/bg.png";
+import Background from "../images/bg.jpg";
 
 export default class Home extends React.Component {
   render() {
@@ -9,6 +9,7 @@ export default class Home extends React.Component {
       <header>
         <div
           style={{
+            backgroundColor: "black",
             backgroundImage: `url('${Background}')`,
             backgroundSize: "cover",
             backgroundPosition: "center center"
