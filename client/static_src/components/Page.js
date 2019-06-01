@@ -50,16 +50,10 @@ export default class Page extends React.Component {
         </Content>
         <Footer
           className="footer"
-          style={{ backgroundColor: "white", padding: "5em" }}
         >
           <Row gutter={36}>
             <Col xl={12} lg={24} style={{ padding: "1rem" }}>
-              <div
-                style={{
-                  fontSize: "3em",
-                  fontWeight: "bold"
-                }}
-              >
+              <div className="footer__heading">
                 Let's connect.
               </div>
               <a
