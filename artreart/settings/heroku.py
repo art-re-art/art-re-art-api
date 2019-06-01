@@ -41,3 +41,8 @@ django_heroku.settings(locals())
 # Custom
 
 BASE_URL = 'https://www.artreart.com'
+
+
+# Mailchimp
+
+MAILCHIMP_KEY = os.environ.get('MAILCHIMP_KEY', None)

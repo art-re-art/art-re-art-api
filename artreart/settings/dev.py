@@ -24,3 +24,8 @@ SECURE_SSL_REDIRECT = False
 # Custom
 
 BASE_URL = 'https://localhost:8000'
+
+
+# Mailchimp
+
+MAILCHIMP_KEY = None
