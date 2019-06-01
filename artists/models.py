@@ -10,7 +10,7 @@ import qrcode.image.svg
 class Artist(models.Model):
     name = models.CharField(max_length=255)
     instagram = models.URLField(max_length=255, blank=True, null=True)
-    website = models.URLField(max_length=255)
+    website = models.URLField(max_length=255, blank=True, null=True)
     medium = models.ManyToManyField(
         to="artists.ArtistMedium", related_name="artists", blank=True
     )
