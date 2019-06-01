@@ -16,7 +16,7 @@ export default class Page extends React.Component {
     const PageComponent = this.props.component;
 
     return (
-      <Layout>
+      <Layout style={{ marginLeft: 190 }}>
         <Header
           style={{
             background: "#fff",

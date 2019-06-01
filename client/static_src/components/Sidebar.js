@@ -38,6 +38,12 @@ export default class Sidebar extends React.Component {
         onCollapse={(collapsed, type) => {
           console.log(collapsed, type);
         }}
+        style={{
+          overflow: 'auto',
+          height: '100vh',
+          position: 'fixed',
+          left: 0,
+        }}
       >
         <div className="logo">
           <img
