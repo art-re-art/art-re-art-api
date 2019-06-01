@@ -92,8 +92,8 @@ export default class Sidebar extends React.Component {
             </Link>
           </Menu.Item>
         </Menu>
-        <Link to={`/events/${this.state.event.id}/`}>
-          <div className="sidebar-event">
+        <Link to={`/events/${this.state.event.id}/`} className="sidebar-event">
+          <div>
             <div className="sidebar-event__title">{this.state.event.title}</div>
             <div>{moment(this.state.event.datetime).format("LLLL")}</div>
             {this.state.event.location ? (
