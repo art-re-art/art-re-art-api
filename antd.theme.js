@@ -1,6 +1,7 @@
 module.exports = {
   'primary-color': 'red',
   'font-family': '"Inconsolata", monospace',
+  'font-size-base': '16px',
   'border-radius-base': 0,
   'border-radius-sm': 0,
   'btn-shadow': 'none',
