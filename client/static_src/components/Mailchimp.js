@@ -1,6 +1,6 @@
 import React from "react";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
-import { Button } from "antd";
+import { Button, Input } from "antd";
 
 const CustomForm = ({ status, message, onValidated }) => {
   let email, name;
@@ -38,34 +38,26 @@ const CustomForm = ({ status, message, onValidated }) => {
         />
       )}
       <div className="my-3 d-flex flex-column">
-        <input
+        <Input
           ref={node => (name = node)}
           type="text"
           placeholder="Your name"
           style={{
-            background: "red",
-            border: "2px solid red",
-            transition: "background .2s",
-            color: "#fff",
-            padding: ".5rem 1rem",
-            fontSize: "1.2rem",
+            padding: "1rem",
+            fontSize: "1.5rem",
             marginBottom: ".5em",
             width: "100%"
           }}
         />
       </div>
       <div className="my-3 d-flex flex-column">
-        <input
+        <Input
           ref={node => (email = node)}
           type="email"
           placeholder="Your email"
           style={{
-            background: "red",
-            border: "2px solid red",
-            transition: "background .2s",
-            color: "#fff",
-            padding: ".5rem 1rem",
-            fontSize: "1.2rem",
+            padding: "1rem",
+            fontSize: "1.5rem",
             marginBottom: ".5em",
             width: "100%"
           }}
