@@ -19,7 +19,7 @@ from .serializers import (
 
 
 class MailchimpSignupViewSet(viewsets.ModelViewSet):
-    queryset = MailchimpSignup.objects.all()
+    queryset = MailchimpSignup.objects.none()
     serializer_class = MailchimpSignupSerializer
 
 

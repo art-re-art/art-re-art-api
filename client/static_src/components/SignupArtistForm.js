@@ -5,10 +5,6 @@ const { Title, Paragraph } = Typography;
 const { TextArea } = Input;
 
 class ArtistForm extends React.Component {
-  state = {
-    confirmDirty: false
-  };
-
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
@@ -16,11 +12,6 @@ class ArtistForm extends React.Component {
         console.log("Received values of form: ", values);
       }
     });
-  };
-
-  handleConfirmBlur = e => {
-    const value = e.target.value;
-    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   };
 
   render() {
@@ -36,6 +27,7 @@ class ArtistForm extends React.Component {
         sm: { span: 20 }
       }
     };
+
     const tailFormItemLayout = {
       wrapperCol: {
         xs: {
