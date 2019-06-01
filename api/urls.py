@@ -10,6 +10,9 @@ router.register(r"events", views.EventViewSet)
 router.register(r"eventlocations", views.EventLocationViewSet)
 router.register(r"artists", views.ArtistViewSet)
 router.register(r"artistmedium", views.ArtistMediumViewSet)
+router.register(r"about", views.AboutViewSet)
+router.register(r"aboutfaq", views.AboutFAQViewSet)
+router.register(r"aboutdevelopers", views.AboutDeveloperViewSet)
 
 
 urlpatterns = [
