@@ -11,7 +11,7 @@ from .serializers import (
     ArtistSerializer,
     ArtistMediumSerializer,
     ArtistSignupSerializer,
-    MailchimpSignupSerializer
+    MailchimpSignupSerializer,
     AboutSerializer,
     AboutFAQSerializer,
     AboutDeveloperSerializer
