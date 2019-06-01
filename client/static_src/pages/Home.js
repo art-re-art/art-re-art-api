@@ -4,10 +4,6 @@ import { Link } from "react-router-dom";
 import Background from "../images/bg.png";
 
 export default class Home extends React.Component {
-  componentDidMount() {
-    console.log(this.props);
-  }
-
   render() {
     return (
       <header>
