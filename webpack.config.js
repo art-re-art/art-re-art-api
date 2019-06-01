@@ -49,7 +49,10 @@ module.exports = {
         loader: "babel-loader",
         options: {
           presets: ["@babel/env", "@babel/preset-react"],
-          plugins: [["import", { libraryName: "antd", style: true }]]
+          plugins: [
+            ["import", { libraryName: "antd", style: true }],
+            "@babel/plugin-proposal-class-properties"
+          ]
         }
       },
       {

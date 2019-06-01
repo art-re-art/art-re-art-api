@@ -9,10 +9,7 @@ import "../styles/Sidebar.less";
 const { Sider } = Layout;
 
 export default class Sidebar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { event: {} };
-  }
+  state = { event: {} };
 
   componentDidMount() {
     fetch("/api/events/")
@@ -39,10 +36,10 @@ export default class Sidebar extends React.Component {
           console.log(collapsed, type);
         }}
         style={{
-          overflow: 'auto',
-          height: '100vh',
-          position: 'fixed',
-          left: 0,
+          overflow: "auto",
+          height: "100vh",
+          position: "fixed",
+          left: 0
         }}
       >
         <div className="logo">

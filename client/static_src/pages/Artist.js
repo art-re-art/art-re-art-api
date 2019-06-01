@@ -1,10 +1,7 @@
 import React from "react";
 
 export default class Artist extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { artist: {}, isLoading: true };
-  }
+  state = { artist: {}, isLoading: true };
 
   componentDidMount() {
     fetch(`/api/artists/${this.props.match.params.id}/`)

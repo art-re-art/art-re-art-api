@@ -5,10 +5,7 @@ import { Row } from "antd";
 import Artist from "../components/Artist";
 
 export default class Artists extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { artists: [], isLoading: true };
-  }
+  state = { artists: [], isLoading: true };
 
   componentDidMount() {
     fetch("/api/artists/")

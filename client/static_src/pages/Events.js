@@ -4,10 +4,7 @@ import { Row } from "antd";
 import Event from "../components/Event";
 
 export default class Events extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { events: [], isLoading: true };
-  }
+  state = { events: [], isLoading: true };
 
   componentDidMount() {
     fetch("/api/events/")

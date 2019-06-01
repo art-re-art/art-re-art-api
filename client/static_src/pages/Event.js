@@ -1,10 +1,7 @@
 import React from "react";
 
 export default class Event extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { event: {} };
-  }
+  state = { event: {} };
 
   componentDidMount() {
     fetch(`/api/events/${this.props.match.params.id}/`)
