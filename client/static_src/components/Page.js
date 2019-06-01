@@ -5,6 +5,8 @@ import Background from "../images/bg.jpg";
 
 import Mailchimp from "./Mailchimp";
 
+import "../styles/Footer.less";
+
 const { Header, Content, Footer } = Layout;
 
 export default class Page extends React.Component {
@@ -62,12 +64,7 @@ export default class Page extends React.Component {
               </div>
               <a
                 href="mailto:hello@artreart.com"
-                style={{
-                  fontSize: "2em",
-                  display: "block",
-                  borderBottom: "2px solid red",
-                  color: "red"
-                }}
+                className="footer__link"
               >
                 hello@artreart.com
               </a>
@@ -75,12 +72,7 @@ export default class Page extends React.Component {
                 href="https://www.instagram.com/art_re_art/"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  fontSize: "2em",
-                  display: "block",
-                  borderBottom: "2px solid red",
-                  color: "red"
-                }}
+                className="footer__link"
               >
                 Instagram
               </a>
