@@ -10,6 +10,7 @@ import Events from "./pages/Events";
 import Artist from "./pages/Artist";
 import Artists from "./pages/Artists";
 import About from "./pages/About";
+import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import NoMatch from "./pages/NoMatch";
 
@@ -39,7 +40,6 @@ export default class App extends React.Component {
                   {...props}
                   component={Event}
                   title="Event"
-                  subtitle="I'm an event :)"
                 />
               )}
             />
@@ -50,7 +50,6 @@ export default class App extends React.Component {
                   {...props}
                   component={Events}
                   title="Shows"
-                  subtitle="All the great shows"
                 />
               )}
             />
@@ -61,7 +60,6 @@ export default class App extends React.Component {
                   {...props}
                   component={Artist}
                   title="Artist"
-                  subtitle="I'm an artist :)"
                 />
               )}
             />
@@ -72,7 +70,6 @@ export default class App extends React.Component {
                   {...props}
                   component={Artists}
                   title="Artists"
-                  subtitle="All the artists who have participated in Art/Re/Art"
                 />
               )}
             />
@@ -83,7 +80,16 @@ export default class App extends React.Component {
                   {...props}
                   component={About}
                   title="About"
-                  subtitle="All about Art/Re/Art"
+                />
+              )}
+            />
+            <Route
+              path="/signup/"
+              render={props => (
+                <Page
+                  {...props}
+                  component={Signup}
+                  title="Artist Signup"
                 />
               )}
             />
@@ -96,7 +102,6 @@ export default class App extends React.Component {
                   component={Home}
                   hideHeader
                   title="Home"
-                  subtitle="We are Art/Re/Art"
                 />
               )}
             />

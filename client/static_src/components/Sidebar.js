@@ -64,6 +64,12 @@ export default class Sidebar extends React.Component {
               <span className="nav-text">Shows</span>
             </Link>
           </Menu.Item>
+          <Menu.Item key="5">
+            <Link to="/signup/">
+              <Icon type="plus" />
+              <span className="nav-text">Artist Signup</span>
+            </Link>
+          </Menu.Item>
         </Menu>
         <div className="sidebar-event">
           <div className="sidebar-event__title">{this.state.event.title}</div>
