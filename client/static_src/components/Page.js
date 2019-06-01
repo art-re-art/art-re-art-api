@@ -16,7 +16,7 @@ export default class Page extends React.Component {
     const PageComponent = this.props.component;
 
     return (
-      <Layout style={{ marginLeft: 200 }}>
+      <Layout className="content">
         {!this.props.hideHeader ? (
           <Header
             style={{
