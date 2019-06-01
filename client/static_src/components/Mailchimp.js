@@ -1,5 +1,6 @@
 import React from "react";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
+import { Button } from "antd";
 
 const CustomForm = ({ status, message, onValidated }) => {
   let email, name;
@@ -70,9 +71,9 @@ const CustomForm = ({ status, message, onValidated }) => {
           }}
         />
       </div>
-      <button onClick={submit}>
+      <Button onClick={submit}>
         Submit
-      </button>
+      </Button>
     </div>
   );
 };
