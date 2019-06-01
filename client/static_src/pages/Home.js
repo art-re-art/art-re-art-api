@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import Background from "../images/bg.jpg";
 
+import "../styles/Home.less";
+
 export default class Home extends React.Component {
   render() {
     return (
@@ -27,37 +29,19 @@ export default class Home extends React.Component {
           >
             <Link
               to="/events/"
-              style={{
-                backgroundColor: "red",
-                padding: ".5em",
-                color: "white",
-                fontSize: "3em",
-                margin: ".5em"
-              }}
+              className="home__link"
             >
               Shows
             </Link>
             <Link
               to="/artists/"
-              style={{
-                backgroundColor: "red",
-                padding: ".5em",
-                color: "white",
-                fontSize: "3em",
-                margin: ".5em"
-              }}
+              className="home__link"
             >
               Artists
             </Link>
             <Link
               to="/about/"
-              style={{
-                backgroundColor: "red",
-                padding: ".5em",
-                color: "white",
-                fontSize: "3em",
-                margin: ".5em"
-              }}
+              className="home__link"
             >
               About
             </Link>
