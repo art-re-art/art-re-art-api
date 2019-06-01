@@ -1,6 +1,10 @@
 import React from "react";
+import { Col, Row, Typography } from "antd";
+import moment from "moment";
 
 import Loading from "../components/Loading";
+
+const { Title, Paragraph, Text } = Typography;
 
 export default class Event extends React.Component {
   state = { event: {} };
@@ -18,6 +22,17 @@ export default class Event extends React.Component {
       });
   }
 
+  _getEmbedSrc = () => {
+    let url =
+      "https://maps.google.com/maps?t=&z=13&ie=UTF8&iwloc=&output=embed&q=";
+    let location = this.state.event.location;
+    let address = `${location.street}, ${location.city}, ${location.state}, ${
+      location.postal
+    }`;
+    let fullURL = url + address;
+    return encodeURI(fullURL);
+  };
+
   render() {
     if (this.state.isLoading) {
       return <Loading />;
@@ -25,27 +40,48 @@ export default class Event extends React.Component {
 
     return (
       <div className="container">
-        <div className="container">
-          <div className="row">
-            <div className="col">
-              <h1>{this.state.event.title}</h1>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">{this.state.event.datetime}</div>
-          </div>
-          <div className="row">
-            <div className="col">
-              {this.state.event.artists
-                ? this.state.event.artists
-                    .map(artist => {
-                      return artist.name;
-                    })
-                    .join(", ")
+        <Row>
+          <Col span={8}>
+            <div
+              style={{ textAlign: "center" }}
+              dangerouslySetInnerHTML={{ __html: this.state.event.qrcode }}
+            />
+          </Col>
+          <Col span={16}>
+            <Title level={2}>{this.state.event.title}</Title>
+            <Paragraph>
+              {moment(this.state.event.datetime).format("LLLL")}
+            </Paragraph>
+            <Paragraph>
+              {this.state.event.location
+                ? this.state.event.location.title
                 : null}
-            </div>
-          </div>
-        </div>
+              <br />
+              {this.state.event.location
+                ? this.state.event.location.street
+                : null}
+            </Paragraph>
+            <Paragraph>
+              {this.state.event.location ? (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: `
+                      <iframe
+                        width="100%"
+                        height="400"
+                        id="gmap_canvas"
+                        src=${this._getEmbedSrc()}
+                        frameborder="0"
+                        scrolling="no"
+                        marginheight="0"
+                        marginwidth="0"
+                      />`
+                  }}
+                />
+              ) : null}
+            </Paragraph>
+          </Col>
+        </Row>
       </div>
     );
   }

@@ -6,7 +6,7 @@ import "../styles/Loading.less";
 export default class Loading extends React.Component {
   render() {
     return (
-      <div class="loading-container">
+      <div className="loading-container">
         <Spin size="large" />
       </div>
     );
