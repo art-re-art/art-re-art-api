@@ -1,4 +1,5 @@
 import React from "react";
+import { Collapse } from "antd";
 
 export default class About extends React.Component {
   render() {
@@ -24,34 +25,35 @@ export default class About extends React.Component {
             </div>
             <div className="my-3 my-lg-4 my-xl-5">
               <h2>FAQs</h2>
-              <hr />
-              <h3 className="h4">What is ART/RE/ART?</h3>
-              <p>
-                ART/RE/ART is a series of pop-up art shows taking place in and
-                around Morganton, NC.
-              </p>
-              <hr />
-              <h3 className="h4">Where do the shows take place?</h3>
-              <p>
-                ART/RE/ART changes venue with each show. Check out our Events
-                tab to learn more.
-              </p>
-              <hr />
-              <h3 className="h4">How can I participate in the show?</h3>
-              <p>
-                Sign up on our website for email updates and follow us on
-                Instagram to stay tuned about calls for submissions. We also can
-                always use help from volunteers, email us at
-                artreart.morganton@gmail.com if you're interested in
-                volunteering.
-              </p>
-              <hr />
-              <h3 className="h4">Where can I learn more?</h3>
-              <p>
-                Visit our website, www.artreart.com, or email us
-                artreart.morganton@gmail.com.
-              </p>
-              <hr />
+              <Collapse>
+                <Collapse.Panel header="What is ART/RE/ART?">
+                  <p>
+                    ART/RE/ART is a series of pop-up art shows taking place in
+                    and around Morganton, NC.
+                  </p>
+                </Collapse.Panel>
+                <Collapse.Panel header="Where do the shows take place?">
+                  <p>
+                    ART/RE/ART changes venue with each show. Check out our
+                    Events tab to learn more.
+                  </p>
+                </Collapse.Panel>
+                <Collapse.Panel header="How can I participate in the show?">
+                  <p>
+                    Sign up on our website for email updates and follow us on
+                    Instagram to stay tuned about calls for submissions. We also
+                    can always use help from volunteers, email us at
+                    artreart.morganton@gmail.com if you're interested in
+                    volunteering.
+                  </p>
+                </Collapse.Panel>
+                <Collapse.Panel header="Where can I learn more?">
+                  <p>
+                    Visit our website, www.artreart.com, or email us
+                    artreart.morganton@gmail.com.
+                  </p>
+                </Collapse.Panel>
+              </Collapse>
             </div>
           </div>
         </div>
