@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 from events.models import Event, EventLocation
 from artists.models import Artist, ArtistMedium
+from forms.models import ArtistSignup, ArtistSignupWork
 
 
 class ArtistMediumSerializer(serializers.HyperlinkedModelSerializer):
@@ -15,7 +16,16 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Artist
-        fields = ("url", "id", "name", "instagram", "website", "medium", "events", "qrcode")
+        fields = (
+            "url",
+            "id",
+            "name",
+            "instagram",
+            "website",
+            "medium",
+            "events",
+            "qrcode",
+        )
 
 
 class EventLocationSerializer(serializers.HyperlinkedModelSerializer):
@@ -47,4 +57,31 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Event
-        fields = ("url", "id", "title", "datetime", "month", "day", "time", "location", "artists", "qrcode")
+        fields = (
+            "url",
+            "id",
+            "title",
+            "datetime",
+            "month",
+            "day",
+            "time",
+            "location",
+            "artists",
+            "qrcode",
+        )
+
+
+class ArtistSignupSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ArtistSignup
+        fields = (
+            "url",
+            "name",
+            "email",
+            "phone_number",
+            "city",
+            "state",
+            "artist_statement",
+            "website",
+            "instagram",
+        )
