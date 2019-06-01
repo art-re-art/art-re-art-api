@@ -1,25 +1,10 @@
 import React from "react";
-import {
-  Form,
-  Input,
-  Tooltip,
-  Icon,
-  Cascader,
-  Select,
-  Row,
-  Col,
-  Checkbox,
-  Button,
-  AutoComplete,
-  Typography
-} from "antd";
+import { Form, Input, Button, Typography } from "antd";
 
-const { Option } = Select;
-const AutoCompleteOption = AutoComplete.Option;
 const { Title, Paragraph } = Typography;
+const { TextArea } = Input;
 
-
-class RegistrationForm extends React.Component {
+class ArtistForm extends React.Component {
   state = {
     confirmDirty: false
   };
@@ -40,7 +25,6 @@ class RegistrationForm extends React.Component {
 
   render() {
     const { getFieldDecorator } = this.props.form;
-    const { autoCompleteResult } = this.state;
 
     const formItemLayout = {
       labelCol: {
@@ -64,13 +48,6 @@ class RegistrationForm extends React.Component {
         }
       }
     };
-    const prefixSelector = getFieldDecorator("prefix", {
-      initialValue: "1"
-    })(
-      <Select style={{ width: 70 }}>
-        <Option value="1">+1</Option>
-      </Select>
-    );
 
     return (
       <Form {...formItemLayout} onSubmit={this.handleSubmit}>
@@ -78,22 +55,12 @@ class RegistrationForm extends React.Component {
           <Title level={2}>About You</Title>
           <Paragraph>Tell us about you and your art!</Paragraph>
         </div>
-        <Form.Item
-          label={
-            <span>
-              Name&nbsp;
-              <Tooltip title="What do you want others to call you?">
-                <Icon type="question-circle-o" />
-              </Tooltip>
-            </span>
-          }
-        >
-          {getFieldDecorator("nickname", {
+        <Form.Item label="Name">
+          {getFieldDecorator("name", {
             rules: [
               {
                 required: true,
-                message: "Please input your nickname!",
-                whitespace: true
+                message: "Please input your name!"
               }
             ]
           })(<Input />)}
@@ -112,32 +79,77 @@ class RegistrationForm extends React.Component {
             ]
           })(<Input />)}
         </Form.Item>
-        <Form.Item label="Phone Number">
-          {getFieldDecorator("phone", {
+        <Form.Item label="Phone number">
+          {getFieldDecorator("phone_number", {
             rules: [
-              { required: true, message: "Please input your phone number!" }
+              {
+                required: false,
+                message: "Please input your phone number!"
+              }
             ]
-          })(<Input addonBefore={prefixSelector} style={{ width: "100%" }} />)}
+          })(<Input />)}
+        </Form.Item>
+        <Form.Item label="City">
+          {getFieldDecorator("city", {
+            rules: [
+              {
+                required: true,
+                message: "Please input your city!"
+              },
+              {
+                max: 255,
+                message: "Your city name is too long!"
+              }
+            ]
+          })(<Input />)}
+        </Form.Item>
+        <Form.Item label="State">
+          {getFieldDecorator("state", {
+            rules: [
+              {
+                required: true,
+                message: "Please input your state!"
+              }
+            ]
+          })(<Input />)}
+        </Form.Item>
+        <Form.Item label="Artist statement">
+          {getFieldDecorator("artist_statement", {
+            rules: [
+              {
+                required: false,
+                message: "Please input your artist statement!"
+              }
+            ]
+          })(<TextArea />)}
         </Form.Item>
         <Form.Item label="Website">
           {getFieldDecorator("website", {
-            rules: [{ required: true, message: "Please input website!" }]
-          })(
-            <Input />
-          )}
+            rules: [
+              {
+                type: "url",
+                message:
+                  "This is not a valid URL! Make sure you include the 'http://' or 'https://'."
+              },
+              { required: false, message: "Please input website!" }
+            ]
+          })(<Input />)}
         </Form.Item>
-        <Form.Item {...tailFormItemLayout}>
-          {getFieldDecorator("agreement", {
-            valuePropName: "checked"
-          })(
-            <Checkbox>
-              Art/Re/Art has my permissions to use me and my art for promotional purposes.
-            </Checkbox>
-          )}
+        <Form.Item label="Instagram">
+          {getFieldDecorator("instagram", {
+            rules: [
+              {
+                type: "url",
+                message:
+                  "This is not a valid URL! Make sure you include the 'http://' or 'https://'."
+              },
+              { required: false, message: "Please input instagram!" }
+            ]
+          })(<Input />)}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit">
-            Register
+            Next step
           </Button>
         </Form.Item>
       </Form>
@@ -145,4 +157,4 @@ class RegistrationForm extends React.Component {
   }
 }
 
-export default Form.create({ name: "register" })(RegistrationForm);
+export default Form.create({ name: "artist" })(ArtistForm);

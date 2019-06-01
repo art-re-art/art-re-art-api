@@ -3,6 +3,8 @@ from rest_framework import viewsets
 from events.models import Event, EventLocation
 from artists.models import Artist, ArtistMedium
 from about.models import About, AboutFAQ, AboutDeveloper
+from forms.models import ArtistSignup, ArtistSignupWork
+
 from .serializers import (
     EventSerializer,
     EventLocationSerializer,
@@ -11,6 +13,7 @@ from .serializers import (
     AboutSerializer,
     AboutFAQSerializer,
     AboutDeveloperSerializer,
+    ArtistSignupSerializer
 )
 
 
@@ -33,6 +36,10 @@ class EventLocationViewSet(viewsets.ModelViewSet):
     queryset = EventLocation.objects.all()
     serializer_class = EventLocationSerializer
 
+
+class ArtistSignupViewSet(viewsets.ModelViewSet):
+    queryset = ArtistSignup.objects.none()
+    serializer_class = ArtistSignupSerializer
 
 class AboutViewSet(viewsets.ModelViewSet):
     queryset = About.objects.all()
