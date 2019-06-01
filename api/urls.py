@@ -12,6 +12,9 @@ router.register(r"artists", views.ArtistViewSet)
 router.register(r"artistmedium", views.ArtistMediumViewSet)
 router.register(r"artistsignup", views.ArtistSignupViewSet)
 router.register(r"mailchimp", views.MailchimpSignupViewSet)
+router.register(r"about", views.AboutViewSet)
+router.register(r"aboutfaq", views.AboutFAQViewSet)
+router.register(r"aboutdevelopers", views.AboutDeveloperViewSet)
 
 
 urlpatterns = [
