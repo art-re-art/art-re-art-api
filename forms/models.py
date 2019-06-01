@@ -11,6 +11,9 @@ class ArtistSignup(models.Model):
     website = models.URLField(max_length=255, blank=True, null=True)
     instagram = models.URLField(max_length=255, blank=True, null=True)
 
+    def __str__(self):
+        return self.name
+
 
 class ArtistSignupWork(models.Model):
     artist_signup = models.ForeignKey(
@@ -21,3 +24,15 @@ class ArtistSignupWork(models.Model):
     medium = models.CharField(max_length=255, help_text="Can have multiple, ex. Painting, Installation, Video")
     description = models.TextField(blank=True, null=True)
     special_installation_needs = models.TextField(blank=True, null=True, help_text="ex. Needs to be hanging")
+
+    def __str__(self):
+        return self.title
+
+
+class MailchimpSignup(models.Model):
+    first_name = models.CharField(max_length=255, blank=True, null=True)
+    last_name = models.CharField(max_length=255, blank=True, null=True)
+    email = models.EmailField(max_length=255)
+
+    def __str__(self):
+        return self.email

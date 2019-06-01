@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import ArtistSignup, ArtistSignupWork
+from .models import ArtistSignup, ArtistSignupWork, MailchimpSignup
 
 
 class ArtistSignupWorkInline(admin.StackedInline):
@@ -11,3 +11,8 @@ class ArtistSignupWorkInline(admin.StackedInline):
 @admin.register(ArtistSignup)
 class ArtistSignupAdmin(admin.ModelAdmin):
     inlines = [ArtistSignupWorkInline]
+
+
+@admin.register(MailchimpSignup)
+class MailchimpSignup(admin.ModelAdmin):
+    pass

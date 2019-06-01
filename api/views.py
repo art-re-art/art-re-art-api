@@ -2,14 +2,20 @@ from rest_framework import viewsets
 
 from events.models import Event, EventLocation
 from artists.models import Artist, ArtistMedium
-from forms.models import ArtistSignup, ArtistSignupWork
+from forms.models import ArtistSignup, ArtistSignupWork, MailchimpSignup
 from .serializers import (
     EventSerializer,
     EventLocationSerializer,
     ArtistSerializer,
     ArtistMediumSerializer,
-    ArtistSignupSerializer
+    ArtistSignupSerializer,
+    MailchimpSignupSerializer
 )
+
+
+class MailchimpSignupViewSet(viewsets.ModelViewSet):
+    queryset = MailchimpSignup.objects.all()
+    serializer_class = MailchimpSignupSerializer
 
 
 class ArtistViewSet(viewsets.ModelViewSet):
