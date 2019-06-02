@@ -30,7 +30,7 @@ export default class Artists extends React.Component {
 
     return (
       <div className="artists-page">
-        <div className="container">
+        <div className="container" style={{ background: "transparent" }}>
           <Paragraph style={{ marginBottom: 0 }}>
             Meet some of the artists who have participated in ART/RE/ART events.
           </Paragraph>
