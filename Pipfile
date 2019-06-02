@@ -16,6 +16,9 @@ qrcode = "*"
 pillow = "*"
 django-crispy-forms = "*"
 requests = "*"
+django-storages = "*"
+s3boto3 = "*"
+boto3 = "*"
 
 [requires]
 python_version = "3.7"
