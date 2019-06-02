@@ -1,8 +1,8 @@
 import React from "react";
-import { Form, Input, Button, Typography, Upload, Icon } from "antd";
+import { Form, Input, Button, Typography, Upload, Icon, Row, Col } from "antd";
 
 const { Title, Paragraph } = Typography;
-const {TextArea} = Input;
+const { TextArea } = Input;
 
 class WorkForm extends React.Component {
   handleSubmit = e => {
@@ -26,11 +26,11 @@ class WorkForm extends React.Component {
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
-        sm: { span: 4 }
+        sm: { span: 8 }
       },
       wrapperCol: {
         xs: { span: 24 },
-        sm: { span: 20 }
+        sm: { span: 16 }
       }
     };
 
@@ -41,18 +41,20 @@ class WorkForm extends React.Component {
           offset: 0
         },
         sm: {
-          span: 20,
-          offset: 4
+          span: 16,
+          offset: 8
         }
       }
     };
 
     return (
       <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-        <div style={{ padding: "3em 0" }}>
-          <Title level={2}>Your work</Title>
-          <Paragraph>Tell us about your art!</Paragraph>
-        </div>
+        <Row style={{ padding: "3em 0" }}>
+          <Col offset={8}>
+            <Title level={2}>Your work</Title>
+            <Paragraph>Tell us about your art!</Paragraph>
+          </Col>
+        </Row>
         <Form.Item label="Image">
           {getFieldDecorator("image", {
             rules: [

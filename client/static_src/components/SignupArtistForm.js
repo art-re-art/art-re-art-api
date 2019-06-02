@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Button, Typography } from "antd";
+import { Form, Input, Button, Typography, Col, Row } from "antd";
 
 const { Title, Paragraph } = Typography;
 const { TextArea } = Input;
@@ -26,11 +26,11 @@ class ArtistForm extends React.Component {
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
-        sm: { span: 4 }
+        sm: { span: 8 }
       },
       wrapperCol: {
         xs: { span: 24 },
-        sm: { span: 20 }
+        sm: { span: 16 }
       }
     };
 
@@ -41,18 +41,20 @@ class ArtistForm extends React.Component {
           offset: 0
         },
         sm: {
-          span: 20,
-          offset: 4
+          span: 16,
+          offset: 8
         }
       }
     };
 
     return (
       <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-        <div style={{ padding: "3em 0" }}>
-          <Title level={2}>About you</Title>
-          <Paragraph>Tell us about you!</Paragraph>
-        </div>
+        <Row style={{ padding: "3em 0" }}>
+          <Col offset={8}>
+            <Title level={2}>About you</Title>
+            <Paragraph>Tell us about you!</Paragraph>
+          </Col>
+        </Row>
         <Form.Item label="Name">
           {getFieldDecorator("name", {
             rules: [
