@@ -32,11 +32,6 @@ module.exports = {
     extensions: ["*", ".js", ".jsx"]
   },
   plugins: [
-    new ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery",
-      "window.jQuery": "jquery"
-    }),
     new MiniCssExtractPlugin({
       filename: "bundle.css"
     })
