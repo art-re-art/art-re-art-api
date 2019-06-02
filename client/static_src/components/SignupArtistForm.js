@@ -14,6 +14,12 @@ class ArtistForm extends React.Component {
     });
   };
 
+  componentDidMount() {
+    if (this.props.data) {
+      this.props.form.setFieldsValue(this.props.data);
+    }
+  }
+
   render() {
     const { getFieldDecorator } = this.props.form;
 
@@ -44,8 +50,8 @@ class ArtistForm extends React.Component {
     return (
       <Form {...formItemLayout} onSubmit={this.handleSubmit}>
         <div style={{ padding: "3em 0" }}>
-          <Title level={2}>About You</Title>
-          <Paragraph>Tell us about you and your art!</Paragraph>
+          <Title level={2}>About you</Title>
+          <Paragraph>Tell us about you!</Paragraph>
         </div>
         <Form.Item label="Name">
           {getFieldDecorator("name", {
@@ -113,7 +119,7 @@ class ArtistForm extends React.Component {
                 message: "Please input your artist statement!"
               }
             ]
-          })(<TextArea />)}
+          })(<TextArea autosize />)}
         </Form.Item>
         <Form.Item label="Website">
           {getFieldDecorator("website", {

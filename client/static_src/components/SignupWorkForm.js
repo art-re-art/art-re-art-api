@@ -1,10 +1,10 @@
 import React from "react";
-import { Form, Input, Button, Typography } from "antd";
+import { Form, Input, Button, Typography, Upload, Icon } from "antd";
 
 const { Title, Paragraph } = Typography;
-const { TextArea } = Input;
+const {TextArea} = Input;
 
-class ArtistForm extends React.Component {
+class WorkForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
@@ -13,6 +13,12 @@ class ArtistForm extends React.Component {
       }
     });
   };
+
+  componentDidMount() {
+    if (this.props.data) {
+      this.props.form.setFieldsValue(this.props.data);
+    }
+  }
 
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -44,100 +50,64 @@ class ArtistForm extends React.Component {
     return (
       <Form {...formItemLayout} onSubmit={this.handleSubmit}>
         <div style={{ padding: "3em 0" }}>
-          <Title level={2}>About You</Title>
-          <Paragraph>Tell us about you and your art!</Paragraph>
+          <Title level={2}>Your work</Title>
+          <Paragraph>Tell us about your art!</Paragraph>
         </div>
-        <Form.Item label="Name">
-          {getFieldDecorator("name", {
+        <Form.Item label="Image">
+          {getFieldDecorator("image", {
             rules: [
               {
                 required: true,
-                message: "Please input your name!"
+                message: "Please upload an image!"
+              }
+            ]
+          })(
+            <Upload>
+              <Button>
+                <Icon type="upload" /> Click to Upload
+              </Button>
+            </Upload>
+          )}
+        </Form.Item>
+        <Form.Item label="Title">
+          {getFieldDecorator("title", {
+            rules: [
+              {
+                required: true,
+                message: "Please input your title!"
               }
             ]
           })(<Input />)}
         </Form.Item>
-        <Form.Item label="E-mail">
-          {getFieldDecorator("email", {
+        <Form.Item label="Medium">
+          {getFieldDecorator("medium", {
             rules: [
               {
-                type: "email",
-                message: "The input is not valid E-mail!"
-              },
-              {
                 required: true,
-                message: "Please input your E-mail!"
+                message: "Please input your medium!"
               }
             ]
           })(<Input />)}
         </Form.Item>
-        <Form.Item label="Phone number">
-          {getFieldDecorator("phone_number", {
+        <Form.Item label="Description">
+          {getFieldDecorator("description", {
+            rules: [
+              {
+                required: true,
+                message: "Please input your description!"
+              }
+            ]
+          })(<TextArea autosize />)}
+        </Form.Item>
+        <Form.Item label="Special installation needs">
+          {getFieldDecorator("special_installation_needs", {
             rules: [
               {
                 required: false,
-                message: "Please input your phone number!"
+                message: "Please input your special installation needs!"
               }
             ]
-          })(<Input />)}
-        </Form.Item>
-        <Form.Item label="City">
-          {getFieldDecorator("city", {
-            rules: [
-              {
-                required: true,
-                message: "Please input your city!"
-              },
-              {
-                max: 255,
-                message: "Your city name is too long!"
-              }
-            ]
-          })(<Input />)}
-        </Form.Item>
-        <Form.Item label="State">
-          {getFieldDecorator("state", {
-            rules: [
-              {
-                required: true,
-                message: "Please input your state!"
-              }
-            ]
-          })(<Input />)}
-        </Form.Item>
-        <Form.Item label="Artist statement">
-          {getFieldDecorator("artist_statement", {
-            rules: [
-              {
-                required: false,
-                message: "Please input your artist statement!"
-              }
-            ]
-          })(<TextArea />)}
-        </Form.Item>
-        <Form.Item label="Website">
-          {getFieldDecorator("website", {
-            rules: [
-              {
-                type: "url",
-                message:
-                  "This is not a valid URL! Make sure you include the 'http://' or 'https://'."
-              },
-              { required: false, message: "Please input website!" }
-            ]
-          })(<Input />)}
-        </Form.Item>
-        <Form.Item label="Instagram">
-          {getFieldDecorator("instagram", {
-            rules: [
-              {
-                type: "url",
-                message:
-                  "This is not a valid URL! Make sure you include the 'http://' or 'https://'."
-              },
-              { required: false, message: "Please input instagram!" }
-            ]
-          })(<Input />)}
+          })(<TextArea autosize />)}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit">
@@ -149,4 +119,4 @@ class ArtistForm extends React.Component {
   }
 }
 
-export default Form.create({ name: "artist" })(ArtistForm);
+export default Form.create({ name: "work" })(WorkForm);
