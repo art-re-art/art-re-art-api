@@ -14,8 +14,8 @@ export default class Event extends React.Component {
             hoverable
             cover={
               <div
-                style={{ textAlign: "center" }}
-                dangerouslySetInnerHTML={{ __html: this.props.featured_image }}
+                style={{ textAlign: "center", backgroundImage: `url('${this.props.featured_image}')`, backgroundSize: "cover", padding: "5em" }}
+                // dangerouslySetInnerHTML={{ __html: this.props.featured_image }}
               />
             }
           >
