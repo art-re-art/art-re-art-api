@@ -41,13 +41,13 @@ export default class Event extends React.Component {
     return (
       <div className="container">
         <Row>
-          <Col span={8}>
+          <Col xl={8} lg={24}>
             <div
               style={{ textAlign: "center" }}
               dangerouslySetInnerHTML={{ __html: this.state.event.featured_image }}
             />
           </Col>
-          <Col span={16}>
+          <Col xl={16} lg={24}>
             <Title level={2}>{this.state.event.title}</Title>
             <Paragraph>
               {moment(this.state.event.datetime).format("LLLL")}
