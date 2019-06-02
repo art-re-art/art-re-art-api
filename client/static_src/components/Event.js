@@ -15,7 +15,7 @@ export default class Event extends React.Component {
             cover={
               <div
                 style={{ textAlign: "center" }}
-                dangerouslySetInnerHTML={{ __html: this.props.qrcode }}
+                dangerouslySetInnerHTML={{ __html: this.props.featured_image }}
               />
             }
           >
