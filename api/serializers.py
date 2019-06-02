@@ -3,7 +3,12 @@ from rest_framework import serializers
 from events.models import Event, EventLocation
 from artists.models import Artist, ArtistMedium
 from about.models import About, AboutDeveloper, AboutFAQ
-from forms.models import ArtistSignup, ArtistSignupWork, MailchimpSignup
+from forms.models import (
+    ArtistSignup,
+    ArtistSignupWork,
+    ArtistSignupWorkImage,
+    MailchimpSignup,
+)
 
 
 class MailchimpSignupSerializer(serializers.HyperlinkedModelSerializer):
@@ -78,6 +83,26 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
         )
 
 
+class ArtistSignupWorkImageSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ArtistSignupWorkImage
+        fields = ("url", "image")
+
+
+class ArtistSignupWorkSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ArtistSignupWork
+        fields = (
+            "url",
+            "artist_signup",
+            "image",
+            "title",
+            "medium",
+            "descriptoin",
+            "special_installation_needs",
+        )
+
+
 class ArtistSignupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ArtistSignup
@@ -97,18 +122,13 @@ class ArtistSignupSerializer(serializers.HyperlinkedModelSerializer):
 class AboutFAQSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = AboutFAQ
-        fields = (
-            "question",
-            "answer",
-        )
+        fields = ("question", "answer")
 
 
 class AboutDeveloperSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = AboutDeveloper
-        fields = (
-            "name",
-        )
+        fields = ("name",)
 
 
 class AboutSerializer(serializers.HyperlinkedModelSerializer):

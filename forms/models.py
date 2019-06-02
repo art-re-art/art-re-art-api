@@ -24,13 +24,15 @@ class ArtistSignup(models.Model):
 
 class ArtistSignupWork(models.Model):
     artist_signup = models.ForeignKey(
-        to="forms.ArtistSignup",
+        to="forms.ArtistSignup", on_delete=models.CASCADE, related_name="works"
+    )
+    image = models.OneToOneField(
+        to="forms.ArtistSignupWorkImage",
         on_delete=models.CASCADE,
-        related_name="works",
+        related_name="work",
         blank=True,
         null=True,
     )
-    image = models.ImageField()
     title = models.CharField(max_length=255, blank=True, null=True)
     medium = models.CharField(
         max_length=255,
@@ -45,6 +47,13 @@ class ArtistSignupWork(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ArtistSignupWorkImage(models.Model):
+    image = models.ImageField()
+
+    def __str__(self):
+        return self.image.filename
 
 
 class MailchimpSignup(models.Model):
