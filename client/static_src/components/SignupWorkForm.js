@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 
 const { Title, Paragraph } = Typography;
 const { TextArea } = Input;
+const { Dragger } = Upload;
 
 class WorkForm extends React.Component {
   handleSubmit = e => {
@@ -72,7 +73,7 @@ class WorkForm extends React.Component {
               }
             ]
           })(
-            <Upload
+            <Dragger
               name="image"
               action="/api/artistsignupworkimage/"
               headers={{ "X-CSRFToken": Cookies.get("csrftoken") }}
@@ -80,10 +81,13 @@ class WorkForm extends React.Component {
               multiple={false}
               accept=".png,.jpg,.jpeg"
             >
-              <Button>
-                <Icon type="upload" /> Click to Upload
-              </Button>
-            </Upload>
+              <Paragraph>
+                <Icon type="inbox" style={{ fontSize: 40 }} />
+              </Paragraph>
+              <Paragraph style={{ marginBotom: 0}}>
+                Click or drag file to this area to upload
+              </Paragraph>
+            </Dragger>
           )}
         </Form.Item>
         <Form.Item label="Title">
