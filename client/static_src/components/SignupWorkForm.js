@@ -64,7 +64,7 @@ class WorkForm extends React.Component {
               }
             ]
           })(
-            <Upload>
+            <Upload name="image" action="/api/artistsignupworkimage/">
               <Button>
                 <Icon type="upload" /> Click to Upload
               </Button>

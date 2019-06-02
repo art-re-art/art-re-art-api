@@ -53,7 +53,7 @@ class ArtistSignupWorkImage(models.Model):
     image = models.ImageField()
 
     def __str__(self):
-        return self.image.filename
+        return str(self.image)
 
 
 class MailchimpSignup(models.Model):
