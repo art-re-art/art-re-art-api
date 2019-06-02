@@ -52,14 +52,22 @@ class MailchimpForm extends React.Component {
           <Form.Item>
             {getFieldDecorator("first_name", {
               rules: [
-                { required: false, message: "Please input your first name!" }
+                { required: false, message: "Please input your first name!" },
+                {
+                  max: 255,
+                  message: "Your first name must be less than 255 characters!"
+                }
               ]
             })(<Input placeholder="First name" size="large" />)}
           </Form.Item>
           <Form.Item>
             {getFieldDecorator("last_name", {
               rules: [
-                { required: false, message: "Please input your last name!" }
+                { required: false, message: "Please input your last name!" },
+                {
+                  max: 255,
+                  message: "Your last name must be less than 255 characters!"
+                }
               ]
             })(<Input placeholder="Last name" size="large" />)}
           </Form.Item>
@@ -67,7 +75,11 @@ class MailchimpForm extends React.Component {
             {getFieldDecorator("email", {
               rules: [
                 { required: true, message: "Please input your email!" },
-                { type: "email", message: "Invalid email address!" }
+                { type: "email", message: "Invalid email address!" },
+                {
+                  max: 255,
+                  message: "Your email must be less than 255 characters!"
+                }
               ]
             })(<Input placeholder="Email" size="large" />)}
           </Form.Item>
@@ -88,9 +100,7 @@ export default class Mailchimp extends React.Component {
   render() {
     return (
       <div className="mailchimp-container">
-        <div className="footer__heading">
-          Subscribe to our newsletter.
-        </div>
+        <div className="footer__heading">Subscribe to our newsletter.</div>
         <WrappedMailchimpForm />
       </div>
     );
