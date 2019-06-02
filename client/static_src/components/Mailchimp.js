@@ -54,14 +54,14 @@ class MailchimpForm extends React.Component {
               rules: [
                 { required: false, message: "Please input your first name!" }
               ]
-            })(<Input placeholder="First name" />)}
+            })(<Input placeholder="First name" size="large" />)}
           </Form.Item>
           <Form.Item>
             {getFieldDecorator("last_name", {
               rules: [
                 { required: false, message: "Please input your last name!" }
               ]
-            })(<Input placeholder="Last name" />)}
+            })(<Input placeholder="Last name" size="large" />)}
           </Form.Item>
           <Form.Item>
             {getFieldDecorator("email", {
@@ -69,10 +69,10 @@ class MailchimpForm extends React.Component {
                 { required: true, message: "Please input your email!" },
                 { type: "email", message: "Invalid email address!" }
               ]
-            })(<Input placeholder="Email" />)}
+            })(<Input placeholder="Email" size="large" />)}
           </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" size="large">
               Subscribe
             </Button>
           </Form.Item>
