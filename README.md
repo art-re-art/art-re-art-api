@@ -27,4 +27,4 @@ Pushing code to the Github repo will automatically deploy that code to Heroku.
 
 ## Getting a production database to test with
 
-  npm run-script pgpull
+    npm run-script pgpull
