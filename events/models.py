@@ -8,6 +8,7 @@ import qrcode.image.svg
 
 class Event(models.Model):
     title = models.CharField(max_length=255)
+    image = models.ImageField(blank=True, null=True)
     datetime = models.DateTimeField()
     location = models.ForeignKey(
         to="events.EventLocation", on_delete=models.CASCADE, related_name="events"
