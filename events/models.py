@@ -49,6 +49,9 @@ class EventImage(models.Model):
     image = models.ImageField()
     description = models.CharField(blank=True, null=True, max_length=200)
 
+    def __str__(self):
+        return self.description
+
 
 class EventLocation(models.Model):
     title = models.CharField(max_length=255)
