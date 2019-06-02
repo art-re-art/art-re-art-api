@@ -9,7 +9,7 @@ class ArtistForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values);
+        this.props.handleSubmit(values);
       }
     });
   };
@@ -35,7 +35,7 @@ class ArtistForm extends React.Component {
           offset: 0
         },
         sm: {
-          span: 16,
+          span: 20,
           offset: 4
         }
       }
