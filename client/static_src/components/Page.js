@@ -5,6 +5,7 @@ import Background from "../images/bg.jpg";
 
 import Mailchimp from "./Mailchimp";
 
+import "../styles/Page.less";
 import "../styles/Footer.less";
 
 const { Header, Content, Footer } = Layout;
@@ -30,17 +31,7 @@ export default class Page extends React.Component {
               borderBottom: "10px solid black"
             }}
           >
-            <Typography.Title
-              style={{
-                color: "white",
-                margin: ".5em",
-                padding: ".5em 1em",
-                fontSize: "3em",
-                background: "red",
-                fontWeight: "bold",
-                display: "inline-block"
-              }}
-            >
+            <Typography.Title className="page-title">
               {this.props.title}
             </Typography.Title>
           </Header>
