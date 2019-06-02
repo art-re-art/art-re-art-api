@@ -44,7 +44,7 @@ export default class Event extends React.Component {
           <Col span={8}>
             <div
               style={{ textAlign: "center" }}
-              dangerouslySetInnerHTML={{ __html: this.state.event.qrcode }}
+              dangerouslySetInnerHTML={{ __html: this.state.event.featured_image }}
             />
           </Col>
           <Col span={16}>
