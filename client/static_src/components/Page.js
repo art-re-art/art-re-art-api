@@ -62,6 +62,7 @@ export default class Page extends React.Component {
               >
                 hello@artreart.com
               </a>
+              <br />
               <a
                 href="https://www.instagram.com/art_re_art/"
                 target="_blank"
