@@ -18,6 +18,8 @@ import "./images/favicon.png";
 
 import "./styles/App.less";
 
+import "react-app-polyfill/stable";
+
 import WebFont from "webfontloader";
 
 WebFont.load({

@@ -33,42 +33,40 @@ export default class Signup extends React.Component {
     });
   };
 
-  _handleConfirmForm = confirmFormData => {
+  _handleConfirmForm = async confirmFormData => {
     this.setState({
       confirmFormData: confirmFormData
     });
-    axios
-      .post("/api/artistsignup/", this.state.artistFormData, {
-        xsrfCookieName: "csrftoken",
-        xsrfHeaderName: "X-CSRFToken"
-      })
-      .then(response => {
-        const artist_url = response.data.url;
-        const workFormData = this.state.workFormData;
-        workFormData.artist_signup = artist_url;
-        axios
-          .post("/api/artistsignupwork/", workFormData, {
-            xsrfCookieName: "csrftoken",
-            xsrfHeaderName: "X-CSRFToken"
-          })
-          .then(response => {
-            message.success("Form submitted, you're all done!");
-            this.setState({
-              artistFormData: null,
-              workFormData: null,
-              confirmFormData: null,
-              current: 3
-            });
-          })
-          .catch(error => {
-            console.log(error);
-          });
-        console.log(response);
-      })
-      .catch(error => {
-        console.log(error);
+
+    const axiosConfig = {
+      xsrfCookieName: "csrftoken",
+      xsrfHeaderName: "X-CSRFToken"
+    };
+    const artist_signup = await axios.post(
+      "/api/artistsignup/",
+      this.state.artistFormData,
+      axiosConfig
+    );
+    const workFormData = this.state.workFormData;
+    workFormData.artist_signup = artist_signup.data.url;
+    const artist_signup_work = await axios.post(
+      "/api/artistsignupwork/",
+      workFormData,
+      axiosConfig
+    );
+    if (artist_signup_work.status === 201) {
+      message.success("Form submitted, you're all done!");
+      this.setState({
+        artistFormData: null,
+        workFormData: null,
+        confirmFormData: null,
+        current: 3
       });
+    } else {
+      message.error("Something went wrong, please try again later!");
+    }
   };
+
   _onChange = current => {
     if (this.state.confirmFormData === null && current === 3) {
       message.error("You can't complete what isn't finished!");
