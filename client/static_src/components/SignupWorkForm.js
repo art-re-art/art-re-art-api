@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Input, Button, Typography, Upload, Icon, Row, Col } from "antd";
+import Cookies from "js-cookie";
 
 const { Title, Paragraph } = Typography;
 const { TextArea } = Input;
@@ -19,6 +20,12 @@ class WorkForm extends React.Component {
       this.props.form.setFieldsValue(this.props.data);
     }
   }
+
+  normFile = e => {
+    if (e.file.response) {
+      return e.file.response.url;
+    }
+  };
 
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -57,6 +64,7 @@ class WorkForm extends React.Component {
         </Row>
         <Form.Item label="Image">
           {getFieldDecorator("image", {
+            getValueFromEvent: this.normFile,
             rules: [
               {
                 required: true,
@@ -64,7 +72,14 @@ class WorkForm extends React.Component {
               }
             ]
           })(
-            <Upload name="image" action="/api/artistsignupworkimage/">
+            <Upload
+              name="image"
+              action="/api/artistsignupworkimage/"
+              headers={{ "X-CSRFToken": Cookies.get("csrftoken") }}
+              listType="picture"
+              multiple={false}
+              accept=".png,.jpg,.jpeg"
+            >
               <Button>
                 <Icon type="upload" /> Click to Upload
               </Button>

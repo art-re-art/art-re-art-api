@@ -117,7 +117,7 @@ class ArtistForm extends React.Component {
           {getFieldDecorator("artist_statement", {
             rules: [
               {
-                required: false,
+                required: true,
                 message: "Please input your artist statement!"
               }
             ]

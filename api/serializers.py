@@ -98,7 +98,7 @@ class ArtistSignupWorkSerializer(serializers.HyperlinkedModelSerializer):
             "image",
             "title",
             "medium",
-            "descriptoin",
+            "description",
             "special_installation_needs",
         )
 

@@ -6,6 +6,7 @@ import ArtistForm from "../components/SignupArtistForm";
 import WorkForm from "../components/SignupWorkForm";
 import ConfirmForm from "../components/SignupConfirmForm";
 import Complete from "../components/SignupComplete";
+import axios from "axios";
 
 const { Step } = Steps;
 const { Title } = Typography;
@@ -34,24 +35,49 @@ export default class Signup extends React.Component {
 
   _handleConfirmForm = confirmFormData => {
     this.setState({
-      confirmFormData: confirmFormData,
-      current: 3
+      confirmFormData: confirmFormData
     });
+    axios
+      .post("/api/artistsignup/", this.state.artistFormData, {
+        xsrfCookieName: "csrftoken",
+        xsrfHeaderName: "X-CSRFToken"
+      })
+      .then(response => {
+        const artist_url = response.data.url;
+        const workFormData = this.state.workFormData;
+        workFormData.artist_signup = artist_url;
+        axios
+          .post("/api/artistsignupwork/", workFormData, {
+            xsrfCookieName: "csrftoken",
+            xsrfHeaderName: "X-CSRFToken"
+          })
+          .then(response => {
+            message.success("Form submitted, you're all done!");
+            this.setState({
+              artistFormData: null,
+              workFormData: null,
+              confirmFormData: null,
+              current: 3
+            });
+          })
+          .catch(error => {
+            console.log(error);
+          });
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
-
   _onChange = current => {
     if (this.state.confirmFormData === null && current === 3) {
       message.error("You can't complete what isn't finished!");
-    } else if (this.state.artistFormData === null && this.state.workFormData === null && current === 2) {
+    } else if (
+      this.state.artistFormData === null &&
+      this.state.workFormData === null &&
+      current === 2
+    ) {
       message.error("You can't confirm what doesn't exist!");
-    } else if (this.state.confirmFormData !== null && current === 3) {
-      this.setState({
-        artistFormData: null,
-        workFormData: null,
-        confirmFormData: null,
-        current: 3
-      });
-      message.success("Form submitted, you're all done!");
     } else {
       this.setState({
         current: current
@@ -75,10 +101,16 @@ export default class Signup extends React.Component {
           </Steps>
         </Row>
         {this.state.current === 0 ? (
-          <ArtistForm handleSubmit={this._handleArtistForm} data={this.state.artistFormData}/>
+          <ArtistForm
+            handleSubmit={this._handleArtistForm}
+            data={this.state.artistFormData}
+          />
         ) : null}
         {this.state.current === 1 ? (
-          <WorkForm handleSubmit={this._handleWorkForm} data={this.state.workFormData} />
+          <WorkForm
+            handleSubmit={this._handleWorkForm}
+            data={this.state.workFormData}
+          />
         ) : null}
         {this.state.current === 2 ? (
           <ConfirmForm

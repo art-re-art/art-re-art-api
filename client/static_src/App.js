@@ -36,73 +36,44 @@ export default class App extends React.Component {
             <Route
               path="/events/:id/"
               render={props => (
-                <Page
-                  {...props}
-                  component={Event}
-                  title="Event"
-                />
+                <Page {...props} component={Event} title="Event" />
               )}
             />
             <Route
               path="/events/"
               render={props => (
-                <Page
-                  {...props}
-                  component={Events}
-                  title="Shows"
-                />
+                <Page {...props} component={Events} title="Shows" />
               )}
             />
             <Route
               path="/artists/:id/"
               render={props => (
-                <Page
-                  {...props}
-                  component={Artist}
-                  title="Artist"
-                />
+                <Page {...props} component={Artist} title="Artist" />
               )}
             />
             <Route
               path="/artists/"
               render={props => (
-                <Page
-                  {...props}
-                  component={Artists}
-                  title="Artists"
-                />
+                <Page {...props} component={Artists} title="Artists" />
               )}
             />
             <Route
               path="/about/"
               render={props => (
-                <Page
-                  {...props}
-                  component={About}
-                  title="About"
-                />
+                <Page {...props} component={About} title="About" />
               )}
             />
             <Route
               path="/signup/"
               render={props => (
-                <Page
-                  {...props}
-                  component={Signup}
-                  title="Artist Signup"
-                />
+                <Page {...props} component={Signup} title="Artist Signup" />
               )}
             />
             <Route
               path="/"
               exact
               render={props => (
-                <Page
-                  {...props}
-                  component={Home}
-                  hideHeader
-                  title="Home"
-                />
+                <Page {...props} component={Home} hideHeader title="Home" />
               )}
             />
             <Route component={NoMatch} />
