@@ -8,10 +8,13 @@ import qrcode.image.svg
 
 class Event(models.Model):
     title = models.CharField(max_length=255)
-    image = models.ImageField(blank=True, null=True)
+    featured_image = models.ImageField(blank=True, null=True)
     datetime = models.DateTimeField()
     location = models.ForeignKey(
         to="events.EventLocation", on_delete=models.CASCADE, related_name="events"
+    )
+    gallery = models.ManyToManyField(
+        to="events.EventImage", related_name="images", blank=True
     )
 
     class Meta:
@@ -42,6 +45,12 @@ class Event(models.Model):
         img = qrcode.make(self.api_url, box_size=20, image_factory=factory)
         svg = ElementTree.tostring(img.get_image(), encoding="utf-8", method="xml")
         return svg.decode("utf-8")
+
+
+class EventImage(models.Model):
+    event = models.ForeignKey(Event, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField()
+    description = models.CharField(blank=True, null=True, max_length=200)
 
 
 class EventLocation(models.Model):
