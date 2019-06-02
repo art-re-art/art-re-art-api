@@ -13,9 +13,6 @@ class Event(models.Model):
     location = models.ForeignKey(
         to="events.EventLocation", on_delete=models.CASCADE, related_name="events"
     )
-    gallery = models.ManyToManyField(
-        to="events.EventImage", related_name="images", blank=True
-    )
 
     class Meta:
         ordering = ['-datetime']
