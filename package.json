@@ -5,7 +5,8 @@
     "build": "webpack --mode \"production\"",
     "migrate": "pipenv run python manage.py migrate",
     "makemigrations": "pipenv run python manage.py makemigrations",
-    "createsuperuser": "pipenv run python manage.py createsuperuser"
+    "createsuperuser": "pipenv run python manage.py createsuperuser",
+    "pgpull": "dropdb --if-exists art-re-art; heroku pg:pull postgresql-colorful-51974 art-re-art --app art-re-art"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

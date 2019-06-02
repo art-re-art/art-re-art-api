@@ -58,17 +58,6 @@ TEMPLATES = [
 WSGI_APPLICATION = "artreart.wsgi.application"
 
 
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-    }
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -114,11 +103,3 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "client/static")]
 # https://django-crispy-forms.readthedocs.io/en/latest/
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
-
-
-# STD
-# https://docs.djangoproject.com/en/2.2/ref/settings/
-
-MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
-
-MEDIA_URL = "/media/"

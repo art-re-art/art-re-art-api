@@ -32,12 +32,6 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 
-# Heroku
-# https://devcenter.heroku.com/articles/django-app-configuration
-
-django_heroku.settings(locals())
-
-
 # Custom
 
 BASE_URL = 'https://www.artreart.com'
@@ -72,3 +66,9 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_S3_CUSTOM_DOMAIN = 'static.artreart.com'
 
 MEDIA_URL = 'https://static.artreart.com/'
+
+
+# Heroku
+# https://devcenter.heroku.com/articles/django-app-configuration
+
+django_heroku.settings(locals())

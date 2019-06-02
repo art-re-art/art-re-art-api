@@ -13,12 +13,25 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# Database
+# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "art-re-art",
+    }
+}
+
+
 # STD
 # https://docs.djangoproject.com/en/2.2/ref/settings/
 
 PREPEND_WWW = False
 
 SECURE_SSL_REDIRECT = False
+
+MEDIA_URL = "https://static.artreart.com/"
 
 
 # Custom

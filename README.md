@@ -6,8 +6,7 @@ Companion website for a series of pop up art events in downtown Morganton, NC.
 
     pipenv install --dev
     npm i
-    npm run-script migrate
-    npm run-script createsuperuser
+    npm run-script pgpull
     npm start
 
 ## Running django commands
@@ -25,3 +24,7 @@ A few commands have npm scripts:
 ## Deploying
 
 Pushing code to the Github repo will automatically deploy that code to Heroku.
+
+## Getting a production database to test with
+
+  npm run-script pgpull
