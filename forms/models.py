@@ -24,12 +24,19 @@ class ArtistSignup(models.Model):
 
 class ArtistSignupWork(models.Model):
     artist_signup = models.ForeignKey(
-        to="forms.ArtistSignup", on_delete=models.CASCADE, related_name="works"
+        to="forms.ArtistSignup",
+        on_delete=models.CASCADE,
+        related_name="works",
+        blank=True,
+        null=True,
     )
     image = models.ImageField()
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, blank=True, null=True)
     medium = models.CharField(
-        max_length=255, help_text="Can have multiple, ex. Painting, Installation, Video"
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text="Can have multiple, ex. Painting, Installation, Video",
     )
     description = models.TextField(blank=True, null=True)
     special_installation_needs = models.TextField(
@@ -64,4 +71,4 @@ class MailchimpSignup(models.Model):
             raise Exception("Can't access Mailchimp to submit data!")
         if r.status_code != 200:
             data = r.json()
-            raise Exception(data['detail'])
+            raise Exception(data["detail"])
