@@ -30,14 +30,14 @@ export default class Artist extends React.Component {
 
     return (
       <div className="container">
-        <Row gutter={24}>
-          <Col span={8}>
+        <Row gutter={24} lg={24}>
+          <Col xl={8} lg={24}>
             <div
               style={{ textAlign: "center" }}
               dangerouslySetInnerHTML={{ __html: this.state.artist.qrcode }}
             />
           </Col>
-          <Col span={16}>
+          <Col xl={16}>
             <Title level={2}>{this.state.artist.name}</Title>
             <Paragraph>
               {this.state.artist.medium
