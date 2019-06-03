@@ -17,29 +17,6 @@ class MailchimpSignupSerializer(serializers.HyperlinkedModelSerializer):
         fields = ("url", "first_name", "last_name", "email")
 
 
-class ArtistMediumSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = ArtistMedium
-        fields = ("url", "title")
-
-
-class ArtistSerializer(serializers.HyperlinkedModelSerializer):
-    medium = ArtistMediumSerializer(many=True, read_only=True)
-
-    class Meta:
-        model = Artist
-        fields = (
-            "url",
-            "id",
-            "name",
-            "instagram",
-            "website",
-            "medium",
-            "events",
-            "qrcode",
-        )
-
-
 class EventLocationSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = EventLocation
@@ -55,12 +32,18 @@ class EventLocationSerializer(serializers.HyperlinkedModelSerializer):
         )
 
 
+class ArtistMediumSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ArtistMedium
+        fields = ("url", "title")
+
+
 class EventArtistSerializer(serializers.HyperlinkedModelSerializer):
     medium = ArtistMediumSerializer(many=True, read_only=True)
 
     class Meta:
         model = Artist
-        fields = ("url", "name", "instagram", "website", "medium")
+        fields = ("url", "id", "name", "instagram", "website", "medium", "qrcode")
 
 
 class EventSerializer(serializers.HyperlinkedModelSerializer):
@@ -80,7 +63,42 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
             "location",
             "artists",
             "qrcode",
-            "featured_image"
+            "featured_image",
+        )
+
+
+class ArtistEventSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Event
+        fields = (
+            "url",
+            "id",
+            "title",
+            "datetime",
+            "month",
+            "day",
+            "time",
+            "location",
+            "qrcode",
+            "featured_image",
+        )
+
+
+class ArtistSerializer(serializers.HyperlinkedModelSerializer):
+    medium = ArtistMediumSerializer(many=True, read_only=True)
+    events = ArtistEventSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Artist
+        fields = (
+            "url",
+            "id",
+            "name",
+            "instagram",
+            "website",
+            "medium",
+            "events",
+            "qrcode",
         )
 
 

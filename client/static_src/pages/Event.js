@@ -94,6 +94,7 @@ export default class Event extends React.Component {
           </Col>
         </Row>
         <Row>
+          <Title level={2}>Artists attending this event</Title>
           {this.state.event.artists
             ? this.state.event.artists.map(artist => {
                 return <Artist key={artist.url} {...artist} />;
