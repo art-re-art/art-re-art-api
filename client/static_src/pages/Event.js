@@ -42,25 +42,35 @@ export default class Event extends React.Component {
       <div className="container">
         <Row>
           <Col xl={8} lg={24}>
-            <div
-              style={{ textAlign: "center" }}
-              dangerouslySetInnerHTML={{ __html: this.state.event.featured_image }}
+            <img
+              src={this.state.event.featured_image}
+              style={{ width: "100%", height: "auto", padding: "1em" }}
             />
           </Col>
           <Col xl={16} lg={24}>
-            <Title level={2}>{this.state.event.title}</Title>
-            <Paragraph>
-              {moment(this.state.event.datetime).format("LLLL")}
-            </Paragraph>
-            <Paragraph>
-              {this.state.event.location
-                ? this.state.event.location.title
-                : null}
-              <br />
-              {this.state.event.location
-                ? this.state.event.location.street
-                : null}
-            </Paragraph>
+            <Row>
+              <Col span={12}>
+                <Title level={2}>{this.state.event.title}</Title>
+                <Paragraph>
+                  {moment(this.state.event.datetime).format("LLLL")}
+                </Paragraph>
+                <Paragraph>
+                  {this.state.event.location
+                    ? this.state.event.location.title
+                    : null}
+                  <br />
+                  {this.state.event.location
+                    ? this.state.event.location.street
+                    : null}
+                </Paragraph>
+              </Col>
+              <Col span={12}>
+                <div
+                  style={{ textAlign: "center" }}
+                  dangerouslySetInnerHTML={{ __html: this.state.event.qrcode }}
+                />
+              </Col>
+            </Row>
             <Paragraph>
               {this.state.event.location ? (
                 <div
