@@ -23,7 +23,7 @@ export default class Home extends React.Component {
               justifyContent: "center",
               alignItems: "end",
               flexDirection: "column",
-              height: "50vh",
+              height: "500px",
               padding: "2em"
             }}
           >
