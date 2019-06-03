@@ -101,6 +101,23 @@ export default class Event extends React.Component {
               })
             : null}
         </Row>
+        <Row>
+          <Title level={2}>Images from this event</Title>
+          {this.state.event.images
+            ? this.state.event.images.map(image => {
+                return (
+                  <Col span={6}>
+                    <img
+                      key={image.url}
+                      src={image.image}
+                      alt={image.description}
+                      style={{ width: "100%", height: "auto" }}
+                    />
+                  </Col>
+                );
+              })
+            : null}
+        </Row>
       </div>
     );
   }

@@ -4,7 +4,7 @@ from .models import Event, EventLocation, EventImage
 
 
 class EventImageInline(admin.StackedInline):
-    model = ArtistSignupWork
+    model = EventImage
     extra = 0
 
 
