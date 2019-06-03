@@ -3,6 +3,7 @@ import { Col, Row, Typography } from "antd";
 import moment from "moment";
 
 import Loading from "../components/Loading";
+import Artist from "../components/Artist";
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -91,6 +92,13 @@ export default class Event extends React.Component {
               ) : null}
             </Paragraph>
           </Col>
+        </Row>
+        <Row>
+          {this.state.event.artists
+            ? this.state.event.artists.map(artist => {
+                return <Artist key={artist.url} {...artist} />;
+              })
+            : null}
         </Row>
       </div>
     );
