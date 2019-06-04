@@ -6,7 +6,7 @@ const { Title, Paragraph } = Typography;
 const { TextArea } = Input;
 const { Dragger } = Upload;
 
-class WorkForm extends React.Component {
+export default class WorkForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
@@ -23,9 +23,10 @@ class WorkForm extends React.Component {
   }
 
   normFile = e => {
-    if (e.file.response) {
-      return e.file.response.url;
+    if (Array.isArray(e)) {
+      return e;
     }
+    return e && e.fileList;
   };
 
   render() {
@@ -132,12 +133,10 @@ class WorkForm extends React.Component {
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit">
-            Next step
+            Save work
           </Button>
         </Form.Item>
       </Form>
     );
   }
 }
-
-export default Form.create({ name: "work" })(WorkForm);

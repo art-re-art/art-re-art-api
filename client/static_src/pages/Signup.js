@@ -3,7 +3,7 @@ import React from "react";
 import { Steps, Typography, Row, Col, message } from "antd";
 
 import ArtistForm from "../components/SignupArtistForm";
-import WorkForm from "../components/SignupWorkForm";
+import SignupWork from "../components/SignupWork";
 import ConfirmForm from "../components/SignupConfirmForm";
 import Complete from "../components/SignupComplete";
 import axios from "axios";
@@ -47,14 +47,16 @@ export default class Signup extends React.Component {
       this.state.artistFormData,
       axiosConfig
     );
-    const workFormData = this.state.workFormData;
-    workFormData.artist_signup = artist_signup.data.url;
-    const artist_signup_work = await axios.post(
-      "/api/artistsignupwork/",
-      workFormData,
-      axiosConfig
-    );
-    if (artist_signup_work.status === 201) {
+    let workFormDataSubmitted = await this.state.workFormData.map(workFormData => {
+      workFormData.artist_signup = artist_signup.data.url;
+      return axios.post(
+        "/api/artistsignupwork/",
+        workFormData,
+        axiosConfig
+      );
+    });
+
+    if (workFormDataSubmitted) {
       message.success("Form submitted, you're all done!");
       this.setState({
         artistFormData: null,
@@ -105,7 +107,7 @@ export default class Signup extends React.Component {
           />
         ) : null}
         {this.state.current === 1 ? (
-          <WorkForm
+          <SignupWork
             handleSubmit={this._handleWorkForm}
             data={this.state.workFormData}
           />
