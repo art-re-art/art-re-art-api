@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Layout } from "antd";
+import { Layout, Icon } from "antd";
 
 import Page from "./components/Page";
 import Sidebar from "./components/Sidebar";
@@ -22,18 +22,47 @@ import "react-app-polyfill/stable";
 
 import WebFont from "webfontloader";
 
-WebFont.load({
-  google: {
-    families: ["Inconsolata", "Open Sans:700"]
-  }
-});
-
 export default class App extends React.Component {
+  state = {
+    collapsed: false,
+    broken: false
+  };
+
+  _setCollapsed = collapsed => {
+    this.setState({ collapsed: collapsed });
+  };
+
+  _setBroken = broken => {
+    this.setState({ broken: broken });
+  };
+
+  componentDidMount() {
+    WebFont.load({
+      google: {
+        families: ["Inconsolata", "Open Sans:700"]
+      }
+    });
+  }
+
   render() {
     return (
       <Router>
         <Layout>
-          <Sidebar />
+          <Sidebar
+            collapsed={this.state.collapsed}
+            broken={this.state.broken}
+            setCollapsed={this._setCollapsed}
+            setBroken={this._setBroken}
+          />
+          {this.state.broken ? (
+            <Icon
+              className="trigger"
+              type={this.state.collapsed ? "menu" : "close"}
+              onClick={() => {
+                this._setCollapsed(!this.state.collapsed);
+              }}
+            />
+          ) : null}
           <Switch>
             <Route
               path="/events/:id/"

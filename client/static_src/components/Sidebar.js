@@ -9,20 +9,12 @@ import "../styles/Sidebar.less";
 const { Sider } = Layout;
 
 class Sidebar extends React.Component {
-  state = { event: {}, collapsed: true, broken: false };
-
-  toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed
-    });
-  };
+  state = { event: {} };
 
   componentDidMount() {
     this.props.history.listen(() => {
-      if (this.state.broken) {
-        this.setState({
-          collapsed: true
-        });
+      if (this.props.broken) {
+        this.props.setCollapsed(true);
       }
     });
 
@@ -44,19 +36,13 @@ class Sidebar extends React.Component {
         collapsedWidth="0"
         theme="light"
         onBreakpoint={broken => {
-          this.setState({ collapsed: broken, broken: broken });
+          this.props.setCollapsed(broken);
+          this.props.setBroken(broken);
         }}
         trigger={null}
         collapsible
-        collapsed={this.state.collapsed}
+        collapsed={this.props.collapsed}
       >
-        {this.state.broken ? (
-          <Icon
-            className="trigger"
-            type={this.state.collapsed ? "menu" : "close"}
-            onClick={this.toggle}
-          />
-        ) : null}
         <div className="sidebar-logo">
           <img
             src={Logo}
