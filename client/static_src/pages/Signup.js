@@ -1,5 +1,15 @@
 import React from "react";
-import { Steps, Typography, Row, Col, Collapse, Button, Icon } from "antd";
+import {
+  Steps,
+  Typography,
+  Row,
+  Col,
+  Collapse,
+  Button,
+  Icon,
+  message,
+  Descriptions
+} from "antd";
 import axios from "axios";
 
 import ArtistForm from "../components/SignupArtistForm";
@@ -16,7 +26,8 @@ export default class Signup extends React.Component {
     forms: [],
     current: 0,
     validationErrors: false,
-    activeKey: "0"
+    activeKey: "0",
+    confirmed: false
   };
 
   _addWorkForm = () => {
@@ -31,13 +42,17 @@ export default class Signup extends React.Component {
   _removeWorkForm = () => {
     let dataWork = this.state.dataWork;
     let forms = this.state.forms;
-    dataWork.pop();
-    forms.pop();
-    this.setState({
-      dataWork: dataWork,
-      forms: forms,
-      activeKey: String(dataWork.length - 1)
-    });
+    if (dataWork.length === 1) {
+      message.error("You share at least one piece of work you've done.");
+    } else {
+      dataWork.pop();
+      forms.pop();
+      this.setState({
+        dataWork: dataWork,
+        forms: forms,
+        activeKey: String(dataWork.length - 1)
+      });
+    }
   };
 
   _updateForms = form => {
@@ -50,11 +65,11 @@ export default class Signup extends React.Component {
     }
   };
 
-  _submitForms = () => {
-    this.state.forms.map((form, index) => {
-      this.setState({
-        validationErrors: false
-      });
+  _submitForms = async () => {
+    this.setState({
+      validationErrors: false
+    });
+    await this.state.forms.map((form, index) => {
       form.props.form.validateFields((err, data) => {
         if (!err) {
           if (form.constructor.name === "ArtistForm") {
@@ -68,9 +83,6 @@ export default class Signup extends React.Component {
               dataWork: dataWork
             });
           }
-          this.setState({
-            current: 1
-          });
         } else {
           this.setState({
             validationErrors: true
@@ -78,11 +90,36 @@ export default class Signup extends React.Component {
         }
       });
     });
+    if (this.state.validationErrors === false) {
+      this.setState({
+        current: 1
+      });
+    } else {
+      message.error(
+        "You didn't finish filling something out! Please complete the full form."
+      );
+    }
   };
 
   _changePanel = key => {
     this.setState({
       activeKey: key
+    });
+  };
+
+  _completeSignup = async () => {
+    const artistSignup = await axios.post(
+      "/api/artistsignup/",
+      this.state.dataArtist
+    );
+    const artistUrl = artistSignup.data.url;
+    this.state.dataWork.map(work => {
+      work.artist_signup = artistUrl;
+      work.image = work.image[work.image.length - 1].response.url;
+      axios.post("/api/artistsignupwork/", work);
+    });
+    this.setState({
+      current: 2
     });
   };
 
@@ -166,23 +203,63 @@ export default class Signup extends React.Component {
         ) : null}
         {this.state.current === 1 ? (
           <div className="signup-forms">
-        <Title level={2}>Confirm</Title>
-        <Paragraph>Make sure everything is accurate!</Paragraph>
-        <Row style={{ marginTop: "2em" }}>
-          <Col span={12}>
-            <Button onClick={() => {this.setState({current: 0})}} type="primary">
-              <Icon type="caret-left" /> Fix data
-            </Button>
-          </Col>
-          <Col span={12} style={{ textAlign: "right" }}>
-            <Button onClick={() => {this.setState({current: 2})}} type="primary">
-              Complete signup <Icon type="caret-right" />
-            </Button>
-          </Col>
-        </Row>
-        </div>
+            <Row style={{ marginTop: "2em" }}>
+              <Col>
+                <Title level={2}>Confirm</Title>
+                <Paragraph>Just making sure everything is accurate.</Paragraph>
+              </Col>
+            </Row>
+            <Row style={{ marginTop: "2em" }}>
+              <Descriptions title="Artist" bordered>
+                {Object.keys(this.state.dataArtist).map(key => {
+                  return (
+                    <Descriptions.Item label={key} key={key}>
+                      {this.state.dataArtist[key]}
+                    </Descriptions.Item>
+                  );
+                })}
+              </Descriptions>
+            </Row>
+            {this.state.dataWork.map(work => {
+              return (
+                <Row style={{ marginTop: "2em" }} key={work.title}>
+                  <Descriptions title="Work" bordered>
+                    {Object.keys(work).map(key => {
+                      if (typeof work[key] !== "object") {
+                        return (
+                          <Descriptions.Item label={key} key={key}>
+                            {work[key]}
+                          </Descriptions.Item>
+                        );
+                      } else {
+                        return <Descriptions.Item label={key} key={key} />;
+                      }
+                    })}
+                  </Descriptions>
+                </Row>
+              );
+            })}
+            <Row style={{ marginTop: "2em" }}>
+              <Col span={24} style={{ textAlign: "right" }}>
+                <Button onClick={this._completeSignup} type="primary">
+                  Complete signup <Icon type="caret-right" />
+                </Button>
+              </Col>
+            </Row>
+          </div>
         ) : null}
-        {this.state.current === 2 ? <Title level={2}>Complete</Title> : null}
+        {this.state.current === 2 ? (
+          <div className="signup-forms">
+            <Row style={{ marginTop: "2em" }}>
+              <Col>
+                <Title level={2}>Complete</Title>
+                <Paragraph>
+                  Thank you for signing up for Art/Re/Art, we will be in touch!
+                </Paragraph>
+              </Col>
+            </Row>
+          </div>
+        ) : null}
       </div>
     );
   }
