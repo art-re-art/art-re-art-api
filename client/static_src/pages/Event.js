@@ -8,7 +8,7 @@ import Artist from "../components/Artist";
 const { Title, Paragraph, Text } = Typography;
 
 export default class Event extends React.Component {
-  state = { event: {} };
+  state = { event: {}, isLoading: true };
 
   componentDidMount() {
     fetch(`/api/events/${this.props.match.params.id}/`)
@@ -17,7 +17,8 @@ export default class Event extends React.Component {
       })
       .then(data => {
         this.setState({
-          event: data
+          event: data,
+          isLoading: false
         });
         this.props.setTitle(`${data.title} | Show`);
       });
@@ -106,9 +107,8 @@ export default class Event extends React.Component {
           {this.state.event.images
             ? this.state.event.images.map(image => {
                 return (
-                  <Col span={6}>
+                  <Col span={6} key={image.url}>
                     <img
-                      key={image.url}
                       src={image.image}
                       alt={image.description}
                       style={{ width: "100%", height: "auto" }}
