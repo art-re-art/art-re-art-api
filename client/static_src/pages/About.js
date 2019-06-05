@@ -34,7 +34,7 @@ export default class About extends React.Component {
         <Divider dashed />
         <Row>
           <Title level={2}>FAQs</Title>
-          <Collapse>
+          <Collapse accordion>
             <Panel header="What is ART/RE/ART?">
               <Paragraph>
                 ART/RE/ART is a series of pop-up art shows taking place in and
