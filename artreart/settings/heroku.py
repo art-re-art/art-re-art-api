@@ -68,6 +68,15 @@ AWS_S3_CUSTOM_DOMAIN = 'static.artreart.com'
 MEDIA_URL = 'https://static.artreart.com/'
 
 
+
+# Django rest framework
+# https://www.django-rest-framework.org/
+
+REST_FRAMEWORK = {
+    "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",)
+}
+
+
 # Heroku
 # https://devcenter.heroku.com/articles/django-app-configuration
 
