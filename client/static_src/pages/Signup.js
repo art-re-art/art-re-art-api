@@ -31,6 +31,10 @@ export default class Signup extends React.Component {
     notComplete: true
   };
 
+  componentDidMount() {
+    this.props.setTitle("Artist Signup");
+  }
+
   _addWorkForm = () => {
     let dataWork = this.state.dataWork;
     dataWork.push({});

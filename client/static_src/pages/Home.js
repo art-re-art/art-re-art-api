@@ -6,6 +6,10 @@ import Background from "../images/bg.jpg";
 import "../styles/Home.less";
 
 export default class Home extends React.Component {
+  componentDidMount() {
+    this.props.setTitle("A series of pop up art events in downtown Morganton, NC.");
+  }
+
   render() {
     return (
       <header>

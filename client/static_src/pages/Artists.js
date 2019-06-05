@@ -11,6 +11,7 @@ export default class Artists extends React.Component {
   state = { artists: [], isLoading: true };
 
   componentDidMount() {
+    this.props.setTitle("Artists");
     fetch("/api/artists/")
       .then(data => {
         return data.json();

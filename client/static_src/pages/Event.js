@@ -16,10 +16,10 @@ export default class Event extends React.Component {
         return data.json();
       })
       .then(data => {
-        document.title = `${data.title} | Event | Art/Re/Art`;
         this.setState({
           event: data
         });
+        this.props.setTitle(`${data.title} | Show`);
       });
   }
 

@@ -7,18 +7,29 @@ import Header from "./Header";
 import "../styles/Page.less";
 
 export default class Page extends React.Component {
+  state = {
+    title: "Art/Re/Art"
+  };
+
   componentDidMount() {
-    document.title = `${this.props.title} | Art/Re/Art`;
+    this._setTitle(this.props.title);
   }
+
+  _setTitle = title => {
+    document.title = `${title} | Art/Re/Art`;
+    this.setState({
+      title: title
+    });
+  };
 
   render() {
     const PageComponent = this.props.component;
 
     return (
       <Layout className="content">
-        {!this.props.hideHeader ? <Header title={this.props.title} /> : null}
+        {!this.props.hideHeader ? <Header title={this.state.title} /> : null}
         <Layout.Content>
-          <PageComponent {...this.props} />
+          <PageComponent {...this.props} setTitle={this._setTitle} />
         </Layout.Content>
         <Footer />
       </Layout>

@@ -16,11 +16,11 @@ export default class Artist extends React.Component {
         return data.json();
       })
       .then(data => {
-        document.title = `${data.name} | Artist | Art/Re/Art`;
         this.setState({
           artist: data,
           isLoading: false
         });
+        this.props.setTitle(`${data.name} | Artist`);
       });
   }
 

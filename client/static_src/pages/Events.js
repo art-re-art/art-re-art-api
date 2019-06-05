@@ -10,6 +10,7 @@ export default class Events extends React.Component {
   state = { events: [], isLoading: true };
 
   componentDidMount() {
+    this.props.setTitle("Shows");
     fetch("/api/events/")
       .then(data => {
         return data.json();

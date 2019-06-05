@@ -5,14 +5,21 @@ const { Title, Paragraph } = Typography;
 const { Panel } = Collapse;
 
 export default class About extends React.Component {
+  componentDidMount() {
+    this.props.setTitle("About");
+  }
+
   render() {
     return (
       <div className="container">
         <Row>
           <Title level={2}>The Down Low</Title>
           <Paragraph>
-            ART/RE/ART is a series of pop up art events in downtown Morganton, NC. These free events, held in non-art
-            spaces, offer alternative ways to interact with and experience art in the community. Typically, there is an emphasis on performative, interactive, and installation art works.
+            ART/RE/ART is a series of pop up art events in downtown Morganton,
+            NC. These free events, held in non-art spaces, offer alternative
+            ways to interact with and experience art in the community.
+            Typically, there is an emphasis on performative, interactive, and
+            installation art works.
           </Paragraph>
         </Row>
         <Divider dashed />
@@ -58,7 +65,10 @@ export default class About extends React.Component {
             </Panel>
             <Panel header="Where can I learn more?">
               <Paragraph>
-                We love to answer questions and dig into conversations about art and our events. Email us <a href="mailto:hello@artreart.com">hello@artreart.com</a> to chat.
+                We love to answer questions and dig into conversations about art
+                and our events. Email us
+                <a href="mailto:hello@artreart.com">hello@artreart.com</a> to
+                chat.
               </Paragraph>
             </Panel>
           </Collapse>
