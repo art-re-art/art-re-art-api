@@ -8,6 +8,7 @@ export default class Loading extends React.Component {
     return (
       <div className="loading-container">
         <Spin size="large" />
+        Loading...
       </div>
     );
   }
