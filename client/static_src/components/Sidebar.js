@@ -18,6 +18,14 @@ class Sidebar extends React.Component {
   };
 
   componentDidMount() {
+    this.props.history.listen(() => {
+      if (this.state.broken) {
+        this.setState({
+          collapsed: true
+        });
+      }
+    });
+
     fetch("/api/events/")
       .then(data => {
         return data.json();
