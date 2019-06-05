@@ -15,17 +15,16 @@ class ArtistSignupWorkInline(admin.StackedInline):
 
 @admin.register(ArtistSignupWorkImage)
 class ArtistSignupWorkImageAdmin(admin.ModelAdmin):
-    pass
-
-
-@admin.register(ArtistSignupWork)
-class ArtistSignupWorkAdmin(admin.ModelAdmin):
-    pass
+    def get_model_perms(self, request):
+        return {}
 
 
 @admin.register(ArtistSignup)
 class ArtistSignupAdmin(admin.ModelAdmin):
+    list_display = ["name", "email", "phone_number", "city", "state", "submitted"]
+    list_filter = ["state"]
     inlines = [ArtistSignupWorkInline]
+    readonly_fields = ["submitted"]
 
 
 @admin.register(MailchimpSignup)

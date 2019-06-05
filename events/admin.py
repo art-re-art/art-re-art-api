@@ -10,14 +10,15 @@ class EventImageInline(admin.StackedInline):
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
+    list_display = ["title", "datetime", "location", "number_of_images"]
+    list_filter = ["location__title"]
     inlines = [EventImageInline]
-
-
-@admin.register(EventImage)
-class EventImageAdmin(admin.ModelAdmin):
-    pass
 
 
 @admin.register(EventLocation)
 class EventLocationAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["title", "street", "city", "state", "latitude", "longitude"]
+    list_filter = ["state"]
+
+    def get_model_perms(self, request):
+        return {}

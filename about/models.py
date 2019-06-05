@@ -7,6 +7,10 @@ class About(models.Model):
     website = models.URLField(max_length=255)
     description = models.TextField()
 
+    class Meta:
+        verbose_name = 'about'
+        verbose_name_plural = 'about'
+
     def __str__(self):
         return self.title
 
@@ -16,6 +20,11 @@ class About(models.Model):
                 "Only one About object can be created, please update the existing object."
             )
         return super().save(*args, **kwargs)
+
+    @property
+    def developer_list(self):
+        if self.developers.exists():
+            return ", ".join([developer.name for developer in self.developers.all()])
 
 
 class AboutDeveloper(models.Model):

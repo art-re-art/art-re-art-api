@@ -32,6 +32,20 @@ class Artist(models.Model):
         svg = ElementTree.tostring(img.get_image(), encoding="utf-8", method="xml")
         return svg.decode("utf-8")
 
+    @property
+    def medium_list(self):
+        if self.medium.exists():
+            return ", ".join([medium.title for medium in self.medium.all()])
+        else:
+            return None
+
+    @property
+    def events_list(self):
+        if self.events.exists():
+            return ", ".join([event.title for event in self.events.all()])
+        else:
+            return None
+
 
 class ArtistMedium(models.Model):
     title = models.CharField(max_length=255)

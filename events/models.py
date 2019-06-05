@@ -43,6 +43,9 @@ class Event(models.Model):
         svg = ElementTree.tostring(img.get_image(), encoding="utf-8", method="xml")
         return svg.decode("utf-8")
 
+    @property
+    def number_of_images(self):
+        return str(self.images.count())
 
 class EventImage(models.Model):
     event = models.ForeignKey(Event, related_name='images', on_delete=models.CASCADE)

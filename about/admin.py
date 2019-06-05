@@ -15,14 +15,5 @@ class AboutFAQInline(admin.StackedInline):
 
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
+    list_display = ['title', 'website', 'developer_list']
     inlines = [AboutDeveloperInline, AboutFAQInline]
-
-
-@admin.register(AboutDeveloper)
-class AboutDeveloperAdmin(admin.ModelAdmin):
-    pass
-
-
-@admin.register(AboutFAQ)
-class AboutFAQAdmin(admin.ModelAdmin):
-    pass

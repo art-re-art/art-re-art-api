@@ -5,6 +5,7 @@ import requests
 
 
 class ArtistSignup(models.Model):
+    submitted = models.DateTimeField(auto_now_add=True)
     name = models.CharField(
         max_length=255, help_text="Or alias you would prefer to go by."
     )
@@ -20,6 +21,9 @@ class ArtistSignup(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ['-submitted']
 
 
 class ArtistSignupWork(models.Model):
