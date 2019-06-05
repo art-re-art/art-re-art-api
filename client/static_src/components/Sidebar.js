@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { Layout, Menu, Icon } from "antd";
 import moment from "moment";
 
@@ -8,7 +8,7 @@ import "../styles/Sidebar.less";
 
 const { Sider } = Layout;
 
-export default class Sidebar extends React.Component {
+class Sidebar extends React.Component {
   state = { event: {}, collapsed: true, broken: false };
 
   toggle = () => {
@@ -36,11 +36,7 @@ export default class Sidebar extends React.Component {
         collapsedWidth="0"
         theme="light"
         onBreakpoint={broken => {
-          console.log(broken);
           this.setState({ collapsed: broken, broken: broken });
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
         }}
         trigger={null}
         collapsible
@@ -60,32 +56,37 @@ export default class Sidebar extends React.Component {
             className="sidebar-logo__image"
           />
         </div>
-        <Menu theme="light" mode="inline" defaultSelectedKeys={["1"]}>
-          <Menu.Item key="1">
+        <Menu
+          theme="light"
+          mode="inline"
+          defaultSelectedKeys={["/"]}
+          selectedKeys={[this.props.location.pathname]}
+        >
+          <Menu.Item key="/">
             <Link to="/">
               <Icon type="home" />
               <span className="nav-text">Home</span>
             </Link>
           </Menu.Item>
-          <Menu.Item key="2">
+          <Menu.Item key="/about/">
             <Link to="/about/">
               <Icon type="question-circle" />
               <span className="nav-text">About</span>
             </Link>
           </Menu.Item>
-          <Menu.Item key="3">
+          <Menu.Item key="/artists/">
             <Link to="/artists/">
               <Icon type="user" />
               <span className="nav-text">Artists</span>
             </Link>
           </Menu.Item>
-          <Menu.Item key="4">
+          <Menu.Item key="/events/">
             <Link to="/events/">
               <Icon type="calendar" />
               <span className="nav-text">Shows</span>
             </Link>
           </Menu.Item>
-          <Menu.Item key="5">
+          <Menu.Item key="/signup/">
             <Link to="/signup/">
               <Icon type="plus" />
               <span className="nav-text">Artist Signup</span>
@@ -108,3 +109,5 @@ export default class Sidebar extends React.Component {
     );
   }
 }
+
+export default withRouter(Sidebar);
