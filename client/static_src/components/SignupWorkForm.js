@@ -1,21 +1,12 @@
 import React from "react";
-import { Form, Input, Button, Typography, Upload, Icon, Row, Col } from "antd";
+import { Form, Input, Button, Typography, Upload, Icon } from "antd";
 import Cookies from "js-cookie";
 
-const { Title, Paragraph } = Typography;
+const { Paragraph } = Typography;
 const { TextArea } = Input;
 const { Dragger } = Upload;
 
-export default class WorkForm extends React.Component {
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.form.validateFieldsAndScroll((err, values) => {
-      if (!err) {
-        this.props.handleSubmit(values);
-      }
-    });
-  };
-
+class WorkForm extends React.Component {
   componentDidMount() {
     if (this.props.data) {
       this.props.form.setFieldsValue(this.props.data);
@@ -32,38 +23,8 @@ export default class WorkForm extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
 
-    const formItemLayout = {
-      labelCol: {
-        xs: { span: 24 },
-        sm: { span: 8 }
-      },
-      wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 16 }
-      }
-    };
-
-    const tailFormItemLayout = {
-      wrapperCol: {
-        xs: {
-          span: 24,
-          offset: 0
-        },
-        sm: {
-          span: 16,
-          offset: 8
-        }
-      }
-    };
-
     return (
-      <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-        <Row style={{ padding: "3em 0" }}>
-          <Col offset={8}>
-            <Title level={2}>Your work</Title>
-            <Paragraph>Tell us about your art!</Paragraph>
-          </Col>
-        </Row>
+      <Form onSubmit={this.handleSubmit}>
         <Form.Item label="Image">
           {getFieldDecorator("image", {
             getValueFromEvent: this.normFile,
@@ -131,12 +92,10 @@ export default class WorkForm extends React.Component {
             ]
           })(<TextArea autosize />)}
         </Form.Item>
-        <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">
-            Save work
-          </Button>
-        </Form.Item>
       </Form>
     );
   }
 }
+
+
+export default Form.create()(WorkForm);

@@ -1,19 +1,9 @@
 import React from "react";
-import { Form, Input, Button, Typography, Col, Row } from "antd";
+import { Form, Input, Button } from "antd";
 
-const { Title, Paragraph } = Typography;
 const { TextArea } = Input;
 
 class ArtistForm extends React.Component {
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.form.validateFieldsAndScroll((err, values) => {
-      if (!err) {
-        this.props.handleSubmit(values);
-      }
-    });
-  };
-
   componentDidMount() {
     if (this.props.data) {
       this.props.form.setFieldsValue(this.props.data);
@@ -23,38 +13,8 @@ class ArtistForm extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
 
-    const formItemLayout = {
-      labelCol: {
-        xs: { span: 24 },
-        sm: { span: 8 }
-      },
-      wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 16 }
-      }
-    };
-
-    const tailFormItemLayout = {
-      wrapperCol: {
-        xs: {
-          span: 24,
-          offset: 0
-        },
-        sm: {
-          span: 16,
-          offset: 8
-        }
-      }
-    };
-
     return (
-      <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-        <Row style={{ padding: "3em 0" }}>
-          <Col offset={8}>
-            <Title level={2}>About you</Title>
-            <Paragraph>Tell us about you!</Paragraph>
-          </Col>
-        </Row>
+      <Form onSubmit={this.handleSubmit}>
         <Form.Item label="Name">
           {getFieldDecorator("name", {
             rules: [
@@ -147,14 +107,9 @@ class ArtistForm extends React.Component {
             ]
           })(<Input />)}
         </Form.Item>
-        <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">
-            Next step
-          </Button>
-        </Form.Item>
       </Form>
     );
   }
 }
 
-export default Form.create({ name: "artist" })(ArtistForm);
+export default Form.create()(ArtistForm);
