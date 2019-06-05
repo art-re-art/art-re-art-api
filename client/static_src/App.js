@@ -67,7 +67,7 @@ export default class App extends React.Component {
             <Route
               path="/events/:id/"
               render={props => (
-                <Page {...props} component={Event} title="Event" />
+                <Page {...props} component={Event} title="Show" />
               )}
             />
             <Route
@@ -104,7 +104,12 @@ export default class App extends React.Component {
               path="/"
               exact
               render={props => (
-                <Page {...props} component={Home} hideHeader title="Home" />
+                <Page
+                  {...props}
+                  component={Home}
+                  hideHeader
+                  title="A series of pop up art events in downtown Morganton, NC."
+                />
               )}
             />
             <Route component={NoMatch} />
