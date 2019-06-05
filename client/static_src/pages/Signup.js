@@ -1,4 +1,5 @@
 import React from "react";
+import { Prompt } from "react-router-dom";
 import {
   Steps,
   Typography,
@@ -27,7 +28,7 @@ export default class Signup extends React.Component {
     current: 0,
     validationErrors: false,
     activeKey: "0",
-    confirmed: false
+    notComplete: true
   };
 
   _addWorkForm = () => {
@@ -113,19 +114,24 @@ export default class Signup extends React.Component {
       this.state.dataArtist
     );
     const artistUrl = artistSignup.data.url;
-    this.state.dataWork.map(work => {
+    await this.state.dataWork.map(work => {
       work.artist_signup = artistUrl;
       work.image = work.image[work.image.length - 1].response.url;
       axios.post("/api/artistsignupwork/", work);
     });
     this.setState({
-      current: 2
+      current: 2,
+      notComplete: false
     });
   };
 
   render() {
     return (
       <div className="container">
+        <Prompt
+          message="If you leave this page now you will lose form progress, are you sure?"
+          when={this.state.notComplete}
+        />
         <Row style={{ marginBottom: "2em" }}>
           <Col>
             <Steps current={this.state.current}>
