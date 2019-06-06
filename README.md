@@ -9,6 +9,12 @@ Companion website for a series of pop up art events in downtown Morganton, NC.
     npm run-script pgpull
     npm start
 
+# NPM Start is not showing all python errors
+
+Temp work around to see:
+
+    pipenv run python manage.py runserver
+
 ## Running django commands
 
 Use standard pipenv run for django management commands:

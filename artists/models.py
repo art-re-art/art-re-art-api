@@ -52,3 +52,29 @@ class ArtistMedium(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ArtistWork(models.Model):
+    artist = models.ForeignKey(
+        to="artists.Artist", on_delete=models.CASCADE, related_name="works"
+    )
+    title = models.CharField(max_length=255, blank=True, null=True)
+    year = models.CharField(max_length=255, blank=True, null=True)
+    medium = models.ManyToManyField(
+        to="artists.ArtistMedium", related_name="artist_works", blank=True
+    )
+    dimensions = models.CharField(max_length=255, blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+
+class ArtistWorkImage(models.Model):
+    artist_work = models.ForeignKey(
+        to="artists.ArtistWork", on_delete=models.CASCADE, related_name="images"
+    )
+    image = models.ImageField()
+
+    def __str__(self):
+        return str(self.image)
