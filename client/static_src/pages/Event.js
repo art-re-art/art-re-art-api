@@ -52,7 +52,7 @@ export default class Event extends React.Component {
           </Col>
           <Col xl={16} lg={24}>
             <Row>
-              <Col lg={12} md={24}>
+              <Col span={24}>
                 <Title level={2}>{this.state.event.title}</Title>
                 <Paragraph>
                   {moment(this.state.event.datetime).format("LLLL")}
@@ -67,12 +67,12 @@ export default class Event extends React.Component {
                     : null}
                 </Paragraph>
               </Col>
-              <Col lg={12} md={24}>
+              {/* <Col lg={12} md={24}>
                 <div
                   style={{ textAlign: "center" }}
                   dangerouslySetInnerHTML={{ __html: this.state.event.qrcode }}
                 />
-              </Col>
+              </Col> */}
             </Row>
             <Paragraph>
               {this.state.event.location ? (
