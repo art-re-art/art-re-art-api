@@ -18,6 +18,7 @@ django-crispy-forms = "*"
 requests = "*"
 django-storages = "*"
 boto3 = "*"
+sorl-thumbnail = "*"
 
 [requires]
 python_version = "3.7"

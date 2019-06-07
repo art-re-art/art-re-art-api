@@ -45,7 +45,7 @@ export default class Event extends React.Component {
         <Row>
           <Col xl={8} lg={24}>
             <img
-              src={this.state.event.featured_image}
+              src={this.state.event.featured_image.medium.url}
               style={{ width: "100%", height: "auto", padding: "1em" }}
             />
           </Col>
