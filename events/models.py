@@ -56,11 +56,15 @@ class Event(models.Model):
 
 class EventImage(models.Model):
     event = models.ForeignKey(Event, related_name="images", on_delete=models.CASCADE)
-    image = models.ImageField()
+    _image = models.ImageField()
     description = models.CharField(blank=True, null=True, max_length=200)
 
     def __str__(self):
         return self.description
+
+    @property
+    def image(self):
+        return create_thumbnails(self._image)
 
 
 class EventLocation(models.Model):
