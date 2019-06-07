@@ -7,6 +7,8 @@ import Event from "../components/Event";
 
 const { Title, Paragraph } = Typography;
 
+import "../styles/Artist.less";
+
 export default class Artist extends React.Component {
   state = { artist: {}, isLoading: true };
 
