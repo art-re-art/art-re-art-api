@@ -109,7 +109,7 @@ export default class Event extends React.Component {
                 return (
                   <Col span={6} key={image.url}>
                     <img
-                      src={image.image}
+                      src={image.image.small.url}
                       alt={image.description}
                       style={{ width: "100%", height: "auto" }}
                     />
