@@ -57,18 +57,20 @@ class Event(models.Model):
             "quality": 95,
             "upscale": True,
         }
-        small = get_thumbnail(self._featured_image, "640x360", **thumbnail_kwargs)
-        medium = get_thumbnail(self._featured_image, "1280x720", **thumbnail_kwargs)
-        large = get_thumbnail(self._featured_image, "1920x1080", **thumbnail_kwargs)
-        return {
-            "small": {"url": small.url, "width": small.width, "height": small.height},
-            "medium": {
-                "url": medium.url,
-                "width": medium.width,
-                "height": medium.height,
-            },
-            "large": {"url": large.url, "width": large.width, "height": large.height},
-        }
+        sizes = {"small": "640x360", "medium": "1280x720", "large": "1920x1080"}
+        images = {}
+        for size, resolution in sizes.items():
+            thumbnail = get_thumbnail(
+                self._featured_image, resolution, **thumbnail_kwargs
+            )
+            images[size] = {}
+            images[size]["url"] = thumbnail.url
+            try:
+                images[size]["width"] = thumbnail.width
+                images[size]["height"] = thumbnail.height
+            except TypeError:  # NOTE: Happens when thumbnail isn't really made yet
+                pass
+        return images
 
 
 class EventImage(models.Model):

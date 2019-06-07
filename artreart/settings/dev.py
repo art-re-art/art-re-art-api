@@ -42,3 +42,9 @@ BASE_URL = 'https://localhost:8000'
 # Mailchimp
 
 MAILCHIMP_KEY = None
+
+
+# sorl-thumbnail
+# https://sorl-thumbnail.readthedocs.io/en/latest/reference/settings.html
+
+THUMBNAIL_DUMMY = True
