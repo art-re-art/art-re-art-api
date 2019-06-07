@@ -8,6 +8,8 @@ import Artist from "../components/Artist";
 const { Title, Paragraph, Text } = Typography;
 const { Meta } = Card;
 
+import "../styles/Event.less";
+
 export default class Event extends React.Component {
   state = { event: {}, isLoading: true };
 
@@ -100,7 +102,7 @@ export default class Event extends React.Component {
             {this.state.event.images.map(image => {
               return (
                 <Col lg={6} md={8} sm={12} xs={24} key={image.url} style={{ marginBottom: 24 }}>
-                  <Card
+                  <Card className="event-img"
                     cover={
                       <img
                         src={image.image.small.url}
