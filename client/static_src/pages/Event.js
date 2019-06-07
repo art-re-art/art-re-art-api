@@ -1,11 +1,12 @@
 import React from "react";
-import { Col, Row, Typography } from "antd";
+import { Col, Row, Typography, Card } from "antd";
 import moment from "moment";
 
 import Loading from "../components/Loading";
 import Artist from "../components/Artist";
 
 const { Title, Paragraph, Text } = Typography;
+const { Meta } = Card;
 
 export default class Event extends React.Component {
   state = { event: {}, isLoading: true };
@@ -102,22 +103,30 @@ export default class Event extends React.Component {
               })
             : null}
         </Row>
-        <Row>
-          <Title level={2}>Images from this event</Title>
-          {this.state.event.images
-            ? this.state.event.images.map(image => {
-                return (
-                  <Col span={6} key={image.url}>
-                    <img
-                      src={image.image.small.url}
-                      alt={image.description}
-                      style={{ width: "100%", height: "auto" }}
-                    />
-                  </Col>
-                );
-              })
-            : null}
-        </Row>
+        {this.state.event.images ? (
+          <Row gutter={24}>
+            <Col style={{ marginBottom: 24 }}>
+              <Title level={2}>Image gallery</Title>
+              <Paragraph>Pictures from the event!</Paragraph>
+            </Col>
+            {this.state.event.images.map(image => {
+              return (
+                <Col span={6} key={image.url} style={{ marginBottom: 24 }}>
+                  <Card
+                    cover={
+                      <img
+                        src={image.image.small.url}
+                        alt={image.description}
+                      />
+                    }
+                  >
+                    <Meta title={image.description} />
+                  </Card>
+                </Col>
+              );
+            })}
+          </Row>
+        ) : null}
       </div>
     );
   }
