@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Row, Col, Typography, Button } from "antd";
+import { Row, Col, Typography, Button, Tag } from "antd";
 
 import Loading from "../components/Loading";
 import Event from "../components/Event";
@@ -43,9 +43,8 @@ export default class Artist extends React.Component {
             <Paragraph>
               {this.state.artist.medium
                 .map(medium => {
-                  return medium.title;
-                })
-                .join(", ")}
+                  return <Tag>{medium.title}</Tag>;
+                })}
             </Paragraph>
             <Button
               type="primary"
