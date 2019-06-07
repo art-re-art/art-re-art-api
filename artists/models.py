@@ -6,6 +6,8 @@ from xml.etree import ElementTree
 import qrcode
 import qrcode.image.svg
 
+from artreart.utils import create_thumbnails
+
 
 class Artist(models.Model):
     name = models.CharField(max_length=255)
@@ -74,7 +76,11 @@ class ArtistWorkImage(models.Model):
     artist_work = models.ForeignKey(
         to="artists.ArtistWork", on_delete=models.CASCADE, related_name="images"
     )
-    image = models.ImageField()
+    _image = models.ImageField("Image")
 
     def __str__(self):
         return str(self.image)
+
+    @property
+    def image(self):
+        return create_thumbnails(self._image)
