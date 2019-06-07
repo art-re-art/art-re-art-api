@@ -95,14 +95,6 @@ export default class Event extends React.Component {
             </Paragraph>
           </Col>
         </Row>
-        <Row>
-          <Title level={2}>Artists attending this event</Title>
-          {this.state.event.artists
-            ? this.state.event.artists.map(artist => {
-                return <Artist key={artist.url} {...artist} />;
-              })
-            : null}
-        </Row>
         {this.state.event.images ? (
           <Row gutter={24}>
             <Col style={{ marginBottom: 24 }}>
@@ -127,6 +119,14 @@ export default class Event extends React.Component {
             })}
           </Row>
         ) : null}
+        <Row>
+          <Title level={2}>Participating Artists</Title>
+          {this.state.event.artists
+            ? this.state.event.artists.map(artist => {
+                return <Artist key={artist.url} {...artist} />;
+              })
+            : null}
+        </Row>
       </div>
     );
   }
