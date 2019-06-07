@@ -42,8 +42,8 @@ export default class Artist extends React.Component {
             <Title level={2}>{this.state.artist.name}</Title>
             <Descriptions bordered column={{ lg: 1, md: 1, sm: 1, xs: 1 }} className="artist-info" style={{ marginTop: "2rem" }}>
               <Descriptions.Item label="Location">{this.state.artist.city}, {this.state.artist.state}</Descriptions.Item>
-              {this.state.artist.website ? <Descriptions.Item label="Website"><a href={this.state.artist.website}>{this.state.artist.website}</a></Descriptions.Item> : null}
-              {this.state.artist.instagram ? <Descriptions.Item label="Instagram"><a href={this.state.artist.instagram}>{this.state.artist.instagram}</a></Descriptions.Item> : null}
+              <Descriptions.Item label="Website"><a href={this.state.artist.website}>{this.state.artist.website}</a></Descriptions.Item>
+              <Descriptions.Item label="Instagram"><a href={this.state.artist.instagram}>{this.state.artist.instagram}</a></Descriptions.Item>
               <Descriptions.Item label="Mediums">
               {this.state.artist.medium
                 .map(medium => {
@@ -57,7 +57,7 @@ export default class Artist extends React.Component {
           {this.state.artist.events
             ?
               <Row style={{ marginTop: "1rem" }}>
-                <Title level={2}>Events this artist has attended</Title>
+                <Title level={2}>Events this artist has participated in</Title>
                 {this.state.artist.events.map(event => (
                     <Event key={event.url} {...event} />
                   ))}
