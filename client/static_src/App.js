@@ -10,6 +10,7 @@ import Events from "./pages/Events";
 import Artist from "./pages/Artist";
 import Artists from "./pages/Artists";
 import About from "./pages/About";
+import Mobile from "./pages/Mobile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import NoMatch from "./pages/NoMatch";
@@ -92,6 +93,12 @@ export default class App extends React.Component {
               path="/about/"
               render={props => (
                 <Page {...props} component={About} title="About" />
+              )}
+            />
+            <Route
+              path="/mobile/"
+              render={props => (
+                <Page {...props} component={Mobile} title="Mobile" />
               )}
             />
             <Route

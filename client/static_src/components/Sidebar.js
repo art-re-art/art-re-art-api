@@ -80,10 +80,16 @@ class Sidebar extends React.Component {
               <span className="nav-text">Shows</span>
             </Link>
           </Menu.Item>
+          <Menu.Item key="/mobile/">
+            <Link to="/mobile/">
+              <Icon type="mobile" />
+              <span className="nav-text">Mobile app</span>
+            </Link>
+          </Menu.Item>
           <Menu.Item key="/signup/">
             <Link to="/signup/">
               <Icon type="plus" />
-              <span className="nav-text">Artist Signup</span>
+              <span className="nav-text">Artist signup</span>
             </Link>
           </Menu.Item>
         </Menu>
