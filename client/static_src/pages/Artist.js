@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Row, Col, Typography, Button, Tag } from "antd";
+import { Row, Col, Typography, Button, Tag, Descriptions } from "antd";
 
 import Loading from "../components/Loading";
 import Event from "../components/Event";
@@ -40,35 +40,23 @@ export default class Artist extends React.Component {
           </Col>
           <Col xl={16}>
             <Title level={2}>{this.state.artist.name}</Title>
-            <Paragraph>
+            <Descriptions bordered column={{ lg: 1, md: 1, sm: 1, xs: 1 }} className="artist-info" style={{ marginTop: "2rem" }}>
+              <Descriptions.Item label="Location">{this.state.artist.city}, {this.state.artist.state}</Descriptions.Item>
+              {this.state.artist.website ? <Descriptions.Item label="Website"><a href={this.state.artist.website}>{this.state.artist.website}</a></Descriptions.Item> : null}
+              {this.state.artist.instagram ? <Descriptions.Item label="Instagram"><a href={this.state.artist.instagram}>{this.state.artist.instagram}</a></Descriptions.Item> : null}
+              <Descriptions.Item label="Mediums">
               {this.state.artist.medium
                 .map(medium => {
-                  return <Tag>{medium.title}</Tag>;
+                  return <Tag color="#ff0000">{medium.title}</Tag>;
                 })}
-            </Paragraph>
-            <Button
-              type="primary"
-              icon="instagram"
-              size="large"
-              href={this.state.artist.instagram}
-              style={{ margin: ".5em" }}
-            >
-              Instagram
-            </Button>
-            <Button
-              type="primary"
-              icon="link"
-              size="large"
-              href={this.state.artist.website}
-              style={{ margin: ".5em" }}
-            >
-              Website
-            </Button>
+              </Descriptions.Item>
+              <Descriptions.Item label="Artist Statement">{this.state.artist.artist_statement}</Descriptions.Item>
+            </Descriptions>
           </Col>
         </Row>
           {this.state.artist.events
             ?
-              <Row>
+              <Row style={{ marginTop: "1rem" }}>
                 <Title level={2}>Events this artist has attended</Title>
                 {this.state.artist.events.map(event => (
                     <Event key={event.url} {...event} />
