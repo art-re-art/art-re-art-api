@@ -97,13 +97,9 @@ export default class Event extends React.Component {
         </Row>
         {this.state.event.images ? (
           <Row gutter={24}>
-            <Col style={{ marginBottom: 24 }}>
-              <Title level={2}>Image gallery</Title>
-              <Paragraph>Pictures from the event!</Paragraph>
-            </Col>
             {this.state.event.images.map(image => {
               return (
-                <Col span={6} key={image.url} style={{ marginBottom: 24 }}>
+                <Col lg={6} md={8} sm={12} xs={24} key={image.url} style={{ marginBottom: 24 }}>
                   <Card
                     cover={
                       <img
