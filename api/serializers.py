@@ -107,6 +107,9 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
             "medium",
             "events",
             "qrcode",
+            "artist_statement",
+            "city",
+            "state",
         )
 
 

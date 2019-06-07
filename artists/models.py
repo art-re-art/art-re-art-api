@@ -13,6 +13,9 @@ class Artist(models.Model):
     name = models.CharField(max_length=255)
     instagram = models.URLField(max_length=255, blank=True, null=True)
     website = models.URLField(max_length=255, blank=True, null=True)
+    artist_statement = models.TextField(blank=True, null=True)
+    city = models.CharField(max_length=255, blank=True, null=True)
+    state = models.CharField(max_length=255, blank=True, null=True)
     medium = models.ManyToManyField(
         to="artists.ArtistMedium", related_name="artists", blank=True
     )
