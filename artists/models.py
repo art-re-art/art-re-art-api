@@ -80,9 +80,11 @@ class ArtistWorkImage(models.Model):
         to="artists.ArtistWork", on_delete=models.CASCADE, related_name="images"
     )
     _image = models.ImageField("Image")
+    description = models.CharField(max_length=255, null=True)
+    is_featured = models.BooleanField(default=False)
 
     def __str__(self):
-        return str(self.image)
+        return str(self.artist_work.artist.name) + " - " + str(self.artist_work.title) + " - " + str(self.id)
 
     @property
     def image(self):
