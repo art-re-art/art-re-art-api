@@ -32,6 +32,7 @@ class AboutDeveloper(models.Model):
         to="about.About", on_delete=models.CASCADE, related_name="developers"
     )
     name = models.CharField(max_length=255)
+    website = models.URLField(max_length=255, null=True)
 
     def __str__(self):
         return self.name
@@ -43,6 +44,7 @@ class AboutFAQ(models.Model):
     )
     question = models.CharField(max_length=255)
     answer = models.TextField()
+    is_mobile = models.BooleanField(default=True)
 
     def __str__(self):
         return self.question
