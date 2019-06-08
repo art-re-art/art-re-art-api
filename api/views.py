@@ -1,7 +1,11 @@
 from rest_framework import viewsets
 
 from events.models import Event, EventLocation, EventImage
-from artists.models import Artist, ArtistMedium
+from artists.models import (
+    Artist,
+    ArtistMedium,
+    ArtistWork,
+)
 from forms.models import (
     ArtistSignup,
     ArtistSignupWork,
@@ -16,6 +20,7 @@ from .serializers import (
     EventLocationSerializer,
     ArtistSerializer,
     ArtistMediumSerializer,
+    ArtistWorkSerializer,
     ArtistSignupSerializer,
     ArtistSignupWorkSerializer,
     ArtistSignupWorkImageSerializer,
@@ -41,6 +46,12 @@ class ArtistViewSet(viewsets.ModelViewSet):
 class ArtistMediumViewSet(viewsets.ModelViewSet):
     queryset = ArtistMedium.objects.all()
     serializer_class = ArtistMediumSerializer
+    http_method_names = ["get"]
+
+
+class ArtistWorkViewSet(viewsets.ModelViewSet):
+    queryset = ArtistWork.objects.all()
+    serializer_class = ArtistWorkSerializer
     http_method_names = ["get"]
 
 

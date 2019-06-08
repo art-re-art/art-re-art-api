@@ -1,7 +1,12 @@
 from rest_framework import serializers
 
 from events.models import Event, EventLocation, EventImage
-from artists.models import Artist, ArtistMedium
+from artists.models import (
+    Artist,
+    ArtistMedium,
+    ArtistWork,
+    ArtistWorkImage
+)
 from about.models import About, AboutDeveloper, AboutFAQ
 from forms.models import (
     ArtistSignup,
@@ -116,7 +121,7 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
 class ArtistSignupWorkImageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ArtistSignupWorkImage
-        fields = ("url", "image")
+        fields = ("url", "image",)
 
 
 class ArtistSignupWorkSerializer(serializers.HyperlinkedModelSerializer):
@@ -152,13 +157,13 @@ class ArtistSignupSerializer(serializers.HyperlinkedModelSerializer):
 class AboutFAQSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = AboutFAQ
-        fields = ("question", "answer")
+        fields = ("is_mobile", "question", "answer",)
 
 
 class AboutDeveloperSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = AboutDeveloper
-        fields = ("name",)
+        fields = ("name", "website",)
 
 
 class AboutSerializer(serializers.HyperlinkedModelSerializer):
@@ -167,4 +172,19 @@ class AboutSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = About
-        fields = ("url", "id", "title", "website", "description", "faqs", "developers")
+        fields = ("url", "id", "title", "website", "description", "faqs", "developers",)
+
+
+class ArtistWorkImageSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ArtistWorkImage
+        fields = ("url", "image", "description", "is_featured",)
+
+
+class ArtistWorkSerializer(serializers.HyperlinkedModelSerializer):
+    medium = ArtistMediumSerializer(many=True, read_only=True)
+    images = ArtistWorkImageSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = ArtistWork
+        fields = ("artist", "title", "year", "medium","dimensions", "description", "images",)
