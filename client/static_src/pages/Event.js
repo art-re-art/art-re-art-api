@@ -98,11 +98,11 @@ export default class Event extends React.Component {
           </Col>
         </Row>
         {this.state.event.images ? (
-          <Row gutter={24} style={{ display: "flex", flexWrap: "wrap" }}>
+          <Row gutter={24} style={{ display: "flex", flexWrap: "wrap", alignItems: "center" }}>
             {this.state.event.images.map(image => {
               return (
                 <Col xl={6} lg={8} md={12} sm={12} xs={24} key={image.url} style={{ marginBottom: 24 }}>
-                  <Card className="event-img" style={{ height: "100%" }}
+                  <Card className="event-img"
                     cover={
                       <img
                         src={image.image.small.url}
