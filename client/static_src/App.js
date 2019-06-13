@@ -1,4 +1,5 @@
 import React from "react";
+import ReactGA from "react-ga";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Layout, Icon } from "antd";
 
@@ -38,6 +39,7 @@ export default class App extends React.Component {
   };
 
   componentDidMount() {
+    ReactGA.initialize("UA-141212265-1", { debug: true });
     WebFont.load({
       google: {
         families: ["Inconsolata", "Open Sans:700"]

@@ -1,4 +1,5 @@
 import React from "react";
+import ReactGA from "react-ga";
 
 import { Row, Col, Typography, Button, Tag, Descriptions } from "antd";
 
@@ -14,6 +15,7 @@ export default class Artist extends React.Component {
   state = { artist: {}, isLoading: true };
 
   componentDidMount() {
+    ReactGA.pageview(window.location.pathname + window.location.search);
     fetch(`/api/artists/${this.props.match.params.id}/`)
       .then(data => {
         return data.json();

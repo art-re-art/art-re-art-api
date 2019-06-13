@@ -1,4 +1,5 @@
 import React from "react";
+import ReactGA from "react-ga";
 import { Prompt } from "react-router-dom";
 import {
   Steps,
@@ -32,6 +33,7 @@ export default class Signup extends React.Component {
   };
 
   componentDidMount() {
+    ReactGA.pageview(window.location.pathname + window.location.search);
     this.props.setTitle("Artist Signup");
   }
 

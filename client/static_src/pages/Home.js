@@ -1,4 +1,5 @@
 import React from "react";
+import ReactGA from "react-ga";
 import { Link } from "react-router-dom";
 
 import Background from "../images/bg.jpg";
@@ -7,6 +8,7 @@ import "../styles/Home.less";
 
 export default class Home extends React.Component {
   componentDidMount() {
+    ReactGA.pageview(window.location.pathname + window.location.search);
     this.props.setTitle("A series of pop up art events in downtown Morganton, NC.");
   }
 

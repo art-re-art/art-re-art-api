@@ -1,4 +1,5 @@
 import React from "react";
+import ReactGA from "react-ga";
 import { Collapse, Typography, Row, Divider } from "antd";
 
 const { Title, Paragraph } = Typography;
@@ -6,6 +7,7 @@ const { Panel } = Collapse;
 
 export default class About extends React.Component {
   componentDidMount() {
+    ReactGA.pageview(window.location.pathname + window.location.search);
     this.props.setTitle("About");
   }
 
