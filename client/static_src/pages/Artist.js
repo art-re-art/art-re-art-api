@@ -43,18 +43,40 @@ export default class Artist extends React.Component {
           </Col>
           <Col xl={16}>
             <Title level={2}>{this.state.artist.name}</Title>
-            <Descriptions bordered column={{ lg: 1, md: 1, sm: 1, xs: 1 }} className="artist-info" style={{ marginTop: "2rem" }}>
-              <Descriptions.Item label="Location">{this.state.artist.city}, {this.state.artist.state}</Descriptions.Item>
-              <Descriptions.Item label="Website"><a href={this.state.artist.website}>{this.state.artist.website}</a></Descriptions.Item>
-              <Descriptions.Item label="Instagram"><a href={this.state.artist.instagram}>{this.state.artist.instagram}</a></Descriptions.Item>
-              <Descriptions.Item label="Mediums">
-              {this.state.artist.medium
-                .map(medium => {
-                  return <Tag color="#ff0000" key={medium.url}>{medium.title}</Tag>;
-                })}
-              </Descriptions.Item>
-              <Descriptions.Item label="Artist Statement">{this.state.artist.artist_statement}</Descriptions.Item>
-            </Descriptions>
+            <div className="ant-descriptions artist-info bordered">
+              <div className="ant-descriptions-view">
+                <table>
+                  <tbody>
+                    <tr className="ant-descriptions-row">
+                      <td className="ant-descriptions-item-label">Location</td>
+                      <td className="ant-descriptions-item-content">{this.state.artist.city}, {this.state.artist.state}</td>
+                    </tr>
+                    <tr className="ant-descriptions-row">
+                      <td className="ant-descriptions-item-label">Website</td>
+                      <td className="ant-descriptions-item-content"><a href={this.state.artist.website}>{this.state.artist.website}</a></td>
+                    </tr>
+                    <tr className="ant-descriptions-row">
+                      <td className="ant-descriptions-item-label">Instagram</td>
+                      <td className="ant-descriptions-item-content"><a href={this.state.artist.instagram}>{this.state.artist.instagram}</a></td>
+                    </tr>
+                    <tr className="ant-descriptions-row">
+                      <td className="ant-descriptions-item-label">Mediums</td>
+                      <td className="ant-descriptions-item-content">
+                        {this.state.artist.medium.map(medium => {
+                          return <Tag color="#ff0000" key={medium.url}>{medium.title}</Tag>;
+                        })}
+                      </td>
+                    </tr>
+                    {this.state.artist.artist_statement &&
+                      <tr className="ant-descriptions-row">
+                        <td className="ant-descriptions-item-label">Artist statement</td>
+                        <td className="ant-descriptions-item-content">{this.state.artist.artist_statement}</td>
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </Col>
         </Row>
         {this.state.artist.works
