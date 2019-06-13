@@ -5,6 +5,7 @@ from artists.models import (
     Artist,
     ArtistMedium,
     ArtistWork,
+    ArtistWorkImage,
 )
 from forms.models import (
     ArtistSignup,
@@ -28,6 +29,7 @@ from .serializers import (
     AboutSerializer,
     AboutFAQSerializer,
     AboutDeveloperSerializer,
+    ArtistWorkImageSerializer,
 )
 
 
@@ -106,4 +108,10 @@ class AboutFAQViewSet(viewsets.ModelViewSet):
 class AboutDeveloperViewSet(viewsets.ModelViewSet):
     queryset = AboutDeveloper.objects.all()
     serializer_class = AboutDeveloperSerializer
+    http_method_names = ["get"]
+
+
+class ArtistWorkImageViewSet(viewsets.ModelViewSet):
+    queryset = ArtistWorkImage.objects.all()
+    serializer_class = ArtistWorkImageSerializer
     http_method_names = ["get"]
