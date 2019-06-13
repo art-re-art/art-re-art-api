@@ -97,9 +97,25 @@ class ArtistEventSerializer(serializers.HyperlinkedModelSerializer):
         )
 
 
+class ArtistWorkImageSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ArtistWorkImage
+        fields = ("url", "image", "description", "is_featured",)
+
+
+class ArtistWorkArtistSerializer(serializers.HyperlinkedModelSerializer):
+    medium = ArtistMediumSerializer(many=True, read_only=True)
+    images = ArtistWorkImageSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = ArtistWork
+        fields = ("artist", "title", "year", "medium","dimensions", "description", "images",)
+
+
 class ArtistSerializer(serializers.HyperlinkedModelSerializer):
     medium = ArtistMediumSerializer(many=True, read_only=True)
     events = ArtistEventSerializer(many=True, read_only=True)
+    works = ArtistWorkArtistSerializer(many=True, read_only=True)
 
     class Meta:
         model = Artist
@@ -115,6 +131,7 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
             "artist_statement",
             "city",
             "state",
+            "works",
         )
 
 
@@ -175,13 +192,19 @@ class AboutSerializer(serializers.HyperlinkedModelSerializer):
         fields = ("url", "id", "title", "website", "description", "faqs", "developers",)
 
 
-class ArtistWorkImageSerializer(serializers.HyperlinkedModelSerializer):
+class ArtistWorkInlineSerializer(serializers.HyperlinkedModelSerializer):
+
     class Meta:
-        model = ArtistWorkImage
-        fields = ("url", "image", "description", "is_featured",)
+        model = Artist
+        fields = (
+            "url",
+            "id",
+            "name",
+        )
 
 
 class ArtistWorkSerializer(serializers.HyperlinkedModelSerializer):
+    artist = ArtistWorkInlineSerializer(read_only=True)
     medium = ArtistMediumSerializer(many=True, read_only=True)
     images = ArtistWorkImageSerializer(many=True, read_only=True)
 

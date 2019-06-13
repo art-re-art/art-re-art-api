@@ -4,6 +4,7 @@ import { Row, Col, Typography, Button, Tag, Descriptions } from "antd";
 
 import Loading from "../components/Loading";
 import Event from "../components/Event";
+import Work from "../components/Work";
 
 const { Title, Paragraph } = Typography;
 
@@ -49,13 +50,22 @@ export default class Artist extends React.Component {
               <Descriptions.Item label="Mediums">
               {this.state.artist.medium
                 .map(medium => {
-                  return <Tag color="#ff0000">{medium.title}</Tag>;
+                  return <Tag color="#ff0000" key={medium.url}>{medium.title}</Tag>;
                 })}
               </Descriptions.Item>
               <Descriptions.Item label="Artist Statement">{this.state.artist.artist_statement}</Descriptions.Item>
             </Descriptions>
           </Col>
         </Row>
+        {this.state.artist.works
+            ?
+              <Row style={{ marginTop: "1rem" }}>
+                <Title level={2}>Works by this artist</Title>
+                {this.state.artist.works.map(work => (
+                    <Work key={work.url} artistName={this.state.artist.name} {...work} />
+                  ))}
+              </Row>
+            : null}
           {this.state.artist.events
             ?
               <Row style={{ marginTop: "1rem" }}>
