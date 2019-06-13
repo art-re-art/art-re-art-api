@@ -1,4 +1,5 @@
 import React from "react";
+import ReactGA from "react-ga";
 import { Col, Row, Typography, Card } from "antd";
 import moment from "moment";
 
@@ -14,6 +15,7 @@ export default class Event extends React.Component {
   state = { event: {}, isLoading: true };
 
   componentDidMount() {
+    ReactGA.pageview(window.location.pathname + window.location.search);
     fetch(`/api/events/${this.props.match.params.id}/`)
       .then(data => {
         return data.json();

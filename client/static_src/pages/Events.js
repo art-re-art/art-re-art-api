@@ -1,4 +1,5 @@
 import React from "react";
+import ReactGA from "react-ga";
 import { Row, Col, Spin, Card } from "antd";
 
 import Event from "../components/Event";
@@ -10,6 +11,7 @@ export default class Events extends React.Component {
   state = { events: [], isLoading: true };
 
   componentDidMount() {
+    ReactGA.pageview(window.location.pathname + window.location.search);
     this.props.setTitle("Shows");
     fetch("/api/events/")
       .then(data => {

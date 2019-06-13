@@ -1,4 +1,5 @@
 import React from "react";
+import ReactGA from "react-ga";
 
 import { Row, Typography } from "antd";
 
@@ -11,6 +12,7 @@ export default class Artists extends React.Component {
   state = { artists: [], isLoading: true };
 
   componentDidMount() {
+    ReactGA.pageview(window.location.pathname + window.location.search);
     this.props.setTitle("Artists");
     fetch("/api/artists/")
       .then(data => {
