@@ -77,7 +77,7 @@ export default class Artist extends React.Component {
                     }
                     <tr className="ant-descriptions-row">
                       <td className="ant-descriptions-item-label">ART/RE/ART Events</td>
-                      <td className="ant-description-item-content">{this.state.artist.events
+                      <td className="ant-descriptions-item-content">{this.state.artist.events
                         ? this.state.artist.events.map(event => {
                             return <a key={event.url} href={event.url} style={{ marginRight: "10px", textDecoration: "underline" }}>{event.title}</a>;
                         })
