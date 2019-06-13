@@ -99,15 +99,6 @@ export default class Artist extends React.Component {
                   ))}
               </Row>
             : null}
-          {this.state.artist.events
-            ?
-              <Row style={{ marginTop: "1rem" }}>
-                <Title level={2}>Events this artist has participated in</Title>
-                {this.state.artist.events.map(event => (
-                    <Event key={event.url} {...event} />
-                  ))}
-              </Row>
-            : null}
       </div>
     );
   }
