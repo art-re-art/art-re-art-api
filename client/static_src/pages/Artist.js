@@ -51,37 +51,69 @@ export default class Artist extends React.Component {
                   <tbody>
                     <tr className="ant-descriptions-row">
                       <td className="ant-descriptions-item-label">Location</td>
-                      <td className="ant-descriptions-item-content">{this.state.artist.city}, {this.state.artist.state}</td>
+                      <td className="ant-descriptions-item-content">
+                        {this.state.artist.city}, {this.state.artist.state}
+                      </td>
                     </tr>
                     <tr className="ant-descriptions-row">
                       <td className="ant-descriptions-item-label">Website</td>
-                      <td className="ant-descriptions-item-content"><a href={this.state.artist.website}>{this.state.artist.website}</a></td>
+                      <td className="ant-descriptions-item-content">
+                        <a href={this.state.artist.website}>
+                          {this.state.artist.website}
+                        </a>
+                      </td>
                     </tr>
                     <tr className="ant-descriptions-row">
                       <td className="ant-descriptions-item-label">Instagram</td>
-                      <td className="ant-descriptions-item-content"><a href={this.state.artist.instagram}>{this.state.artist.instagram}</a></td>
+                      <td className="ant-descriptions-item-content">
+                        <a href={this.state.artist.instagram}>
+                          {this.state.artist.instagram}
+                        </a>
+                      </td>
                     </tr>
                     <tr className="ant-descriptions-row">
                       <td className="ant-descriptions-item-label">Mediums</td>
                       <td className="ant-descriptions-item-content">
                         {this.state.artist.medium.map(medium => {
-                          return <Tag color="#ff0000" key={medium.url}>{medium.title}</Tag>;
+                          return (
+                            <Tag color="#ff0000" key={medium.url}>
+                              {medium.title}
+                            </Tag>
+                          );
                         })}
                       </td>
                     </tr>
-                    {this.state.artist.artist_statement &&
+                    {this.state.artist.artist_statement && (
                       <tr className="ant-descriptions-row">
-                        <td className="ant-descriptions-item-label">Artist statement</td>
-                        <td className="ant-descriptions-item-content">{this.state.artist.artist_statement}</td>
+                        <td className="ant-descriptions-item-label">
+                          Artist statement
+                        </td>
+                        <td className="ant-descriptions-item-content">
+                          {this.state.artist.artist_statement}
+                        </td>
                       </tr>
-                    }
+                    )}
                     <tr className="ant-descriptions-row">
-                      <td className="ant-descriptions-item-label">ART/RE/ART Events</td>
-                      <td className="ant-descriptions-item-content">{this.state.artist.events
-                        ? this.state.artist.events.map(event => {
-                            return <a key={event.url} href={event.url} style={{ marginRight: "10px", textDecoration: "underline" }}>{event.title}</a>;
-                        })
-                        : null}
+                      <td className="ant-descriptions-item-label">
+                        ART/RE/ART Events
+                      </td>
+                      <td className="ant-descriptions-item-content">
+                        {this.state.artist.events
+                          ? this.state.artist.events.map(event => {
+                              return (
+                                <a
+                                  key={event.url}
+                                  href={event.url}
+                                  style={{
+                                    marginRight: "10px",
+                                    textDecoration: "underline"
+                                  }}
+                                >
+                                  {event.title}
+                                </a>
+                              );
+                            })
+                          : null}
                       </td>
                     </tr>
                   </tbody>
@@ -90,15 +122,18 @@ export default class Artist extends React.Component {
             </div>
           </Col>
         </Row>
-        {this.state.artist.works
-            ?
-              <Row style={{ marginTop: "1rem" }}>
-                <Title level={2}>Works by this artist</Title>
-                {this.state.artist.works.map(work => (
-                    <Work key={work.url} artistName={this.state.artist.name} {...work} />
-                  ))}
-              </Row>
-            : null}
+        {this.state.artist.works ? (
+          <Row style={{ marginTop: "1rem" }}>
+            <Title level={2}>Works by this artist</Title>
+            {this.state.artist.works.map(work => (
+              <Work
+                key={work.url}
+                artistName={this.state.artist.name}
+                {...work}
+              />
+            ))}
+          </Row>
+        ) : null}
       </div>
     );
   }
