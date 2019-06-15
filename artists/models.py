@@ -22,6 +22,7 @@ class Artist(models.Model):
     events = models.ManyToManyField(
         to="events.Event", related_name="artists", blank=True
     )
+    _image = models.ImageField("Image", blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -50,6 +51,10 @@ class Artist(models.Model):
             return ", ".join([event.title for event in self.events.all()])
         else:
             return None
+
+    @property
+    def image(self):
+        return create_thumbnails(self._image)
 
 
 class ArtistMedium(models.Model):
@@ -84,7 +89,13 @@ class ArtistWorkImage(models.Model):
     is_featured = models.BooleanField(default=False)
 
     def __str__(self):
-        return str(self.artist_work.artist.name) + " - " + str(self.artist_work.title) + " - " + str(self.id)
+        return (
+            str(self.artist_work.artist.name)
+            + " - "
+            + str(self.artist_work.title)
+            + " - "
+            + str(self.id)
+        )
 
     @property
     def image(self):
