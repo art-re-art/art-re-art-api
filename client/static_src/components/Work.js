@@ -52,8 +52,8 @@ export default class Work extends React.Component {
     }
 
     return (
-      <Col xl={8} lg={12} md={12} sm={24} className="work">
-        <Card hoverable cover={<img src={this.state.featuredImage.image.small.url} />} onClick={this.showDrawer}>
+      <Col xl={8} lg={12} md={12} sm={24} style={{ padding: "1rem" }}>
+        <Card hoverable className="work" cover={<img src={this.state.featuredImage.image.small.url} />} onClick={this.showDrawer}>
           <Title className="work-title" level={3}>{this.props.title}</Title>
           <Paragraph className="work-year">{this.props.year}</Paragraph>
           <Paragraph className="work-artist">{this.props.artistName}</Paragraph>
