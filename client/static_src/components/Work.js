@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
-import { Col, Card, Typography, Drawer } from "antd";
+import { Col, Card, Typography, Drawer, Tag } from "antd";
 
 const { Meta } = Card;
 const { Paragraph, Title } = Typography;
@@ -72,6 +72,17 @@ export default class Work extends React.Component {
           {this.props.description &&
             <Paragraph>{this.props.description}</Paragraph>
           }
+          <div>
+            {this.props.medium &&
+              this.props.medium.map(medium => {
+                return (
+                  <Tag key={medium.url} color="#ff0000">
+                    {medium.title}
+                  </Tag>
+                );
+              })
+            }
+          </div>
           <div className="work-images">
             {this.props.images &&
               this.props.images.map(image => {
