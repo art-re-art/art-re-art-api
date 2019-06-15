@@ -1,10 +1,9 @@
 import React from "react";
 import ReactGA from "react-ga";
 
-import { Row, Col, Typography, Button, Tag, Descriptions } from "antd";
+import { Row, Col, Typography, Tag } from "antd";
 
 import Loading from "../components/Loading";
-import Event from "../components/Event";
 import Work from "../components/Work";
 
 const { Title, Paragraph } = Typography;
