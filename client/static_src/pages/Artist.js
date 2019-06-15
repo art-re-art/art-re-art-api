@@ -52,28 +52,34 @@ export default class Artist extends React.Component {
               <div className="ant-descriptions-view">
                 <table>
                   <tbody>
-                    <tr className="ant-descriptions-row">
-                      <td className="ant-descriptions-item-label">Location</td>
-                      <td className="ant-descriptions-item-content">
-                        {this.state.artist.city}, {this.state.artist.state}
-                      </td>
-                    </tr>
-                    <tr className="ant-descriptions-row">
-                      <td className="ant-descriptions-item-label">Website</td>
-                      <td className="ant-descriptions-item-content">
-                        <a href={this.state.artist.website}>
-                          {this.state.artist.website}
-                        </a>
-                      </td>
-                    </tr>
-                    <tr className="ant-descriptions-row">
-                      <td className="ant-descriptions-item-label">Instagram</td>
-                      <td className="ant-descriptions-item-content">
-                        <a href={this.state.artist.instagram}>
-                          {this.state.artist.instagram}
-                        </a>
-                      </td>
-                    </tr>
+                    {this.state.artist.state && (
+                      <tr className="ant-descriptions-row">
+                        <td className="ant-descriptions-item-label">Location</td>
+                        <td className="ant-descriptions-item-content">
+                          {this.state.artist.city}, {this.state.artist.state}
+                        </td>
+                      </tr>
+                    )}
+                    {this.state.artist.website && (
+                      <tr className="ant-descriptions-row">
+                        <td className="ant-descriptions-item-label">Website</td>
+                        <td className="ant-descriptions-item-content">
+                          <a href={this.state.artist.website}>
+                            {this.state.artist.website}
+                          </a>
+                        </td>
+                      </tr>
+                    )}
+                    {this.state.instagram && (
+                      <tr className="ant-descriptions-row">
+                        <td className="ant-descriptions-item-label">Instagram</td>
+                        <td className="ant-descriptions-item-content">
+                          <a href={this.state.artist.instagram}>
+                            {this.state.artist.instagram}
+                          </a>
+                        </td>
+                      </tr>
+                    )}
                     <tr className="ant-descriptions-row">
                       <td className="ant-descriptions-item-label">Mediums</td>
                       <td className="ant-descriptions-item-content">
