@@ -123,7 +123,7 @@ export default class Artist extends React.Component {
         </Row>
         {this.state.artist.works ? (
           <Row style={{ marginTop: "1rem" }}>
-            <Title level={2}>Works by this artist</Title>
+            <Title level={2}>Works by {this.state.artist.name}</Title>
             {this.state.artist.works.map(work => (
               <Work
                 key={work.url}
