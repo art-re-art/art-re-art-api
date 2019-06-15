@@ -64,7 +64,7 @@ export default class Work extends React.Component {
           closable={true}
           onClose={this.onClose}
           visible={this.state.drawerVisible}
-          width={520}
+          width={"75vw"}
           className="work-drawer"
         >
           <Paragraph>{this.props.year}</Paragraph>
