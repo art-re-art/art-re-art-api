@@ -105,6 +105,7 @@ class ArtistWorkArtistSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ArtistWork
         fields = (
+            "url",
             "artist",
             "title",
             "year",
