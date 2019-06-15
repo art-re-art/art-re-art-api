@@ -1,5 +1,4 @@
 const path = require("path");
-const ProvidePlugin = require("webpack").ProvidePlugin;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
