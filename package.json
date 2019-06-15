@@ -7,7 +7,7 @@
     "makemigrations": "pipenv run python manage.py makemigrations",
     "createsuperuser": "pipenv run python manage.py createsuperuser",
     "pgpull": "dropdb --if-exists art-re-art; heroku pg:pull postgresql-colorful-51974 art-re-art --app art-re-art",
-    "format": "concurrently \"prettier --write **/*.js\" \"prettier --write **/*.less\" \"black --exclude /node_modules/ .\""
+    "format": "concurrently \"prettier --write client/static_src/**/*.js\" \"prettier --write client/static_src/**/*.less\" \"black --exclude /node_modules/ .\""
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
