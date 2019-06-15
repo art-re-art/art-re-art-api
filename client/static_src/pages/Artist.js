@@ -37,10 +37,14 @@ export default class Artist extends React.Component {
       <div className="container">
         <Row gutter={24} lg={24}>
           <Col xl={8} lg={24}>
-            <div
-              style={{ textAlign: "center" }}
-              dangerouslySetInnerHTML={{ __html: this.state.artist.qrcode }}
-            />
+            {this.state.artist.image ? (
+              <img src={this.state.artist.image.small.url} />
+            ) : (
+              <div
+                style={{ textAlign: "center" }}
+                dangerouslySetInnerHTML={{ __html: this.state.artist.qrcode }}
+              />
+            )}
           </Col>
           <Col xl={16}>
             <Title level={2}>{this.state.artist.name}</Title>
