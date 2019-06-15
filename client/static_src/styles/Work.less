@@ -12,6 +12,11 @@
 .work-drawer {
   padding: 1rem;
   margin-top: -1rem;
+  width: 100vw !important;
+
+  @media (min-width: 992px) {
+    width: 75vw !important;
+  }
 
   img {
     max-width: 100%;
@@ -20,4 +25,8 @@
     height: auto;
     margin: .5rem auto;
   }
+}
+
+.work-images {
+  text-align: center;
 }

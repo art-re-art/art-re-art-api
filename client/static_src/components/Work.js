@@ -72,11 +72,13 @@ export default class Work extends React.Component {
           {this.props.description &&
             <Paragraph>{this.props.description}</Paragraph>
           }
-          {this.props.images &&
-            this.props.images.map(image => {
-              return <img key={image.url} src={image.image.small.url} alt={image.description} />;
-            })
-          }
+          <div className="work-images">
+            {this.props.images &&
+              this.props.images.map(image => {
+                return <img key={image.url} src={image.image.small.url} alt={image.description} />;
+              })
+            }
+          </div>
         </Drawer>
       </Col>
     );
