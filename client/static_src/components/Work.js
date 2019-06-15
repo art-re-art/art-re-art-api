@@ -61,7 +61,7 @@ export default class Work extends React.Component {
         <Drawer
           title={this.props.title}
           placement="right"
-          closable={false}
+          closable={true}
           onClose={this.onClose}
           visible={this.state.drawerVisible}
           width={520}
