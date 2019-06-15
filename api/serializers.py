@@ -1,12 +1,7 @@
 from rest_framework import serializers
 
 from events.models import Event, EventLocation, EventImage
-from artists.models import (
-    Artist,
-    ArtistMedium,
-    ArtistWork,
-    ArtistWorkImage
-)
+from artists.models import Artist, ArtistMedium, ArtistWork, ArtistWorkImage
 from about.models import About, AboutDeveloper, AboutFAQ
 from forms.models import (
     ArtistSignup,
@@ -100,7 +95,7 @@ class ArtistEventSerializer(serializers.HyperlinkedModelSerializer):
 class ArtistWorkImageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ArtistWorkImage
-        fields = ("url", "image", "description", "is_featured",)
+        fields = ("url", "image", "description", "is_featured")
 
 
 class ArtistWorkArtistSerializer(serializers.HyperlinkedModelSerializer):
@@ -109,7 +104,15 @@ class ArtistWorkArtistSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = ArtistWork
-        fields = ("artist", "title", "year", "medium","dimensions", "description", "images",)
+        fields = (
+            "artist",
+            "title",
+            "year",
+            "medium",
+            "dimensions",
+            "description",
+            "images",
+        )
 
 
 class ArtistSerializer(serializers.HyperlinkedModelSerializer):
@@ -132,13 +135,14 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
             "city",
             "state",
             "works",
+            "image",
         )
 
 
 class ArtistSignupWorkImageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ArtistSignupWorkImage
-        fields = ("url", "image",)
+        fields = ("url", "image")
 
 
 class ArtistSignupWorkSerializer(serializers.HyperlinkedModelSerializer):
@@ -174,13 +178,13 @@ class ArtistSignupSerializer(serializers.HyperlinkedModelSerializer):
 class AboutFAQSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = AboutFAQ
-        fields = ("is_mobile", "question", "answer",)
+        fields = ("is_mobile", "question", "answer")
 
 
 class AboutDeveloperSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = AboutDeveloper
-        fields = ("name", "website",)
+        fields = ("name", "website")
 
 
 class AboutSerializer(serializers.HyperlinkedModelSerializer):
@@ -189,18 +193,13 @@ class AboutSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = About
-        fields = ("url", "id", "title", "website", "description", "faqs", "developers",)
+        fields = ("url", "id", "title", "website", "description", "faqs", "developers")
 
 
 class ArtistWorkInlineSerializer(serializers.HyperlinkedModelSerializer):
-
     class Meta:
         model = Artist
-        fields = (
-            "url",
-            "id",
-            "name",
-        )
+        fields = ("url", "id", "name")
 
 
 class ArtistWorkSerializer(serializers.HyperlinkedModelSerializer):
@@ -210,4 +209,12 @@ class ArtistWorkSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = ArtistWork
-        fields = ("artist", "title", "year", "medium","dimensions", "description", "images",)
+        fields = (
+            "artist",
+            "title",
+            "year",
+            "medium",
+            "dimensions",
+            "description",
+            "images",
+        )
