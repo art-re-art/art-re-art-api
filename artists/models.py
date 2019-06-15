@@ -54,8 +54,8 @@ class Artist(models.Model):
 
     @property
     def image(self):
-        return create_thumbnails(self._image)
-
+        if self._image:
+            return create_thumbnails(self._image)
 
 class ArtistMedium(models.Model):
     title = models.CharField(max_length=255)

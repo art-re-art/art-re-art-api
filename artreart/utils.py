@@ -12,9 +12,7 @@ def create_thumbnails(original_image):
     sizes = {"small": "640x360", "medium": "1280x720", "large": "1920x1080"}
     images = {}
     for size, resolution in sizes.items():
-        thumbnail = get_thumbnail(
-            original_image, resolution, **thumbnail_kwargs
-        )
+        thumbnail = get_thumbnail(original_image, resolution, **thumbnail_kwargs)
         images[size] = {}
         images[size]["url"] = thumbnail.url
         try:
