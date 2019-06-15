@@ -4,6 +4,7 @@ import { Layout, Menu, Icon } from "antd";
 import moment from "moment";
 
 import Logo from "../images/artreart-red.png";
+import LogoRotated from "../images/artreart-red-rotated.png";
 import "../styles/Sidebar.less";
 
 const { Sider } = Layout;
@@ -44,6 +45,11 @@ class Sidebar extends React.Component {
         collapsed={this.props.collapsed}
       >
         <div className="sidebar-logo">
+          <img
+            src={LogoRotated}
+            alt="Art/Re/Art Logo"
+            className="sidebar-logo__image-rotated"
+          />
           <img
             src={Logo}
             alt="Art/Re/Art Logo"
