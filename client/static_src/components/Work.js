@@ -6,6 +6,8 @@ import { Col, Card, Typography, Drawer } from "antd";
 const { Meta } = Card;
 const { Paragraph } = Typography;
 
+import "../styles/Work.less";
+
 export default class Work extends React.Component {
   state = {
     featuredImage: null,
@@ -50,10 +52,10 @@ export default class Work extends React.Component {
     }
 
     return (
-      <Col xl={8} lg={12} md={12} sm={24} style={{ padding: "1rem" }}>
+      <Col xl={8} lg={12} md={12} sm={24} className="work">
         <Card hoverable cover={<img src={this.state.featuredImage.image.small.url} />} title={this.props.title} onClick={this.showDrawer}>
-          <Paragraph>{this.props.year}</Paragraph>
-          <Paragraph>{this.props.artistName}</Paragraph>
+          <Paragraph className="work-year">{this.props.year}</Paragraph>
+          <Paragraph className="title">{this.props.artistName}</Paragraph>
         </Card>
         <Drawer
           title={this.props.artistName}
@@ -62,6 +64,7 @@ export default class Work extends React.Component {
           onClose={this.onClose}
           visible={this.state.drawerVisible}
           width={520}
+          className="work-drawer"
         >
           <Paragraph>{this.props.year}</Paragraph>
           {this.props.images &&
