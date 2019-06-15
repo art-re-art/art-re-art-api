@@ -56,14 +56,14 @@ export default class Home extends React.Component {
 
         <div className="home__content">
           <p>
-            ART/RE/ART is a contemporary art experience taking place in downtown
-            Morganton, NC for one night only. This free event, held in a non-art
-            space, offers an alternative way to interact with and experience art
+            ART/RE/ART is a series of one-night-only, contemporary art experiences taking place in downtown
+            Morganton, NC. These free events, held in non-art
+            spaces, offer an alternative way to interact with and experience art
             in the community.
           </p>
 
           <p style={{ marginBottom: 0 }}>
-            Featuring local and regional artists, ART/RE/ART will include work
+            Featuring local and regional artists, ART/RE/ART includes work
             from multiple disciplines and mediums including performance,
             installation, sculpture, interactive, video, painting, drawing, and
             photography.
