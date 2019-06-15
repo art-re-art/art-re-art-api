@@ -11,9 +11,10 @@ export default class Artist extends React.Component {
         <Link to={`/artists/${this.props.id}/`}>
           <Card
             hoverable
+            style={{ height: "100%" }}
             cover={
               this.props.image ? (
-                <img src={this.props.image.small.url} />
+                <img src={this.props.image.square.url} />
               ) : (
                 <div
                   style={{ textAlign: "center" }}

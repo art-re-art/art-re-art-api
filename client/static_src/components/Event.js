@@ -10,7 +10,7 @@ export default class Event extends React.Component {
     return (
       <Col xl={8} lg={12} md={12} sm={24} style={{ padding: "1rem" }}>
         <Link to={`/events/${this.props.id}/`}>
-          <Card hoverable cover={<img src={this.props.featured_image.small.url} />}>
+          <Card hoverable cover={<img src={this.props.featured_image.square.url} />} style={{ height: "100%" }}>
             <Meta
               title={this.props.title}
               description={moment(this.props.datetime).format("LLLL")}

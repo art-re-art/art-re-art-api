@@ -119,14 +119,16 @@ export default class Event extends React.Component {
             })}
           </Row>
         ) : null}
-        <Row>
+        <div style={{ marginTop: "1rem" }}>
           <Title level={2}>Participating Artists</Title>
-          {this.state.event.artists
-            ? this.state.event.artists.map(artist => {
-                return <Artist key={artist.url} {...artist} />;
-              })
-            : null}
-        </Row>
+          <Row style={{ display: "flex", alignItems: "stretch", flexWrap: "wrap" }}>
+            {this.state.event.artists
+              ? this.state.event.artists.map(artist => {
+                  return <Artist key={artist.url} {...artist} />;
+                })
+              : null}
+          </Row>
+        </div>
       </div>
     );
   }

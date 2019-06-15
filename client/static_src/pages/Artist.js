@@ -38,7 +38,7 @@ export default class Artist extends React.Component {
         <Row gutter={24} lg={24}>
           <Col xl={8} lg={24}>
             {this.state.artist.image ? (
-              <img src={this.state.artist.image.small.url} />
+              <img src={this.state.artist.image.small.url} className="arist-img" />
             ) : (
               <div
                 style={{ textAlign: "center" }}
@@ -126,16 +126,18 @@ export default class Artist extends React.Component {
           </Col>
         </Row>
         {this.state.artist.works ? (
-          <Row style={{ marginTop: "1rem" }} gutter={24}>
+          <div style={{ marginTop: "1rem" }}>
             <Title level={2}>Works by {this.state.artist.name}</Title>
-            {this.state.artist.works.map(work => (
-              <Work
-                key={work.url}
-                artistName={this.state.artist.name}
-                {...work}
-              />
-            ))}
-          </Row>
+            <Row style={{ marginTop: "1rem", display: "flex", alignItems: "stretch", flexWrap: "wrap" }} gutter={24}>
+              {this.state.artist.works.map(work => (
+                <Work
+                  key={work.url}
+                  artistName={this.state.artist.name}
+                  {...work}
+                />
+              ))}
+            </Row>
+          </div>
         ) : null}
       </div>
     );
