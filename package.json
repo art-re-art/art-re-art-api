@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "concurrently \"pipenv run python manage.py runserver\" \"nodemon --watch webpack.config.js --watch antd.theme.js --exec 'webpack --watch'\"",
+    "start": "concurrently -r \"pipenv run python manage.py runserver\" \"nodemon --watch webpack.config.js --watch antd.theme.js --exec 'webpack --watch'\"",
     "build": "webpack --mode \"production\"",
     "migrate": "pipenv run python manage.py migrate",
     "makemigrations": "pipenv run python manage.py makemigrations",
