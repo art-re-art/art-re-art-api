@@ -54,9 +54,9 @@ export default class Work extends React.Component {
     return (
       <Col xl={8} lg={12} md={12} sm={24} className="work">
         <Card hoverable cover={<img src={this.state.featuredImage.image.small.url} />} onClick={this.showDrawer}>
-          <Title level={3}>{this.props.title}</Title>
+          <Title className="work-title" level={3}>{this.props.title}</Title>
           <Paragraph className="work-year">{this.props.year}</Paragraph>
-          <Paragraph className="work-title">{this.props.artistName}</Paragraph>
+          <Paragraph className="work-artist">{this.props.artistName}</Paragraph>
         </Card>
         <Drawer
           title={this.props.title}
