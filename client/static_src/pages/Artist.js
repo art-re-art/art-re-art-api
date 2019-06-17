@@ -1,6 +1,6 @@
 import React from "react";
 import ReactGA from "react-ga";
-
+import { Link } from "react-router-dom";
 import { Row, Col, Typography, Tag } from "antd";
 
 import Loading from "../components/Loading";
@@ -117,16 +117,16 @@ export default class Artist extends React.Component {
                         {this.state.artist.events
                           ? this.state.artist.events.map(event => {
                               return (
-                                <a
+                                <Link
                                   key={event.url}
-                                  href={event.url}
+                                  to={`/events/${event.id}/`}
                                   style={{
                                     marginRight: "10px",
                                     textDecoration: "underline"
                                   }}
                                 >
                                   {event.title}
-                                </a>
+                                </Link>
                               );
                             })
                           : null}
