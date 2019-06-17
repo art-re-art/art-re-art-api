@@ -1,12 +1,7 @@
 from rest_framework import viewsets
 
 from events.models import Event, EventLocation, EventImage
-from artists.models import (
-    Artist,
-    ArtistMedium,
-    ArtistWork,
-    ArtistWorkImage,
-)
+from artists.models import Artist, ArtistMedium, ArtistWork, ArtistWorkImage
 from forms.models import (
     ArtistSignup,
     ArtistSignupWork,

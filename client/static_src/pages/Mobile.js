@@ -25,7 +25,13 @@ export default class NoMatch extends React.Component {
           <Col lg={12} md={24}>
             <img
               src={Screenshot}
-              style={{ maxWidth: "100%", width: "auto", height: "auto", padding: "1em", maxHeight: "70vh" }}
+              style={{
+                maxWidth: "100%",
+                width: "auto",
+                height: "auto",
+                padding: "1em",
+                maxHeight: "70vh"
+              }}
             />
           </Col>
         </Row>

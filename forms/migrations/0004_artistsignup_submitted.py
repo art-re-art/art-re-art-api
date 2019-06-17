@@ -6,15 +6,15 @@ import django.utils.timezone
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('forms', '0003_auto_20190601_2258'),
-    ]
+    dependencies = [("forms", "0003_auto_20190601_2258")]
 
     operations = [
         migrations.AddField(
-            model_name='artistsignup',
-            name='submitted',
-            field=models.DateTimeField(auto_now_add=True, default=django.utils.timezone.now),
+            model_name="artistsignup",
+            name="submitted",
+            field=models.DateTimeField(
+                auto_now_add=True, default=django.utils.timezone.now
+            ),
             preserve_default=False,
-        ),
+        )
     ]

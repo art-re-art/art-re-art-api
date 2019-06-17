@@ -5,19 +5,17 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('about', '0004_auto_20190606_1914'),
-    ]
+    dependencies = [("about", "0004_auto_20190606_1914")]
 
     operations = [
         migrations.AddField(
-            model_name='aboutdeveloper',
-            name='website',
+            model_name="aboutdeveloper",
+            name="website",
             field=models.URLField(max_length=255, null=True),
         ),
         migrations.AddField(
-            model_name='aboutfaq',
-            name='is_mobile',
+            model_name="aboutfaq",
+            name="is_mobile",
             field=models.BooleanField(default=True),
         ),
     ]

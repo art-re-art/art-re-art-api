@@ -5,14 +5,12 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('artists', '0002_initial_data'),
-    ]
+    dependencies = [("artists", "0002_initial_data")]
 
     operations = [
         migrations.AlterField(
-            model_name='artist',
-            name='instagram',
+            model_name="artist",
+            name="instagram",
             field=models.URLField(blank=True, max_length=255, null=True),
-        ),
+        )
     ]

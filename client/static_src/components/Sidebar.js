@@ -101,7 +101,15 @@ class Sidebar extends React.Component {
         </Menu>
         <Link to={`/events/${this.state.event.id}/`} className="sidebar-event">
           <div>
-            <div style={{ color: "#ff0000", fontWeight: "700", textTransform: "uppercase" }}>Next Show:</div>
+            <div
+              style={{
+                color: "#ff0000",
+                fontWeight: "700",
+                textTransform: "uppercase"
+              }}
+            >
+              Next Show:
+            </div>
             <div className="sidebar-event__title">{this.state.event.title}</div>
             <div>{moment(this.state.event.datetime).format("LLLL")}</div>
             {this.state.event.location ? (

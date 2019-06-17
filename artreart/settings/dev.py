@@ -5,7 +5,7 @@ from .base import *
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'TEST_SECRET_KEY'
+SECRET_KEY = "TEST_SECRET_KEY"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -17,10 +17,7 @@ ALLOWED_HOSTS = []
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "art-re-art",
-    }
+    "default": {"ENGINE": "django.db.backends.postgresql", "NAME": "art-re-art"}
 }
 
 
@@ -36,7 +33,7 @@ MEDIA_URL = "https://static.artreart.com/"
 
 # Custom
 
-BASE_URL = 'https://localhost:8000'
+BASE_URL = "https://localhost:8000"
 
 
 # Mailchimp

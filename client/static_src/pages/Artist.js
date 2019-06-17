@@ -38,7 +38,10 @@ export default class Artist extends React.Component {
         <Row gutter={24} lg={24}>
           <Col xl={8} lg={24}>
             {this.state.artist.image ? (
-              <img src={this.state.artist.image.small.url} className="arist-img" />
+              <img
+                src={this.state.artist.image.small.url}
+                className="arist-img"
+              />
             ) : (
               <div
                 style={{ textAlign: "center" }}
@@ -54,7 +57,9 @@ export default class Artist extends React.Component {
                   <tbody>
                     {this.state.artist.state && (
                       <tr className="ant-descriptions-row">
-                        <td className="ant-descriptions-item-label">Location</td>
+                        <td className="ant-descriptions-item-label">
+                          Location
+                        </td>
                         <td className="ant-descriptions-item-content">
                           {this.state.artist.city}, {this.state.artist.state}
                         </td>
@@ -72,7 +77,9 @@ export default class Artist extends React.Component {
                     )}
                     {this.state.instagram && (
                       <tr className="ant-descriptions-row">
-                        <td className="ant-descriptions-item-label">Instagram</td>
+                        <td className="ant-descriptions-item-label">
+                          Instagram
+                        </td>
                         <td className="ant-descriptions-item-content">
                           <a href={this.state.artist.instagram}>
                             {this.state.artist.instagram}
@@ -134,7 +141,15 @@ export default class Artist extends React.Component {
         {this.state.artist.works ? (
           <div style={{ marginTop: "1rem" }}>
             <Title level={2}>Works by {this.state.artist.name}</Title>
-            <Row style={{ marginTop: "1rem", display: "flex", alignItems: "stretch", flexWrap: "wrap" }} gutter={24}>
+            <Row
+              style={{
+                marginTop: "1rem",
+                display: "flex",
+                alignItems: "stretch",
+                flexWrap: "wrap"
+              }}
+              gutter={24}
+            >
               {this.state.artist.works.map(work => (
                 <Work
                   key={work.url}

@@ -12,18 +12,18 @@ export default class Work extends React.Component {
   state = {
     featuredImage: null,
     isLoading: true,
-    drawerVisible: false,
-  }
+    drawerVisible: false
+  };
 
   showDrawer = () => {
     this.setState({
-      drawerVisible: true,
+      drawerVisible: true
     });
   };
 
   onClose = () => {
     this.setState({
-      drawerVisible: false,
+      drawerVisible: false
     });
   };
 
@@ -31,17 +31,17 @@ export default class Work extends React.Component {
     this.props.images.map(image => {
       if (image.is_featured) {
         this.setState({
-          featuredImage: image,
+          featuredImage: image
         });
         this.setState({
-          isLoading: false,
+          isLoading: false
         });
       }
     });
     if (this.state.featuredImage === null) {
       this.setState({
         featuredImage: this.props.images[0],
-        isLoading: false,
+        isLoading: false
       });
     }
   }
@@ -53,8 +53,16 @@ export default class Work extends React.Component {
 
     return (
       <Col xl={8} lg={12} md={12} sm={24} style={{ padding: "1rem" }}>
-        <Card hoverable className="work" cover={<img src={this.state.featuredImage.image.square.url} />} onClick={this.showDrawer} style={{ height: "100%" }}>
-          <Title className="work-title" level={3}>{this.props.title}</Title>
+        <Card
+          hoverable
+          className="work"
+          cover={<img src={this.state.featuredImage.image.square.url} />}
+          onClick={this.showDrawer}
+          style={{ height: "100%" }}
+        >
+          <Title className="work-title" level={3}>
+            {this.props.title}
+          </Title>
           <Paragraph className="work-year">{this.props.year}</Paragraph>
           <Paragraph className="work-artist">{this.props.artistName}</Paragraph>
         </Card>
@@ -69,9 +77,9 @@ export default class Work extends React.Component {
         >
           <Paragraph>{this.props.year}</Paragraph>
           <Paragraph>{this.props.artistName}</Paragraph>
-          {this.props.description &&
+          {this.props.description && (
             <Paragraph>{this.props.description}</Paragraph>
-          }
+          )}
           <div>
             {this.props.medium &&
               this.props.medium.map(medium => {
@@ -80,15 +88,19 @@ export default class Work extends React.Component {
                     {medium.title}
                   </Tag>
                 );
-              })
-            }
+              })}
           </div>
           <div className="work-images">
             {this.props.images &&
               this.props.images.map(image => {
-                return <img key={image.url} src={image.image.small.url} alt={image.description} />;
-              })
-            }
+                return (
+                  <img
+                    key={image.url}
+                    src={image.image.small.url}
+                    alt={image.description}
+                  />
+                );
+              })}
           </div>
         </Drawer>
       </Col>

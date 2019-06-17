@@ -8,8 +8,8 @@ class About(models.Model):
     description = models.TextField()
 
     class Meta:
-        verbose_name = 'about'
-        verbose_name_plural = 'about'
+        verbose_name = "about"
+        verbose_name_plural = "about"
 
     def __str__(self):
         return self.title

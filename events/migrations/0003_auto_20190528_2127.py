@@ -5,13 +5,8 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('events', '0002_initial_data'),
-    ]
+    dependencies = [("events", "0002_initial_data")]
 
     operations = [
-        migrations.AlterModelOptions(
-            name='event',
-            options={'ordering': ['-datetime']},
-        ),
+        migrations.AlterModelOptions(name="event", options={"ordering": ["-datetime"]})
     ]

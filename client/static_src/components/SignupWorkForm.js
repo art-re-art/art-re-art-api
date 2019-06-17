@@ -46,7 +46,7 @@ class WorkForm extends React.Component {
               <Paragraph>
                 <Icon type="inbox" style={{ fontSize: 40 }} />
               </Paragraph>
-              <Paragraph style={{ marginBotom: 0}}>
+              <Paragraph style={{ marginBotom: 0 }}>
                 Click or drag file to this area to upload
               </Paragraph>
             </Dragger>
@@ -96,6 +96,5 @@ class WorkForm extends React.Component {
     );
   }
 }
-
 
 export default Form.create()(WorkForm);

@@ -6,29 +6,64 @@ import django.db.models.deletion
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('artists', '0004_auto_20190601_1205'),
-    ]
+    dependencies = [("artists", "0004_auto_20190601_1205")]
 
     operations = [
         migrations.CreateModel(
-            name='ArtistWork',
+            name="ArtistWork",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(blank=True, max_length=255, null=True)),
-                ('year', models.CharField(blank=True, max_length=255, null=True)),
-                ('dimensions', models.CharField(blank=True, max_length=255, null=True)),
-                ('description', models.TextField(blank=True, null=True)),
-                ('artist', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='works', to='artists.Artist')),
-                ('medium', models.ManyToManyField(blank=True, related_name='artist_works', to='artists.ArtistMedium')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(blank=True, max_length=255, null=True)),
+                ("year", models.CharField(blank=True, max_length=255, null=True)),
+                ("dimensions", models.CharField(blank=True, max_length=255, null=True)),
+                ("description", models.TextField(blank=True, null=True)),
+                (
+                    "artist",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="works",
+                        to="artists.Artist",
+                    ),
+                ),
+                (
+                    "medium",
+                    models.ManyToManyField(
+                        blank=True,
+                        related_name="artist_works",
+                        to="artists.ArtistMedium",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='ArtistWorkImage',
+            name="ArtistWorkImage",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(upload_to='')),
-                ('artist_work', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='images', to='artists.ArtistWork')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("image", models.ImageField(upload_to="")),
+                (
+                    "artist_work",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="images",
+                        to="artists.ArtistWork",
+                    ),
+                ),
             ],
         ),
     ]

@@ -6,31 +6,48 @@ import django.db.models.deletion
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('forms', '0002_mailchimpsignup'),
-    ]
+    dependencies = [("forms", "0002_mailchimpsignup")]
 
     operations = [
         migrations.CreateModel(
-            name='ArtistSignupWorkImage',
+            name="ArtistSignupWorkImage",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(upload_to='')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("image", models.ImageField(upload_to="")),
             ],
         ),
         migrations.AlterField(
-            model_name='artistsignupwork',
-            name='image',
-            field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='work', to='forms.ArtistSignupWorkImage'),
+            model_name="artistsignupwork",
+            name="image",
+            field=models.OneToOneField(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="work",
+                to="forms.ArtistSignupWorkImage",
+            ),
         ),
         migrations.AlterField(
-            model_name='artistsignupwork',
-            name='medium',
-            field=models.CharField(blank=True, help_text='Can have multiple, ex. Painting, Installation, Video', max_length=255, null=True),
+            model_name="artistsignupwork",
+            name="medium",
+            field=models.CharField(
+                blank=True,
+                help_text="Can have multiple, ex. Painting, Installation, Video",
+                max_length=255,
+                null=True,
+            ),
         ),
         migrations.AlterField(
-            model_name='artistsignupwork',
-            name='title',
+            model_name="artistsignupwork",
+            name="title",
             field=models.CharField(blank=True, max_length=255, null=True),
         ),
     ]

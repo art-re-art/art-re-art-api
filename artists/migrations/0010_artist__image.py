@@ -5,14 +5,14 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('artists', '0009_auto_20190607_2256'),
-    ]
+    dependencies = [("artists", "0009_auto_20190607_2256")]
 
     operations = [
         migrations.AddField(
-            model_name='artist',
-            name='_image',
-            field=models.ImageField(blank=True, null=True, upload_to='', verbose_name='Image'),
-        ),
+            model_name="artist",
+            name="_image",
+            field=models.ImageField(
+                blank=True, null=True, upload_to="", verbose_name="Image"
+            ),
+        )
     ]

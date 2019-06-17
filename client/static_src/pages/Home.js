@@ -9,7 +9,9 @@ import "../styles/Home.less";
 export default class Home extends React.Component {
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
-    this.props.setTitle("A series of pop up art events in downtown Morganton, NC.");
+    this.props.setTitle(
+      "A series of pop up art events in downtown Morganton, NC."
+    );
   }
 
   render() {
@@ -33,22 +35,13 @@ export default class Home extends React.Component {
               padding: "2em"
             }}
           >
-            <Link
-              to="/events/"
-              className="home__link"
-            >
+            <Link to="/events/" className="home__link">
               Shows
             </Link>
-            <Link
-              to="/artists/"
-              className="home__link"
-            >
+            <Link to="/artists/" className="home__link">
               Artists
             </Link>
-            <Link
-              to="/about/"
-              className="home__link"
-            >
+            <Link to="/about/" className="home__link">
               About
             </Link>
           </div>
@@ -56,15 +49,15 @@ export default class Home extends React.Component {
 
         <div className="home__content">
           <p>
-            ART/RE/ART is a series of one-night-only, contemporary art experiences taking place in downtown
-            Morganton, NC. These free events, held in non-art
-            spaces, offer an alternative way to interact with and experience art
-            in the community.
+            ART/RE/ART is a series of one-night-only, contemporary art
+            experiences taking place in downtown Morganton, NC. These free
+            events, held in non-art spaces, offer an alternative way to interact
+            with and experience art in the community.
           </p>
 
           <p style={{ marginBottom: 0 }}>
-            Featuring local and regional artists, ART/RE/ART includes work
-            from multiple disciplines and mediums including performance,
+            Featuring local and regional artists, ART/RE/ART includes work from
+            multiple disciplines and mediums including performance,
             installation, sculpture, interactive, video, painting, drawing, and
             photography.
           </p>

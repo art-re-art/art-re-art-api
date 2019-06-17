@@ -33,7 +33,16 @@ export default class Artists extends React.Component {
 
     return (
       <div className="artists-page">
-        <Row gutter={24} style={{ padding: "2em", display: "flex", alignItems: "stretch", justifyContent: "center", flexWrap: "wrap" }}>
+        <Row
+          gutter={24}
+          style={{
+            padding: "2em",
+            display: "flex",
+            alignItems: "stretch",
+            justifyContent: "center",
+            flexWrap: "wrap"
+          }}
+        >
           {this.state.artists.map(artist => (
             <Artist key={artist.url} {...artist} />
           ))}

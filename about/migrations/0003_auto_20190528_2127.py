@@ -5,13 +5,11 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('about', '0002_initial_data'),
-    ]
+    dependencies = [("about", "0002_initial_data")]
 
     operations = [
         migrations.AlterModelOptions(
-            name='aboutfaq',
-            options={'verbose_name': 'About FAQ', 'verbose_name_plural': 'About FAQs'},
-        ),
+            name="aboutfaq",
+            options={"verbose_name": "About FAQ", "verbose_name_plural": "About FAQs"},
+        )
     ]

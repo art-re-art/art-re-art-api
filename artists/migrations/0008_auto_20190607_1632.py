@@ -5,24 +5,22 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('artists', '0007_auto_20190606_2150'),
-    ]
+    dependencies = [("artists", "0007_auto_20190606_2150")]
 
     operations = [
         migrations.AddField(
-            model_name='artist',
-            name='artist_statement',
+            model_name="artist",
+            name="artist_statement",
             field=models.TextField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='artist',
-            name='city',
+            model_name="artist",
+            name="city",
             field=models.CharField(blank=True, max_length=255, null=True),
         ),
         migrations.AddField(
-            model_name='artist',
-            name='state',
+            model_name="artist",
+            name="state",
             field=models.CharField(blank=True, max_length=255, null=True),
         ),
     ]

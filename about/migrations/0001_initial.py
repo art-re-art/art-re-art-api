@@ -8,34 +8,71 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='About',
+            name="About",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255)),
-                ('website', models.URLField(max_length=255)),
-                ('description', models.TextField()),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255)),
+                ("website", models.URLField(max_length=255)),
+                ("description", models.TextField()),
             ],
         ),
         migrations.CreateModel(
-            name='AboutFAQ',
+            name="AboutFAQ",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('question', models.CharField(max_length=255)),
-                ('answer', models.TextField()),
-                ('about', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='faqs', to='about.About')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("question", models.CharField(max_length=255)),
+                ("answer", models.TextField()),
+                (
+                    "about",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="faqs",
+                        to="about.About",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='AboutDeveloper',
+            name="AboutDeveloper",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
-                ('about', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='developers', to='about.About')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=255)),
+                (
+                    "about",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="developers",
+                        to="about.About",
+                    ),
+                ),
             ],
         ),
     ]

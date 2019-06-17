@@ -33,9 +33,7 @@ export default class Event extends React.Component {
     let url =
       "https://maps.google.com/maps?t=&z=13&ie=UTF8&iwloc=&output=embed&q=";
     let location = this.state.event.location;
-    let address = `${location.street}, ${location.city}, ${location.state}, ${
-      location.postal
-    }`;
+    let address = `${location.street}, ${location.city}, ${location.state}, ${location.postal}`;
     let fullURL = url + address;
     return encodeURI(fullURL);
   };
@@ -100,11 +98,23 @@ export default class Event extends React.Component {
           </Col>
         </Row>
         {this.state.event.images ? (
-          <Row gutter={24} style={{ display: "flex", flexWrap: "wrap", alignItems: "center" }}>
+          <Row
+            gutter={24}
+            style={{ display: "flex", flexWrap: "wrap", alignItems: "center" }}
+          >
             {this.state.event.images.map(image => {
               return (
-                <Col xl={6} lg={8} md={12} sm={12} xs={24} key={image.url} style={{ marginBottom: 24 }}>
-                  <Card className="event-img"
+                <Col
+                  xl={6}
+                  lg={8}
+                  md={12}
+                  sm={12}
+                  xs={24}
+                  key={image.url}
+                  style={{ marginBottom: 24 }}
+                >
+                  <Card
+                    className="event-img"
                     cover={
                       <img
                         src={image.image.small.url}
@@ -121,7 +131,14 @@ export default class Event extends React.Component {
         ) : null}
         <div style={{ marginTop: "1rem" }}>
           <Title level={2}>Participating Artists</Title>
-          <Row style={{ display: "flex", alignItems: "stretch", justifyContent: "center", flexWrap: "wrap" }}>
+          <Row
+            style={{
+              display: "flex",
+              alignItems: "stretch",
+              justifyContent: "center",
+              flexWrap: "wrap"
+            }}
+          >
             {this.state.event.artists
               ? this.state.event.artists.map(artist => {
                   return <Artist key={artist.url} {...artist} />;

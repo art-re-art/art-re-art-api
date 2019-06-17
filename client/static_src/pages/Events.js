@@ -31,7 +31,16 @@ export default class Events extends React.Component {
     }
 
     return (
-      <Row gutter={24} style={{ padding: "2em", display: "flex", alignItems: "stretch", justifyContent: "center", flexWrap: "wrap" }}>
+      <Row
+        gutter={24}
+        style={{
+          padding: "2em",
+          display: "flex",
+          alignItems: "stretch",
+          justifyContent: "center",
+          flexWrap: "wrap"
+        }}
+      >
         {this.state.events.map(event => (
           <Event key={event.url} {...event} />
         ))}

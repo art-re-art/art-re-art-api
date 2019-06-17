@@ -23,7 +23,7 @@ class ArtistSignup(models.Model):
         return self.name
 
     class Meta:
-        ordering = ['-submitted']
+        ordering = ["-submitted"]
 
 
 class ArtistSignupWork(models.Model):

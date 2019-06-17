@@ -5,19 +5,17 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('artists', '0008_auto_20190607_1632'),
-    ]
+    dependencies = [("artists", "0008_auto_20190607_1632")]
 
     operations = [
         migrations.AddField(
-            model_name='artistworkimage',
-            name='description',
+            model_name="artistworkimage",
+            name="description",
             field=models.CharField(max_length=255, null=True),
         ),
         migrations.AddField(
-            model_name='artistworkimage',
-            name='is_featured',
+            model_name="artistworkimage",
+            name="is_featured",
             field=models.BooleanField(default=False),
         ),
     ]

@@ -5,13 +5,10 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('forms', '0004_artistsignup_submitted'),
-    ]
+    dependencies = [("forms", "0004_artistsignup_submitted")]
 
     operations = [
         migrations.AlterModelOptions(
-            name='artistsignup',
-            options={'ordering': ['-submitted']},
-        ),
+            name="artistsignup", options={"ordering": ["-submitted"]}
+        )
     ]
