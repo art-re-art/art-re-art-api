@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Card, Typography, Tag, Modal } from "antd";
+import { Col, Card, Typography, Tag, Modal, Row } from "antd";
 
 const { Meta } = Card;
 const { Paragraph, Title } = Typography;
@@ -79,16 +79,20 @@ export default class Work extends React.Component {
               })}
           </div>
           <div className="work-images">
-            {this.props.images &&
-              this.props.images.map(image => {
-                return (
-                  <img
-                    key={image.url}
-                    src={image.image.small.url}
-                    alt={image.description}
-                  />
-                );
-              })}
+            <Row>
+              {this.props.images &&
+                this.props.images.map(image => {
+                  return (
+                    <Col lg={8} md={12} sm={24}>
+                      <img
+                        key={image.url}
+                        src={image.image.small.url}
+                        alt={image.description}
+                      />
+                    </Col>
+                  );
+                })}
+            </Row>
           </div>
         </Modal>
       </Col>
