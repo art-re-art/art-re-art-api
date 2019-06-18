@@ -1,7 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import moment from "moment";
-import { Col, Card, Typography, Drawer, Tag } from "antd";
+import { Col, Card, Typography, Tag, Modal } from "antd";
 
 const { Meta } = Card;
 const { Paragraph, Title } = Typography;
@@ -12,19 +10,7 @@ export default class Work extends React.Component {
   state = {
     featuredImage: null,
     isLoading: true,
-    drawerVisible: false
-  };
-
-  showDrawer = () => {
-    this.setState({
-      drawerVisible: true
-    });
-  };
-
-  onClose = () => {
-    this.setState({
-      drawerVisible: false
-    });
+    modalVisible: false
   };
 
   componentDidMount() {
@@ -57,7 +43,9 @@ export default class Work extends React.Component {
           hoverable
           className="work"
           cover={<img src={this.state.featuredImage.image.square.url} />}
-          onClick={this.showDrawer}
+          onClick={() => {
+            this.setState({ modalVisible: true });
+          }}
           style={{ height: "100%" }}
         >
           <Title className="work-title" level={3}>
@@ -66,14 +54,14 @@ export default class Work extends React.Component {
           <Paragraph className="work-year">{this.props.year}</Paragraph>
           <Paragraph className="work-artist">{this.props.artistName}</Paragraph>
         </Card>
-        <Drawer
+        <Modal
           title={this.props.title}
-          placement="right"
-          closable={true}
-          onClose={this.onClose}
-          visible={this.state.drawerVisible}
+          visible={this.state.modalVisible}
+          onCancel={() => {
+            this.setState({ modalVisible: false });
+          }}
+          footer={null}
           width={"75vw"}
-          className="work-drawer"
         >
           <Paragraph>{this.props.year}</Paragraph>
           <Paragraph>{this.props.artistName}</Paragraph>
@@ -102,7 +90,7 @@ export default class Work extends React.Component {
                 );
               })}
           </div>
-        </Drawer>
+        </Modal>
       </Col>
     );
   }
