@@ -1,0 +1,50 @@
+from rest_framework import serializers
+
+from forms.models import (
+    MailchimpSignup,
+    ArtistSignupWorkImage,
+    ArtistSignupWork,
+    ArtistSignup,
+)
+
+
+class MailchimpSignupSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = MailchimpSignup
+        fields = ("url", "first_name", "last_name", "email")
+
+
+class ArtistSignupWorkImageSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ArtistSignupWorkImage
+        fields = ("url", "image")
+
+
+class ArtistSignupWorkSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ArtistSignupWork
+        fields = (
+            "url",
+            "artist_signup",
+            "image",
+            "title",
+            "medium",
+            "description",
+            "special_installation_needs",
+        )
+
+
+class ArtistSignupSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ArtistSignup
+        fields = (
+            "url",
+            "name",
+            "email",
+            "phone_number",
+            "city",
+            "state",
+            "artist_statement",
+            "website",
+            "instagram",
+        )

@@ -14,7 +14,7 @@ class MailchimpForm extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         axios
-          .post("/api/mailchimp/", values)
+          .post("/api/forms/mailchimp/", values)
           .then(response => {
             this.setState({
               success: true,

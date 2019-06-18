@@ -116,14 +116,14 @@ export default class Signup extends React.Component {
 
   _completeSignup = async () => {
     const artistSignup = await axios.post(
-      "/api/artistsignup/",
+      "/api/forms/artistsignups/",
       this.state.dataArtist
     );
     const artistUrl = artistSignup.data.url;
     await this.state.dataWork.map(work => {
       work.artist_signup = artistUrl;
       work.image = work.image[work.image.length - 1].response.url;
-      axios.post("/api/artistsignupwork/", work);
+      axios.post("/api/forms/artistsignups/works/", work);
     });
     this.setState({
       current: 2,
