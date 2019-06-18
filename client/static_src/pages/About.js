@@ -47,9 +47,20 @@ export default class About extends React.Component {
           <Paragraph>
             {about.organizers
               .map(organizer => {
+                if (organizer.website)
+                  return (
+                    <a
+                      key={organizer.name}
+                      href={organizer.website}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      {organizer.name}
+                    </a>
+                  );
                 return organizer.name;
               })
-              .join(", ")}
+              .reduce((prev, curr) => [prev, ", ", curr])}
           </Paragraph>
         </Row>
         <Divider dashed />
@@ -58,9 +69,20 @@ export default class About extends React.Component {
           <Paragraph>
             {about.developers
               .map(developer => {
+                if (developer.website)
+                  return (
+                    <a
+                      key={developer.name}
+                      href={developer.website}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      {developer.name}
+                    </a>
+                  );
                 return developer.name;
               })
-              .join(", ")}
+              .reduce((prev, curr) => [prev, ", ", curr])}
           </Paragraph>
         </Row>
         <Divider dashed />
@@ -68,11 +90,12 @@ export default class About extends React.Component {
           <Title level={2}>FAQs</Title>
           <Collapse accordion>
             {about.faqs.map(faq => {
-              return (
-                <Panel key={faq.question} header={faq.question}>
-                  <Paragraph>{faq.answer}</Paragraph>
-                </Panel>
-              );
+              if (!faq.is_mobile)
+                return (
+                  <Panel key={faq.question} header={faq.question}>
+                    <Paragraph>{faq.answer}</Paragraph>
+                  </Panel>
+                );
             })}
           </Collapse>
         </Row>
