@@ -1,6 +1,11 @@
 from django.contrib import admin
 
-from .models import About, AboutDeveloper, AboutFAQ
+from .models import About, AboutOrganizer, AboutDeveloper, AboutFAQ
+
+
+class AboutOrganizerInline(admin.StackedInline):
+    model = AboutOrganizer
+    extra = 0
 
 
 class AboutDeveloperInline(admin.StackedInline):
@@ -15,5 +20,5 @@ class AboutFAQInline(admin.StackedInline):
 
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
-    list_display = ["title", "website", "developer_list"]
-    inlines = [AboutDeveloperInline, AboutFAQInline]
+    list_display = ["title", "website"]
+    inlines = [AboutOrganizerInline, AboutDeveloperInline, AboutFAQInline]

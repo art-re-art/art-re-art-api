@@ -26,13 +26,29 @@ class About(models.Model):
         if self.developers.exists():
             return ", ".join([developer.name for developer in self.developers.all()])
 
+    @property
+    def organizers_list(self):
+        if self.organizers.exists():
+            return ", ".join([organizers.name for organizer in self.organizers.all()])
+
+
+class AboutOrganizer(models.Model):
+    about = models.ForeignKey(
+        to="about.About", on_delete=models.CASCADE, related_name="organizers"
+    )
+    name = models.CharField(max_length=255)
+    website = models.URLField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
 
 class AboutDeveloper(models.Model):
     about = models.ForeignKey(
         to="about.About", on_delete=models.CASCADE, related_name="developers"
     )
     name = models.CharField(max_length=255)
-    website = models.URLField(max_length=255, null=True)
+    website = models.URLField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return self.name

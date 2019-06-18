@@ -2,77 +2,78 @@ import React from "react";
 import ReactGA from "react-ga";
 import { Collapse, Typography, Row, Divider } from "antd";
 
+import Loading from "../components/Loading";
+
 const { Title, Paragraph } = Typography;
 const { Panel } = Collapse;
 
 export default class About extends React.Component {
+  state = {
+    about: {},
+    isLoading: true
+  };
+
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
     this.props.setTitle("About");
+    fetch("/api/about/")
+      .then(data => {
+        return data.json();
+      })
+      .then(data => {
+        this.setState({
+          about: data[0],
+          isLoading: false
+        });
+      });
   }
 
   render() {
+    let about = this.state.about;
+
+    if (this.state.isLoading) {
+      return <Loading />;
+    }
+
     return (
       <div className="container">
         <Row>
           <Title level={2}>The Down Low</Title>
-          <Paragraph>
-            ART/RE/ART is a series of pop up art events in downtown Morganton,
-            NC. These free events, held in non-art spaces, offer alternative
-            ways to interact with and experience art in the community.
-            Typically, there is an emphasis on performative, interactive, and
-            installation art works.
-          </Paragraph>
+          <Paragraph>{about.description}</Paragraph>
         </Row>
         <Divider dashed />
         <Row>
           <Title level={2}>The Organizers</Title>
           <Paragraph>
-            Nancy VanNoppen, Alexander Collett, Jean C. VanNoppen, Derek Long,
-            Ellen VanNoppen, Jean B. VanNoppen, Allen VanNoppen, Rob Childress,
-            Kayla Oelhafen
+            {about.organizers
+              .map(organizer => {
+                return organizer.name;
+              })
+              .join(", ")}
           </Paragraph>
         </Row>
         <Divider dashed />
         <Row>
           <Title level={2}>The Developers</Title>
           <Paragraph>
-            Nancy VanNoppen, Jean VanNoppen, Isaac Bythewood
+            {about.developers
+              .map(developer => {
+                return developer.name;
+              })
+              .join(", ")}
           </Paragraph>
         </Row>
         <Divider dashed />
         <Row>
           <Title level={2}>FAQs</Title>
           <Collapse accordion>
-            <Panel header="What is ART/RE/ART?">
-              <Paragraph>
-                ART/RE/ART is a series of pop-up art shows taking place in and
-                around Morganton, NC.
-              </Paragraph>
-            </Panel>
-            <Panel header="Where do the shows take place?">
-              <Paragraph>
-                ART/RE/ART changes venue with each show. Check out our Events
-                tab to learn more.
-              </Paragraph>
-            </Panel>
-            <Panel header="How can I participate in the show?">
-              <Paragraph>
-                Sign up on our website for email updates and follow us on
-                Instagram to stay tuned about calls for submissions. We also can
-                always use help from volunteers, email us at
-                artreart.morganton@gmail.com if you're interested in
-                volunteering.
-              </Paragraph>
-            </Panel>
-            <Panel header="Where can I learn more?">
-              <Paragraph>
-                We love to answer questions and dig into conversations about art
-                and our events. Email us{" "}
-                <a href="mailto:hello@artreart.com">hello@artreart.com</a> to
-                chat.
-              </Paragraph>
-            </Panel>
+            {about.faqs.map(faq => {
+              return (
+                <Panel key={faq.question} header={faq.question}>
+                  <Paragraph>{faq.answer}</Paragraph>
+                </Panel>
+              );
+            })}
           </Collapse>
         </Row>
       </div>
