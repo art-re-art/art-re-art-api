@@ -68,7 +68,7 @@ export default class About extends React.Component {
             <Panel header="Where can I learn more?">
               <Paragraph>
                 We love to answer questions and dig into conversations about art
-                and our events. Email us
+                and our events. Email us{" "}
                 <a href="mailto:hello@artreart.com">hello@artreart.com</a> to
                 chat.
               </Paragraph>
