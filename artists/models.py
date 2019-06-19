@@ -24,6 +24,11 @@ class Artist(models.Model):
     )
     _image = models.ImageField("Image", blank=True, null=True)
 
+    class Meta:
+        verbose_name = "Artist"
+        verbose_name_plural = "Aritsts"
+        ordering = ["name"]
+
     def __str__(self):
         return self.name
 
@@ -61,6 +66,10 @@ class Artist(models.Model):
 class ArtistMedium(models.Model):
     title = models.CharField(max_length=255)
 
+    class Meta:
+        verbose_name = "Artist Medium"
+        verbose_name_plural = "Aritst Mediums"
+
     def __str__(self):
         return self.title
 
@@ -77,6 +86,10 @@ class ArtistWork(models.Model):
     dimensions = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
 
+    class Meta:
+        verbose_name = "Artist Work"
+        verbose_name_plural = "Aritst Works"
+
     def __str__(self):
         return self.title
 
@@ -89,14 +102,12 @@ class ArtistWorkImage(models.Model):
     description = models.CharField(max_length=255, null=True)
     is_featured = models.BooleanField(default=False)
 
+    class Meta:
+        verbose_name = "Artist Work Image"
+        verbose_name_plural = "Aritst Work Images"
+
     def __str__(self):
-        return (
-            str(self.artist_work.artist.name)
-            + " - "
-            + str(self.artist_work.title)
-            + " - "
-            + str(self.id)
-        )
+        return self.artist_work.title
 
     @property
     def image(self):
