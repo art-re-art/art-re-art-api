@@ -75,6 +75,7 @@ class ArtistMedium(models.Model):
 
 
 class ArtistWork(models.Model):
+    _order = models.PositiveSmallIntegerField(blank=True, null=True)
     artist = models.ForeignKey(
         to="artists.Artist", on_delete=models.CASCADE, related_name="works"
     )
@@ -89,12 +90,14 @@ class ArtistWork(models.Model):
     class Meta:
         verbose_name = "Artist Work"
         verbose_name_plural = "Aritst Works"
+        ordering = ["_order"]
 
     def __str__(self):
         return self.title
 
 
 class ArtistWorkImage(models.Model):
+    _order = models.PositiveSmallIntegerField(blank=True, null=True)
     artist_work = models.ForeignKey(
         to="artists.ArtistWork", on_delete=models.CASCADE, related_name="images"
     )
@@ -105,6 +108,7 @@ class ArtistWorkImage(models.Model):
     class Meta:
         verbose_name = "Artist Work Image"
         verbose_name_plural = "Aritst Work Images"
+        ordering = ["_order"]
 
     def __str__(self):
         return self.artist_work.title
