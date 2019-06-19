@@ -83,7 +83,7 @@ export default class Work extends React.Component {
               {this.props.images &&
                 this.props.images.map(image => {
                   return (
-                    <Col lg={8} md={12} sm={24}>
+                    <Col md={12} sm={24}>
                       <img
                         key={image.url}
                         src={image.image.small.url}
