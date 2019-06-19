@@ -48,7 +48,7 @@ export default class Work extends React.Component {
           }}
           style={{ height: "100%" }}
         >
-          <Title className="work-title" level={3}>
+          <Title className="work-title" level={4}>
             {this.props.title}
           </Title>
           <Paragraph className="work-year">{this.props.year}</Paragraph>
