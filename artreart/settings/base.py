@@ -15,10 +15,11 @@ INSTALLED_APPS = [
     "artists",
     "about",
     "forms",
-    "rest_framework",
+    "grappelli",
     "crispy_forms",
     "sorl.thumbnail",
     "nested_admin",
+    "rest_framework",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -103,3 +104,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "client/static")]
 # https://django-crispy-forms.readthedocs.io/en/latest/
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+
+# Grappelli
+# https://django-grappelli.readthedocs.io/en/latest/customization.html
+
+GRAPPELLI_ADMIN_TITLE = 'Art/Re/Art Admin'

@@ -28,6 +28,7 @@ urlpatterns = [
     # Static
     path("favicon.ico", RedirectView.as_view(url=static("images/favicon.png"))),
     # Admin
+    path('grappelli/', include('grappelli.urls')),
     path("_nested_admin/", include("nested_admin.urls")),
     path("admin/", admin.site.urls),
     # Client
