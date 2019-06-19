@@ -61,7 +61,7 @@ export default class Work extends React.Component {
             this.setState({ modalVisible: false });
           }}
           footer={null}
-          width={"75vw"}
+          width={"90vw"}
         >
           <Paragraph>{this.props.year}</Paragraph>
           <Paragraph>{this.props.artistName}</Paragraph>
