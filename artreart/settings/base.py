@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "crispy_forms",
     "sorl.thumbnail",
+    "nested_admin",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

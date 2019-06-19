@@ -19,6 +19,7 @@ requests = "*"
 django-storages = "*"
 boto3 = "*"
 sorl-thumbnail = "*"
+django-nested-admin = "*"
 
 [requires]
 python_version = "3.7"
