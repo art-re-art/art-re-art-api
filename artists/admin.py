@@ -9,8 +9,7 @@ from .models import Artist, ArtistMedium, ArtistWork, ArtistWorkImage
 
 @admin.register(ArtistMedium)
 class ArtistMediumAdmin(admin.ModelAdmin):
-    def get_model_perms(self, request):
-        return {}
+    pass
 
 
 class ArtistWorkImageInline(
