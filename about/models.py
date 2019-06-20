@@ -33,28 +33,41 @@ class About(models.Model):
 
 
 class AboutOrganizer(models.Model):
+    _order = models.PositiveSmallIntegerField(blank=True, null=True)
     about = models.ForeignKey(
         to="about.About", on_delete=models.CASCADE, related_name="organizers"
     )
     name = models.CharField(max_length=255)
     website = models.URLField(max_length=255, blank=True, null=True)
 
+    class Meta:
+        verbose_name = "About Organizer"
+        verbose_name_plural = "About Organizers"
+        ordering = ["_order"]
+
     def __str__(self):
         return self.name
 
 
 class AboutDeveloper(models.Model):
+    _order = models.PositiveSmallIntegerField(blank=True, null=True)
     about = models.ForeignKey(
         to="about.About", on_delete=models.CASCADE, related_name="developers"
     )
     name = models.CharField(max_length=255)
     website = models.URLField(max_length=255, blank=True, null=True)
 
+    class Meta:
+        verbose_name = "About Developer"
+        verbose_name_plural = "About Developers"
+        ordering = ["_order"]
+
     def __str__(self):
         return self.name
 
 
 class AboutFAQ(models.Model):
+    _order = models.PositiveSmallIntegerField(blank=True, null=True)
     about = models.ForeignKey(
         to="about.About", on_delete=models.CASCADE, related_name="faqs"
     )
@@ -62,9 +75,10 @@ class AboutFAQ(models.Model):
     answer = models.TextField()
     is_mobile = models.BooleanField(default=True)
 
-    def __str__(self):
-        return self.question
-
     class Meta:
         verbose_name = "About FAQ"
         verbose_name_plural = "About FAQs"
+        ordering = ["_order"]
+
+    def __str__(self):
+        return self.question
