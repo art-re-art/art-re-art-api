@@ -28,4 +28,12 @@ class AboutSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = About
-        fields = ("url", "title", "website", "description", "faqs", "developers", "organizers")
+        fields = (
+            "url",
+            "title",
+            "website",
+            "description",
+            "faqs",
+            "developers",
+            "organizers",
+        )

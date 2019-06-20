@@ -5,26 +5,35 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('events', '0008_auto_20190606_2150'),
-    ]
+    dependencies = [("events", "0008_auto_20190606_2150")]
 
     operations = [
         migrations.AlterModelOptions(
-            name='event',
-            options={'ordering': ['-datetime'], 'verbose_name': 'Event', 'verbose_name_plural': 'Events'},
+            name="event",
+            options={
+                "ordering": ["-datetime"],
+                "verbose_name": "Event",
+                "verbose_name_plural": "Events",
+            },
         ),
         migrations.AlterModelOptions(
-            name='eventimage',
-            options={'ordering': ['_order'], 'verbose_name': 'Event Image', 'verbose_name_plural': 'Event Images'},
+            name="eventimage",
+            options={
+                "ordering": ["_order"],
+                "verbose_name": "Event Image",
+                "verbose_name_plural": "Event Images",
+            },
         ),
         migrations.AlterModelOptions(
-            name='eventlocation',
-            options={'verbose_name': 'Event Location', 'verbose_name_plural': 'Event Locations'},
+            name="eventlocation",
+            options={
+                "verbose_name": "Event Location",
+                "verbose_name_plural": "Event Locations",
+            },
         ),
         migrations.AddField(
-            model_name='eventimage',
-            name='_order',
+            model_name="eventimage",
+            name="_order",
             field=models.PositiveSmallIntegerField(blank=True, null=True),
         ),
     ]

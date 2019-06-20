@@ -109,4 +109,4 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 # Grappelli
 # https://django-grappelli.readthedocs.io/en/latest/customization.html
 
-GRAPPELLI_ADMIN_TITLE = 'Art/Re/Art Admin'
+GRAPPELLI_ADMIN_TITLE = "Art/Re/Art Admin"

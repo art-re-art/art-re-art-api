@@ -5,36 +5,46 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('about', '0006_auto_20190617_2357'),
-    ]
+    dependencies = [("about", "0006_auto_20190617_2357")]
 
     operations = [
         migrations.AlterModelOptions(
-            name='aboutdeveloper',
-            options={'ordering': ['_order'], 'verbose_name': 'About Developer', 'verbose_name_plural': 'About Developers'},
+            name="aboutdeveloper",
+            options={
+                "ordering": ["_order"],
+                "verbose_name": "About Developer",
+                "verbose_name_plural": "About Developers",
+            },
         ),
         migrations.AlterModelOptions(
-            name='aboutfaq',
-            options={'ordering': ['_order'], 'verbose_name': 'About FAQ', 'verbose_name_plural': 'About FAQs'},
+            name="aboutfaq",
+            options={
+                "ordering": ["_order"],
+                "verbose_name": "About FAQ",
+                "verbose_name_plural": "About FAQs",
+            },
         ),
         migrations.AlterModelOptions(
-            name='aboutorganizer',
-            options={'ordering': ['_order'], 'verbose_name': 'About Organizer', 'verbose_name_plural': 'About Organizers'},
+            name="aboutorganizer",
+            options={
+                "ordering": ["_order"],
+                "verbose_name": "About Organizer",
+                "verbose_name_plural": "About Organizers",
+            },
         ),
         migrations.AddField(
-            model_name='aboutdeveloper',
-            name='_order',
+            model_name="aboutdeveloper",
+            name="_order",
             field=models.PositiveSmallIntegerField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='aboutfaq',
-            name='_order',
+            model_name="aboutfaq",
+            name="_order",
             field=models.PositiveSmallIntegerField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='aboutorganizer',
-            name='_order',
+            model_name="aboutorganizer",
+            name="_order",
             field=models.PositiveSmallIntegerField(blank=True, null=True),
         ),
     ]

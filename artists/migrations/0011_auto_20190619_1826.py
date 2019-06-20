@@ -5,35 +5,46 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('artists', '0010_artist__image'),
-    ]
+    dependencies = [("artists", "0010_artist__image")]
 
     operations = [
         migrations.AlterModelOptions(
-            name='artist',
-            options={'ordering': ['name'], 'verbose_name': 'Artist', 'verbose_name_plural': 'Aritsts'},
+            name="artist",
+            options={
+                "ordering": ["name"],
+                "verbose_name": "Artist",
+                "verbose_name_plural": "Aritsts",
+            },
         ),
         migrations.AlterModelOptions(
-            name='artistmedium',
-            options={'verbose_name': 'Artist Medium', 'verbose_name_plural': 'Aritst Mediums'},
+            name="artistmedium",
+            options={
+                "verbose_name": "Artist Medium",
+                "verbose_name_plural": "Aritst Mediums",
+            },
         ),
         migrations.AlterModelOptions(
-            name='artistwork',
-            options={'verbose_name': 'Artist Work', 'verbose_name_plural': 'Aritst Works'},
+            name="artistwork",
+            options={
+                "verbose_name": "Artist Work",
+                "verbose_name_plural": "Aritst Works",
+            },
         ),
         migrations.AlterModelOptions(
-            name='artistworkimage',
-            options={'verbose_name': 'Artist Work Image', 'verbose_name_plural': 'Aritst Work Images'},
+            name="artistworkimage",
+            options={
+                "verbose_name": "Artist Work Image",
+                "verbose_name_plural": "Aritst Work Images",
+            },
         ),
         migrations.AddField(
-            model_name='artistwork',
-            name='_order',
+            model_name="artistwork",
+            name="_order",
             field=models.PositiveSmallIntegerField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='artistworkimage',
-            name='_order',
+            model_name="artistworkimage",
+            name="_order",
             field=models.PositiveSmallIntegerField(blank=True, null=True),
         ),
     ]

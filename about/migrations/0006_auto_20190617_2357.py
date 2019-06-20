@@ -6,23 +6,36 @@ import django.db.models.deletion
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('about', '0005_auto_20190607_2256'),
-    ]
+    dependencies = [("about", "0005_auto_20190607_2256")]
 
     operations = [
         migrations.AlterField(
-            model_name='aboutdeveloper',
-            name='website',
+            model_name="aboutdeveloper",
+            name="website",
             field=models.URLField(blank=True, max_length=255, null=True),
         ),
         migrations.CreateModel(
-            name='AboutOrganizer',
+            name="AboutOrganizer",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
-                ('website', models.URLField(blank=True, max_length=255, null=True)),
-                ('about', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='organizers', to='about.About')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=255)),
+                ("website", models.URLField(blank=True, max_length=255, null=True)),
+                (
+                    "about",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="organizers",
+                        to="about.About",
+                    ),
+                ),
             ],
         ),
     ]

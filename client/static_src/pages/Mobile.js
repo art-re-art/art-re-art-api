@@ -43,7 +43,10 @@ export default class NoMatch extends React.Component {
                 <Text>Scavenger hunts with rewards.</Text>
               </List.Item>
               <List.Item>
-                <Text>Event QR code scanner for additional art and artist information.</Text>
+                <Text>
+                  Event QR code scanner for additional art and artist
+                  information.
+                </Text>
               </List.Item>
             </List>
           </Col>
