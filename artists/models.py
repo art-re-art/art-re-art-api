@@ -10,6 +10,7 @@ from artreart.utils import create_thumbnails
 
 
 class Artist(models.Model):
+    _order = models.PositiveSmallIntegerField(default=100, blank=True, null=True)
     name = models.CharField(max_length=255)
     instagram = models.URLField(max_length=255, blank=True, null=True)
     website = models.URLField(max_length=255, blank=True, null=True)
@@ -27,7 +28,7 @@ class Artist(models.Model):
     class Meta:
         verbose_name = "Artist"
         verbose_name_plural = "Aritsts"
-        ordering = ["name"]
+        ordering = ["_order"]
 
     def __str__(self):
         return self.name
