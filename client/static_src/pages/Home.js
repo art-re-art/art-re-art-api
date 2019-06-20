@@ -35,13 +35,40 @@ export default class Home extends React.Component {
               padding: "2em"
             }}
           >
-            <Link to="/events/" className="home__link">
+            <Link
+              to="/events/"
+              className="home__link"
+              onClick={() => {
+                ReactGA.event({
+                  category: 'Home Nav',
+                  action: 'Events Button'
+              });
+              }}
+            >
               Shows
             </Link>
-            <Link to="/artists/" className="home__link">
+            <Link
+              to="/artists/"
+              className="home__link"
+              onClick={() => {
+                ReactGA.event({
+                  category: 'Home Nav',
+                  action: 'Artists Button'
+              });
+            }}
+            >
               Artists
             </Link>
-            <Link to="/about/" className="home__link">
+            <Link
+              to="/about/"
+              className="home__link"
+              onClick={() => {
+                ReactGA.event({
+                  category: 'Home Nav',
+                  action: 'About Button'
+              });
+            }}
+            >
               About
             </Link>
           </div>

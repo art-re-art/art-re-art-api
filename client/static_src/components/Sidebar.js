@@ -63,37 +63,86 @@ class Sidebar extends React.Component {
           selectedKeys={[this.props.location.pathname]}
         >
           <Menu.Item key="/">
-            <Link to="/">
+            <Link 
+              to="/"
+              onClick={() => {
+                ReactGA.event({
+                  category: 'Side Nav',
+                  action: 'Home Button'
+                });
+              }}
+            >
               <Icon type="home" />
               <span className="nav-text">Home</span>
+              
             </Link>
           </Menu.Item>
           <Menu.Item key="/about/">
-            <Link to="/about/">
+            <Link 
+              to="/about/"
+              onClick={() => {
+                ReactGA.event({
+                  category: 'Side Nav',
+                  action: 'About Button'
+                });
+              }}
+            >
               <Icon type="question-circle" />
               <span className="nav-text">About</span>
             </Link>
           </Menu.Item>
           <Menu.Item key="/artists/">
-            <Link to="/artists/">
+            <Link 
+              to="/artists/"
+              onClick={() => {
+                ReactGA.event({
+                  category: 'Side Nav',
+                  action: 'Artists Button'
+                });
+              }}  
+            >
               <Icon type="user" />
               <span className="nav-text">Artists</span>
             </Link>
           </Menu.Item>
           <Menu.Item key="/events/">
-            <Link to="/events/">
+            <Link 
+              to="/events/"
+              onClick={() => {
+                ReactGA.event({
+                  category: 'Side Nav',
+                  action: 'Events Button'
+                });
+              }}  
+            >
               <Icon type="calendar" />
               <span className="nav-text">Shows</span>
             </Link>
           </Menu.Item>
           <Menu.Item key="/mobile/">
-            <Link to="/mobile/">
+            <Link 
+              to="/mobile/"
+              onClick={() => {
+                ReactGA.event({
+                  category: 'Side Nav',
+                  action: 'Mobile Button'
+                });
+              }}
+            >
               <Icon type="mobile" />
               <span className="nav-text">Mobile app</span>
             </Link>
           </Menu.Item>
           <Menu.Item key="/signup/">
-            <Link to="/signup/">
+            <Link 
+              to="/signup/"
+              onClick={() => {
+                ReactGA.event({
+                  category: 'Side Nav',
+                  action: 'Signup Button'
+                });
+              }}  
+            >
               <Icon type="plus" />
               <span className="nav-text">Artist signup</span>
             </Link>
