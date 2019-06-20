@@ -1,4 +1,5 @@
 import React from "react";
+import ReactGA from "react-ga";
 import { Link, withRouter } from "react-router-dom";
 import { Layout, Menu, Icon } from "antd";
 import moment from "moment";
