@@ -39,7 +39,9 @@ export default class App extends React.Component {
   };
 
   componentDidMount() {
-    ReactGA.initialize("UA-141212265-1", { debug: true });
+    let debug = false;
+    if (process.env.NODE_ENV) debug = true;
+    ReactGA.initialize("UA-141212265-1", { debug: debug });
     WebFont.load({
       google: {
         families: ["Inconsolata", "Open Sans:700"]
