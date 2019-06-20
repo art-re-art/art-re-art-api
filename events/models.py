@@ -17,6 +17,8 @@ class Event(models.Model):
     _featured_image = models.ImageField("Featured image", blank=True, null=True)
 
     class Meta:
+        verbose_name = "Event"
+        verbose_name_plural = "Events"
         ordering = ["-datetime"]
 
     def __str__(self):
@@ -55,9 +57,15 @@ class Event(models.Model):
 
 
 class EventImage(models.Model):
+    _order = models.PositiveSmallIntegerField(blank=True, null=True)
     event = models.ForeignKey(Event, related_name="images", on_delete=models.CASCADE)
     _image = models.ImageField()
     description = models.CharField(blank=True, null=True, max_length=200)
+
+    class Meta:
+        verbose_name = "Event Image"
+        verbose_name_plural = "Event Images"
+        ordering = ["_order"]
 
     def __str__(self):
         return self.description
@@ -75,6 +83,10 @@ class EventLocation(models.Model):
     postal = models.CharField(max_length=255)
     latitude = models.FloatField()
     longitude = models.FloatField()
+
+    class Meta:
+        verbose_name = "Event Location"
+        verbose_name_plural = "Event Locations"
 
     def __str__(self):
         return self.title

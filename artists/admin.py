@@ -9,10 +9,13 @@ from .models import Artist, ArtistMedium, ArtistWork, ArtistWorkImage
 
 @admin.register(ArtistMedium)
 class ArtistMediumAdmin(admin.ModelAdmin):
-    pass
+    def get_model_perms(self, request):
+        return {}
 
 
-class ArtistWorkImageInline(GrappelliSortableHiddenMixin, nested_admin.NestedStackedInline):
+class ArtistWorkImageInline(
+    GrappelliSortableHiddenMixin, nested_admin.NestedStackedInline
+):
     model = ArtistWorkImage
     extra = 0
     readonly_fields = ["image_preview"]
