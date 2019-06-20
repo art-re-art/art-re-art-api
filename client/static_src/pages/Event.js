@@ -110,7 +110,7 @@ export default class Event extends React.Component {
                   md={12}
                   sm={12}
                   xs={24}
-                  key={image.url}
+                  key={image.image.small.url}
                   style={{ marginBottom: 24 }}
                 >
                   <Card

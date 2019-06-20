@@ -27,7 +27,7 @@ export default class Artist extends React.Component {
               title={this.props.name}
               description={this.props.medium.map(medium => {
                 return (
-                  <Tag key={medium.url} color="#ff0000">
+                  <Tag key={medium.title} color="#ff0000">
                     {medium.title}
                   </Tag>
                 );
