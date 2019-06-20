@@ -93,7 +93,9 @@ export default class About extends React.Component {
               if (!faq.is_mobile)
                 return (
                   <Panel key={faq.question} header={faq.question}>
-                    <Paragraph>{faq.answer}</Paragraph>
+                    <Paragraph style={{ marginBottom: 0 }}>
+                      {faq.answer}
+                    </Paragraph>
                   </Panel>
                 );
             })}
