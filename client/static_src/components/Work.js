@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Card, Typography, Tag, Modal, Row } from "antd";
+import { Col, Card, Typography, Tag, Modal, Row, Icon } from "antd";
 
 const { Meta } = Card;
 const { Paragraph, Title } = Typography;
@@ -48,6 +48,9 @@ export default class Work extends React.Component {
           }}
           style={{ height: "100%" }}
         >
+          {this.props.images.length > 1 ?
+            <Icon type="copy" style={{ float: "right", color: "#ff0000" }} />
+            : null}
           <Title className="work-title" level={4}>
             {this.props.title}
           </Title>
