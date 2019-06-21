@@ -42,14 +42,7 @@ class ArtistWorkInline(GrappelliSortableHiddenMixin, nested_admin.NestedStackedI
 
 @admin.register(Artist)
 class ArtistAdmin(nested_admin.NestedModelAdmin):
-    list_display = [
-        "name",
-        "city",
-        "state",
-        "medium_list",
-        "events_list",
-        "_order",
-    ]
+    list_display = ["name", "city", "state", "medium_list", "events_list", "_order"]
     list_editable = ["_order"]
     list_filter = ["medium", "events", "city", "state"]
     inlines = [ArtistWorkInline]

@@ -40,9 +40,9 @@ export default class Home extends React.Component {
               className="home__link"
               onClick={() => {
                 ReactGA.event({
-                  category: 'Home Nav',
-                  action: 'Events Button'
-              });
+                  category: "Home Nav",
+                  action: "Events Button"
+                });
               }}
             >
               Shows
@@ -52,10 +52,10 @@ export default class Home extends React.Component {
               className="home__link"
               onClick={() => {
                 ReactGA.event({
-                  category: 'Home Nav',
-                  action: 'Artists Button'
-              });
-            }}
+                  category: "Home Nav",
+                  action: "Artists Button"
+                });
+              }}
             >
               Artists
             </Link>
@@ -64,10 +64,10 @@ export default class Home extends React.Component {
               className="home__link"
               onClick={() => {
                 ReactGA.event({
-                  category: 'Home Nav',
-                  action: 'About Button'
-              });
-            }}
+                  category: "Home Nav",
+                  action: "About Button"
+                });
+              }}
             >
               About
             </Link>

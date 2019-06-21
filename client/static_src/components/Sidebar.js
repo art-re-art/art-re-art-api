@@ -64,27 +64,26 @@ class Sidebar extends React.Component {
           selectedKeys={[this.props.location.pathname]}
         >
           <Menu.Item key="/">
-            <Link 
+            <Link
               to="/"
               onClick={() => {
                 ReactGA.event({
-                  category: 'Side Nav',
-                  action: 'Home Button'
+                  category: "Side Nav",
+                  action: "Home Button"
                 });
               }}
             >
               <Icon type="home" />
               <span className="nav-text">Home</span>
-              
             </Link>
           </Menu.Item>
           <Menu.Item key="/about/">
-            <Link 
+            <Link
               to="/about/"
               onClick={() => {
                 ReactGA.event({
-                  category: 'Side Nav',
-                  action: 'About Button'
+                  category: "Side Nav",
+                  action: "About Button"
                 });
               }}
             >
@@ -93,40 +92,40 @@ class Sidebar extends React.Component {
             </Link>
           </Menu.Item>
           <Menu.Item key="/artists/">
-            <Link 
+            <Link
               to="/artists/"
               onClick={() => {
                 ReactGA.event({
-                  category: 'Side Nav',
-                  action: 'Artists Button'
+                  category: "Side Nav",
+                  action: "Artists Button"
                 });
-              }}  
+              }}
             >
               <Icon type="user" />
               <span className="nav-text">Artists</span>
             </Link>
           </Menu.Item>
           <Menu.Item key="/events/">
-            <Link 
+            <Link
               to="/events/"
               onClick={() => {
                 ReactGA.event({
-                  category: 'Side Nav',
-                  action: 'Events Button'
+                  category: "Side Nav",
+                  action: "Events Button"
                 });
-              }}  
+              }}
             >
               <Icon type="calendar" />
               <span className="nav-text">Shows</span>
             </Link>
           </Menu.Item>
           <Menu.Item key="/mobile/">
-            <Link 
+            <Link
               to="/mobile/"
               onClick={() => {
                 ReactGA.event({
-                  category: 'Side Nav',
-                  action: 'Mobile Button'
+                  category: "Side Nav",
+                  action: "Mobile Button"
                 });
               }}
             >
@@ -135,14 +134,14 @@ class Sidebar extends React.Component {
             </Link>
           </Menu.Item>
           <Menu.Item key="/signup/">
-            <Link 
+            <Link
               to="/signup/"
               onClick={() => {
                 ReactGA.event({
-                  category: 'Side Nav',
-                  action: 'Signup Button'
+                  category: "Side Nav",
+                  action: "Signup Button"
                 });
-              }}  
+              }}
             >
               <Icon type="plus" />
               <span className="nav-text">Artist signup</span>

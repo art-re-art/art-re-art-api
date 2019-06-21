@@ -5,18 +5,20 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('artists', '0012_auto_20190619_1829'),
-    ]
+    dependencies = [("artists", "0012_auto_20190619_1829")]
 
     operations = [
         migrations.AlterModelOptions(
-            name='artist',
-            options={'ordering': ['_order'], 'verbose_name': 'Artist', 'verbose_name_plural': 'Aritsts'},
+            name="artist",
+            options={
+                "ordering": ["_order"],
+                "verbose_name": "Artist",
+                "verbose_name_plural": "Aritsts",
+            },
         ),
         migrations.AddField(
-            model_name='artist',
-            name='_order',
+            model_name="artist",
+            name="_order",
             field=models.PositiveSmallIntegerField(blank=True, default=100, null=True),
         ),
     ]

@@ -13,8 +13,8 @@ class MailchimpForm extends React.Component {
   _handleSubmit = e => {
     e.preventDefault();
     ReactGA.event({
-      category: 'Submit Form',
-      action: 'Mailchimp'
+      category: "Submit Form",
+      action: "Mailchimp"
     });
     this.props.form.validateFields((err, values) => {
       if (!err) {
