@@ -1,4 +1,5 @@
 import React from "react";
+import ReactGA from "react-ga";
 import { Typography, Form, Input, Button } from "antd";
 import axios from "axios";
 
@@ -11,6 +12,10 @@ class MailchimpForm extends React.Component {
 
   _handleSubmit = e => {
     e.preventDefault();
+    ReactGA.event({
+      category: 'Submit Form',
+      action: 'Mailchimp'
+    });
     this.props.form.validateFields((err, values) => {
       if (!err) {
         axios
