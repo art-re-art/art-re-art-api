@@ -104,7 +104,7 @@ export default class Signup extends React.Component {
       form.props.form.validateFields((err, data) => {
         if (!err) {
           let dataWork = this.state.dataWork;
-          dataWork[index - 1] = data;
+          dataWork[index] = data;
           this.setState({
             dataWork: dataWork
           });
