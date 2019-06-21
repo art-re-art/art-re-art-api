@@ -2,6 +2,7 @@ import React from "react";
 import ReactGA from "react-ga";
 import { Prompt } from "react-router-dom";
 import {
+  div,
   Steps,
   Typography,
   Row,
@@ -9,13 +10,13 @@ import {
   Collapse,
   Button,
   Icon,
-  message,
-  Descriptions
+  message
 } from "antd";
 import axios from "axios";
 
 import ArtistForm from "../components/SignupArtistForm";
 import WorkForm from "../components/SignupWorkForm";
+import { async } from "q";
 
 const { Step } = Steps;
 const { Panel } = Collapse;
@@ -25,7 +26,8 @@ export default class Signup extends React.Component {
   state = {
     dataArtist: {},
     dataWork: [{}],
-    forms: [],
+    artistForm: {},
+    workForms: [],
     current: 0,
     validationErrors: false,
     activeKey: "0",
@@ -36,6 +38,22 @@ export default class Signup extends React.Component {
     ReactGA.pageview(window.location.pathname + window.location.search);
     this.props.setTitle("Artist Signup");
   }
+
+  _updateArtistForm = artistForm => {
+    this.setState({
+      artistForm: artistForm
+    });
+  };
+
+  _updateWorkForms = workForm => {
+    if (workForm !== null) {
+      let workForms = this.state.workForms;
+      workForms.push(workForm);
+      this.setState({
+        workForms: workForms
+      });
+    }
+  };
 
   _addWorkForm = () => {
     let dataWork = this.state.dataWork;
@@ -48,48 +66,48 @@ export default class Signup extends React.Component {
 
   _removeWorkForm = () => {
     let dataWork = this.state.dataWork;
-    let forms = this.state.forms;
+    let workForms = this.state.workForms;
     if (dataWork.length === 1) {
       message.error("You share at least one piece of work you've done.");
     } else {
       dataWork.pop();
-      forms.pop();
+      workForms.pop();
       this.setState({
         dataWork: dataWork,
-        forms: forms,
+        workForms: workForms,
         activeKey: String(dataWork.length - 1)
       });
     }
   };
 
-  _updateForms = form => {
-    if (form !== null) {
-      let forms = this.state.forms;
-      forms.push(form);
-      this.setState({
-        forms: forms
-      });
-    }
+  _submitArtistForm = async () => {
+    this.state.artistForm.props.form.validateFields((err, data) => {
+      if (!err) {
+        window.scrollTo(0, 0);
+        this.setState({
+          dataArtist: data,
+          current: 1
+        });
+      } else {
+        this.setState({
+          validationErrors: true
+        });
+        message.error(
+          "You didn't finish filling something out! Please complete the full form."
+        );
+      }
+    });
   };
 
-  _submitForms = async () => {
-    this.setState({
-      validationErrors: false
-    });
-    await this.state.forms.map((form, index) => {
+  _submitWorkForms = async () => {
+    await this.state.workForms.map((form, index) => {
       form.props.form.validateFields((err, data) => {
         if (!err) {
-          if (form.constructor.name === "ArtistForm") {
-            this.setState({
-              dataArtist: data
-            });
-          } else {
-            let dataWork = this.state.dataWork;
-            dataWork[index - 1] = data;
-            this.setState({
-              dataWork: dataWork
-            });
-          }
+          let dataWork = this.state.dataWork;
+          dataWork[index - 1] = data;
+          this.setState({
+            dataWork: dataWork
+          });
         } else {
           this.setState({
             validationErrors: true
@@ -98,15 +116,10 @@ export default class Signup extends React.Component {
       });
     });
     if (this.state.validationErrors === false) {
-      if (this.state.current === 0) {
-        this.setState({
-          current: 1
-        });
-      } else {
-        this.setState({
-          current: 2
-        });
-      }
+      window.scrollTo(0, 0);
+      this.setState({
+        current: 2
+      });
     } else {
       message.error(
         "You didn't finish filling something out! Please complete the full form."
@@ -138,8 +151,9 @@ export default class Signup extends React.Component {
         xsrfCookieName: "csrftoken"
       });
     });
+    window.scrollTo(0, 0);
     this.setState({
-      current: 2,
+      current: 3,
       notComplete: false
     });
   };
@@ -147,10 +161,12 @@ export default class Signup extends React.Component {
   render() {
     return (
       <div className="container">
-        <Prompt
-          message="If you leave this page now you will lose form progress, are you sure?"
-          when={this.state.notComplete}
-        />
+        {Object.entries(this.state.dataArtist).length !== 0 && (
+          <Prompt
+            message="If you leave this page now you will lose form progress, are you sure?"
+            when={this.state.notComplete}
+          />
+        )}
         <Row style={{ marginBottom: "2em" }}>
           <Col>
             <Steps current={this.state.current}>
@@ -161,39 +177,43 @@ export default class Signup extends React.Component {
             </Steps>
           </Col>
         </Row>
-        {this.state.current === 0 ? (
+        {this.state.current === 0 && (
           <div className="signup-forms">
             <Row gutter={48}>
-              <Col span={12}>
+              <Col>
                 <Title level={2}>Artist</Title>
                 <Paragraph>Tell us about you!</Paragraph>
                 <ArtistForm
-                  wrappedComponentRef={this._updateForms}
+                  wrappedComponentRef={this._updateArtistForm}
                   data={this.state.dataArtist}
                 />
               </Col>
             </Row>
             <Row style={{ marginTop: "2em" }}>
               <Col span={12}>
-                {this.state.validationErrors ? (
+                {this.state.validationErrors && (
                   <Paragraph style={{ color: "red" }}>
                     There were validation errors in the form, please correct
                     them and submit again!
                   </Paragraph>
-                ) : null}
+                )}
               </Col>
               <Col span={12} style={{ textAlign: "right" }}>
-                <Button onClick={this._submitForms} type="primary" size="large">
+                <Button
+                  onClick={this._submitArtistForm}
+                  type="primary"
+                  size="large"
+                >
                   Add works <Icon type="caret-right" />
                 </Button>
               </Col>
             </Row>
           </div>
-        ) : null}
-        {this.state.current === 1 ? (
+        )}
+        {this.state.current === 1 && (
           <div className="signup-forms">
             <Row gutter={48}>
-              <Col span={12}>
+              <Col>
                 <Title level={2}>Work</Title>
                 <Paragraph>Tell us about what you create!</Paragraph>
                 <Collapse
@@ -210,7 +230,7 @@ export default class Signup extends React.Component {
                         forceRender
                       >
                         <WorkForm
-                          wrappedComponentRef={this._updateForms}
+                          wrappedComponentRef={this._updateWorkForms}
                           data={data}
                         />
                       </Panel>
@@ -233,59 +253,36 @@ export default class Signup extends React.Component {
             </Row>
             <Row style={{ marginTop: "2em" }}>
               <Col span={12}>
-                {this.state.validationErrors ? (
+                {this.state.validationErrors && (
                   <Paragraph style={{ color: "red" }}>
                     There were validation errors in the form, please correct
                     them and submit again!
                   </Paragraph>
-                ) : null}
+                )}
               </Col>
               <Col span={12} style={{ textAlign: "right" }}>
-                <Button onClick={this._submitForms} type="primary" size="large">
-                  Confirm data <Icon type="caret-right" />
+                <Button
+                  onClick={this._submitWorkForms}
+                  type="primary"
+                  size="large"
+                >
+                  Confirm <Icon type="caret-right" />
                 </Button>
               </Col>
             </Row>
           </div>
-        ) : null}
-        {this.state.current === 2 ? (
+        )}
+        {this.state.current === 2 && (
           <div className="signup-forms">
             <Row style={{ marginTop: "2em" }}>
               <Col>
                 <Title level={2}>Confirm</Title>
-                <Paragraph>Just making sure everything is accurate.</Paragraph>
+                <Paragraph>
+                  Are you sure you want to submit yourself and your work to
+                  Art/Re/Art?
+                </Paragraph>
               </Col>
             </Row>
-            <Row style={{ marginTop: "2em" }}>
-              <Descriptions title="Artist" bordered>
-                {Object.keys(this.state.dataArtist).map(key => {
-                  return (
-                    <Descriptions.Item label={key} key={key}>
-                      {this.state.dataArtist[key]}
-                    </Descriptions.Item>
-                  );
-                })}
-              </Descriptions>
-            </Row>
-            {this.state.dataWork.map(work => {
-              return (
-                <Row style={{ marginTop: "2em" }} key={work.title}>
-                  <Descriptions title="Work" bordered>
-                    {Object.keys(work).map(key => {
-                      if (typeof work[key] !== "object") {
-                        return (
-                          <Descriptions.Item label={key} key={key}>
-                            {work[key]}
-                          </Descriptions.Item>
-                        );
-                      } else {
-                        return <Descriptions.Item label={key} key={key} />;
-                      }
-                    })}
-                  </Descriptions>
-                </Row>
-              );
-            })}
             <Row style={{ marginTop: "2em" }}>
               <Col span={24} style={{ textAlign: "right" }}>
                 <Button onClick={this._completeSignup} type="primary">
@@ -294,8 +291,8 @@ export default class Signup extends React.Component {
               </Col>
             </Row>
           </div>
-        ) : null}
-        {this.state.current === 3 ? (
+        )}
+        {this.state.current === 3 && (
           <div className="signup-forms">
             <Row style={{ marginTop: "2em" }}>
               <Col>
@@ -306,7 +303,7 @@ export default class Signup extends React.Component {
               </Col>
             </Row>
           </div>
-        ) : null}
+        )}
       </div>
     );
   }
