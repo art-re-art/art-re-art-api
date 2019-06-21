@@ -40,7 +40,7 @@ export default class App extends React.Component {
 
   componentDidMount() {
     let debug = false;
-    if (process.env.NODE_ENV) debug = true;
+    if (process.env.NODE_ENV == "development") debug = true;
     ReactGA.initialize("UA-141212265-1", { debug: debug });
     WebFont.load({
       google: {
