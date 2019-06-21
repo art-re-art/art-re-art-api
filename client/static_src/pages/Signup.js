@@ -98,9 +98,15 @@ export default class Signup extends React.Component {
       });
     });
     if (this.state.validationErrors === false) {
-      this.setState({
-        current: 1
-      });
+      if (this.state.current === 0) {
+        this.setState({
+          current: 1
+        });
+      } else {
+        this.setState({
+          current: 2
+        });
+      }
     } else {
       message.error(
         "You didn't finish filling something out! Please complete the full form."
@@ -141,7 +147,8 @@ export default class Signup extends React.Component {
         <Row style={{ marginBottom: "2em" }}>
           <Col>
             <Steps current={this.state.current}>
-              <Step title="Fill" />
+              <Step title="Artist" />
+              <Step title="Works" />
               <Step title="Confirm" />
               <Step title="Complete" />
             </Steps>
@@ -158,6 +165,27 @@ export default class Signup extends React.Component {
                   data={this.state.dataArtist}
                 />
               </Col>
+            </Row>
+            <Row style={{ marginTop: "2em" }}>
+              <Col span={12}>
+                {this.state.validationErrors ? (
+                  <Paragraph style={{ color: "red" }}>
+                    There were validation errors in the form, please correct
+                    them and submit again!
+                  </Paragraph>
+                ) : null}
+              </Col>
+              <Col span={12} style={{ textAlign: "right" }}>
+                <Button onClick={this._submitForms} type="primary" size="large">
+                  Add works <Icon type="caret-right" />
+                </Button>
+              </Col>
+            </Row>
+          </div>
+        ) : null}
+        {this.state.current === 1 ? (
+          <div className="signup-forms">
+            <Row gutter={48}>
               <Col span={12}>
                 <Title level={2}>Work</Title>
                 <Paragraph>Tell us about what you create!</Paragraph>
@@ -213,7 +241,7 @@ export default class Signup extends React.Component {
             </Row>
           </div>
         ) : null}
-        {this.state.current === 1 ? (
+        {this.state.current === 2 ? (
           <div className="signup-forms">
             <Row style={{ marginTop: "2em" }}>
               <Col>
@@ -260,7 +288,7 @@ export default class Signup extends React.Component {
             </Row>
           </div>
         ) : null}
-        {this.state.current === 2 ? (
+        {this.state.current === 3 ? (
           <div className="signup-forms">
             <Row style={{ marginTop: "2em" }}>
               <Col>
