@@ -5,6 +5,7 @@ import { Layout, Icon } from "antd";
 
 import Page from "./components/Page";
 import Sidebar from "./components/Sidebar";
+import ScrollToTop from "./components/ScrollToTop";
 
 import Event from "./pages/Event";
 import Events from "./pages/Events";
@@ -53,78 +54,80 @@ export default class App extends React.Component {
     return (
       <Router>
         <Layout>
-          <Sidebar
-            collapsed={this.state.collapsed}
-            broken={this.state.broken}
-            setCollapsed={this._setCollapsed}
-            setBroken={this._setBroken}
-          />
-          {this.state.broken ? (
-            <Icon
-              className="trigger"
-              type={this.state.collapsed ? "menu" : "close"}
-              onClick={() => {
-                this._setCollapsed(!this.state.collapsed);
-              }}
+          <ScrollToTop>
+            <Sidebar
+              collapsed={this.state.collapsed}
+              broken={this.state.broken}
+              setCollapsed={this._setCollapsed}
+              setBroken={this._setBroken}
             />
-          ) : null}
-          <Switch>
-            <Route
-              path="/events/:id/"
-              render={props => (
-                <Page {...props} component={Event} title="Show" />
-              )}
-            />
-            <Route
-              path="/events/"
-              render={props => (
-                <Page {...props} component={Events} title="Shows" />
-              )}
-            />
-            <Route
-              path="/artists/:id/"
-              render={props => (
-                <Page {...props} component={Artist} title="Artist" />
-              )}
-            />
-            <Route
-              path="/artists/"
-              render={props => (
-                <Page {...props} component={Artists} title="Artists" />
-              )}
-            />
-            <Route
-              path="/about/"
-              render={props => (
-                <Page {...props} component={About} title="About" />
-              )}
-            />
-            <Route
-              path="/mobile/"
-              render={props => (
-                <Page {...props} component={Mobile} title="Mobile" />
-              )}
-            />
-            <Route
-              path="/signup/"
-              render={props => (
-                <Page {...props} component={Signup} title="Artist Signup" />
-              )}
-            />
-            <Route
-              path="/"
-              exact
-              render={props => (
-                <Page
-                  {...props}
-                  component={Home}
-                  hideHeader
-                  title="A series of pop up art events in downtown Morganton, NC."
-                />
-              )}
-            />
-            <Route component={NoMatch} />
-          </Switch>
+            {this.state.broken ? (
+              <Icon
+                className="trigger"
+                type={this.state.collapsed ? "menu" : "close"}
+                onClick={() => {
+                  this._setCollapsed(!this.state.collapsed);
+                }}
+              />
+            ) : null}
+            <Switch>
+              <Route
+                path="/events/:id/"
+                render={props => (
+                  <Page {...props} component={Event} title="Show" />
+                )}
+              />
+              <Route
+                path="/events/"
+                render={props => (
+                  <Page {...props} component={Events} title="Shows" />
+                )}
+              />
+              <Route
+                path="/artists/:id/"
+                render={props => (
+                  <Page {...props} component={Artist} title="Artist" />
+                )}
+              />
+              <Route
+                path="/artists/"
+                render={props => (
+                  <Page {...props} component={Artists} title="Artists" />
+                )}
+              />
+              <Route
+                path="/about/"
+                render={props => (
+                  <Page {...props} component={About} title="About" />
+                )}
+              />
+              <Route
+                path="/mobile/"
+                render={props => (
+                  <Page {...props} component={Mobile} title="Mobile" />
+                )}
+              />
+              <Route
+                path="/signup/"
+                render={props => (
+                  <Page {...props} component={Signup} title="Artist Signup" />
+                )}
+              />
+              <Route
+                path="/"
+                exact
+                render={props => (
+                  <Page
+                    {...props}
+                    component={Home}
+                    hideHeader
+                    title="A series of pop up art events in downtown Morganton, NC."
+                  />
+                )}
+              />
+              <Route component={NoMatch} />
+            </Switch>
+          </ScrollToTop>
         </Layout>
       </Router>
     );
