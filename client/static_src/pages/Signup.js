@@ -122,14 +122,21 @@ export default class Signup extends React.Component {
 
   _completeSignup = async () => {
     const artistSignup = await axios.post(
-      "/api/forms/artistsignups/",
-      this.state.dataArtist
+      "/api/forms/artistsignups/artists/",
+      this.state.dataArtist,
+      {
+        xsrfHeaderName: "X-CSRFToken",
+        xsrfCookieName: "csrftoken"
+      }
     );
     const artistUrl = artistSignup.data.url;
     await this.state.dataWork.map(work => {
       work.artist_signup = artistUrl;
       work.image = work.image[work.image.length - 1].response.url;
-      axios.post("/api/forms/artistsignups/works/", work);
+      axios.post("/api/forms/artistsignups/works/", work, {
+        xsrfHeaderName: "X-CSRFToken",
+        xsrfCookieName: "csrftoken"
+      });
     });
     this.setState({
       current: 2,

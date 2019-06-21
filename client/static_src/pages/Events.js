@@ -13,7 +13,7 @@ export default class Events extends React.Component {
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
     this.props.setTitle("Shows");
-    fetch("/api/events/")
+    fetch("/api/events/events/")
       .then(data => {
         return data.json();
       })

@@ -15,7 +15,7 @@ export default class Artist extends React.Component {
 
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
-    fetch(`/api/artists/${this.props.match.params.id}/`)
+    fetch(`/api/artists/artists/${this.props.match.params.id}/`)
       .then(data => {
         return data.json();
       })

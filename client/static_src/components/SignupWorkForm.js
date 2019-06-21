@@ -37,7 +37,7 @@ class WorkForm extends React.Component {
           })(
             <Dragger
               name="image"
-              action="/api/forms/artistsignups/works/images/"
+              action="/api/forms/artistsignups/images/"
               headers={{ "X-CSRFToken": Cookies.get("csrftoken") }}
               listType="picture"
               multiple={false}

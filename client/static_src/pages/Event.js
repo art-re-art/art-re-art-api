@@ -16,7 +16,7 @@ export default class Event extends React.Component {
 
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
-    fetch(`/api/events/${this.props.match.params.id}/`)
+    fetch(`/api/events/events/${this.props.match.params.id}/`)
       .then(data => {
         return data.json();
       })

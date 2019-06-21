@@ -20,7 +20,7 @@ class Sidebar extends React.Component {
       }
     });
 
-    fetch("/api/events/")
+    fetch("/api/events/events/")
       .then(data => {
         return data.json();
       })
