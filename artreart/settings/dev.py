@@ -45,3 +45,5 @@ MAILCHIMP_KEY = None
 # https://sorl-thumbnail.readthedocs.io/en/latest/reference/settings.html
 
 THUMBNAIL_DUMMY = True
+
+THUMBNAIL_DUMMY_SOURCE = "https://www.fillmurray.com/%(width)s/%(height)s"
