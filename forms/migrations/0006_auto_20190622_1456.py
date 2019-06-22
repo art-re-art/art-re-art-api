@@ -5,38 +5,36 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('forms', '0005_auto_20190606_1914'),
-    ]
+    dependencies = [("forms", "0005_auto_20190606_1914")]
 
     operations = [
         migrations.AlterField(
-            model_name='artistsignup',
-            name='artist_statement',
-            field=models.TextField(),
+            model_name="artistsignup", name="artist_statement", field=models.TextField()
         ),
         migrations.AlterField(
-            model_name='artistsignup',
-            name='name',
+            model_name="artistsignup",
+            name="name",
             field=models.CharField(max_length=255),
         ),
-        migrations.RemoveField(
-            model_name='artistsignupwork',
-            name='image',
-        ),
+        migrations.RemoveField(model_name="artistsignupwork", name="image"),
         migrations.AddField(
-            model_name='artistsignupwork',
-            name='image',
-            field=models.ManyToManyField(blank=True, null=True, related_name='work', to='forms.ArtistSignupWorkImage'),
+            model_name="artistsignupwork",
+            name="image",
+            field=models.ManyToManyField(
+                blank=True,
+                null=True,
+                related_name="work",
+                to="forms.ArtistSignupWorkImage",
+            ),
         ),
         migrations.AlterField(
-            model_name='artistsignupwork',
-            name='medium',
+            model_name="artistsignupwork",
+            name="medium",
             field=models.CharField(blank=True, max_length=255, null=True),
         ),
         migrations.AlterField(
-            model_name='artistsignupwork',
-            name='special_installation_needs',
+            model_name="artistsignupwork",
+            name="special_installation_needs",
             field=models.TextField(blank=True, null=True),
         ),
     ]

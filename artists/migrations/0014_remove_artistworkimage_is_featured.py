@@ -5,13 +5,8 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('artists', '0013_auto_20190620_1801'),
-    ]
+    dependencies = [("artists", "0013_auto_20190620_1801")]
 
     operations = [
-        migrations.RemoveField(
-            model_name='artistworkimage',
-            name='is_featured',
-        ),
+        migrations.RemoveField(model_name="artistworkimage", name="is_featured")
     ]

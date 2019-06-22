@@ -27,27 +27,19 @@ class ArtistSignupWork(models.Model):
         to="forms.ArtistSignup", on_delete=models.CASCADE, related_name="works"
     )
     image = models.ManyToManyField(
-        to="forms.ArtistSignupWorkImage",
-        related_name="work",
-        blank=True,
+        to="forms.ArtistSignupWorkImage", related_name="work", blank=True
     )
     title = models.CharField(max_length=255, blank=True, null=True)
-    medium = models.CharField(
-        max_length=255,
-        blank=True,
-        null=True,
-    )
+    medium = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    special_installation_needs = models.TextField(
-        blank=True, null=True
-    )
+    special_installation_needs = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return self.title or ''  # NOTE: Return '' due to bug on admin iterator M2M
+        return self.title or ""  # NOTE: Return '' due to bug on admin iterator M2M
 
 
 class ArtistSignupWorkImage(models.Model):
-    image = models.ImageField(upload_to='artist_uploads/')
+    image = models.ImageField(upload_to="artist_uploads/")
 
     def __str__(self):
         return str(self.image)

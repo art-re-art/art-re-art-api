@@ -89,7 +89,12 @@ class MailchimpForm extends React.Component {
             })(<Input placeholder="Email" size="large" />)}
           </Form.Item>
           <Form.Item>
-            <Button type="default" htmlType="submit" size="large" style={{ background: "white", color: "red" , border: "none" }}>
+            <Button
+              type="default"
+              htmlType="submit"
+              size="large"
+              style={{ background: "white", color: "red", border: "none" }}
+            >
               Know What's Up (it's a newsletter)
             </Button>
           </Form.Item>

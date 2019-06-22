@@ -28,7 +28,7 @@ class ArtistSignupWorkInline(nested_admin.NestedStackedInline):
         "description",
         "special_installation_needs",
         "image",
-        "image_preview"
+        "image_preview",
     )
 
     def image_preview(self, obj):
