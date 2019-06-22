@@ -7,10 +7,18 @@ const { TextArea } = Input;
 const { Dragger } = Upload;
 
 class WorkForm extends React.Component {
+  state = {
+    csrftoken: null
+  };
+
   componentDidMount() {
     if (this.props.data) {
       this.props.form.setFieldsValue(this.props.data);
     }
+
+    this.setState({
+      csrftoken: Cookies.get("csrftoken")
+    });
   }
 
   normFile = e => {
@@ -38,7 +46,7 @@ class WorkForm extends React.Component {
             <Dragger
               name="image"
               action="/api/forms/artistsignups/images/"
-              headers={{ "X-CSRFToken": Cookies.get("csrftoken") }}
+              headers={{ "X-CSRFToken": this.state.csrftoken }}
               listType="picture"
               multiple={false}
               accept=".png,.jpg,.jpeg"
