@@ -31,14 +31,6 @@ export default class App extends React.Component {
     broken: false
   };
 
-  _setCollapsed = collapsed => {
-    this.setState({ collapsed: collapsed });
-  };
-
-  _setBroken = broken => {
-    this.setState({ broken: broken });
-  };
-
   componentDidMount() {
     let debug = false;
     if (process.env.NODE_ENV == "development") debug = true;
@@ -49,6 +41,16 @@ export default class App extends React.Component {
       }
     });
   }
+
+  // Used on sider and hamburger
+  _setCollapsed = collapsed => {
+    this.setState({ collapsed: collapsed });
+  };
+
+  // Used on sider and hamburger
+  _setBroken = broken => {
+    this.setState({ broken: broken });
+  };
 
   render() {
     return (
