@@ -133,6 +133,19 @@ export default class Signup extends React.Component {
     });
   };
 
+  _editArtistForm = () => {
+    this.setState({
+      current: 0
+    });
+  };
+
+  _editWorksForm = () => {
+    this.setState({
+      current: 1
+    });
+  };
+
+
   _completeSignup = async () => {
     const artistSignup = await axios.post(
       "/api/forms/artistsignups/artists/",
