@@ -28,13 +28,11 @@ class MailchimpForm extends React.Component {
               success: true,
               error: false
             });
-            console.log(response);
           })
           .catch(error => {
             this.setState({
               error: true
             });
-            console.log(error);
           });
       }
     });

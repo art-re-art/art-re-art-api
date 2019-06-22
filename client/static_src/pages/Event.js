@@ -138,7 +138,6 @@ export default class Event extends React.Component {
           >
             {this.state.event.artists &&
               this.state.event.artists.map(artist => {
-                console.log(artist);
                 return <Artist key={artist.url} {...artist} />;
               })}
           </Row>
