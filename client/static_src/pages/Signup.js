@@ -339,8 +339,16 @@ export default class Signup extends React.Component {
               <Col>
                 <Title level={2}>Confirm</Title>
                 <Paragraph>
-                  Are you sure you want to submit yourself and your work to
+                  Are you sure you want to submit yourself, and your work, to
                   Art/Re/Art?
+                </Paragraph>
+                <Paragraph>
+                  You retain full ownership of your work. Art/Re/Art reserves
+                  the right to use you and your art for marketing purposes. This
+                  includes, but is not limited to: Displaying you and your art
+                  on our website and on our app, including you and your art in
+                  press releases relating to Art/Re/Art, and adding you and your
+                  art to any print media that Art/Re/Art may produce.
                 </Paragraph>
               </Col>
             </Row>
@@ -360,7 +368,7 @@ export default class Signup extends React.Component {
                   type="primary"
                   size="large"
                 >
-                  Complete signup <Icon type="caret-right" />
+                  I agree, complete signup <Icon type="caret-right" />
                 </Button>
               </Col>
             </Row>
