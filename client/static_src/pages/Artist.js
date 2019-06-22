@@ -24,7 +24,7 @@ export default class Artist extends React.Component {
           artist: data,
           isLoading: false
         });
-        this.props.setTitle(`${data.name} | Artist`);
+        this.props.setTitle(`${data.name}`);
         this._descriptions();
       });
   }
