@@ -2,7 +2,6 @@ import React from "react";
 import ReactGA from "react-ga";
 import { Prompt } from "react-router-dom";
 import {
-  div,
   Steps,
   Typography,
   Row,
@@ -10,17 +9,18 @@ import {
   Collapse,
   Button,
   Icon,
-  message
+  message,
+  Modal
 } from "antd";
 import axios from "axios";
 
 import ArtistForm from "../components/SignupArtistForm";
 import WorkForm from "../components/SignupWorkForm";
-import { async } from "q";
 
 const { Step } = Steps;
 const { Panel } = Collapse;
 const { Title, Paragraph } = Typography;
+const { confirm } = Modal;
 
 export default class Signup extends React.Component {
   state = {
@@ -31,12 +31,16 @@ export default class Signup extends React.Component {
     current: 0,
     validationErrors: false,
     activeKey: "0",
-    notComplete: true
+    notComplete: true,
+    okayToLeave: false
   };
 
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
     this.props.setTitle("Artist Signup");
+    this.setState({
+      okayToLeave: false
+    });
   }
 
   _updateArtistForm = artistForm => {
@@ -145,7 +149,6 @@ export default class Signup extends React.Component {
     });
   };
 
-
   _completeSignup = async () => {
     const artistSignup = await axios.post(
       "/api/forms/artistsignups/artists/",
@@ -171,15 +174,49 @@ export default class Signup extends React.Component {
     });
   };
 
+  _prompt = nextPage => {
+    let { history } = this.props;
+    if (
+      Object.entries(this.state.dataArtist).length !== 0 &&
+      this.state.notComplete &&
+      !this.state.okayToLeave
+    ) {
+      confirm({
+        title: "Are you sure you want to leave?",
+        content: "You will lose all signup data progress.",
+        okText: "Leave",
+        okType: "danger",
+        cancelText: "Stay",
+        onOk: async () => {
+          await this.setState({
+            okayToLeave: true
+          });
+          history.push(nextPage);
+        },
+        onCancel: () => {}
+      });
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  _showModalLeaving = () => {
+    this.setState({
+      leavingModal: true
+    });
+  };
+
+  _hideModalLeaving = () => {
+    this.setState({
+      leavingModal: false
+    });
+  };
+
   render() {
     return (
       <div className="container">
-        {Object.entries(this.state.dataArtist).length !== 0 && (
-          <Prompt
-            message="If you leave this page now you will lose form progress, are you sure?"
-            when={this.state.notComplete}
-          />
-        )}
+        <Prompt message={this._prompt} />
         <Row style={{ marginBottom: "2em" }}>
           <Col>
             <Steps current={this.state.current}>
