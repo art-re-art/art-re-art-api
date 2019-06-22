@@ -130,7 +130,7 @@ export default class Artist extends React.Component {
             </Descriptions>
           </Col>
         </Row>
-        {this.state.artist.works && (
+        {this.state.artist.works.length > 0 && (
           <div style={{ marginTop: "1rem" }}>
             <Title level={2}>Works by {this.state.artist.name}</Title>
             <Row
