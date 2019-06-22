@@ -252,7 +252,7 @@ export default class Signup extends React.Component {
               </Col>
             </Row>
             <Row style={{ marginTop: "2em" }}>
-              <Col span={12}>
+              <Col>
                 {this.state.validationErrors && (
                   <Paragraph style={{ color: "red" }}>
                     There were validation errors in the form, please correct
@@ -260,13 +260,24 @@ export default class Signup extends React.Component {
                   </Paragraph>
                 )}
               </Col>
+            </Row>
+            <Row style={{ marginTop: "2em" }}>
+              <Col span={12}>
+                <Button
+                  onClick={this._editArtistForm}
+                  type="primary"
+                  size="large"
+                >
+                  <Icon type="caret-left" /> Edit artist
+                </Button>
+              </Col>
               <Col span={12} style={{ textAlign: "right" }}>
                 <Button
                   onClick={this._submitWorkForms}
                   type="primary"
                   size="large"
                 >
-                  Confirm <Icon type="caret-right" />
+                  Confirm signup <Icon type="caret-right" />
                 </Button>
               </Col>
             </Row>
@@ -284,8 +295,21 @@ export default class Signup extends React.Component {
               </Col>
             </Row>
             <Row style={{ marginTop: "2em" }}>
-              <Col span={24} style={{ textAlign: "right" }}>
-                <Button onClick={this._completeSignup} type="primary">
+              <Col span={12}>
+                <Button
+                  onClick={this._editWorksForm}
+                  type="primary"
+                  size="large"
+                >
+                  <Icon type="caret-left" /> Edit signup
+                </Button>
+              </Col>
+              <Col span={12} style={{ textAlign: "right" }}>
+                <Button
+                  onClick={this._completeSignup}
+                  type="primary"
+                  size="large"
+                >
                   Complete signup <Icon type="caret-right" />
                 </Button>
               </Col>
