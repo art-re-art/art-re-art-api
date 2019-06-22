@@ -32,6 +32,18 @@ export default class Work extends React.Component {
     }
   }
 
+  _showModal = () => {
+    this.setState({
+      modalVisible: true
+    });
+  };
+
+  _hideModal = () => {
+    this.setState({
+      modalVisible: false
+    });
+  };
+
   render() {
     if (this.state.isLoading) {
       return <div>Loading...</div>;
@@ -43,14 +55,12 @@ export default class Work extends React.Component {
           hoverable
           className="work"
           cover={<img src={this.state.featuredImage.image.square.url} />}
-          onClick={() => {
-            this.setState({ modalVisible: true });
-          }}
+          onClick={this._showModal}
           style={{ height: "100%" }}
         >
-          {this.props.images.length > 1 ?
+          {this.props.images.length > 1 ? (
             <Icon type="copy" style={{ float: "right", color: "#ff0000" }} />
-            : null}
+          ) : null}
           <Title className="work-title" level={4}>
             {this.props.title}
           </Title>
@@ -60,9 +70,7 @@ export default class Work extends React.Component {
         <Modal
           title={this.props.title}
           visible={this.state.modalVisible}
-          onCancel={() => {
-            this.setState({ modalVisible: false });
-          }}
+          onCancel={this._hideModal}
           footer={null}
           width={"90vw"}
         >
@@ -71,7 +79,7 @@ export default class Work extends React.Component {
           {this.props.description && (
             <Paragraph>{this.props.description}</Paragraph>
           )}
-          <div>
+          <Row className="work-mediums">
             {this.props.medium &&
               this.props.medium.map(medium => {
                 return (
@@ -80,23 +88,21 @@ export default class Work extends React.Component {
                   </Tag>
                 );
               })}
-          </div>
-          <div className="work-images">
-            <Row>
-              {this.props.images &&
-                this.props.images.map(image => {
-                  return (
-                    <Col sm={12} xs={24}>
-                      <img
-                        key={image.id}
-                        src={image.image.small.url}
-                        alt={image.description}
-                      />
-                    </Col>
-                  );
-                })}
-            </Row>
-          </div>
+          </Row>
+          <Row className="work-images">
+            {this.props.images &&
+              this.props.images.map(image => {
+                return (
+                  <Col sm={12} xs={24}>
+                    <img
+                      key={image.id}
+                      src={image.image.small.url}
+                      alt={image.description}
+                    />
+                  </Col>
+                );
+              })}
+          </Row>
         </Modal>
       </Col>
     );
