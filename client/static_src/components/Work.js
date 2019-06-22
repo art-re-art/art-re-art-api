@@ -74,24 +74,18 @@ export default class Work extends React.Component {
           )}
           <Row className="work-mediums">
             {this.props.medium &&
-              this.props.medium.map(medium => {
-                return (
-                  <Tag key={medium.id} color="#ff0000">
-                    {medium.title}
-                  </Tag>
-                );
-              })}
+              this.props.medium.map(medium => (
+                <Tag key={medium.id} color="#ff0000">
+                  {medium.title}
+                </Tag>
+              ))}
           </Row>
           <Row className="work-images">
             {this.props.images &&
               this.props.images.map(image => {
                 return (
-                  <Col sm={12} xs={24}>
-                    <img
-                      key={image.id}
-                      src={image.image.small.url}
-                      alt={image.description}
-                    />
+                  <Col key={image.id} sm={12} xs={24}>
+                    <img src={image.image.small.url} alt={image.description} />
                   </Col>
                 );
               })}
