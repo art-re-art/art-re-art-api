@@ -126,22 +126,23 @@ export default class Event extends React.Component {
             })}
           </Row>
         )}
-        <div style={{ marginTop: "1rem" }}>
-          <Title level={2}>Participating Artists</Title>
-          <Row
-            style={{
-              display: "flex",
-              alignItems: "stretch",
-              justifyContent: "center",
-              flexWrap: "wrap"
-            }}
-          >
-            {this.state.event.artists &&
-              this.state.event.artists.map(artist => {
+        {this.state.event.artists && (
+          <div style={{ marginTop: "1rem" }}>
+            <Title level={2}>Participating Artists</Title>
+            <Row
+              style={{
+                display: "flex",
+                alignItems: "stretch",
+                justifyContent: "center",
+                flexWrap: "wrap"
+              }}
+            >
+              {this.state.event.artists.map(artist => {
                 return <Artist key={artist.id} {...artist} />;
               })}
-          </Row>
-        </div>
+            </Row>
+          </div>
+        )}
       </div>
     );
   }
