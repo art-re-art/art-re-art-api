@@ -6,19 +6,19 @@ from about.models import About, AboutOrganizer, AboutDeveloper, AboutFAQ
 class AboutFAQSerializer(serializers.ModelSerializer):
     class Meta:
         model = AboutFAQ
-        fields = ("is_mobile", "question", "answer")
+        fields = ("id", "is_mobile", "question", "answer")
 
 
 class AboutOrganizerSerializer(serializers.ModelSerializer):
     class Meta:
         model = AboutOrganizer
-        fields = ("name", "website")
+        fields = ("id", "name", "website")
 
 
 class AboutDeveloperSerializer(serializers.ModelSerializer):
     class Meta:
         model = AboutDeveloper
-        fields = ("name", "website")
+        fields = ("id", "name", "website")
 
 
 class AboutSerializer(serializers.HyperlinkedModelSerializer):
@@ -30,6 +30,7 @@ class AboutSerializer(serializers.HyperlinkedModelSerializer):
         model = About
         fields = (
             "url",
+            "id",
             "title",
             "website",
             "description",

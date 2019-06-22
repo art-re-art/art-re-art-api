@@ -38,6 +38,7 @@ class EventLocationSerializer(serializers.HyperlinkedModelSerializer):
         model = EventLocation
         fields = (
             "url",
+            "id",
             "title",
             "street",
             "city",

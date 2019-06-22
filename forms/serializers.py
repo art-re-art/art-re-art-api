@@ -11,13 +11,13 @@ from forms.models import (
 class MailchimpSignupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = MailchimpSignup
-        fields = ("url", "first_name", "last_name", "email")
+        fields = ("url", "id", "first_name", "last_name", "email")
 
 
 class ArtistSignupWorkImageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ArtistSignupWorkImage
-        fields = ("url", "image")
+        fields = ("url", "id", "image")
 
 
 class ArtistSignupWorkSerializer(serializers.HyperlinkedModelSerializer):
@@ -25,6 +25,7 @@ class ArtistSignupWorkSerializer(serializers.HyperlinkedModelSerializer):
         model = ArtistSignupWork
         fields = (
             "url",
+            "id",
             "artist_signup",
             "image",
             "title",
@@ -39,6 +40,7 @@ class ArtistSignupSerializer(serializers.HyperlinkedModelSerializer):
         model = ArtistSignup
         fields = (
             "url",
+            "id",
             "name",
             "email",
             "phone_number",

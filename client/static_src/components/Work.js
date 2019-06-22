@@ -75,7 +75,7 @@ export default class Work extends React.Component {
             {this.props.medium &&
               this.props.medium.map(medium => {
                 return (
-                  <Tag key={medium.url} color="#ff0000">
+                  <Tag key={medium.id} color="#ff0000">
                     {medium.title}
                   </Tag>
                 );
@@ -86,9 +86,9 @@ export default class Work extends React.Component {
               {this.props.images &&
                 this.props.images.map(image => {
                   return (
-                    <Col md={12} sm={24}>
+                    <Col sm={12} xs={24}>
                       <img
-                        key={image.url}
+                        key={image.id}
                         src={image.image.small.url}
                         alt={image.description}
                       />

@@ -7,7 +7,7 @@ from artists.models import Artist, ArtistMedium, ArtistWork, ArtistWorkImage
 class ArtistMediumSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ArtistMedium
-        fields = ("url", "title")
+        fields = ("url", "id", "title")
 
 
 class ArtistEventSerializer(serializers.HyperlinkedModelSerializer):
@@ -30,7 +30,7 @@ class ArtistEventSerializer(serializers.HyperlinkedModelSerializer):
 class ArtistWorkImageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ArtistWorkImage
-        fields = ("url", "image", "description", "is_featured")
+        fields = ("url", "id", "image", "description", "is_featured")
 
 
 class ArtistWorkArtistSerializer(serializers.HyperlinkedModelSerializer):
@@ -41,6 +41,7 @@ class ArtistWorkArtistSerializer(serializers.HyperlinkedModelSerializer):
         model = ArtistWork
         fields = (
             "url",
+            "id",
             "artist",
             "title",
             "year",
@@ -89,6 +90,8 @@ class ArtistWorkSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ArtistWork
         fields = (
+            "url",
+            "id",
             "artist",
             "title",
             "year",

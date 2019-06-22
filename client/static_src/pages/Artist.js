@@ -6,7 +6,7 @@ import { Row, Col, Typography, Tag, Descriptions } from "antd";
 import Loading from "../components/Loading";
 import Work from "../components/Work";
 
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 
 import "../styles/Artist.less";
 
@@ -59,7 +59,7 @@ export default class Artist extends React.Component {
         <Descriptions.Item key="Mediums" label="Mediums">
           {artist.medium.map(medium => {
             return (
-              <Tag color="#ff0000" key={medium.url}>
+              <Tag color="#ff0000" key={medium.id}>
                 {medium.title}
               </Tag>
             );
