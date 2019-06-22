@@ -16,7 +16,7 @@ export default class Page extends React.Component {
           borderBottom: "10px solid black"
         }}
       >
-        <Typography.Title className="page-title">
+        <Typography.Title level={1} className="page-title">
           {this.props.title}
         </Typography.Title>
       </Layout.Header>
