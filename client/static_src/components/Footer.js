@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Row, Col, List } from "antd";
+import { Layout, Row, Col, List, Icon } from "antd";
 
 import Mailchimp from "./Mailchimp";
 
@@ -10,7 +10,7 @@ export default class Footer extends React.Component {
     return (
       <Layout.Footer
         style={{
-          backgroundColor: "black",
+          backgroundColor: "red",
           color: "white",
           overflow: "hidden",
           position: "relative"
@@ -19,43 +19,28 @@ export default class Footer extends React.Component {
         <div
           style={{
             backgroundColor: "red",
-            width: "200px",
+            width: "100px",
             height: "100vh",
             position: "absolute",
             transform: "rotate(-30deg)",
             right: "5em"
           }}
         ></div>
-        <Row>
-          <Col>
-            <div
-              style={{
-                fontSize: "10vw",
-                lineHeight: "10vw",
-                fontWeight: "bold",
-                position: "relative",
-                marginTop: "-6vh"
-              }}
-            >
-              ART/RE/ART
-            </div>
-          </Col>
-        </Row>
         <Row gutter={36}>
           <Col xl={12} lg={24}>
             <div
               style={{
-                fontSize: "2vw",
-                lineHeight: "3vw"
+                fontSize: "2rem",
+                marginBottom: "2rem",
+                fontWeight: "bold"
               }}
             >
-              One-night-only contemporary art experiences taking place in
-              downtown Morganton, NC.
+              Make a Connection
             </div>
             <List split={false}>
               <List.Item style={{ padding: 0 }}>
-                <a href="mailto:hello@artreart.com" style={{ fontSize: "3vw" }}>
-                  www. / hello@
+                <a href="mailto:hello@artreart.com" className="footer__link">
+                  <Icon type="mail" /> hello@artreart.com
                 </a>
               </List.Item>
               <List.Item style={{ padding: 0 }}>
@@ -63,9 +48,9 @@ export default class Footer extends React.Component {
                   href="https://www.instagram.com/art_re_art/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ fontSize: "3vw" }}
+                  className="footer__link"
                 >
-                  insta. / art_re_art
+                  <Icon type="instagram" /> art_re_art
                 </a>
               </List.Item>
             </List>
