@@ -38,7 +38,7 @@ export default class Work extends React.Component {
     }
 
     return (
-      <Col xl={8} lg={12} md={12} sm={24} style={{ padding: "1rem" }}>
+      <Col xl={8} lg={8} md={12} sm={12} xs={12} style={{ padding: "1rem" }}>
         <Card
           hoverable
           className="work"
