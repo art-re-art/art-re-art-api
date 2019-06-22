@@ -107,7 +107,7 @@ export default class Event extends React.Component {
                   md={12}
                   sm={12}
                   xs={24}
-                  key={image.image.small.url}
+                  key={image.id}
                   style={{ marginBottom: 24 }}
                 >
                   <Card
@@ -138,7 +138,7 @@ export default class Event extends React.Component {
           >
             {this.state.event.artists &&
               this.state.event.artists.map(artist => {
-                return <Artist key={artist.url} {...artist} />;
+                return <Artist key={artist.id} {...artist} />;
               })}
           </Row>
         </div>
