@@ -6,16 +6,12 @@ import requests
 
 class ArtistSignup(models.Model):
     submitted = models.DateTimeField(auto_now_add=True)
-    name = models.CharField(
-        max_length=255, help_text="Or alias you would prefer to go by."
-    )
+    name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=255, blank=True, null=True)
     city = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
-    artist_statement = models.TextField(
-        help_text="Tell us about yourself and why you'd like to participate in Art/Re/Art"
-    )
+    artist_statement = models.TextField()
     website = models.URLField(max_length=255, blank=True, null=True)
     instagram = models.URLField(max_length=255, blank=True, null=True)
 
@@ -30,31 +26,28 @@ class ArtistSignupWork(models.Model):
     artist_signup = models.ForeignKey(
         to="forms.ArtistSignup", on_delete=models.CASCADE, related_name="works"
     )
-    image = models.OneToOneField(
+    image = models.ManyToManyField(
         to="forms.ArtistSignupWorkImage",
-        on_delete=models.CASCADE,
         related_name="work",
         blank=True,
-        null=True,
     )
     title = models.CharField(max_length=255, blank=True, null=True)
     medium = models.CharField(
         max_length=255,
         blank=True,
         null=True,
-        help_text="Can have multiple, ex. Painting, Installation, Video",
     )
     description = models.TextField(blank=True, null=True)
     special_installation_needs = models.TextField(
-        blank=True, null=True, help_text="ex. Needs to be hanging"
+        blank=True, null=True
     )
 
     def __str__(self):
-        return self.title
+        return self.title or ''  # NOTE: Return '' due to bug on admin iterator M2M
 
 
 class ArtistSignupWorkImage(models.Model):
-    image = models.ImageField()
+    image = models.ImageField(upload_to='artist_uploads/')
 
     def __str__(self):
         return str(self.image)

@@ -161,7 +161,9 @@ export default class Signup extends React.Component {
     const artistUrl = artistSignup.data.url;
     await this.state.dataWork.map(work => {
       work.artist_signup = artistUrl;
-      work.image = work.image[work.image.length - 1].response.url;
+      work.image = work.image.map(image => {
+        return image.response.url;
+      });
       axios.post("/api/forms/artistsignups/works/", work, {
         xsrfHeaderName: "X-CSRFToken",
         xsrfCookieName: "csrftoken"
