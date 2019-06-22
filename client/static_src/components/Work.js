@@ -8,28 +8,16 @@ import "../styles/Work.less";
 
 export default class Work extends React.Component {
   state = {
-    featuredImage: null,
+    image: null,
     isLoading: true,
     modalVisible: false
   };
 
   componentDidMount() {
-    this.props.images.map(image => {
-      if (image.is_featured) {
-        this.setState({
-          featuredImage: image
-        });
-        this.setState({
-          isLoading: false
-        });
-      }
+    this.setState({
+      image: this.props.images[0],
+      isLoading: false
     });
-    if (this.state.featuredImage === null) {
-      this.setState({
-        featuredImage: this.props.images[0],
-        isLoading: false
-      });
-    }
   }
 
   _showModal = () => {
@@ -54,13 +42,18 @@ export default class Work extends React.Component {
         <Card
           hoverable
           className="work"
-          cover={<img src={this.state.featuredImage.image.square.url} />}
+          cover={
+            <img
+              src={this.state.image.image.square.url}
+              alt={this.state.image.description}
+            />
+          }
           onClick={this._showModal}
           style={{ height: "100%" }}
         >
-          {this.props.images.length > 1 ? (
+          {this.props.images.length > 1 && (
             <Icon type="copy" style={{ float: "right", color: "#ff0000" }} />
-          ) : null}
+          )}
           <Title className="work-title" level={4}>
             {this.props.title}
           </Title>

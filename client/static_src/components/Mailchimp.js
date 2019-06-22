@@ -50,11 +50,11 @@ class MailchimpForm extends React.Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <div className="mailchimp-form">
-        {this.state.error ? (
+        {this.state.error && (
           <Paragraph>
             There was an unexpected error, please try again.
           </Paragraph>
-        ) : null}
+        )}
         <Form onSubmit={this._handleSubmit}>
           <Form.Item>
             {getFieldDecorator("first_name", {

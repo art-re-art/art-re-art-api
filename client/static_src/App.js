@@ -61,7 +61,7 @@ export default class App extends React.Component {
               setCollapsed={this._setCollapsed}
               setBroken={this._setBroken}
             />
-            {this.state.broken ? (
+            {this.state.broken && (
               <Icon
                 className="trigger"
                 type={this.state.collapsed ? "menu" : "close"}
@@ -69,7 +69,7 @@ export default class App extends React.Component {
                   this._setCollapsed(!this.state.collapsed);
                 }}
               />
-            ) : null}
+            )}
             <Switch>
               <Route
                 path="/events/:id/"

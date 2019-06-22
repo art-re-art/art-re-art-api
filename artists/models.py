@@ -104,7 +104,6 @@ class ArtistWorkImage(models.Model):
     )
     _image = models.ImageField("Image")
     description = models.CharField(max_length=255, null=True)
-    is_featured = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = "Artist Work Image"

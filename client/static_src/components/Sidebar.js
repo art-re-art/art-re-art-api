@@ -161,11 +161,11 @@ class Sidebar extends React.Component {
             </div>
             <div className="sidebar-event__title">{this.state.event.title}</div>
             <div>{moment(this.state.event.datetime).format("LLLL")}</div>
-            {this.state.event.location ? (
+            {this.state.event.location && (
               <div>
                 <div>{this.state.event.location.street}</div>
               </div>
-            ) : null}
+            )}
           </div>
         </Link>
       </Sider>

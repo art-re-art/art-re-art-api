@@ -60,13 +60,10 @@ export default class Event extends React.Component {
                   {moment(this.state.event.datetime).format("LLLL")}
                 </Paragraph>
                 <Paragraph>
-                  {this.state.event.location
-                    ? this.state.event.location.title
-                    : null}
+                  {this.state.event.location && this.state.event.location.title}
                   <br />
-                  {this.state.event.location
-                    ? this.state.event.location.street
-                    : null}
+                  {this.state.event.location &&
+                    this.state.event.location.street}
                 </Paragraph>
               </Col>
               {/* <Col lg={12} md={24}>
@@ -77,7 +74,7 @@ export default class Event extends React.Component {
               </Col> */}
             </Row>
             <Paragraph>
-              {this.state.event.location ? (
+              {this.state.event.location && (
                 <div
                   dangerouslySetInnerHTML={{
                     __html: `
@@ -93,11 +90,11 @@ export default class Event extends React.Component {
                       />`
                   }}
                 />
-              ) : null}
+              )}
             </Paragraph>
           </Col>
         </Row>
-        {this.state.event.images ? (
+        {this.state.event.images && (
           <Row
             gutter={24}
             style={{ display: "flex", flexWrap: "wrap", alignItems: "center" }}
@@ -128,7 +125,7 @@ export default class Event extends React.Component {
               );
             })}
           </Row>
-        ) : null}
+        )}
         <div style={{ marginTop: "1rem" }}>
           <Title level={2}>Participating Artists</Title>
           <Row
@@ -139,12 +136,11 @@ export default class Event extends React.Component {
               flexWrap: "wrap"
             }}
           >
-            {this.state.event.artists
-              ? this.state.event.artists.map(artist => {
+            {this.state.event.artists &&
+              this.state.event.artists.map(artist => {
                 console.log(artist);
-                  return <Artist key={artist.url} {...artist} />;
-                })
-              : null}
+                return <Artist key={artist.url} {...artist} />;
+              })}
           </Row>
         </div>
       </div>

@@ -30,7 +30,7 @@ class ArtistEventSerializer(serializers.HyperlinkedModelSerializer):
 class ArtistWorkImageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ArtistWorkImage
-        fields = ("url", "id", "image", "description", "is_featured")
+        fields = ("url", "id", "image", "description")
 
 
 class ArtistWorkArtistSerializer(serializers.HyperlinkedModelSerializer):
