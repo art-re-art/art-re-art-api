@@ -90,7 +90,7 @@ class MailchimpForm extends React.Component {
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit" size="large">
-              Subscribe
+              newsletter.
             </Button>
           </Form.Item>
         </Form>
@@ -104,8 +104,7 @@ const WrappedMailchimpForm = Form.create({ name: "mailchimp" })(MailchimpForm);
 export default class Mailchimp extends React.Component {
   render() {
     return (
-      <div className="mailchimp-container">
-        <div className="footer__heading">Subscribe to our newsletter.</div>
+      <div style={{ marginTop: ".5em" }}>
         <WrappedMailchimpForm />
       </div>
     );
