@@ -16,10 +16,7 @@ export default class Artist extends React.Component {
               this.props.image ? (
                 <img src={this.props.image.square.url} />
               ) : (
-                <div
-                  style={{ textAlign: "center" }}
-                  dangerouslySetInnerHTML={{ __html: this.props.qrcode }}
-                />
+                <img src={this.props.qrcode.medium.url} />
               )
             }
           >

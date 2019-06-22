@@ -28,7 +28,9 @@ PREPEND_WWW = False
 
 SECURE_SSL_REDIRECT = False
 
-MEDIA_URL = "https://static.artreart.com/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
+
+MEDIA_URL = "/media/"
 
 
 # Custom

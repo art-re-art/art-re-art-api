@@ -45,6 +45,9 @@ class EventAdmin(nested_admin.NestedModelAdmin):
         ("_featured_image", "featured_image_preview"),
     )
 
+    def number_of_images(self, obj):
+        return str(obj.images.count())
+
     def featured_image_preview(self, obj):
         if obj._featured_image:
             return mark_safe(

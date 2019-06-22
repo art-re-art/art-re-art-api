@@ -6,7 +6,7 @@ from xml.etree import ElementTree
 import qrcode
 import qrcode.image.svg
 
-from artreart.utils import create_thumbnails
+from artreart.utils import create_thumbnails, create_qrcode, create_qrcode_thumbnails
 
 
 class Artist(models.Model):
@@ -24,6 +24,7 @@ class Artist(models.Model):
         to="events.Event", related_name="artists", blank=True
     )
     _image = models.ImageField("Image", blank=True, null=True)
+    _qrcode = models.ImageField("Image", blank=True, null=True)
 
     class Meta:
         verbose_name = "Artist"
@@ -34,15 +35,17 @@ class Artist(models.Model):
         return self.name
 
     @property
-    def api_url(self):
-        return settings.BASE_URL + reverse("artist-detail", kwargs={"pk": self.pk})
-
-    @property
     def qrcode(self):
-        factory = qrcode.image.svg.SvgImage
-        img = qrcode.make(self.api_url, box_size=20, image_factory=factory)
-        svg = ElementTree.tostring(img.get_image(), encoding="utf-8", method="xml")
-        return svg.decode("utf-8")
+        if not self._qrcode:
+            qrcode_data = (
+                settings.BASE_URL
+                + "/mobile"
+                + reverse("artist-detail", kwargs={"pk": self.pk})
+            )
+            file_name = "qrcode-artist-%s.png" % self.pk
+            file_buffer = create_qrcode(qrcode_data)
+            self._qrcode.save(file_name, file_buffer)
+        return create_qrcode_thumbnails(self._qrcode)
 
     @property
     def medium_list(self):

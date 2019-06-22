@@ -104,16 +104,15 @@ export default class Artist extends React.Component {
     return (
       <div className="container">
         <Row gutter={24} lg={24}>
-          <Col xl={8} lg={24}>
+          <Col xl={8} lg={24} style={{ textAlign: "center" }}>
             {this.state.artist.image ? (
               <img
                 src={this.state.artist.image.small.url}
                 className="arist-img"
               />
             ) : (
-              <div
-                style={{ textAlign: "center" }}
-                dangerouslySetInnerHTML={{ __html: this.state.artist.qrcode }}
+              <img
+                src={this.state.artist.qrcode.medium.url}
               />
             )}
           </Col>

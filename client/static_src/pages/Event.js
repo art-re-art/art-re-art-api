@@ -63,16 +63,14 @@ export default class Event extends React.Component {
                 {moment(this.state.event.datetime).format("LLLL")}
               </Paragraph>
             </div>
-            <div
+            <img
               style={{
                 position: "absolute",
                 right: 0,
-                width: "82mm",
-                background: "white",
-                marginTop: "calc(50vh - 61.5mm)",
+                marginTop: "calc(50vh - 128px)",
                 zIndex: 2
               }}
-              dangerouslySetInnerHTML={{ __html: this.state.event.qrcode }}
+              src={this.state.event.qrcode.medium.url }
             />
             <img
               src={this.state.event.featured_image.large.url}

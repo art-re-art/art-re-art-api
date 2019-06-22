@@ -1,11 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
-from xml.etree import ElementTree
-import qrcode
-import qrcode.image.svg
 
-from artreart.utils import create_thumbnails
+from artreart.utils import create_thumbnails, create_qrcode, create_qrcode_thumbnails
 
 
 class Event(models.Model):
@@ -15,6 +12,7 @@ class Event(models.Model):
         to="events.EventLocation", on_delete=models.CASCADE, related_name="events"
     )
     _featured_image = models.ImageField("Featured image", blank=True, null=True)
+    _qrcode = models.ImageField("QR Code", blank=True, null=True)
 
     class Meta:
         verbose_name = "Event"
@@ -42,14 +40,16 @@ class Event(models.Model):
 
     @property
     def qrcode(self):
-        factory = qrcode.image.svg.SvgImage
-        img = qrcode.make(self.api_url, box_size=20, image_factory=factory)
-        svg = ElementTree.tostring(img.get_image(), encoding="utf-8", method="xml")
-        return svg.decode("utf-8")
-
-    @property
-    def number_of_images(self):
-        return str(self.images.count())
+        if not self._qrcode:
+            qrcode_data = (
+                settings.BASE_URL
+                + "/mobile"
+                + reverse("event-detail", kwargs={"pk": self.pk})
+            )
+            file_name = "qrcode-event-%s.png" % self.pk
+            file_buffer = create_qrcode(qrcode_data)
+            self._qrcode.save(file_name, file_buffer)
+        return create_qrcode_thumbnails(self._qrcode)
 
     @property
     def featured_image(self):

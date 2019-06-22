@@ -65,8 +65,8 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
             "day",
             "time",
             "location",
-            "artists",
-            "images",
             "qrcode",
             "featured_image",
+            "artists",
+            "images",
         )
