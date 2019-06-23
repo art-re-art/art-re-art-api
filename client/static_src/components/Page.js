@@ -13,7 +13,6 @@ export default class Page extends React.Component {
 
   componentDidMount() {
     this._setTitle(this.props.title);
-    window.scrollTo(0, 0);
   }
 
   _setTitle = title => {
