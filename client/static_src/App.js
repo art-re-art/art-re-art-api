@@ -2,26 +2,27 @@ import React from "react";
 import ReactGA from "react-ga";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Layout, Icon } from "antd";
+import WebFont from "webfontloader";
+import "react-app-polyfill/stable";
 
+import Pages from "./pages";
 import Components from "./components";
-
-const { Page, Sidebar, ScrollToTop } = Components;
-
-import Event from "./pages/Event";
-import Events from "./pages/Events";
-import Artist from "./pages/Artist";
-import Artists from "./pages/Artists";
-import About from "./pages/About";
-import Mobile from "./pages/Mobile";
-import Signup from "./pages/Signup";
-import Home from "./pages/Home";
-import NoMatch from "./pages/NoMatch";
 
 import "./images/favicon.png";
 import "./styles/App.less";
 
-import "react-app-polyfill/stable";
-import WebFont from "webfontloader";
+const {
+  Event,
+  Events,
+  Artist,
+  Artists,
+  About,
+  Mobile,
+  Signup,
+  Home,
+  NoMatch
+} = Pages;
+const { Page, Sidebar, ScrollToTop } = Components;
 
 export default class App extends React.Component {
   state = {
