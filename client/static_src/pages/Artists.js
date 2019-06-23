@@ -1,9 +1,7 @@
 import React from "react";
 import ReactGA from "react-ga";
 
-import { Row, Typography } from "antd";
-
-const { Paragraph } = Typography;
+import { Row } from "antd";
 
 import Artist from "../components/Artist";
 import Loading from "../components/Loading";
@@ -32,22 +30,20 @@ export default class Artists extends React.Component {
     }
 
     return (
-      <div className="artists-page">
-        <Row
-          gutter={24}
-          style={{
-            padding: "2em",
-            display: "flex",
-            alignItems: "stretch",
-            justifyContent: "center",
-            flexWrap: "wrap"
-          }}
-        >
-          {this.state.artists.map(artist => (
-            <Artist key={artist.url} {...artist} />
-          ))}
-        </Row>
-      </div>
+      <Row
+        gutter={24}
+        style={{
+          padding: "2em",
+          display: "flex",
+          alignItems: "stretch",
+          justifyContent: "center",
+          flexWrap: "wrap"
+        }}
+      >
+        {this.state.artists.map(artist => (
+          <Artist key={artist.url} {...artist} />
+        ))}
+      </Row>
     );
   }
 }
