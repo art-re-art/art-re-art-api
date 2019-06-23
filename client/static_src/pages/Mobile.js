@@ -31,8 +31,7 @@ export default class NoMatch extends React.Component {
             />
           </Col>
           <Col md={16} sm={24}>
-            <Layout.Title>Coming Soon</Layout.Title>
-            <Layout.Section>
+            <Layout.Section title="Coming Soon">
               <Paragraph>
                 The ART/RE/ART mobile app is coming soon to both iOS and
                 Android, signup for our newsletter to get notified when it

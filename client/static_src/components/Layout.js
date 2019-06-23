@@ -10,16 +10,15 @@ class Container extends React.Component {
 
 class Section extends React.Component {
   render() {
-    return <div className="layout__section">{this.props.children}</div>;
+    return (
+      <div className="layout__section">
+        <div className="section__title">{this.props.title}</div>
+        <div className="section__content">{this.props.children}</div>
+      </div>
+    );
   }
 }
 
-class Title extends React.Component {
-  render() {
-    return <div className="layout__title">{this.props.children}</div>;
-  }
-}
-
-const Layout = { Container: Container, Section: Section, Title: Title };
+const Layout = { Container: Container, Section: Section };
 
 export default Layout;

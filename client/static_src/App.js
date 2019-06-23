@@ -18,11 +18,9 @@ import Home from "./pages/Home";
 import NoMatch from "./pages/NoMatch";
 
 import "./images/favicon.png";
-
 import "./styles/App.less";
 
 import "react-app-polyfill/stable";
-
 import WebFont from "webfontloader";
 
 export default class App extends React.Component {

@@ -15,8 +15,7 @@ export default class NoMatch extends React.Component {
   render() {
     return (
       <Layout.Container>
-        <Layout.Title>404</Layout.Title>
-        <Layout.Section>
+        <Layout.Section title="404">
           <Paragraph>Page Not Found</Paragraph>
         </Layout.Section>
       </Layout.Container>

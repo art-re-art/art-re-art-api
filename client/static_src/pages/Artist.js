@@ -5,10 +5,10 @@ import { Row, Col, Typography, Tag, Descriptions } from "antd";
 
 import Loading from "../components/Loading";
 import Work from "../components/Work";
+import Layout from "../components/Layout";
+import Image from "../components/Image";
 
 const { Title } = Typography;
-
-import "../styles/Artist.less";
 
 export default class Artist extends React.Component {
   state = { artist: {}, isLoading: true, descriptions: [] };
@@ -75,20 +75,15 @@ export default class Artist extends React.Component {
     if (artist.events)
       descriptions.push(
         <Descriptions.Item key="ART/RE/ART Events" label="ART/RE/ART Events">
-          {this.state.artist.events.map(event => {
-            return (
-              <Link
-                key={event.url}
-                to={`/events/${event.id}/`}
-                style={{
-                  marginRight: "10px",
-                  textDecoration: "underline"
-                }}
-              >
-                {event.title}
-              </Link>
-            );
-          })}
+          {this.state.artist.events
+            .map(event => {
+              return (
+                <Link key={event.id} to={`/events/${event.id}/`}>
+                  {event.title}
+                </Link>
+              );
+            })
+            .reduce((prev, curr) => [prev, ", ", curr])}
         </Descriptions.Item>
       );
     this.setState({
@@ -97,39 +92,39 @@ export default class Artist extends React.Component {
   };
 
   render() {
+    const artist = this.state.artist;
+
     if (this.state.isLoading) {
       return <Loading />;
     }
 
     return (
-      <div className="container">
-        <Row gutter={24} lg={24}>
-          <Col xl={8} lg={24} style={{ textAlign: "center" }}>
-            {this.state.artist.image ? (
-              <img
-                src={this.state.artist.image.small.url}
-                className="arist-img"
-              />
-            ) : (
-              <img src={this.state.artist.qrcode.medium.url} />
-            )}
-          </Col>
-          <Col xl={16}>
-            <Title level={2}>{this.state.artist.name}</Title>
-            <Descriptions
-              bordered
-              size="small"
-              column={{ xs: 1, sm: 1, md: 1, lg: 1, xl: 1 }}
-            >
-              {this.state.descriptions.map(description => {
-                return description;
-              })}
-            </Descriptions>
-          </Col>
-        </Row>
+      <Layout.Container>
+        <Layout.Section title="Artist Information">
+          <Row gutter={24} style={{ display: "flex", alignItems: "center" }}>
+            <Col xl={8} lg={24} style={{ textAlign: "center" }}>
+              {this.state.artist.image ? (
+                <Image.ResponsiveImage src={artist.image.square.url} />
+              ) : (
+                <Image.ResponsiveImage src={artist.qrcode.large.url} />
+              )}
+            </Col>
+            <Col xl={16}>
+              <Descriptions
+                bordered
+                size="small"
+                column={{ xs: 1, sm: 1, md: 1, lg: 1, xl: 1 }}
+              >
+                {this.state.descriptions.map(description => {
+                  return description;
+                })}
+              </Descriptions>
+            </Col>
+          </Row>
+        </Layout.Section>
         {this.state.artist.works.length > 0 && (
-          <div style={{ marginTop: "1rem" }}>
-            <Title level={2}>Works by {this.state.artist.name}</Title>
+          <Layout.Section title="Artist Portfolio">
+            <Title level={2}></Title>
             <Row
               style={{
                 marginTop: "1rem",
@@ -147,9 +142,9 @@ export default class Artist extends React.Component {
                 />
               ))}
             </Row>
-          </div>
+          </Layout.Section>
         )}
-      </div>
+      </Layout.Container>
     );
   }
 }
