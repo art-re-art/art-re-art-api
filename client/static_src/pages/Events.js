@@ -2,8 +2,9 @@ import React from "react";
 import ReactGA from "react-ga";
 import { Row } from "antd";
 
-import Event from "../components/Event";
-import Loading from "../components/Loading";
+import Components from "../components";
+
+const { Event, Loading } = Components;
 
 export default class Events extends React.Component {
   state = { events: [], isLoading: true };

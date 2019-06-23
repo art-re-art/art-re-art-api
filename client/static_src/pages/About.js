@@ -2,8 +2,9 @@ import React from "react";
 import ReactGA from "react-ga";
 import { Collapse, Typography, Row, Divider } from "antd";
 
-import Loading from "../components/Loading";
-import Layout from "../components/Layout";
+import Components from "../components";
+
+const { Loading, Layout } = Components;
 
 const { Title, Paragraph } = Typography;
 const { Panel } = Collapse;

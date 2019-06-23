@@ -3,10 +3,9 @@ import ReactGA from "react-ga";
 import { Link } from "react-router-dom";
 import { Row, Col, Typography, Tag, Descriptions } from "antd";
 
-import Loading from "../components/Loading";
-import Work from "../components/Work";
-import Layout from "../components/Layout";
-import Image from "../components/Image";
+import Components from "../components";
+
+const { Loading, Work, Layout, Image } = Components;
 
 const { Title } = Typography;
 

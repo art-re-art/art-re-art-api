@@ -3,9 +3,9 @@ import ReactGA from "react-ga";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Layout, Icon } from "antd";
 
-import Page from "./components/Page";
-import Sidebar from "./components/Sidebar";
-import ScrollToTop from "./components/ScrollToTop";
+import Components from "./components";
+
+const { Page, Sidebar, ScrollToTop } = Components;
 
 import Event from "./pages/Event";
 import Events from "./pages/Events";

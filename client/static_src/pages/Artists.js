@@ -1,10 +1,10 @@
 import React from "react";
 import ReactGA from "react-ga";
-
 import { Row } from "antd";
 
-import Artist from "../components/Artist";
-import Loading from "../components/Loading";
+import Components from "../components";
+
+const { Artist, Loading } = Components;
 
 export default class Artists extends React.Component {
   state = { artists: [], isLoading: true };

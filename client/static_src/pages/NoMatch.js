@@ -2,7 +2,9 @@ import React from "react";
 import ReactGA from "react-ga";
 import { Typography } from "antd";
 
-import Layout from "../components/Layout";
+import Components from "../components";
+
+const { Layout } = Components;
 
 const { Paragraph } = Typography;
 

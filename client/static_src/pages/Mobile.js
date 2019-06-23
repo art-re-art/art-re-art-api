@@ -1,9 +1,11 @@
 import React from "react";
 import ReactGA from "react-ga";
-
 import { List, Typography, Row, Col } from "antd";
 
-import Layout from "../components/Layout";
+import Components from "../components";
+
+const { Layout } = Components;
+
 import Mockup from "../images/mockup.png";
 
 const { Title, Paragraph, Text } = Typography;

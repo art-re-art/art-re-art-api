@@ -1,13 +1,13 @@
 import React from "react";
 import ReactGA from "react-ga";
-import { Col, Row, Typography, Card, Divider } from "antd";
+import { Col, Row, Typography, Card } from "antd";
 import moment from "moment";
 
-import Loading from "../components/Loading";
-import Artist from "../components/Artist";
-import Layout from "../components/Layout";
+import Components from "../components";
 
-const { Title, Paragraph, Text } = Typography;
+const { Loading, Artist, Layout } = Components;
+
+const { Title, Paragraph } = Typography;
 const { Meta } = Card;
 
 import "../styles/Event.less";
