@@ -111,9 +111,7 @@ export default class Artist extends React.Component {
                 className="arist-img"
               />
             ) : (
-              <img
-                src={this.state.artist.qrcode.medium.url}
-              />
+              <img src={this.state.artist.qrcode.medium.url} />
             )}
           </Col>
           <Col xl={16}>

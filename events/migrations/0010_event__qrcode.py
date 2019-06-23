@@ -5,14 +5,14 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('events', '0009_auto_20190619_2139'),
-    ]
+    dependencies = [("events", "0009_auto_20190619_2139")]
 
     operations = [
         migrations.AddField(
-            model_name='event',
-            name='_qrcode',
-            field=models.ImageField(blank=True, null=True, upload_to='', verbose_name='QR Code'),
-        ),
+            model_name="event",
+            name="_qrcode",
+            field=models.ImageField(
+                blank=True, null=True, upload_to="", verbose_name="QR Code"
+            ),
+        )
     ]

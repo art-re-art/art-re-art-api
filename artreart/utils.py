@@ -9,14 +9,8 @@ def create_qrcode_thumbnails(original_image):
     Generates a thumbnail specifically for qrcodes and their requirements, this isn't
     exactly needed but it create consistency in URLs.
     """
-    thumbnail_kwargs = {
-        "format": "PNG",
-    }
-    sizes = {
-        "small": "64x64",
-        "medium": "256x256",
-        "large": "490x490",
-    }
+    thumbnail_kwargs = {"format": "PNG"}
+    sizes = {"small": "64x64", "medium": "256x256", "large": "490x490"}
     images = {}
     for size, resolution in sizes.items():
         if size == "square":

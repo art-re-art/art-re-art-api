@@ -5,19 +5,19 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('forms', '0006_auto_20190622_1456'),
-    ]
+    dependencies = [("forms", "0006_auto_20190622_1456")]
 
     operations = [
         migrations.AlterField(
-            model_name='artistsignupwork',
-            name='image',
-            field=models.ManyToManyField(blank=True, related_name='work', to='forms.ArtistSignupWorkImage'),
+            model_name="artistsignupwork",
+            name="image",
+            field=models.ManyToManyField(
+                blank=True, related_name="work", to="forms.ArtistSignupWorkImage"
+            ),
         ),
         migrations.AlterField(
-            model_name='artistsignupworkimage',
-            name='image',
-            field=models.ImageField(upload_to='artist_uploads/'),
+            model_name="artistsignupworkimage",
+            name="image",
+            field=models.ImageField(upload_to="artist_uploads/"),
         ),
     ]

@@ -70,7 +70,7 @@ export default class Event extends React.Component {
                 marginTop: "calc(50vh - 128px)",
                 zIndex: 2
               }}
-              src={this.state.event.qrcode.medium.url }
+              src={this.state.event.qrcode.medium.url}
             />
             <img
               src={this.state.event.featured_image.large.url}

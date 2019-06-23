@@ -38,15 +38,11 @@ export default class About extends React.Component {
 
     return (
       <Layout.Container>
-        <Layout.Title>
-          The Down Low
-        </Layout.Title>
+        <Layout.Title>The Down Low</Layout.Title>
         <Layout.Section>
           <Paragraph>{about.description}</Paragraph>
         </Layout.Section>
-        <Layout.Title>
-          The Organizers
-        </Layout.Title>
+        <Layout.Title>The Organizers</Layout.Title>
         <Layout.Section>
           <Paragraph>
             {about.organizers
@@ -67,9 +63,7 @@ export default class About extends React.Component {
               .reduce((prev, curr) => [prev, ", ", curr])}
           </Paragraph>
         </Layout.Section>
-        <Layout.Title>
-          The Developers
-        </Layout.Title>
+        <Layout.Title>The Developers</Layout.Title>
         <Layout.Section>
           <Paragraph>
             {about.developers
@@ -90,9 +84,7 @@ export default class About extends React.Component {
               .reduce((prev, curr) => [prev, ", ", curr])}
           </Paragraph>
         </Layout.Section>
-        <Layout.Title>
-          The FAQs
-        </Layout.Title>
+        <Layout.Title>The FAQs</Layout.Title>
         <Layout.Section>
           <Collapse accordion>
             {about.faqs.map(faq => {
