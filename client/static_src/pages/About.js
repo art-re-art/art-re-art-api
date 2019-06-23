@@ -3,6 +3,7 @@ import ReactGA from "react-ga";
 import { Collapse, Typography, Row, Divider } from "antd";
 
 import Loading from "../components/Loading";
+import Layout from "../components/Layout";
 
 const { Title, Paragraph } = Typography;
 const { Panel } = Collapse;
@@ -16,7 +17,7 @@ export default class About extends React.Component {
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
     this.props.setTitle("About");
-    fetch("/api/about/")
+    fetch("/api/about/about/")
       .then(data => {
         return data.json();
       })
@@ -36,14 +37,17 @@ export default class About extends React.Component {
     }
 
     return (
-      <div className="container">
-        <Row>
-          <Title level={2}>The Down Low</Title>
+      <Layout.Container>
+        <Layout.Title>
+          The Down Low
+        </Layout.Title>
+        <Layout.Section>
           <Paragraph>{about.description}</Paragraph>
-        </Row>
-        <Divider dashed />
-        <Row>
-          <Title level={2}>The Organizers</Title>
+        </Layout.Section>
+        <Layout.Title>
+          The Organizers
+        </Layout.Title>
+        <Layout.Section>
           <Paragraph>
             {about.organizers
               .map(organizer => {
@@ -62,10 +66,11 @@ export default class About extends React.Component {
               })
               .reduce((prev, curr) => [prev, ", ", curr])}
           </Paragraph>
-        </Row>
-        <Divider dashed />
-        <Row>
-          <Title level={2}>The Developers</Title>
+        </Layout.Section>
+        <Layout.Title>
+          The Developers
+        </Layout.Title>
+        <Layout.Section>
           <Paragraph>
             {about.developers
               .map(developer => {
@@ -84,10 +89,11 @@ export default class About extends React.Component {
               })
               .reduce((prev, curr) => [prev, ", ", curr])}
           </Paragraph>
-        </Row>
-        <Divider dashed />
-        <Row>
-          <Title level={2}>FAQs</Title>
+        </Layout.Section>
+        <Layout.Title>
+          The FAQs
+        </Layout.Title>
+        <Layout.Section>
           <Collapse accordion>
             {about.faqs.map(faq => {
               if (!faq.is_mobile)
@@ -100,8 +106,8 @@ export default class About extends React.Component {
                 );
             })}
           </Collapse>
-        </Row>
-      </div>
+        </Layout.Section>
+      </Layout.Container>
     );
   }
 }

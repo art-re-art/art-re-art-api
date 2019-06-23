@@ -1,0 +1,37 @@
+.layout {
+  &__container {
+    padding: 2em;
+    background-color: #e3e3e3;
+  }
+
+  &__section {
+    padding: 2em;
+    background-color: #ffffff;
+    margin-bottom: 2em;
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: underline;
+        color: #000000;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 2em;
+    padding: 0.2em 0.5em;
+    color: #ffffff;
+    background-color: #ff0000;
+    margin: 0 0 -1em .5em;
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+  }
+}

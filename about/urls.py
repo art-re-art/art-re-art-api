@@ -4,4 +4,4 @@ from . import views
 
 
 router = routers.DefaultRouter()
-router.register(r"about", views.AboutViewSet)
+router.register(r"about/about", views.AboutViewSet)
