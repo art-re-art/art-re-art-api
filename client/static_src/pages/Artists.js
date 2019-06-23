@@ -4,7 +4,7 @@ import { Row } from "antd";
 
 import Components from "../components";
 
-const { Artist, Loading } = Components;
+const { Cards, Loading } = Components;
 
 export default class Artists extends React.Component {
   state = { artists: [], isLoading: true };
@@ -41,7 +41,7 @@ export default class Artists extends React.Component {
         }}
       >
         {this.state.artists.map(artist => (
-          <Artist key={artist.url} {...artist} />
+          <Cards.Artist key={artist.url} {...artist} />
         ))}
       </Row>
     );

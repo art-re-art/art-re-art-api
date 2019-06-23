@@ -1,12 +1,68 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Col, Card, Typography, Tag, Modal, Row, Icon } from "antd";
+import moment from "moment";
+
+import "../styles/Work.less";
 
 const { Meta } = Card;
 const { Paragraph, Title } = Typography;
 
-import "../styles/Work.less";
+export class Artist extends React.Component {
+  render() {
+    return (
+      <Col xl={8} lg={12} md={12} sm={24} style={{ padding: "1rem" }}>
+        <Link to={`/artists/${this.props.id}/`}>
+          <Card
+            hoverable
+            style={{ height: "100%" }}
+            cover={
+              this.props.image ? (
+                <img src={this.props.image.square.url} />
+              ) : (
+                <img src={this.props.qrcode.medium.url} />
+              )
+            }
+          >
+            <Meta
+              title={this.props.name}
+              description={this.props.medium.map(medium => {
+                return (
+                  <Tag key={medium.title} color="#ff0000">
+                    {medium.title}
+                  </Tag>
+                );
+              })}
+            />
+          </Card>
+        </Link>
+      </Col>
+    );
+  }
+}
 
-export default class Work extends React.Component {
+export class Event extends React.Component {
+  render() {
+    return (
+      <Col xl={8} lg={12} md={12} sm={24} style={{ padding: "1rem" }}>
+        <Link to={`/events/${this.props.id}/`}>
+          <Card
+            hoverable
+            cover={<img src={this.props.featured_image.square.url} />}
+            style={{ height: "100%" }}
+          >
+            <Meta
+              title={this.props.title}
+              description={moment(this.props.datetime).format("LLLL")}
+            />
+          </Card>
+        </Link>
+      </Col>
+    );
+  }
+}
+
+export class Work extends React.Component {
   state = {
     image: null,
     isLoading: true,
@@ -95,3 +151,11 @@ export default class Work extends React.Component {
     );
   }
 }
+
+const Cards = {
+  Artist: Artist,
+  Event: Event,
+  Work: Work
+};
+
+export default Cards;

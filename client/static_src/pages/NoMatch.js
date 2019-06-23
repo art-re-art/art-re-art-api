@@ -4,9 +4,8 @@ import { Typography } from "antd";
 
 import Components from "../components";
 
-const { Layout } = Components;
-
 const { Paragraph } = Typography;
+const { Layout } = Components;
 
 export default class NoMatch extends React.Component {
   componentDidMount() {

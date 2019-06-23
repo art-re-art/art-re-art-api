@@ -4,7 +4,7 @@ import { Row } from "antd";
 
 import Components from "../components";
 
-const { Event, Loading } = Components;
+const { Cards, Loading } = Components;
 
 export default class Events extends React.Component {
   state = { events: [], isLoading: true };
@@ -41,7 +41,7 @@ export default class Events extends React.Component {
         }}
       >
         {this.state.events.map(event => (
-          <Event key={event.url} {...event} />
+          <Cards.Event key={event.url} {...event} />
         ))}
       </Row>
     );

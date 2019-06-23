@@ -14,9 +14,7 @@ import Image from "./Image";
 import SignupArtistForm from "./SignupArtistForm";
 import SignupWorkForm from "./SignupWorkForm";
 
-import Work from "./Work";
-import Artist from "./Artist";
-import Event from "./Event";
+import Cards from "./Cards";
 
 const Components = {
   Header: Header,
@@ -30,9 +28,7 @@ const Components = {
   Image: Image,
   SignupArtistForm: SignupArtistForm,
   SignupWorkForm: SignupWorkForm,
-  Work: Work,
-  Artist: Artist,
-  Event: Event
+  Cards: Cards
 };
 
 export default Components;

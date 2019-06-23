@@ -3,12 +3,10 @@ import ReactGA from "react-ga";
 import { List, Typography, Row, Col } from "antd";
 
 import Components from "../components";
-
-const { Layout } = Components;
-
 import Mockup from "../images/mockup.png";
 
 const { Title, Paragraph, Text } = Typography;
+const { Layout } = Components;
 
 export default class NoMatch extends React.Component {
   componentDidMount() {

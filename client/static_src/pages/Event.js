@@ -5,7 +5,7 @@ import moment from "moment";
 
 import Components from "../components";
 
-const { Loading, Artist, Layout } = Components;
+const { Loading, Cards, Layout } = Components;
 
 const { Title, Paragraph } = Typography;
 const { Meta } = Card;
@@ -155,7 +155,7 @@ export default class Event extends React.Component {
               }}
             >
               {this.state.event.artists.map(artist => {
-                return <Artist key={artist.id} {...artist} />;
+                return <Cards.Artist key={artist.id} {...artist} />;
               })}
             </Row>
           </Layout.Section>

@@ -5,7 +5,7 @@ import { Row, Col, Typography, Tag, Descriptions } from "antd";
 
 import Components from "../components";
 
-const { Loading, Work, Layout, Image } = Components;
+const { Loading, Cards, Layout, Image } = Components;
 
 const { Title } = Typography;
 
@@ -134,7 +134,7 @@ export default class Artist extends React.Component {
               gutter={24}
             >
               {this.state.artist.works.map(work => (
-                <Work
+                <Cards.Work
                   key={work.id}
                   artistName={this.state.artist.name}
                   {...work}
