@@ -5,6 +5,7 @@ import moment from "moment";
 
 import Loading from "../components/Loading";
 import Artist from "../components/Artist";
+import Layout from "../components/Layout";
 
 const { Title, Paragraph, Text } = Typography;
 const { Meta } = Card;
@@ -44,7 +45,7 @@ export default class Event extends React.Component {
     }
 
     return (
-      <div className="container">
+      <Layout.Container>
         <Row style={{ marginBottom: "6em" }}>
           <Col>
             <div
@@ -84,7 +85,7 @@ export default class Event extends React.Component {
             />
           </Col>
         </Row>
-        <Row>
+        <Row style={{ marginBottom: "2em" }}>
           <Col>
             {this.state.event.location && (
               <div
@@ -106,8 +107,7 @@ export default class Event extends React.Component {
           </Col>
         </Row>
         {this.state.event.images.length > 0 && (
-          <div style={{ marginTop: "1rem" }}>
-            <Divider />
+          <Layout.Section title="Event Photography">
             <Row
               gutter={24}
               style={{
@@ -142,12 +142,10 @@ export default class Event extends React.Component {
                 );
               })}
             </Row>
-          </div>
+          </Layout.Section>
         )}
         {this.state.event.artists && (
-          <div style={{ marginTop: "1rem" }}>
-            <Divider />
-            <Title level={2}>Participating Artists</Title>
+          <Layout.Section title="Participating Artists">
             <Row
               style={{
                 display: "flex",
@@ -160,9 +158,9 @@ export default class Event extends React.Component {
                 return <Artist key={artist.id} {...artist} />;
               })}
             </Row>
-          </div>
+          </Layout.Section>
         )}
-      </div>
+      </Layout.Container>
     );
   }
 }
