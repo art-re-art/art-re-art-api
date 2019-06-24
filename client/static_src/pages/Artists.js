@@ -4,7 +4,7 @@ import { Row } from "antd";
 
 import Components from "../components";
 
-const { Cards, Loading } = Components;
+const { Cards } = Components;
 
 export default class Artists extends React.Component {
   state = { artists: [], isLoading: true };
@@ -26,9 +26,7 @@ export default class Artists extends React.Component {
   }
 
   render() {
-    if (this.state.isLoading) {
-      return <Loading />;
-    }
+    if (this.state.isLoading) return null;
 
     return (
       <Row

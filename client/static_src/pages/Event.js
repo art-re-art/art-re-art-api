@@ -5,7 +5,7 @@ import moment from "moment";
 
 import Components from "../components";
 
-const { Loading, Cards, Layout } = Components;
+const { Cards, Layout } = Components;
 
 const { Title, Paragraph } = Typography;
 const { Meta } = Card;
@@ -41,9 +41,7 @@ export default class Event extends React.Component {
   };
 
   render() {
-    if (this.state.isLoading) {
-      return <Loading />;
-    }
+    if (this.state.isLoading) return null;
 
     return (
       <Layout.Container>

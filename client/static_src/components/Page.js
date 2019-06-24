@@ -4,6 +4,7 @@ import { CSSTransition } from "react-transition-group";
 
 import Footer from "./Footer";
 import Header from "./Header";
+import Loading from "./Loading";
 
 import "../styles/Page.less";
 
@@ -44,24 +45,29 @@ export default class Page extends React.Component {
     const PageComponent = this.props.component;
 
     return (
-      <CSSTransition
-        in={this.state.isLoaded}
-        timeout={1000}
-        classNames="transition--fade"
-      >
-        <Layout className="content transition--fade-enter-initial">
-          {!this.props.hideHeader ? <Header title={this.state.title} /> : null}
-          <Layout.Content>
-            <PageComponent
-              {...this.props}
-              setTitle={this._setTitle}
-              finishLoading={this._finishLoading}
-              willUnmount={this._willUnmount}
-            />
-          </Layout.Content>
-          <Footer />
-        </Layout>
-      </CSSTransition>
+      <div style={{ width: "100%" }}>
+        {!this.state.isLoaded && <Loading />}
+        <CSSTransition
+          in={this.state.isLoaded}
+          timeout={1000}
+          classNames="transition--fade"
+        >
+          <Layout className="content transition--fade-enter-initial">
+            {!this.props.hideHeader ? (
+              <Header title={this.state.title} />
+            ) : null}
+            <Layout.Content>
+              <PageComponent
+                {...this.props}
+                setTitle={this._setTitle}
+                finishLoading={this._finishLoading}
+                willUnmount={this._willUnmount}
+              />
+            </Layout.Content>
+            <Footer />
+          </Layout>
+        </CSSTransition>
+      </div>
     );
   }
 }

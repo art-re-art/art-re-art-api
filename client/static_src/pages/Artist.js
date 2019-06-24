@@ -5,7 +5,7 @@ import { Row, Col, Typography, Tag, Descriptions } from "antd";
 
 import Components from "../components";
 
-const { Loading, Cards, Layout, Image } = Components;
+const { Cards, Layout, Image } = Components;
 
 const { Title } = Typography;
 
@@ -94,9 +94,7 @@ export default class Artist extends React.Component {
   render() {
     const artist = this.state.artist;
 
-    if (this.state.isLoading) {
-      return <Loading />;
-    }
+    if (this.state.isLoading) return null;
 
     return (
       <Layout.Container>

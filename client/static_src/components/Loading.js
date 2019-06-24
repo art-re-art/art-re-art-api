@@ -1,11 +1,19 @@
 import React from "react";
-import { Skeleton } from "antd";
+import { Spin } from "antd";
 
 export default class Loading extends React.Component {
   render() {
     return (
-      <div className="container">
-        <Skeleton active paragraph={{ rows: 6 }} />
+      <div
+        style={{
+          width: "100%",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
+        <Spin size="large" />
       </div>
     );
   }

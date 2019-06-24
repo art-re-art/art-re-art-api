@@ -1,12 +1,12 @@
 import React from "react";
 import ReactGA from "react-ga";
-import { Collapse, Typography, Row, Divider } from "antd";
+import { Collapse, Typography } from "antd";
 
 import Components from "../components";
 
-const { Loading, Layout } = Components;
+const { Layout } = Components;
 
-const { Title, Paragraph } = Typography;
+const { Paragraph } = Typography;
 const { Panel } = Collapse;
 
 export default class About extends React.Component {
@@ -34,9 +34,7 @@ export default class About extends React.Component {
   render() {
     let about = this.state.about;
 
-    if (this.state.isLoading) {
-      return <Loading />;
-    }
+    if (this.state.isLoading) return null;
 
     return (
       <Layout.Container>
