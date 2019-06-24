@@ -11,9 +11,17 @@ class Container extends React.Component {
 
 class Section extends React.Component {
   render() {
+    const transitionDelay = this.props.transitionDelay
+      ? this.props.transitionDelay
+      : 0;
+
     return (
       <CSSTransition in={true} appear={true} classNames="transition--fade">
-        <div className="layout__section">
+        <div
+          className="layout__section"
+          style={{ transitionDelay: `${transitionDelay}ms` }}
+          classNames="transition--fade-enter-initial"
+        >
           <div className="section__title">{this.props.title}</div>
           <div className="section__content">{this.props.children}</div>
         </div>

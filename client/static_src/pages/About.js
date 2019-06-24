@@ -39,10 +39,10 @@ export default class About extends React.Component {
 
     return (
       <Layout.Container>
-        <Layout.Section title="The Down Low">
+        <Layout.Section title="The Down Low" transitionDelay={100}>
           <Paragraph>{about.description}</Paragraph>
         </Layout.Section>
-        <Layout.Section title="The Organizers">
+        <Layout.Section title="The Organizers" transitionDelay={200}>
           <Paragraph>
             {about.organizers
               .map(organizer => {
@@ -62,7 +62,7 @@ export default class About extends React.Component {
               .reduce((prev, curr) => [prev, ", ", curr])}
           </Paragraph>
         </Layout.Section>
-        <Layout.Section title="The Developers">
+        <Layout.Section title="The Developers" transitionDelay={300}>
           <Paragraph>
             {about.developers
               .map(developer => {
@@ -82,7 +82,7 @@ export default class About extends React.Component {
               .reduce((prev, curr) => [prev, ", ", curr])}
           </Paragraph>
         </Layout.Section>
-        <Layout.Section title="The FAQs">
+        <Layout.Section title="The FAQs" transitionDelay={400}>
           <Collapse accordion>
             {about.faqs.map(faq => {
               if (!faq.is_mobile)
