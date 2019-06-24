@@ -3,16 +3,19 @@
   color: white;
   margin: 0.5rem;
   font-size: 2.5rem;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
+  transform: translateX(0);
+  transition: transform 500ms, color 500ms;
 
   &:hover {
     color: black;
+    transform: translateX(15px);
   }
 
   @media (min-width: 993px) {
     font-size: 4rem;
     margin: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0rem 1rem;
   }
 }
 
