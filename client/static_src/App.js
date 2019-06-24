@@ -23,7 +23,7 @@ const {
   Home,
   NoMatch
 } = Pages;
-const { Page, Sidebar, ScrollToTop } = Components;
+const { Page, Sidebar, ScrollToTop, CustomMouse } = Components;
 
 export default class App extends React.Component {
   state = {
@@ -56,6 +56,7 @@ export default class App extends React.Component {
     return (
       <Router>
         <Layout>
+          <CustomMouse />
           <ScrollToTop>
             <Sidebar
               collapsed={this.state.collapsed}

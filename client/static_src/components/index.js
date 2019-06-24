@@ -15,6 +15,7 @@ import SignupArtistForm from "./SignupArtistForm";
 import SignupWorkForm from "./SignupWorkForm";
 
 import Cards from "./Cards";
+import CustomMouse from "./CustomMouse";
 
 const Components = {
   Header: Header,
@@ -28,7 +29,8 @@ const Components = {
   Image: Image,
   SignupArtistForm: SignupArtistForm,
   SignupWorkForm: SignupWorkForm,
-  Cards: Cards
+  Cards: Cards,
+  CustomMouse: CustomMouse
 };
 
 export default Components;
