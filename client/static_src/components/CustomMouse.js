@@ -11,8 +11,8 @@ export default class CustomMouse extends React.Component {
 
   _mouseMove = event => {
     this.setState({
-      position: event,
-    })
+      position: event
+    });
   };
 
   render() {
@@ -21,11 +21,13 @@ export default class CustomMouse extends React.Component {
     if (position === null) return null;
 
     return (
-      <div style={{
-        position: "absolute",
-        zIndex: 9999,
-        pointerEvents: "none"
-      }}>
+      <div
+        style={{
+          position: "absolute",
+          zIndex: 9999,
+          pointerEvents: "none"
+        }}
+      >
         <div
           style={{
             width: "20px",
@@ -40,11 +42,12 @@ export default class CustomMouse extends React.Component {
           }}
         />
         <div
+          className="spin"
           style={{
             width: "40px",
             height: "40px",
             borderRadius: "40px",
-            transform: "translate(-20px, -20px)",
+            top: "translate(-20px, -20px)",
             border: "1px solid rgba(255, 0, 0, 0.8)",
             borderStyle: "dashed",
             transition: "top 200ms, left 200ms",
