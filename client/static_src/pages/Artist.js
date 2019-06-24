@@ -133,9 +133,10 @@ export default class Artist extends React.Component {
               }}
               gutter={24}
             >
-              {this.state.artist.works.map(work => (
+              {this.state.artist.works.map((work, index) => (
                 <Cards.Work
                   key={work.id}
+                  index={index}
                   artistName={this.state.artist.name}
                   {...work}
                 />

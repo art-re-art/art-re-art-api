@@ -40,8 +40,8 @@ export default class Events extends React.Component {
           flexWrap: "wrap"
         }}
       >
-        {this.state.events.map(event => (
-          <Cards.Event key={event.url} {...event} />
+        {this.state.events.map((event, index) => (
+          <Cards.Event key={event.url} index={index} {...event} />
         ))}
       </Row>
     );

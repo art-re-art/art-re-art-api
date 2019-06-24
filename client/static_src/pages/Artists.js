@@ -41,8 +41,8 @@ export default class Artists extends React.Component {
           flexWrap: "wrap"
         }}
       >
-        {this.state.artists.map(artist => (
-          <Cards.Artist key={artist.url} {...artist} />
+        {this.state.artists.map((artist, index) => (
+          <Cards.Artist key={artist.url} index={index} {...artist} />
         ))}
       </Row>
     );

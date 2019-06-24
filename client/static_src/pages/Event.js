@@ -154,8 +154,10 @@ export default class Event extends React.Component {
                 flexWrap: "wrap"
               }}
             >
-              {this.state.event.artists.map(artist => {
-                return <Cards.Artist key={artist.id} {...artist} />;
+              {this.state.event.artists.map((artist, index) => {
+                return (
+                  <Cards.Artist key={artist.id} index={index} {...artist} />
+                );
               })}
             </Row>
           </Layout.Section>

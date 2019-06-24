@@ -1,10 +1,14 @@
 .transition--fade {
-  &-enter-initial, &-enter, &-appear {
+  &-enter-initial,
+  &-enter,
+  &-appear {
     opacity: 0.01;
     transform: translateY(100px);
   }
 
-  &-enter-done, &-enter-active, &-appear-active {
+  &-enter-done,
+  &-enter-active,
+  &-appear-active {
     opacity: 1;
     transform: translateY(0px);
     transition: opacity 1000ms, transform 1000ms;
