@@ -3,6 +3,8 @@ import { Form, Input, Button } from "antd";
 
 const { TextArea } = Input;
 
+import "../styles/SignUp.less";
+
 class ArtistForm extends React.Component {
   componentDidMount() {
     if (this.props.data) {
@@ -14,7 +16,7 @@ class ArtistForm extends React.Component {
     const { getFieldDecorator } = this.props.form;
 
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit} className="signup-form">
         <Form.Item label="Name">
           {getFieldDecorator("name", {
             rules: [

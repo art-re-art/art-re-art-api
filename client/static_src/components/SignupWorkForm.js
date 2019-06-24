@@ -6,6 +6,8 @@ const { Paragraph } = Typography;
 const { TextArea } = Input;
 const { Dragger } = Upload;
 
+import "../styles/SignUp.less";
+
 class WorkForm extends React.Component {
   state = {
     csrftoken: null
@@ -32,7 +34,7 @@ class WorkForm extends React.Component {
     const { getFieldDecorator } = this.props.form;
 
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit} className="signup-form">
         <Form.Item label="Image">
           {getFieldDecorator("image", {
             getValueFromEvent: this.normFile,
