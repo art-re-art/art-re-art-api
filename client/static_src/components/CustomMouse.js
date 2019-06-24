@@ -1,5 +1,7 @@
 import React from "react";
 
+import "../styles/CustomMouse.less";
+
 export default class CustomMouse extends React.Component {
   state = {
     position: null
@@ -21,37 +23,17 @@ export default class CustomMouse extends React.Component {
     if (position === null) return null;
 
     return (
-      <div
-        style={{
-          position: "absolute",
-          zIndex: 9999,
-          pointerEvents: "none"
-        }}
-      >
+      <div className="cursor">
         <div
+          className="cursor__pointer"
           style={{
-            width: "20px",
-            height: "20px",
-            borderRadius: "20px",
-            transform: "translate(-10px, -10px)",
-            backgroundColor: "rgba(0, 0, 0, 0.8)",
-            border: "1px solid rgba(255, 255, 255, 0.8)",
-            position: "absolute",
             top: position.pageY,
             left: position.pageX
           }}
         />
         <div
-          className="spin"
+          className="cursor__follower"
           style={{
-            width: "40px",
-            height: "40px",
-            borderRadius: "40px",
-            top: "translate(-20px, -20px)",
-            border: "1px solid rgba(255, 0, 0, 0.8)",
-            borderStyle: "dashed",
-            transition: "top 200ms, left 200ms",
-            position: "absolute",
             top: position.pageY,
             left: position.pageX
           }}

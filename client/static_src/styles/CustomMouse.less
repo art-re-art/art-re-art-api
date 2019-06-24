@@ -1,0 +1,38 @@
+.cursor {
+  @pointer-size: 20px;
+
+  position: absolute;
+  z-index: 9999;
+  pointer-events: none;
+
+  &__pointer {
+    width: @pointer-size;
+    height: @pointer-size;
+    border-radius: @pointer-size;
+    transform: translate(-(@pointer-size / 2), -(@pointer-size / 2));
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    position: absolute;
+  }
+
+  &__follower {
+    width: @pointer-size * 2;
+    height: @pointer-size * 2;
+    border-radius: @pointer-size * 2;
+    top: translate(-@pointer-size, -@pointer-size);
+    border: 1px solid rgba(255, 0, 0, 0.8);
+    border-style: dashed;
+    transition: top 200ms, left 200ms;
+    position: absolute;
+    animation: spin 5s infinite linear;
+  }
+
+  @keyframes spin {
+    from {
+      transform: translate(-@pointer-size, -@pointer-size) rotate(0deg);
+    }
+    to {
+      transform: translate(-@pointer-size, -@pointer-size) rotate(359deg);
+    }
+  }
+}
