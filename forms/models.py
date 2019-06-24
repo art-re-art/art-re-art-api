@@ -56,17 +56,18 @@ class MailchimpSignup(models.Model):
     @transaction.atomic
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        api_url = "https://us20.api.mailchimp.com/3.0/lists/c6c9345871/members"
-        headers = {"Content-Type": "application/json"}
-        auth = ("my_username", settings.MAILCHIMP_KEY)
-        json = {
-            "email_address": self.email,
-            "status": "subscribed",
-            "merge_fields": {"FNAME": self.first_name, "LNAME": self.last_name},
-        }
-        r = requests.post(api_url, auth=auth, headers=headers, json=json)
-        if r.status_code == 401:
-            raise Exception("Can't access Mailchimp to submit data!")
-        if r.status_code != 200:
-            data = r.json()
-            raise Exception(data["detail"])
+        if not settings.DEBUG:
+            api_url = "https://us20.api.mailchimp.com/3.0/lists/c6c9345871/members"
+            headers = {"Content-Type": "application/json"}
+            auth = ("my_username", settings.MAILCHIMP_KEY)
+            json = {
+                "email_address": self.email,
+                "status": "subscribed",
+                "merge_fields": {"FNAME": self.first_name, "LNAME": self.last_name},
+            }
+            r = requests.post(api_url, auth=auth, headers=headers, json=json)
+            if r.status_code == 401:
+                raise Exception("Can't access Mailchimp to submit data!")
+            if r.status_code != 200:
+                data = r.json()
+                raise Exception(data["detail"])
