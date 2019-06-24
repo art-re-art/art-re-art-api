@@ -36,7 +36,9 @@ export default class Events extends React.Component {
           display: "flex",
           alignItems: "stretch",
           justifyContent: "center",
-          flexWrap: "wrap"
+          flexWrap: "wrap",
+          marginRight: 0,
+          marginLeft: 0
         }}
       >
         {this.state.events.map((event, index) => (

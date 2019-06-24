@@ -36,7 +36,9 @@ export default class Artists extends React.Component {
           display: "flex",
           alignItems: "stretch",
           justifyContent: "center",
-          flexWrap: "wrap"
+          flexWrap: "wrap",
+          marginRight: 0,
+          marginLeft: 0,
         }}
       >
         {this.state.artists.map((artist, index) => (
