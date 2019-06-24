@@ -27,6 +27,7 @@ export default class About extends React.Component {
           about: data[0],
           isLoading: false
         });
+        this.props.finishLoading();
       });
   }
 

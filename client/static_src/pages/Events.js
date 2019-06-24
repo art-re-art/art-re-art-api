@@ -21,6 +21,7 @@ export default class Events extends React.Component {
           events: data,
           isLoading: false
         });
+        this.props.finishLoading();
       });
   }
 

@@ -41,6 +41,7 @@ export default class Signup extends React.Component {
     this.setState({
       okayToLeave: false
     });
+    this.props.finishLoading();
   }
 
   _updateArtistForm = artistForm => {

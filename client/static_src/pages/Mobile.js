@@ -12,6 +12,7 @@ export default class NoMatch extends React.Component {
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
     this.props.setTitle("Mobile");
+    this.props.finishLoading();
   }
 
   render() {

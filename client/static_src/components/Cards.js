@@ -22,7 +22,7 @@ export class Artist extends React.Component {
 
   render() {
     return (
-      <CSSTransition in={this.state.imageLoaded} classNames="transition--fade">
+      <CSSTransition in={this.state.imageLoaded} timeout={5000} classNames="transition--fade">
         <Col
           xl={8}
           lg={12}
@@ -83,7 +83,7 @@ export class Event extends React.Component {
 
   render() {
     return (
-      <CSSTransition in={this.state.imageLoaded} classNames="transition--fade">
+      <CSSTransition in={this.state.imageLoaded} timeout={5000} classNames="transition--fade">
         <Col
           xl={8}
           lg={12}
@@ -148,7 +148,7 @@ export class Work extends React.Component {
     }
 
     return (
-      <CSSTransition in={this.state.imageLoaded} classNames="transition--fade">
+      <CSSTransition in={this.state.imageLoaded} timeout={5000} classNames="transition--fade">
         <Col
           xl={8}
           lg={8}

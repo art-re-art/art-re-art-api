@@ -1,10 +1,12 @@
 import React from "react";
 import ReactGA from "react-ga";
 import { Link } from "react-router-dom";
+import { Typography } from "antd";
 
 import Background from "../images/bg.jpg";
-
 import "../styles/Home.less";
+
+const { Paragraph } = Typography;
 
 export default class Home extends React.Component {
   componentDidMount() {
@@ -12,6 +14,7 @@ export default class Home extends React.Component {
     this.props.setTitle(
       "A series of pop up art events in downtown Morganton, NC."
     );
+    this.props.finishLoading();
   }
 
   render() {
@@ -75,19 +78,19 @@ export default class Home extends React.Component {
         </div>
 
         <div className="home__content">
-          <p>
+          <Paragraph>
             ART/RE/ART is a series of one-night-only, contemporary art
             experiences taking place in downtown Morganton, NC. These free
             events, held in non-art spaces, offer an alternative way to interact
             with and experience art in the community.
-          </p>
+          </Paragraph>
 
-          <p style={{ marginBottom: 0 }}>
+          <Paragraph style={{ marginBottom: 0 }}>
             Featuring local and regional artists, ART/RE/ART includes work from
             multiple disciplines and mediums including performance,
             installation, sculpture, interactive, video, painting, drawing, and
             photography.
-          </p>
+          </Paragraph>
         </div>
       </header>
     );

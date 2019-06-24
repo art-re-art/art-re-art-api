@@ -27,6 +27,7 @@ export default class Event extends React.Component {
           isLoading: false
         });
         this.props.setTitle(`${data.title}`);
+        this.props.finishLoading();
       });
   }
 
