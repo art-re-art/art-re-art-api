@@ -10,6 +10,7 @@ import Components from "./components";
 
 import "./images/favicon.png";
 import "./styles/App.less";
+import "./styles/Transitions.less";
 
 const {
   Event,

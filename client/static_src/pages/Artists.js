@@ -1,6 +1,7 @@
 import React from "react";
 import ReactGA from "react-ga";
 import { Row } from "antd";
+import { CSSTransition } from "react-transition-group";
 
 import Components from "../components";
 

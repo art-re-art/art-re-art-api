@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Col, Card, Typography, Tag, Modal, Row, Icon } from "antd";
 import moment from "moment";
+import { CSSTransition } from "react-transition-group";
 
 import "../styles/Work.less";
 
@@ -9,34 +10,51 @@ const { Meta } = Card;
 const { Paragraph, Title } = Typography;
 
 export class Artist extends React.Component {
+  state = {
+    imageLoaded: false,
+  }
+
+  _onImageLoad = () => {
+    console.log('loaded');
+    this.setState({
+      imageLoaded: true,
+    })
+  }
+
   render() {
     return (
-      <Col xl={8} lg={12} md={12} sm={24} style={{ padding: "1rem" }}>
-        <Link to={`/artists/${this.props.id}/`}>
-          <Card
-            hoverable
-            style={{ height: "100%" }}
-            cover={
-              this.props.image ? (
-                <img src={this.props.image.square.url} />
-              ) : (
-                <img src={this.props.qrcode.medium.url} />
-              )
-            }
-          >
-            <Meta
-              title={this.props.name}
-              description={this.props.medium.map(medium => {
-                return (
-                  <Tag key={medium.title} color="#ff0000">
-                    {medium.title}
-                  </Tag>
-                );
-              })}
-            />
-          </Card>
-        </Link>
-      </Col>
+      <CSSTransition
+        in={this.state.imageLoaded}
+        timeout={2000}
+        classNames="transition--fade"
+      >
+        <Col xl={8} lg={12} md={12} sm={24} style={{ padding: "1rem" }} className="transition--fade-enter-initial">
+          <Link to={`/artists/${this.props.id}/`}>
+            <Card
+              hoverable
+              style={{ height: "100%" }}
+              cover={
+                this.props.image ? (
+                  <img src={this.props.image.square.url} onLoad={this._onImageLoad} />
+                ) : (
+                  <img src={this.props.qrcode.medium.url} onLoad={this._onImageLoad} />
+                )
+              }
+            >
+              <Meta
+                title={this.props.name}
+                description={this.props.medium.map(medium => {
+                  return (
+                    <Tag key={medium.title} color="#ff0000">
+                      {medium.title}
+                    </Tag>
+                  );
+                })}
+              />
+            </Card>
+          </Link>
+        </Col>
+      </CSSTransition>
     );
   }
 }
