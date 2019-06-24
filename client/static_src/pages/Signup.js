@@ -292,12 +292,12 @@ export default class Signup extends React.Component {
                 </Collapse>
                 <Row style={{ marginTop: "2em" }}>
                   <Col span={12}>
-                    <Button onClick={this._removeWorkForm} type="primary">
+                    <Button onClick={this._removeWorkForm} style={{ background: "black", color: "white" }}>
                       <Icon type="minus" /> Remove last
                     </Button>
                   </Col>
                   <Col span={12} style={{ textAlign: "right" }}>
-                    <Button onClick={this._addWorkForm} type="primary">
+                    <Button onClick={this._addWorkForm} style={{ background: "black", color: "white" }}>
                       <Icon type="plus" /> Add another
                     </Button>
                   </Col>
