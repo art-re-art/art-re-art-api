@@ -18,8 +18,8 @@ export default class NoMatch extends React.Component {
   render() {
     return (
       <Layout.Container>
-        <Row style={{ display: "flex", alignItems: "center" }}>
-          <Col md={8} sm={24} style={{ textAlign: "center" }}>
+        <Row style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }} gutter={24}>
+          <Col lg={8} md={24} style={{ textAlign: "center" }}>
             <img
               src={Mockup}
               style={{
@@ -31,7 +31,7 @@ export default class NoMatch extends React.Component {
               }}
             />
           </Col>
-          <Col md={16} sm={24}>
+          <Col lg={16} md={24}>
             <Layout.Section title="Coming Soon">
               <Paragraph>
                 The ART/RE/ART mobile app is coming soon to both iOS and
