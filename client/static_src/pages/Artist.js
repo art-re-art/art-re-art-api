@@ -9,6 +9,8 @@ const { Cards, Layout, Image } = Components;
 
 const { Title } = Typography;
 
+import "../styles/Artist.less";
+
 export default class Artist extends React.Component {
   state = { artist: {}, isLoading: true, descriptions: [] };
 
@@ -99,7 +101,7 @@ export default class Artist extends React.Component {
     return (
       <Layout.Container>
         <Layout.Section title="Artist Information">
-          <Row gutter={24} style={{ display: "flex", alignItems: "center" }}>
+          <Row gutter={24} style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
             <Col xl={8} lg={24} style={{ textAlign: "center" }}>
               {this.state.artist.image ? (
                 <Image.ResponsiveImage src={artist.image.square.url} />
