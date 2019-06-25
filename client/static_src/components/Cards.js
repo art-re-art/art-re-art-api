@@ -89,6 +89,7 @@ export class Event extends React.Component {
           lg={12}
           md={12}
           sm={24}
+          xs={24}
           style={{
             padding: "1rem",
             transitionDelay: `${this.props.index * 100}ms`
@@ -153,8 +154,8 @@ export class Work extends React.Component {
           xl={8}
           lg={8}
           md={12}
-          sm={12}
-          xs={12}
+          sm={24}
+          xs={24}
           style={{
             padding: "1rem",
             transitionDelay: `${this.props.index * 100}ms`
