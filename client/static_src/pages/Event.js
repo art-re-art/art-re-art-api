@@ -45,15 +45,26 @@ export default class Event extends React.Component {
 
     return (
       <Layout.Container>
-        <Row style={{ marginBottom: "6em" }}>
+        <Row style={{ marginBottom: "2em" }}>
           <Col>
+            <img
+              src={this.state.event.featured_image.large.url}
+              style={{
+                width: "100%",
+                height: "50vh",
+                objectFit: "cover",
+                objectPosition: "center center"
+              }}
+            />
+          </Col>
+        </Row>
+        <Row style={{display: "flex", alignItems: "center", marginBottom: "2em"}}>
+          <Col sm={24} md={12}>
             <div
               style={{
-                position: "absolute",
-                zIndex: 2,
                 backgroundColor: "red",
-                marginTop: "calc(50vh - 100px)",
-                padding: "1em"
+                padding: "1em",
+                border: "1em solid white"
               }}
             >
               <Title level={2} style={{ color: "white", marginBottom: 0 }}>
@@ -63,25 +74,9 @@ export default class Event extends React.Component {
                 {moment(this.state.event.datetime).format("LLLL")}
               </Paragraph>
             </div>
-            <img
-              style={{
-                position: "absolute",
-                right: 0,
-                marginTop: "calc(50vh - 128px)",
-                zIndex: 2
-              }}
-              src={this.state.event.qrcode.medium.url}
-            />
-            <img
-              src={this.state.event.featured_image.large.url}
-              style={{
-                width: "calc(100% + 4em)",
-                height: "50vh",
-                objectFit: "cover",
-                objectPosition: "center center",
-                margin: "-2em"
-              }}
-            />
+          </Col>
+          <Col sm={24} md={12} style={{ textAlign: "right" }}>
+            <img src={this.state.event.qrcode.medium.url} width={135} height={135} alt="Event QR Code" />
           </Col>
         </Row>
         <Row style={{ marginBottom: "2em" }}>
