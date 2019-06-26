@@ -101,7 +101,10 @@ export default class Artist extends React.Component {
     return (
       <Layout.Container>
         <Layout.Section title="Artist Information">
-          <Row gutter={24} style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
+          <Row
+            gutter={24}
+            style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}
+          >
             <Col xl={8} lg={24} style={{ textAlign: "center" }}>
               {this.state.artist.image ? (
                 <Image.ResponsiveImage src={artist.image.square.url} />

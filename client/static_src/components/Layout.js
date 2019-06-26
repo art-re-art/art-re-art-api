@@ -16,7 +16,12 @@ class Section extends React.Component {
       : 0;
 
     return (
-      <CSSTransition in={true} appear={true} timeout={5000} classNames="transition--fade">
+      <CSSTransition
+        in={true}
+        appear={true}
+        timeout={5000}
+        classNames="transition--fade"
+      >
         <div
           className="layout__section"
           style={{ transitionDelay: `${transitionDelay}ms` }}

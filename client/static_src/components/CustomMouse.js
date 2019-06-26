@@ -32,7 +32,10 @@ export default class CustomMouse extends React.Component {
           }}
         />
         <div
-          className={"cursor__follower " + (position.target.onclick && "cursor__follower--hover")}
+          className={
+            "cursor__follower " +
+            (position.target.onclick && "cursor__follower--hover")
+          }
           style={{
             top: position.pageY,
             left: position.pageX

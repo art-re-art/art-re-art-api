@@ -18,7 +18,10 @@ export default class NoMatch extends React.Component {
   render() {
     return (
       <Layout.Container>
-        <Row style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }} gutter={24}>
+        <Row
+          style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}
+          gutter={24}
+        >
           <Col lg={8} md={24} style={{ textAlign: "center" }}>
             <img
               src={Mockup}

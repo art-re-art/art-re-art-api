@@ -38,7 +38,7 @@ export default class Artists extends React.Component {
           justifyContent: "center",
           flexWrap: "wrap",
           marginRight: 0,
-          marginLeft: 0,
+          marginLeft: 0
         }}
       >
         {this.state.artists.map((artist, index) => (
