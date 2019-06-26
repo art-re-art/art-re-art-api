@@ -33,6 +33,10 @@ export default class App extends React.Component {
   };
 
   componentDidMount() {
+    console.log(
+      "%c🔨 with ❤️ by ART/RE/ART",
+      "font-size: 10px; font-weight: bold; color:#fff; background-color: #4D84F1; padding:5px; border-radius: 4px;"
+    );
     let debug = false;
     if (process.env.NODE_ENV == "development") debug = true;
     ReactGA.initialize("UA-141212265-1", { debug: debug });
