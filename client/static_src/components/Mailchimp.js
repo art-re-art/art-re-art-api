@@ -57,7 +57,7 @@ class MailchimpForm extends React.Component {
           <Form.Item>
             {getFieldDecorator("first_name", {
               rules: [
-                { required: false, message: "Please input your first name!" },
+                { required: true, message: "Please input your first name!" },
                 {
                   max: 255,
                   message: "Your first name must be less than 255 characters!"
@@ -68,7 +68,7 @@ class MailchimpForm extends React.Component {
           <Form.Item>
             {getFieldDecorator("last_name", {
               rules: [
-                { required: false, message: "Please input your last name!" },
+                { required: true, message: "Please input your last name!" },
                 {
                   max: 255,
                   message: "Your last name must be less than 255 characters!"
