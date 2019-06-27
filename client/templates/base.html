@@ -2,25 +2,28 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
 
-    <title>Art/Re/Art</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <link rel="stylesheet" href="{% static 'bundle.css' %}" />
-  </head>
+  <title>Art/Re/Art</title>
 
-  <body>
-    <div id="root"></div>
+  <link rel="preload" href="bundle.css" as="style" />
+  <link rel="preload" href="bundle.js" as="script" />
 
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
+  <link rel="stylesheet" href="{% static 'bundle.css' %}" />
+</head>
 
-    <script src="{% static 'bundle.js' %}"></script>
-  </body>
+<body>
+  <div id="root"></div>
+
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+
+  <script src="{% static 'bundle.js' %}"></script>
+</body>
+
 </html>
