@@ -26,7 +26,10 @@ urlpatterns = [
     path("api/auth/", include("rest_framework.urls", namespace="rest_framework")),
     path("api/", include(router.urls)),
     # Static
-    path("favicon.ico", RedirectView.as_view(url=static("images/favicon.png"))),
+    path(
+        "favicon.ico",
+        RedirectView.as_view(url=static("images/favicon.png"), permanent=True),
+    ),
     # Admin
     path("grappelli/", include("grappelli.urls")),
     path("_nested_admin/", include("nested_admin.urls")),
