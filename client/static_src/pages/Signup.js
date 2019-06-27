@@ -91,7 +91,8 @@ export default class Signup extends React.Component {
         window.scrollTo(0, 0);
         this.setState({
           dataArtist: data,
-          current: 1
+          current: 1,
+          validationErrors: false
         });
       } else {
         this.setState({
