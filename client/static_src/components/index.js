@@ -1,21 +1,17 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
-
 import ScrollToTop from "./ScrollToTop";
 import Loading from "./Loading";
 import Page from "./Page";
-
 import Mailchimp from "./Mailchimp";
-
 import Layout from "./Layout";
 import Image from "./Image";
-
 import SignupArtistForm from "./SignupArtistForm";
 import SignupWorkForm from "./SignupWorkForm";
-
 import Cards from "./Cards";
 import CustomMouse from "./CustomMouse";
+import Hamburger from "./Hamburger";
 
 const Components = {
   Header: Header,
@@ -30,7 +26,8 @@ const Components = {
   SignupArtistForm: SignupArtistForm,
   SignupWorkForm: SignupWorkForm,
   Cards: Cards,
-  CustomMouse: CustomMouse
+  CustomMouse: CustomMouse,
+  Hamburger: Hamburger
 };
 
 export default Components;

@@ -2,61 +2,21 @@ import React from "react";
 import ReactGA from "react-ga";
 import { Link, withRouter } from "react-router-dom";
 import { Layout, Menu, Icon } from "antd";
-import moment from "moment";
-import axios from "axios";
 
-import Logo from "../images/artreart-red.png";
 import LogoRotated from "../images/artreart-red-rotated.png";
 import "../styles/Sidebar.less";
 
 const { Sider } = Layout;
 
 class Sidebar extends React.Component {
-  state = { event: {} };
-
-  componentDidMount() {
-    this.props.history.listen(() => {
-      if (this.props.broken) {
-        this.props.setCollapsed(true);
-      }
-    });
-
-    axios.get("/api/events/events/").then(response => {
-      let data = response.data;
-      this.setState({
-        event: data[0]
-      });
-    });
-  }
-
   render() {
     return (
-      <Sider
-        breakpoint="lg"
-        collapsedWidth="0"
-        theme="light"
-        onBreakpoint={broken => {
-          this.props.setCollapsed(broken);
-          this.props.setBroken(broken);
-        }}
-        trigger={null}
-        collapsible
-        collapsed={this.props.collapsed}
-      >
-        <Link to="/">
-          <div className="sidebar-logo">
-            <img
-              src={LogoRotated}
-              alt="Art/Re/Art Logo"
-              className="sidebar-logo__image-rotated"
-            />
-            <img
-              src={Logo}
-              alt="Art/Re/Art Logo"
-              className="sidebar-logo__image"
-            />
-          </div>
-        </Link>
+      <Sider theme="light" width={70}>
+        <img
+          src={LogoRotated}
+          alt="ART/RE/ART"
+          style={{ width: "100%", height: "auto", padding: ".5rem" }}
+        />
         <Menu
           theme="light"
           mode="inline"
@@ -74,7 +34,6 @@ class Sidebar extends React.Component {
               }}
             >
               <Icon type="home" />
-              <span className="nav-text">Home</span>
             </Link>
           </Menu.Item>
           <Menu.Item key="/about/">
@@ -88,7 +47,6 @@ class Sidebar extends React.Component {
               }}
             >
               <Icon type="question-circle" />
-              <span className="nav-text">About</span>
             </Link>
           </Menu.Item>
           <Menu.Item key="/artists/">
@@ -102,7 +60,6 @@ class Sidebar extends React.Component {
               }}
             >
               <Icon type="user" />
-              <span className="nav-text">Artists</span>
             </Link>
           </Menu.Item>
           <Menu.Item key="/events/">
@@ -116,7 +73,6 @@ class Sidebar extends React.Component {
               }}
             >
               <Icon type="calendar" />
-              <span className="nav-text">Shows</span>
             </Link>
           </Menu.Item>
           <Menu.Item key="/mobile/">
@@ -130,7 +86,6 @@ class Sidebar extends React.Component {
               }}
             >
               <Icon type="mobile" />
-              <span className="nav-text">Mobile app</span>
             </Link>
           </Menu.Item>
           <Menu.Item key="/signup/">
@@ -144,30 +99,9 @@ class Sidebar extends React.Component {
               }}
             >
               <Icon type="plus" />
-              <span className="nav-text">Artist signup</span>
             </Link>
           </Menu.Item>
         </Menu>
-        <Link to={`/events/${this.state.event.id}/`} className="sidebar-event">
-          <div>
-            <div
-              style={{
-                color: "#ff0000",
-                fontWeight: "700",
-                textTransform: "uppercase"
-              }}
-            >
-              Next Show:
-            </div>
-            <div className="sidebar-event__title">{this.state.event.title}</div>
-            <div>{moment(this.state.event.datetime).format("LLLL")}</div>
-            {this.state.event.location && (
-              <div>
-                <div>{this.state.event.location.street}</div>
-              </div>
-            )}
-          </div>
-        </Link>
       </Sider>
     );
   }

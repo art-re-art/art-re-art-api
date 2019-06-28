@@ -26,14 +26,9 @@ const {
   Privacy,
   Terms
 } = Pages;
-const { Page, Sidebar, ScrollToTop, CustomMouse } = Components;
+const { Page, Sidebar, ScrollToTop, CustomMouse, Hamburger } = Components;
 
 export default class App extends React.Component {
-  state = {
-    collapsed: false,
-    broken: false
-  };
-
   componentDidMount() {
     console.log(
       "%c🔨 with ❤️ by ART/RE/ART",
@@ -49,37 +44,14 @@ export default class App extends React.Component {
     });
   }
 
-  // Used on sider and hamburger
-  _setCollapsed = collapsed => {
-    this.setState({ collapsed: collapsed });
-  };
-
-  // Used on sider and hamburger
-  _setBroken = broken => {
-    this.setState({ broken: broken });
-  };
-
   render() {
     return (
       <Router>
         <Layout>
           <CustomMouse />
           <ScrollToTop />
-          <Sidebar
-            collapsed={this.state.collapsed}
-            broken={this.state.broken}
-            setCollapsed={this._setCollapsed}
-            setBroken={this._setBroken}
-          />
-          {this.state.broken && (
-            <Icon
-              className="trigger"
-              type={this.state.collapsed ? "menu" : "close"}
-              onClick={() => {
-                this._setCollapsed(!this.state.collapsed);
-              }}
-            />
-          )}
+          <Hamburger />
+          <Sidebar />
           <Switch>
             <Route
               path="/events/:id/"
