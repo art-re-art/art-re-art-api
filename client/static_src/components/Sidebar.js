@@ -43,18 +43,20 @@ class Sidebar extends React.Component {
         collapsible
         collapsed={this.props.collapsed}
       >
-        <div className="sidebar-logo">
-          <img
-            src={LogoRotated}
-            alt="Art/Re/Art Logo"
-            className="sidebar-logo__image-rotated"
-          />
-          <img
-            src={Logo}
-            alt="Art/Re/Art Logo"
-            className="sidebar-logo__image"
-          />
-        </div>
+        <Link to="/">
+          <div className="sidebar-logo">
+            <img
+              src={LogoRotated}
+              alt="Art/Re/Art Logo"
+              className="sidebar-logo__image-rotated"
+            />
+            <img
+              src={Logo}
+              alt="Art/Re/Art Logo"
+              className="sidebar-logo__image"
+            />
+          </div>
+        </Link>
         <Menu
           theme="light"
           mode="inline"
