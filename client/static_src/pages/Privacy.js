@@ -1,41 +1,21 @@
 import React from "react";
 import ReactGA from "react-ga";
-import { Collapse, Typography, List } from "antd";
+import { Typography, List } from "antd";
 
 import Components from "../components";
 
 const { Layout } = Components;
 
 const { Paragraph, Title } = Typography;
-const { Panel } = Collapse;
 
 export default class About extends React.Component {
-  state = {
-    about: {},
-    isLoading: true
-  };
-
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
-    this.props.setTitle("About");
-    fetch("/api/about/about/")
-      .then(data => {
-        return data.json();
-      })
-      .then(data => {
-        this.setState({
-          about: data[0],
-          isLoading: false
-        });
-        this.props.finishLoading();
-      });
+    this.props.setTitle("Privacy Policy");
+    this.props.finishLoading();
   }
 
   render() {
-    let about = this.state.about;
-
-    if (this.state.isLoading) return null;
-
     return (
       <Layout.Container>
         <Layout.Section title="The Policy" transitionDelay={100}>

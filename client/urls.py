@@ -10,6 +10,8 @@ urlpatterns = [
     path("artists/", view, name="artists"),
     path("signup/", view, name="about"),
     path("about/", view, name="about"),
+    path("privacy/", view, name="privacy"),
+    path("terms/", view, name="terms"),
     re_path("mobile(.*|)/", view, name="mobile"),
     path("", view, name="home"),
 ]

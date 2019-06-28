@@ -63,6 +63,7 @@ export default class Footer extends React.Component {
         <Row>
           <Col>
             <Link to="/privacy/">Privacy Policy</Link>
+            <Link to="/terms/">Terms & Conditions</Link>
           </Col>
         </Row>
       </Layout.Footer>

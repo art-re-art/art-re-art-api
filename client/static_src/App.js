@@ -23,7 +23,8 @@ const {
   Signup,
   Home,
   NoMatch,
-  Privacy
+  Privacy,
+  Terms
 } = Pages;
 const { Page, Sidebar, ScrollToTop, CustomMouse } = Components;
 
@@ -126,6 +127,12 @@ export default class App extends React.Component {
               path="/privacy/"
               render={props => (
                 <Page {...props} component={Privacy} title="Privacy Policy" />
+              )}
+            />
+            <Route
+              path="/terms/"
+              render={props => (
+                <Page {...props} component={Terms} title="Terms & Conditions" />
               )}
             />
             <Route
