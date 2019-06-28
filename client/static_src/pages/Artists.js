@@ -1,6 +1,7 @@
 import React from "react";
 import ReactGA from "react-ga";
 import { Row } from "antd";
+import axios from "axios";
 
 import Components from "../components";
 
@@ -12,17 +13,14 @@ export default class Artists extends React.Component {
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
     this.props.setTitle("Artists");
-    fetch("/api/artists/artists/")
-      .then(data => {
-        return data.json();
-      })
-      .then(data => {
-        this.setState({
-          artists: data,
-          isLoading: false
-        });
-        this.props.finishLoading();
+    axios.get("/api/artists/artists/").then(response => {
+      let data = response.data;
+      this.setState({
+        artists: data,
+        isLoading: false
       });
+      this.props.finishLoading();
+    });
   }
 
   render() {

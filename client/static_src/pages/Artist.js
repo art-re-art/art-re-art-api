@@ -2,6 +2,7 @@ import React from "react";
 import ReactGA from "react-ga";
 import { Link } from "react-router-dom";
 import { Row, Col, Typography, Tag, Descriptions } from "antd";
+import axios from "axios";
 
 import Components from "../components";
 
@@ -16,11 +17,10 @@ export default class Artist extends React.Component {
 
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
-    fetch(`/api/artists/artists/${this.props.match.params.id}/`)
-      .then(data => {
-        return data.json();
-      })
-      .then(data => {
+    axios
+      .get(`/api/artists/artists/${this.props.match.params.id}/`)
+      .then(response => {
+        let data = response.data;
         this.setState({
           artist: data,
           isLoading: false

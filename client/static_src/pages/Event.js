@@ -2,6 +2,7 @@ import React from "react";
 import ReactGA from "react-ga";
 import { Col, Row, Typography, Card } from "antd";
 import moment from "moment";
+import axios from "axios";
 
 import Components from "../components";
 
@@ -17,11 +18,10 @@ export default class Event extends React.Component {
 
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
-    fetch(`/api/events/events/${this.props.match.params.id}/`)
-      .then(data => {
-        return data.json();
-      })
-      .then(data => {
+    axios
+      .get(`/api/events/events/${this.props.match.params.id}/`)
+      .then(response => {
+        let data = response.data;
         this.setState({
           event: data,
           isLoading: false
@@ -58,7 +58,9 @@ export default class Event extends React.Component {
             />
           </Col>
         </Row>
-        <Row style={{display: "flex", alignItems: "center", marginBottom: "2em"}}>
+        <Row
+          style={{ display: "flex", alignItems: "center", marginBottom: "2em" }}
+        >
           <Col sm={24} md={12}>
             <div
               style={{
@@ -76,7 +78,12 @@ export default class Event extends React.Component {
             </div>
           </Col>
           <Col sm={24} md={12} style={{ textAlign: "right" }}>
-            <img src={this.state.event.qrcode.medium.url} width={135} height={135} alt="Event QR Code" />
+            <img
+              src={this.state.event.qrcode.medium.url}
+              width={135}
+              height={135}
+              alt="Event QR Code"
+            />
           </Col>
         </Row>
         <Row style={{ marginBottom: "2em" }}>

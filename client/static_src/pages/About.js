@@ -1,6 +1,7 @@
 import React from "react";
 import ReactGA from "react-ga";
 import { Collapse, Typography } from "antd";
+import axios from "axios";
 
 import Components from "../components";
 
@@ -18,17 +19,14 @@ export default class About extends React.Component {
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
     this.props.setTitle("About");
-    fetch("/api/about/about/")
-      .then(data => {
-        return data.json();
-      })
-      .then(data => {
-        this.setState({
-          about: data[0],
-          isLoading: false
-        });
-        this.props.finishLoading();
+    axios.get("/api/about/about/").then(response => {
+      let data = response.data;
+      this.setState({
+        about: data[0],
+        isLoading: false
       });
+      this.props.finishLoading();
+    });
   }
 
   render() {

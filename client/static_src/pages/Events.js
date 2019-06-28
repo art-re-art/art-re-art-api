@@ -1,6 +1,7 @@
 import React from "react";
 import ReactGA from "react-ga";
 import { Row } from "antd";
+import axios from "axios";
 
 import Components from "../components";
 
@@ -12,17 +13,14 @@ export default class Events extends React.Component {
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
     this.props.setTitle("Shows");
-    fetch("/api/events/events/")
-      .then(data => {
-        return data.json();
-      })
-      .then(data => {
-        this.setState({
-          events: data,
-          isLoading: false
-        });
-        this.props.finishLoading();
+    axios.get("/api/events/events/").then(response => {
+      let data = response.data;
+      this.setState({
+        events: data,
+        isLoading: false
       });
+      this.props.finishLoading();
+    });
   }
 
   render() {

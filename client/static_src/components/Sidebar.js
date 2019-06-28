@@ -3,6 +3,7 @@ import ReactGA from "react-ga";
 import { Link, withRouter } from "react-router-dom";
 import { Layout, Menu, Icon } from "antd";
 import moment from "moment";
+import axios from "axios";
 
 import Logo from "../images/artreart-red.png";
 import LogoRotated from "../images/artreart-red-rotated.png";
@@ -20,15 +21,12 @@ class Sidebar extends React.Component {
       }
     });
 
-    fetch("/api/events/events/")
-      .then(data => {
-        return data.json();
-      })
-      .then(data => {
-        this.setState({
-          event: data[0]
-        });
+    axios.get("/api/events/events/").then(response => {
+      let data = response.data;
+      this.setState({
+        event: data[0]
       });
+    });
   }
 
   render() {
