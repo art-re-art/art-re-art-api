@@ -19,8 +19,7 @@ export default class About extends React.Component {
     return (
       <Layout.Container>
         <Layout.Section title="The Terms" transitionDelay={100}>
-          <Title>OVERVIEW</Title>
-
+          <Title level={3}>OVERVIEW</Title>
           <Paragraph>
             This website is operated by ART/RE/ART. Throughout the site, the
             terms “we”, “us” and “our” refer to ART/RE/ART. ART/RE/ART offers
@@ -29,7 +28,6 @@ export default class About extends React.Component {
             acceptance of all terms, conditions, policies and notices stated
             here.
           </Paragraph>
-
           <Paragraph>
             By visiting our site and/ or purchasing something from us, you
             engage in our “Service” and agree to be bound by the following terms
@@ -40,7 +38,6 @@ export default class About extends React.Component {
             browsers, vendors, customers, merchants, and/ or contributors of
             content.
           </Paragraph>
-
           <Paragraph>
             Please read these Terms of Service carefully before accessing or
             using our website. By accessing or using any part of the site, you
@@ -50,7 +47,6 @@ export default class About extends React.Component {
             are considered an offer, acceptance is expressly limited to these
             Terms of Service.
           </Paragraph>
-
           <Paragraph>
             Any new features or tools which are added to the current store shall
             also be subject to the Terms of Service. You can review the most
@@ -61,15 +57,12 @@ export default class About extends React.Component {
             changes. Your continued use of or access to the website following
             the posting of any changes constitutes acceptance of those changes.
           </Paragraph>
-
           <Paragraph>
             Our store is hosted on Shopify Inc. They provide us with the online
             e-commerce platform that allows us to sell our products and services
             to you.
           </Paragraph>
-
-          <Title>SECTION 1 - ONLINE STORE TERMS</Title>
-
+          <Title level={3}>SECTION 1 - ONLINE STORE TERMS</Title>
           <Paragraph>
             By agreeing to these Terms of Service, you represent that you are at
             least the age of majority in your state or province of residence, or
@@ -90,9 +83,7 @@ export default class About extends React.Component {
             A breach or violation of any of the Terms will result in an
             immediate termination of your Services.
           </Paragraph>
-
-          <Title>SECTION 2 - GENERAL CONDITIONS</Title>
-
+          <Title level={3}>SECTION 2 - GENERAL CONDITIONS</Title>
           <Paragraph>
             We reserve the right to refuse service to anyone for any reason at
             any time.
@@ -115,11 +106,9 @@ export default class About extends React.Component {
             The headings used in this agreement are included for convenience
             only and will not limit or otherwise affect these Terms.
           </Paragraph>
-
-          <Title>
+          <Title level={3}>
             SECTION 3 - ACCURACY, COMPLETENESS AND TIMELINESS OF INFORMATION
           </Title>
-
           <Paragraph>
             We are not responsible if information made available on this site is
             not accurate, complete or current. The material on this site is
@@ -137,9 +126,9 @@ export default class About extends React.Component {
             information on our site. You agree that it is your responsibility to
             monitor changes to our site.
           </Paragraph>
-
-          <Title>SECTION 4 - MODIFICATIONS TO THE SERVICE AND PRICES</Title>
-
+          <Title level={3}>
+            SECTION 4 - MODIFICATIONS TO THE SERVICE AND PRICES
+          </Title>
           <Paragraph>
             Prices for our products are subject to change without notice.
           </Paragraph>
@@ -152,9 +141,9 @@ export default class About extends React.Component {
             modification, price change, suspension or discontinuance of the
             Service.
           </Paragraph>
-
-          <Title>SECTION 5 - PRODUCTS OR SERVICES (if applicable)</Title>
-
+          <Title level={3}>
+            SECTION 5 - PRODUCTS OR SERVICES (if applicable)
+          </Title>
           <Paragraph>
             Certain products or services may be available exclusively online
             through the website. These products or services may have limited
@@ -184,9 +173,9 @@ export default class About extends React.Component {
             meet your expectations, or that any errors in the Service will be
             corrected.
           </Paragraph>
-
-          <Title>SECTION 6 - ACCURACY OF BILLING AND ACCOUNT INFORMATION</Title>
-
+          <Title level={3}>
+            SECTION 6 - ACCURACY OF BILLING AND ACCOUNT INFORMATION
+          </Title>
           <Paragraph>
             We reserve the right to refuse any order you place with us. We may,
             in our sole discretion, limit or cancel quantities purchased per
@@ -199,7 +188,6 @@ export default class About extends React.Component {
             reserve the right to limit or prohibit orders that, in our sole
             judgment, appear to be placed by dealers, resellers or distributors.
           </Paragraph>
-
           <Paragraph>
             You agree to provide current, complete and accurate purchase and
             account information for all purchases made at our store. You agree
@@ -207,13 +195,10 @@ export default class About extends React.Component {
             your email address and credit card numbers and expiration dates, so
             that we can complete your transactions and contact you as needed.
           </Paragraph>
-
           <Paragraph>
             For more detail, please review our Returns Policy.
           </Paragraph>
-
-          <Title>SECTION 7 - OPTIONAL TOOLS</Title>
-
+          <Title level={3}>SECTION 7 - OPTIONAL TOOLS</Title>
           <Paragraph>
             We may provide you with access to third-party tools over which we
             neither monitor nor have any control nor input.
@@ -237,9 +222,7 @@ export default class About extends React.Component {
             resources). Such new features and/or services shall also be subject
             to these Terms of Service.
           </Paragraph>
-
-          <Title>SECTION 8 - THIRD-PARTY LINKS</Title>
-
+          <Title level={3}>SECTION 8 - THIRD-PARTY LINKS</Title>
           <Paragraph>
             Certain content, products and services available via our Service may
             include materials from third-parties.
@@ -261,11 +244,9 @@ export default class About extends React.Component {
             Complaints, claims, concerns, or questions regarding third-party
             products should be directed to the third-party.
           </Paragraph>
-
-          <Title>
+          <Title level={3}>
             SECTION 9 - USER COMMENTS, FEEDBACK AND OTHER SUBMISSIONS
           </Title>
-
           <Paragraph>
             If, at our request, you send certain specific submissions (for
             example contest entries) or without a request from us you send
@@ -299,16 +280,14 @@ export default class About extends React.Component {
             responsibility and assume no liability for any comments posted by
             you or any third-party.
           </Paragraph>
-
-          <Title>SECTION 10 - PERSONAL INFORMATION</Title>
-
+          <Title level={3}>SECTION 10 - PERSONAL INFORMATION</Title>
           <Paragraph>
             Your submission of personal information through the store is
             governed by our Privacy Policy. To view our Privacy Policy.
           </Paragraph>
-
-          <Title>SECTION 11 - ERRORS, INACCURACIES AND OMISSIONS</Title>
-
+          <Title level={3}>
+            SECTION 11 - ERRORS, INACCURACIES AND OMISSIONS
+          </Title>
           <Paragraph>
             Occasionally there may be information on our site or in the Service
             that contains typographical errors, inaccuracies or omissions that
@@ -328,9 +307,7 @@ export default class About extends React.Component {
             related website, should be taken to indicate that all information in
             the Service or on any related website has been modified or updated.
           </Paragraph>
-
-          <Title>SECTION 12 - PROHIBITED USES</Title>
-
+          <Title level={3}>SECTION 12 - PROHIBITED USES</Title>
           <Paragraph>
             In addition to other prohibitions as set forth in the Terms of
             Service, you are prohibited from using the site or its content: (a)
@@ -354,11 +331,9 @@ export default class About extends React.Component {
             use of the Service or any related website for violating any of the
             prohibited uses.
           </Paragraph>
-
-          <Title>
+          <Title level={3}>
             SECTION 13 - DISCLAIMER OF WARRANTIES; LIMITATION OF LIABILITY
           </Title>
-
           <Paragraph>
             We do not guarantee, represent or warrant that your use of our
             service will be uninterrupted, timely, secure or error-free.
@@ -403,9 +378,7 @@ export default class About extends React.Component {
             jurisdictions, our liability shall be limited to the maximum extent
             permitted by law.
           </Paragraph>
-
-          <Title>SECTION 14 - INDEMNIFICATION</Title>
-
+          <Title level={3}>SECTION 14 - INDEMNIFICATION</Title>
           <Paragraph>
             You agree to indemnify, defend and hold harmless ART/RE/ART and our
             parent, subsidiaries, affiliates, partners, officers, directors,
@@ -416,9 +389,7 @@ export default class About extends React.Component {
             documents they incorporate by reference, or your violation of any
             law or the rights of a third-party.
           </Paragraph>
-
-          <Title>SECTION 15 - SEVERABILITY</Title>
-
+          <Title level={3}>SECTION 15 - SEVERABILITY</Title>
           <Paragraph>
             In the event that any provision of these Terms of Service is
             determined to be unlawful, void or unenforceable, such provision
@@ -428,9 +399,7 @@ export default class About extends React.Component {
             affect the validity and enforceability of any other remaining
             provisions.
           </Paragraph>
-
-          <Title>SECTION 16 - TERMINATION</Title>
-
+          <Title level={3}>SECTION 16 - TERMINATION</Title>
           <Paragraph>
             The obligations and liabilities of the parties incurred prior to the
             termination date shall survive the termination of this agreement for
@@ -450,9 +419,7 @@ export default class About extends React.Component {
             including the date of termination; and/or accordingly may deny you
             access to our Services (or any part thereof).
           </Paragraph>
-
-          <Title>SECTION 17 - ENTIRE AGREEMENT</Title>
-
+          <Title level={3}>SECTION 17 - ENTIRE AGREEMENT</Title>
           <Paragraph>
             The failure of us to exercise or enforce any right or provision of
             these Terms of Service shall not constitute a waiver of such right
@@ -471,18 +438,14 @@ export default class About extends React.Component {
             Any ambiguities in the interpretation of these Terms of Service
             shall not be construed against the drafting party.
           </Paragraph>
-
-          <Title>SECTION 18 - GOVERNING LAW</Title>
-
+          <Title level={3}>SECTION 18 - GOVERNING LAW</Title>
           <Paragraph>
             These Terms of Service and any separate agreements whereby we
             provide you Services shall be governed by and construed in
             accordance with the laws of ART/RE/ART, PO Box 593, Morganton NC
             28680, United States.
           </Paragraph>
-
-          <Title>SECTION 19 - CHANGES TO TERMS OF SERVICE</Title>
-
+          <Title level={3}>SECTION 19 - CHANGES TO TERMS OF SERVICE</Title>
           <Paragraph>
             You can review the most current version of the Terms of Service at
             any time at this page.
@@ -495,9 +458,7 @@ export default class About extends React.Component {
             our website or the Service following the posting of any changes to
             these Terms of Service constitutes acceptance of those changes.
           </Paragraph>
-
-          <Title>SECTION 20 - CONTACT INFORMATION</Title>
-
+          <Title level={3}>SECTION 20 - CONTACT INFORMATION</Title>
           <Paragraph>
             Questions about the Terms of Service should be sent to us at
             hello@artreart.com.

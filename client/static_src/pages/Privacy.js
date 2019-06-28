@@ -24,7 +24,7 @@ export default class About extends React.Component {
             collected, used, and shared when you visit or make a purchase from
             asshatapproved.com (the “Site”).
           </Paragraph>
-          <Title>PERSONAL INFORMATION WE COLLECT</Title>
+          <Title level={3}>PERSONAL INFORMATION WE COLLECT</Title>
           <Paragraph>
             When you visit the Site, we automatically collect certain
             information about your device, including information about your web
@@ -62,13 +62,11 @@ export default class About extends React.Component {
             (including credit card numbers), email address, and phone number. We
             refer to this information as “Order Information”.
           </Paragraph>
-
           <Paragraph>
             When we talk about “Personal Information” in this Privacy Policy, we
             are talking both about Device Information and Order Information.
           </Paragraph>
-
-          <Title>HOW DO WE USE YOUR PERSONAL INFORMATION?</Title>
+          <Title level={3}>HOW DO WE USE YOUR PERSONAL INFORMATION?</Title>
           <Paragraph>
             We use the Order Information that we collect generally to fulfill
             any orders placed through the Site (including processing your
@@ -95,8 +93,7 @@ export default class About extends React.Component {
             with the Site, and to assess the success of our marketing and
             advertising campaigns).
           </Paragraph>
-
-          <Title>SHARING YOUR PERSONAL INFORMATION</Title>
+          <Title level={3}>SHARING YOUR PERSONAL INFORMATION</Title>
           <Paragraph>
             We share your Personal Information with third parties to help us use
             your Personal Information, as described above. For example, we use
@@ -109,15 +106,13 @@ export default class About extends React.Component {
             opt-out of Google Analytics here:
             https://tools.google.com/dlpage/gaoptout.
           </Paragraph>
-
           <Paragraph>
             Finally, we may also share your Personal Information to comply with
             applicable laws and regulations, to respond to a subpoena, search
             warrant or other lawful request for information we receive, or to
             otherwise protect our rights.
           </Paragraph>
-
-          <Title>BEHAVIOURAL ADVERTISING</Title>
+          <Title level={3}>BEHAVIOURAL ADVERTISING</Title>
           <Paragraph>
             As described above, we use your Personal Information to provide you
             with targeted advertisements or marketing communications we believe
@@ -126,7 +121,6 @@ export default class About extends React.Component {
             Initiative’s (“NAI”) educational page at
             http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work.
           </Paragraph>
-
           <Paragraph>
             You can opt out of targeted advertising by using the links below:
           </Paragraph>
@@ -147,14 +141,12 @@ export default class About extends React.Component {
             the Digital Advertising Alliance’s opt-out portal at:
             http://optout.aboutads.info/.
           </Paragraph>
-
-          <Title>DO NOT TRACK</Title>
+          <Title level={3}>DO NOT TRACK</Title>
           <Paragraph>
             Please note that we do not alter our Site’s data collection and use
             practices when we see a Do Not Track signal from your browser.
           </Paragraph>
-
-          <Title>YOUR RIGHTS</Title>
+          <Title level={3}>YOUR RIGHTS</Title>
           <Paragraph>
             If you are a European resident, you have the right to access
             personal information we hold about you and to ask that your personal
@@ -162,7 +154,6 @@ export default class About extends React.Component {
             exercise this right, please contact us through the contact
             information below.
           </Paragraph>
-
           <Paragraph>
             Additionally, if you are a European resident we note that we are
             processing your information in order to fulfill contracts we might
@@ -172,30 +163,26 @@ export default class About extends React.Component {
             transferred outside of Europe, including to Canada and the United
             States.
           </Paragraph>
-
-          <Title>DATA RETENTION</Title>
+          <Title level={3}>DATA RETENTION</Title>
           <Paragraph>
             When you place an order through the Site, we will maintain your
             Order Information for our records unless and until you ask us to
             delete this information.
           </Paragraph>
-
-          <Title>CHANGES</Title>
+          <Title level={3}>CHANGES</Title>
           <Paragraph>
             We may update this privacy policy from time to time in order to
             reflect, for example, changes to our practices or for other
             operational, legal or regulatory reasons.
           </Paragraph>
-
-          <Title>CONTACT US</Title>
+          <Title level={3}>CONTACT US</Title>
           <Paragraph>
             For more information about our privacy practices, if you have
             questions, or if you would like to make a complaint, please contact
             us by e‑mail at hello@artreart.com or by mail using the details
             provided below:
           </Paragraph>
-
-          <Title>ART/RE/ART</Title>
+          <Title level={3}>ART/RE/ART</Title>
           <Paragraph>
             [Re: Privacy Compliance Officer]
             <br />
