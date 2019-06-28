@@ -15,11 +15,11 @@ class ArtistSignup(models.Model):
     website = models.URLField(max_length=255, blank=True, null=True)
     instagram = models.URLField(max_length=255, blank=True, null=True)
 
-    def __str__(self):
-        return self.name
-
     class Meta:
         ordering = ["-submitted"]
+
+    def __str__(self):
+        return self.name
 
 
 class ArtistSignupWork(models.Model):
@@ -46,9 +46,13 @@ class ArtistSignupWorkImage(models.Model):
 
 
 class MailchimpSignup(models.Model):
+    submitted = models.DateTimeField(auto_now_add=True)
     first_name = models.CharField(max_length=255, blank=True, null=True)
     last_name = models.CharField(max_length=255, blank=True, null=True)
     email = models.EmailField(max_length=255)
+
+    class Meta:
+        ordering = ["-submitted"]
 
     def __str__(self):
         return self.email

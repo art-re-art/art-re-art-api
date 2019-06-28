@@ -54,4 +54,5 @@ class ArtistSignupAdmin(nested_admin.NestedModelAdmin):
 
 @admin.register(MailchimpSignup)
 class MailchimpSignup(admin.ModelAdmin):
-    list_display = ["first_name", "last_name", "email"]
+    list_display = ["first_name", "last_name", "email", "submitted"]
+    readonly_fields = ["submitted"]
