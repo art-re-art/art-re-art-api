@@ -7,6 +7,7 @@ import Home from "./Home";
 import Mobile from "./Mobile";
 import NoMatch from "./NoMatch";
 import Signup from "./Signup";
+import Privacy from "./Privacy";
 
 const Pages = {
   About: About,
@@ -17,7 +18,8 @@ const Pages = {
   Home: Home,
   Mobile: Mobile,
   NoMatch: NoMatch,
-  Signup: Signup
+  Signup: Signup,
+  Privacy: Privacy
 };
 
 export default Pages;

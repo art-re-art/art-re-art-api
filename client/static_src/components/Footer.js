@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Layout, Row, Col, List, Icon } from "antd";
 
 import Mailchimp from "./Mailchimp";
@@ -57,6 +58,11 @@ export default class Footer extends React.Component {
           </Col>
           <Col xl={12} lg={24}>
             <Mailchimp />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Link to="/privacy/">Privacy Policy</Link>
           </Col>
         </Row>
       </Layout.Footer>

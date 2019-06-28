@@ -22,7 +22,8 @@ const {
   Mobile,
   Signup,
   Home,
-  NoMatch
+  NoMatch,
+  Privacy
 } = Pages;
 const { Page, Sidebar, ScrollToTop, CustomMouse } = Components;
 
@@ -119,6 +120,12 @@ export default class App extends React.Component {
               path="/signup/"
               render={props => (
                 <Page {...props} component={Signup} title="Artist Signup" />
+              )}
+            />
+            <Route
+              path="/privacy/"
+              render={props => (
+                <Page {...props} component={Privacy} title="Privacy Policy" />
               )}
             />
             <Route
