@@ -1,31 +1,42 @@
-.home__link {
-  background: red;
-  color: white;
-  margin: 0.5rem;
-  font-size: 2.5rem;
-  padding: 0.5rem 1rem;
-  transform: translateX(0);
-  transition: transform 500ms, color 500ms;
+.home {
+  &__link {
+    background: red;
+    color: white;
+    margin: 0.5rem;
+    font-size: 2.5rem;
+    padding: 0.5rem 1rem;
+    transform: translateX(0);
+    transition: transform 500ms, color 500ms;
 
-  &:hover {
-    color: black;
-    transform: translateX(15px);
+    &:hover {
+      color: black;
+      transform: translateX(15px);
+    }
+
+    @media (min-width: 993px) {
+      font-size: 4rem;
+      margin: 1rem;
+      padding: 0rem 1rem;
+    }
   }
 
-  @media (min-width: 993px) {
-    font-size: 4rem;
-    margin: 1rem;
-    padding: 0rem 1rem;
+  &__content {
+    display: flex;
+    justify-content: center;
+    background: black;
   }
 }
 
-.home__content {
-  background: white;
-  color: black;
-  padding: 1.2rem;
+.homecontent {
+  max-width: 800px;
+  padding: 4em 2em;
 
-  @media (min-width: 993px) {
-    font-size: 1.5rem;
-    padding: 2rem;
+  &__paragraph {
+    color: white;
+    font-size: 1.5em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
