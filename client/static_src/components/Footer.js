@@ -61,9 +61,22 @@ export default class Footer extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col>
-            <Link to="/privacy/">Privacy Policy</Link>
-            <Link to="/terms/">Terms & Conditions</Link>
+          <Col style={{ textAlign: "center", marginTop: "1em" }}>
+            <Link to="/privacy/" style={{ color: "rgba(255, 255, 255, 0.6)" }}>
+              Privacy Policy
+            </Link>
+            <span
+              style={{
+                marginLeft: "4px",
+                marginRight: "4px",
+                color: "rgba(255, 255, 255, 0.6)"
+              }}
+            >
+              |
+            </span>
+            <Link to="/terms/" style={{ color: "rgba(255, 255, 255, 0.6)" }}>
+              Terms & Conditions
+            </Link>
           </Col>
         </Row>
       </Layout.Footer>
