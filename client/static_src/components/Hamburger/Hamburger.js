@@ -1,15 +1,27 @@
 import React from "react";
-import { Icon } from "antd";
+import { Icon, Badge } from "antd";
 import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
+import axios from "axios";
 
 import Logo from "../../images/artreart-red.png";
 import "./Hamburger.less";
 
 export default class Hamburger extends React.Component {
   state = {
-    overlayVisible: false
+    overlayVisible: false,
+    cosmics: null,
+    isLoading: true
   };
+
+  componentDidMount() {
+    axios.get("/api/cosmics/cosmics/").then(response => {
+      this.setState({
+        cosmics: response.data,
+        isLoading: false
+      });
+    });
+  }
 
   _show = () => {
     this.setState({
@@ -24,6 +36,10 @@ export default class Hamburger extends React.Component {
   };
 
   render() {
+    const cosmics = this.state.cosmics;
+
+    if (this.state.isLoading) return null;
+
     return (
       <div className="hamburger">
         <Icon
@@ -48,14 +64,16 @@ export default class Hamburger extends React.Component {
                 onClick={this._hide}
                 className="overlay__link"
               >
-                Artists—
+                Artists
+                <Badge count={cosmics.artist_count} />—
               </Link>
               <Link
                 to="/events/"
                 onClick={this._hide}
                 className="overlay__link"
               >
-                Events—
+                Events
+                <Badge count={cosmics.event_count} />—
               </Link>
               <Link
                 to="/mobile/"
