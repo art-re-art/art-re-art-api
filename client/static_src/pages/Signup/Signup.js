@@ -14,8 +14,7 @@ import {
 } from "antd";
 import axios from "axios";
 
-import ArtistForm from "../../components";
-import WorkForm from "../../components";
+import Components from "../../components";
 
 import "./Signup.less";
 
@@ -23,6 +22,7 @@ const { Step } = Steps;
 const { Panel } = Collapse;
 const { Title, Paragraph } = Typography;
 const { confirm } = Modal;
+const { ArtistForm, WorkForm } = Components;
 
 export default class Signup extends React.Component {
   state = {
