@@ -1,14 +1,14 @@
-import About from "./About";
+import About from "./About/About";
 import Artist from "./Artist/Artist";
-import Artists from "./Artists";
+import Artists from "./Artists/Artists";
 import Event from "./Event/Event";
-import Events from "./Events";
+import Events from "./Events/Events";
 import Home from "./Home/Home";
-import Mobile from "./Mobile";
-import NoMatch from "./NoMatch";
+import Mobile from "./Mobile/Mobile";
+import NoMatch from "./NoMatch/NoMatch";
 import Signup from "./Signup/Signup";
-import Privacy from "./Privacy";
-import Terms from "./Terms";
+import Privacy from "./Privacy/Privacy";
+import Terms from "./Terms/Terms";
 
 const Pages = {
   About: About,

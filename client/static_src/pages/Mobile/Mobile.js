@@ -2,8 +2,10 @@ import React from "react";
 import ReactGA from "react-ga";
 import { List, Typography, Row, Col } from "antd";
 
-import Components from "../components";
-import Mockup from "../images/mockup.png";
+import Components from "../../components";
+import Mockup from "../../images/mockup.png";
+
+import "./Mobile.less";
 
 const { Title, Paragraph, Text } = Typography;
 const { Layout } = Components;

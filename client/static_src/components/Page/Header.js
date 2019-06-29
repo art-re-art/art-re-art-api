@@ -2,6 +2,7 @@ import React from "react";
 import { Layout, Typography } from "antd";
 
 import Background from "../../images/bg.jpg";
+import "./Header.less";
 
 export default class Page extends React.Component {
   render() {

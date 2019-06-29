@@ -2,10 +2,11 @@ import React from "react";
 import ReactGA from "react-ga";
 import { Typography, List } from "antd";
 
-import Components from "../components";
+import Components from "../../components";
+
+import "./Privacy.less";
 
 const { Layout } = Components;
-
 const { Paragraph, Title } = Typography;
 
 export default class About extends React.Component {

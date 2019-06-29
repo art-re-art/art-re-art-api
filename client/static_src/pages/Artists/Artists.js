@@ -3,20 +3,22 @@ import ReactGA from "react-ga";
 import { Row } from "antd";
 import axios from "axios";
 
-import Components from "../components";
+import Components from "../../components";
+
+import "./Artists.less";
 
 const { Cards } = Components;
 
-export default class Events extends React.Component {
-  state = { events: [], isLoading: true };
+export default class Artists extends React.Component {
+  state = { artists: [], isLoading: true };
 
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
-    this.props.setTitle("Shows");
-    axios.get("/api/events/events/").then(response => {
+    this.props.setTitle("Artists");
+    axios.get("/api/artists/artists/").then(response => {
       let data = response.data;
       this.setState({
-        events: data,
+        artists: data,
         isLoading: false
       });
       this.props.finishLoading();
@@ -39,8 +41,8 @@ export default class Events extends React.Component {
           marginLeft: 0
         }}
       >
-        {this.state.events.map((event, index) => (
-          <Cards.Event key={event.url} index={index} {...event} />
+        {this.state.artists.map((artist, index) => (
+          <Cards.Artist key={artist.url} index={index} {...artist} />
         ))}
       </Row>
     );

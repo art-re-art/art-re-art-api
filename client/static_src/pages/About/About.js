@@ -3,7 +3,9 @@ import ReactGA from "react-ga";
 import { Collapse, Typography } from "antd";
 import axios from "axios";
 
-import Components from "../components";
+import Components from "../../components";
+
+import "./About.less";
 
 const { Layout } = Components;
 
