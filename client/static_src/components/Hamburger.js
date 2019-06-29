@@ -1,6 +1,7 @@
 import React from "react";
 import { Icon } from "antd";
 import { Link } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 
 import "../styles/Hamburger.less";
 
@@ -29,7 +30,12 @@ export default class Hamburger extends React.Component {
           type={this.state.overlayVisible ? "close" : "menu"}
           onClick={this.state.overlayVisible ? this._hide : this._show}
         />
-        {this.state.overlayVisible && (
+        <CSSTransition
+          in={this.state.overlayVisible}
+          timeout={1000}
+          classNames="transition--fade"
+          unmountOnExit
+        >
           <div className="hamburger__overlay">
             Hi :)
             <br />
@@ -46,7 +52,7 @@ export default class Hamburger extends React.Component {
               Events
             </Link>
           </div>
-        )}
+        </CSSTransition>
       </div>
     );
   }

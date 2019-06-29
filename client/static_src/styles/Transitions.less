@@ -13,4 +13,16 @@
     transform: translateY(0px);
     transition: opacity 1000ms, transform 1000ms;
   }
+
+  &-exit-done,
+  &-exit {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1000ms, transform 1000ms;
+  }
 }
