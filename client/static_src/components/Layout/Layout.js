@@ -20,12 +20,12 @@ class Section extends React.Component {
         in={true}
         appear={true}
         timeout={5000}
-        classNames="transition--fade"
+        classNames="transition--fadeup"
       >
         <div
           className="layout__section"
           style={{ transitionDelay: `${transitionDelay}ms` }}
-          className="transition--fade-enter-initial"
+          className="transition--fadeup-enter-initial"
         >
           <div className="section__title">{this.props.title}</div>
           <div className="section__content">{this.props.children}</div>

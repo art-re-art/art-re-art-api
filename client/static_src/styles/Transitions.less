@@ -1,4 +1,4 @@
-.transition--fade {
+.transition--fadeup {
   &-enter-initial,
   &-enter,
   &-appear {
@@ -24,5 +24,30 @@
     opacity: 0;
     transform: translateY(100px);
     transition: opacity 1000ms, transform 1000ms;
+  }
+}
+
+.transition--fade {
+  &-enter-initial,
+  &-enter,
+  &-appear {
+    opacity: 0;
+  }
+
+  &-enter-done,
+  &-enter-active,
+  &-appear-active {
+    opacity: 1;
+    transition: opacity 500ms;
+  }
+
+  &-exit-done,
+  &-exit {
+    opacity: 1;
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transition: opacity 500ms;
   }
 }

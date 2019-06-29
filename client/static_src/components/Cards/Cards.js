@@ -25,7 +25,7 @@ export class Artist extends React.Component {
       <CSSTransition
         in={this.state.imageLoaded}
         timeout={5000}
-        classNames="transition--fade"
+        classNames="transition--fadeup"
       >
         <Col
           xl={8}
@@ -36,7 +36,7 @@ export class Artist extends React.Component {
             padding: "1rem",
             transitionDelay: `${this.props.index * 100}ms`
           }}
-          className="transition--fade-enter-initial"
+          className="transition--fadeup-enter-initial"
         >
           <Link to={`/artists/${this.props.id}/`}>
             <Card
@@ -90,7 +90,7 @@ export class Event extends React.Component {
       <CSSTransition
         in={this.state.imageLoaded}
         timeout={5000}
-        classNames="transition--fade"
+        classNames="transition--fadeup"
       >
         <Col
           xl={8}
@@ -102,7 +102,7 @@ export class Event extends React.Component {
             padding: "1rem",
             transitionDelay: `${this.props.index * 100}ms`
           }}
-          className="transition--fade-enter-initial"
+          className="transition--fadeup-enter-initial"
         >
           <Link to={`/events/${this.props.id}/`}>
             <Card
@@ -160,7 +160,7 @@ export class Work extends React.Component {
       <CSSTransition
         in={this.state.imageLoaded}
         timeout={5000}
-        classNames="transition--fade"
+        classNames="transition--fadeup"
       >
         <Col
           xl={8}
@@ -172,7 +172,7 @@ export class Work extends React.Component {
             padding: "1rem",
             transitionDelay: `${this.props.index * 100}ms`
           }}
-          className="transition--fade-enter-initial"
+          className="transition--fadeup-enter-initial"
         >
           <Card
             hoverable

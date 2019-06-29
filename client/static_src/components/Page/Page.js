@@ -49,7 +49,7 @@ export default class Page extends React.Component {
         {!this.state.isLoaded && <Loading />}
         <CSSTransition
           in={this.state.isLoaded}
-          timeout={1000}
+          timeout={500}
           classNames="transition--fade"
         >
           <Layout className="content transition--fade-enter-initial">

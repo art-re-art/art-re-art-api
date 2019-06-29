@@ -33,7 +33,7 @@ export default class Hamburger extends React.Component {
         />
         <CSSTransition
           in={this.state.overlayVisible}
-          timeout={1000}
+          timeout={500}
           classNames="transition--fade"
           unmountOnExit
         >
