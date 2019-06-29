@@ -12,11 +12,13 @@ class Sidebar extends React.Component {
   render() {
     return (
       <Sider theme="light" width={70}>
-        <img
-          src={LogoRotated}
-          alt="ART/RE/ART"
-          style={{ width: "100%", height: "auto", padding: ".5rem" }}
-        />
+        <Link to="/">
+          <img
+            src={LogoRotated}
+            alt="ART/RE/ART"
+            style={{ width: "100%", height: "auto", padding: ".5rem" }}
+          />
+        </Link>
         <Menu
           theme="light"
           mode="inline"
