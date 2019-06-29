@@ -4,11 +4,8 @@
   position: fixed;
   left: 0;
 
-  &:not(.ant-layout-sider-zero-width) {
-    @media (max-width: 992px) {
-      width: 100vw !important;
-      min-width: 100vw !important;
-    }
+  @media (max-width: 768px) {
+    display: none;
   }
 
   .ant-layout-sider-children {
@@ -17,8 +14,7 @@
   }
 
   .ant-menu {
-    @media (min-width: 993px) {
-      margin-top: auto;
-    }
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }
