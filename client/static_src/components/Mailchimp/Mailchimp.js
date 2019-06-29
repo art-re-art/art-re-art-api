@@ -3,6 +3,8 @@ import ReactGA from "react-ga";
 import { Typography, Form, Input, Button } from "antd";
 import axios from "axios";
 
+import "./Mailchimp.less";
+
 const { Paragraph } = Typography;
 
 class MailchimpForm extends React.Component {

@@ -4,7 +4,7 @@ import { Col, Card, Typography, Tag, Modal, Row, Icon } from "antd";
 import moment from "moment";
 import { CSSTransition } from "react-transition-group";
 
-import "../styles/Work.less";
+import "./Cards.less";
 
 const { Meta } = Card;
 const { Paragraph, Title } = Typography;

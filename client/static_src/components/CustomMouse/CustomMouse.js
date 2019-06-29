@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles/CustomMouse.less";
+import "./CustomMouse.less";
 
 export default class CustomMouse extends React.Component {
   state = {

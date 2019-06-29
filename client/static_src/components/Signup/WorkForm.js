@@ -1,12 +1,12 @@
 import React from "react";
-import { Form, Input, Button, Typography, Upload, Icon } from "antd";
+import { Form, Input, Typography, Upload, Icon } from "antd";
 import Cookies from "js-cookie";
+
+import "./WorkForm.less";
 
 const { Paragraph } = Typography;
 const { TextArea } = Input;
 const { Dragger } = Upload;
-
-import "../styles/SignUp.less";
 
 class WorkForm extends React.Component {
   state = {

@@ -1,21 +1,17 @@
-import Header from "./Header";
-import Footer from "./Footer";
-import Sidebar from "./Sidebar";
-import ScrollToTop from "./ScrollToTop";
-import Loading from "./Loading";
-import Page from "./Page";
-import Mailchimp from "./Mailchimp";
-import Layout from "./Layout";
-import Image from "./Image";
-import SignupArtistForm from "./SignupArtistForm";
-import SignupWorkForm from "./SignupWorkForm";
-import Cards from "./Cards";
-import CustomMouse from "./CustomMouse";
-import Hamburger from "./Hamburger";
+import Sidebar from "./Sidebar/Sidebar";
+import ScrollToTop from "./ScrollToTop/ScrollToTop";
+import Loading from "./Loading/Loading";
+import Page from "./Page/Page";
+import Mailchimp from "./Mailchimp/Mailchimp";
+import Layout from "./Layout/Layout";
+import Image from "./Image/Image";
+import ArtistForm from "./Signup/ArtistForm";
+import WorkForm from "./Signup/WorkForm";
+import Cards from "./Cards/Cards";
+import CustomMouse from "./CustomMouse/CustomMouse";
+import Hamburger from "./Hamburger/Hamburger";
 
 const Components = {
-  Header: Header,
-  Footer: Footer,
   Sidebar: Sidebar,
   ScrollToTop: ScrollToTop,
   Loading: Loading,
@@ -23,8 +19,8 @@ const Components = {
   Mailchimp: Mailchimp,
   Layout: Layout,
   Image: Image,
-  SignupArtistForm: SignupArtistForm,
-  SignupWorkForm: SignupWorkForm,
+  ArtistForm: ArtistForm,
+  WorkForm: WorkForm,
   Cards: Cards,
   CustomMouse: CustomMouse,
   Hamburger: Hamburger

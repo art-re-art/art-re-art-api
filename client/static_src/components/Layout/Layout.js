@@ -1,7 +1,7 @@
 import React from "react";
 import { CSSTransition } from "react-transition-group";
 
-import "../styles/Layout.less";
+import "./Layout.less";
 
 class Container extends React.Component {
   render() {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles/Image.less";
+import "./Image.less";
 
 class ResponsiveImage extends React.Component {
   render() {

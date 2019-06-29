@@ -3,8 +3,8 @@ import ReactGA from "react-ga";
 import { Link, withRouter } from "react-router-dom";
 import { Layout, Menu, Icon } from "antd";
 
-import LogoRotated from "../images/artreart-red-rotated.png";
-import "../styles/Sidebar.less";
+import LogoRotated from "../../images/artreart-red-rotated.png";
+import "./Sidebar.less";
 
 const { Sider } = Layout;
 

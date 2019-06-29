@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Layout, Row, Col, List, Icon } from "antd";
 
-import Mailchimp from "./Mailchimp";
+import Mailchimp from "../Mailchimp/Mailchimp";
 
-import "../styles/Footer.less";
+import "./Footer.less";
 
 export default class Footer extends React.Component {
   render() {

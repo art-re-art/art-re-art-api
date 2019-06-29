@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout, Typography } from "antd";
 
-import Background from "../images/bg.jpg";
+import Background from "../../images/bg.jpg";
 
 export default class Page extends React.Component {
   render() {

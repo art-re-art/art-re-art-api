@@ -4,14 +4,14 @@ import { Col, Row, Typography, Card } from "antd";
 import moment from "moment";
 import axios from "axios";
 
-import Components from "../components";
+import Components from "../../components";
 
 const { Cards, Layout } = Components;
 
 const { Title, Paragraph } = Typography;
 const { Meta } = Card;
 
-import "../styles/Event.less";
+import "./Event.less";
 
 export default class Event extends React.Component {
   state = { event: {}, isLoading: true };

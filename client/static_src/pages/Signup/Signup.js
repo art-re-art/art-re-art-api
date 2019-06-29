@@ -14,8 +14,10 @@ import {
 } from "antd";
 import axios from "axios";
 
-import ArtistForm from "../components/SignupArtistForm";
-import WorkForm from "../components/SignupWorkForm";
+import ArtistForm from "../../components";
+import WorkForm from "../../components";
+
+import "./Signup.less";
 
 const { Step } = Steps;
 const { Panel } = Collapse;

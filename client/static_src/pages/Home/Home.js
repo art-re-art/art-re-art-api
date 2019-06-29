@@ -3,8 +3,8 @@ import ReactGA from "react-ga";
 import { Link } from "react-router-dom";
 import { Typography } from "antd";
 
-import Background from "../images/bg.jpg";
-import "../styles/Home.less";
+import Background from "../../images/bg.jpg";
+import "./Home.less";
 
 const { Paragraph } = Typography;
 

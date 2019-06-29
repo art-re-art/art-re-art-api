@@ -1,9 +1,9 @@
 import React from "react";
-import { Form, Input, Button } from "antd";
+import { Form, Input } from "antd";
+
+import "./ArtistForm.less";
 
 const { TextArea } = Input;
-
-import "../styles/SignUp.less";
 
 class ArtistForm extends React.Component {
   componentDidMount() {

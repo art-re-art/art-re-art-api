@@ -3,7 +3,7 @@ import { Icon } from "antd";
 import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 
-import "../styles/Hamburger.less";
+import "./Hamburger.less";
 
 export default class Hamburger extends React.Component {
   state = {

@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import { Row, Col, Typography, Tag, Descriptions } from "antd";
 import axios from "axios";
 
-import Components from "../components";
+import Components from "../../components";
 
 const { Cards, Layout, Image } = Components;
 
 const { Title } = Typography;
 
-import "../styles/Artist.less";
+import "./Artist.less";
 
 export default class Artist extends React.Component {
   state = { artist: {}, isLoading: true, descriptions: [] };

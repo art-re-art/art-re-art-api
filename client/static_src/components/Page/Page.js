@@ -4,9 +4,9 @@ import { CSSTransition } from "react-transition-group";
 
 import Footer from "./Footer";
 import Header from "./Header";
-import Loading from "./Loading";
+import Loading from "../Loading/Loading";
 
-import "../styles/Page.less";
+import "./Page.less";
 
 export default class Page extends React.Component {
   state = {
