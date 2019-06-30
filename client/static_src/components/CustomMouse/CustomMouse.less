@@ -22,7 +22,8 @@
       border-radius: @pointer-size * 2;
       top: translate(-@pointer-size, -@pointer-size);
       animation: spin 10s infinite linear;
-      transition: all 200ms;
+      transition-duration: 200ms;
+      transition-property: width, height, background-color, top, left;
       border-width: 1px;
       border-style: dashed;
       border-color: rgba(255, 0, 0, 0.8);
@@ -34,7 +35,7 @@
         height: @pointer-size * 3;
         border-radius: @pointer-size * 3;
         animation: spin--hover 2s infinite linear;
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.5);
         border-width: 2px;
       }
     }
