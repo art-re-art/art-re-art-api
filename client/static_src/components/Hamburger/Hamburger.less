@@ -20,7 +20,6 @@
   &__overlay {
     width: 100vw;
     height: 100vh;
-    background: black;
     color: white;
     justify-content: center;
     align-items: center;
@@ -29,6 +28,32 @@
     position: fixed;
     z-index: 4999;
     flex-direction: column;
+
+    &--delayed {
+      transition-delay: 500ms;
+    }
+  }
+}
+
+.panels {
+  .generate-panels(5);
+
+  .generate-panels(@n, @i: 0) when (@i < @n) {
+    &__@{i} {
+      width: calc(20vw + 1px);
+      position: absolute;
+      top: 0;
+      left: @i * 20vw;
+      background: black;
+      z-index: 4999;
+      transition-delay: @i * 100ms;
+
+      &--delayed {
+        transition-delay: 500 + (@i * 100ms);
+      }
+    }
+
+    .generate-panels(@n, (@i + 1));
   }
 }
 

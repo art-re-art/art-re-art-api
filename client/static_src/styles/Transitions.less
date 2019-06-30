@@ -38,7 +38,8 @@
   &-enter-active,
   &-appear-active {
     opacity: 1;
-    transition: opacity 500ms;
+    transition-duration: 500ms;
+    transition-property: opacity;
   }
 
   &-exit-done,
@@ -48,6 +49,36 @@
 
   &-exit-active {
     opacity: 0;
-    transition: opacity 500ms;
+    transition-duration: 500ms;
+    transition-property: opacity;
+  }
+}
+
+.transition--growdown {
+  &-enter-initial,
+  &-enter,
+  &-appear {
+    height: 0vh;
+  }
+
+  &-enter-done,
+  &-enter-active,
+  &-appear-active {
+    height: 100vh;
+    transition-duration: 500ms;
+    transition-property: height;
+    transition-timing-function: ease-out;
+  }
+
+  &-exit-done,
+  &-exit {
+    height: 100vh;
+  }
+
+  &-exit-active {
+    height: 0vh;
+    transition-duration: 500ms;
+    transition-property: height;
+    transition-timing-function: ease-out;
   }
 }
