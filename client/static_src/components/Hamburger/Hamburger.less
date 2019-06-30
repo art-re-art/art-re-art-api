@@ -37,7 +37,6 @@
 
 .panels {
   .generate-panels(5);
-
   .generate-panels(@n, @i: 0) when (@i < @n) {
     &__@{i} {
       width: calc(20vw + 1px);
@@ -52,13 +51,18 @@
         transition-delay: 500 + (@i * 100ms);
       }
     }
-
     .generate-panels(@n, (@i + 1));
   }
 }
 
 .overlay {
   padding: 2em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
 
   &__logo {
     max-width: 400px;
@@ -71,5 +75,15 @@
     color: white;
     font-size: 1.8em;
     margin-right: 0.5em;
+  }
+
+  &__badge {
+    font-size: 0.5em;
+  }
+
+  &__list {
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
   }
 }

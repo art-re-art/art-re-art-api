@@ -27,12 +27,14 @@ export default class Hamburger extends React.Component {
     this.setState({
       overlayVisible: true
     });
+    document.body.style.overflowY = "hidden";
   };
 
   _hide = () => {
     this.setState({
       overlayVisible: false
     });
+    document.body.style.overflowY = "scroll";
   };
 
   render() {
@@ -83,39 +85,55 @@ export default class Hamburger extends React.Component {
           >
             <div className="overlay">
               <img src={Logo} alt="ART/RE/ART" className="overlay__logo" />
-              <Link to="/about/" onClick={this._hide} className="overlay__link">
-                About—
-              </Link>
-              <Link
-                to="/artists/"
-                onClick={this._hide}
-                className="overlay__link"
-              >
-                Artists
-                <Badge count={cosmics.artist_count} />—
-              </Link>
-              <Link
-                to="/events/"
-                onClick={this._hide}
-                className="overlay__link"
-              >
-                Events
-                <Badge count={cosmics.event_count} />—
-              </Link>
-              <Link
-                to="/mobile/"
-                onClick={this._hide}
-                className="overlay__link"
-              >
-                Mobile—
-              </Link>
-              <Link
-                to="/signup/"
-                onClick={this._hide}
-                className="overlay__link"
-              >
-                Signup—
-              </Link>
+              <ul className="overlay__list">
+                <li className="overlay__item">
+                  <Link
+                    to="/about/"
+                    onClick={this._hide}
+                    className="overlay__link"
+                  >
+                    About
+                  </Link>
+                </li>
+                <li className="overlay__item">
+                  <Link
+                    to="/artists/"
+                    onClick={this._hide}
+                    className="overlay__link"
+                  >
+                    Artists
+                    <span class="overlay__badge">{cosmics.artist_count}</span>
+                  </Link>
+                </li>
+                <li className="overlay__item">
+                  <Link
+                    to="/events/"
+                    onClick={this._hide}
+                    className="overlay__link"
+                  >
+                    Events
+                    <span class="overlay__badge">{cosmics.event_count}</span>
+                  </Link>
+                </li>
+                <li className="overlay__item">
+                  <Link
+                    to="/mobile/"
+                    onClick={this._hide}
+                    className="overlay__link"
+                  >
+                    Mobile
+                  </Link>
+                </li>
+                <li className="overlay__item">
+                  <Link
+                    to="/signup/"
+                    onClick={this._hide}
+                    className="overlay__link"
+                  >
+                    Signup
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
         </CSSTransition>
