@@ -19,82 +19,88 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <header>
-        <div
-          style={{
-            backgroundColor: "black",
-            backgroundImage: `url('${Background}')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center center"
-          }}
-        >
+      <div className="home">
+        <header className="home__header">
           <div
             style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "end",
-              flexDirection: "column",
-              height: "500px",
-              padding: "2em"
+              backgroundColor: "black",
+              backgroundImage: `url('${Background}')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center center"
             }}
           >
-            <Link
-              to="/events/"
-              className="home__link"
-              onClick={() => {
-                ReactGA.event({
-                  category: "Home Nav",
-                  action: "Events Button"
-                });
-              }}
-            >
-              Shows
-            </Link>
-            <Link
-              to="/artists/"
-              className="home__link"
-              onClick={() => {
-                ReactGA.event({
-                  category: "Home Nav",
-                  action: "Artists Button"
-                });
-              }}
-            >
-              Artists
-            </Link>
-            <Link
-              to="/about/"
-              className="home__link"
-              onClick={() => {
-                ReactGA.event({
-                  category: "Home Nav",
-                  action: "About Button"
-                });
-              }}
-            >
-              About
-            </Link>
+            <div className="home__skewfix">
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "end",
+                  flexDirection: "column",
+                  height: "500px",
+                  padding: "2em"
+                }}
+              >
+                <Link
+                  to="/events/"
+                  className="home__link"
+                  onClick={() => {
+                    ReactGA.event({
+                      category: "Home Nav",
+                      action: "Events Button"
+                    });
+                  }}
+                >
+                  Shows
+                </Link>
+                <Link
+                  to="/artists/"
+                  className="home__link"
+                  onClick={() => {
+                    ReactGA.event({
+                      category: "Home Nav",
+                      action: "Artists Button"
+                    });
+                  }}
+                >
+                  Artists
+                </Link>
+                <Link
+                  to="/about/"
+                  className="home__link"
+                  onClick={() => {
+                    ReactGA.event({
+                      category: "Home Nav",
+                      action: "About Button"
+                    });
+                  }}
+                >
+                  About
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
+        </header>
 
         <div className="home__content">
-          <div className="homecontent">
-            <Paragraph className="homecontent__paragraph">
-              ART/RE/ART is a series of one-night-only, contemporary art
-              experiences taking place in downtown Morganton, NC. These free
-              events, held in non-art spaces, offer an alternative way to
-              interact with and experience art in the community.
-            </Paragraph>
+          <div className="home__skewfix">
+            <div className="homecontent">
+              <Paragraph className="homecontent__paragraph">
+                ART/RE/ART is a series of one-night-only, contemporary art
+                experiences taking place in downtown Morganton, NC. These free
+                events, held in non-art spaces, offer an alternative way to
+                interact with and experience art in the community.
+              </Paragraph>
 
-            <Paragraph className="homecontent__paragraph">
-              Featuring local and regional artists, ART/RE/ART includes work
-              from multiple disciplines and mediums including performance,
-              installation, sculpture, interactive, video, painting, drawing,
-              and photography.
-            </Paragraph>
+              <Paragraph className="homecontent__paragraph">
+                Featuring local and regional artists, ART/RE/ART includes work
+                from multiple disciplines and mediums including performance,
+                installation, sculpture, interactive, video, painting, drawing,
+                and photography.
+              </Paragraph>
+            </div>
           </div>
         </div>
-      </header>
+      </div>
     );
   }
 }

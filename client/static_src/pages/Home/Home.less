@@ -1,11 +1,14 @@
 .home {
+  background-color: black;
+  padding-bottom: 5em;
+
   &__link {
     background: red;
     color: white;
     margin: 0.5rem;
     font-size: 2.5rem;
     padding: 0.5rem 1rem;
-    transform: translateX(0) skewY(-7deg);
+    transform: translateX(0) skewY(-10deg);
     transition: transform 500ms, color 500ms;
 
     &:hover {
@@ -18,6 +21,15 @@
       margin: 1rem;
       padding: 0rem 1rem;
     }
+  }
+
+  &__header,
+  &__content {
+    transform: skewY(-10deg);
+  }
+
+  &__skewfix {
+    transform: skewY(10deg) translateY(70px);
   }
 
   &__content {
