@@ -6,7 +6,7 @@ Companion website for a series of pop up art events in downtown Morganton, NC.
 
     pipenv install --dev
     npm i
-    npm run-script pgpull
+    npm run pg:pull
     npm start
 
 # NPM Start is not showing all python errors
@@ -23,9 +23,9 @@ Use standard pipenv run for django management commands:
 
 A few commands have npm scripts:
 
-    npm run-script migrate
-    npm run-script makemigrations
-    npm run-script createsuperuser
+    npm run manage:migrate
+    npm run manage:makemigrations
+    npm run manage:createsuperuser
 
 ## Deploying
 
@@ -33,4 +33,4 @@ Pushing code to the Github repo will automatically deploy that code to Heroku.
 
 ## Getting a production database to test with
 
-    npm run-script pgpull
+    npm run pg:pull

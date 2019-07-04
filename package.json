@@ -3,10 +3,10 @@
   "scripts": {
     "start": "concurrently -r \"pipenv run python manage.py runserver\" \"nodemon --watch webpack.config.js --watch antd.theme.js --exec 'webpack --watch'\"",
     "build": "webpack --mode \"production\"",
-    "migrate": "pipenv run python manage.py migrate",
-    "makemigrations": "pipenv run python manage.py makemigrations",
-    "createsuperuser": "pipenv run python manage.py createsuperuser",
-    "pgpull": "dropdb --if-exists art-re-art; heroku pg:pull postgresql-colorful-51974 art-re-art --app art-re-art",
+    "manage:migrate": "pipenv run python manage.py migrate",
+    "manage:makemigrations": "pipenv run python manage.py makemigrations",
+    "manage:createsuperuser": "pipenv run python manage.py createsuperuser",
+    "pg:pull": "dropdb --if-exists art-re-art; heroku pg:pull postgresql-colorful-51974 art-re-art --app art-re-art",
     "format": "concurrently \"prettier --write client/static_src/**/*.js\" \"prettier --write client/static_src/**/*.less\" \"black --exclude /node_modules/ .\""
   },
   "devDependencies": {
