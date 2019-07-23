@@ -40,7 +40,7 @@
   .generate-panels(@n, @i: 0) when (@i < @n) {
     &__@{i} {
       width: calc(20vw + 1px);
-      position: absolute;
+      position: fixed;
       top: 0;
       left: @i * 20vw;
       background: black;
