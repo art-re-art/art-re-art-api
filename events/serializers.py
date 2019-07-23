@@ -59,6 +59,7 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
         fields = (
             "url",
             "id",
+            "slug",
             "title",
             "datetime",
             "month",

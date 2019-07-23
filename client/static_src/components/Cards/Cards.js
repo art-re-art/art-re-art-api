@@ -38,7 +38,7 @@ export class Artist extends React.Component {
           }}
           className="transition--fadeup-enter-initial"
         >
-          <Link to={`/artists/${this.props.id}/`}>
+          <Link to={`/artists/${this.props.id}-${this.props.slug}/`}>
             <Card
               hoverable
               style={{ height: "100%" }}
@@ -104,7 +104,7 @@ export class Event extends React.Component {
           }}
           className="transition--fadeup-enter-initial"
         >
-          <Link to={`/events/${this.props.id}/`}>
+          <Link to={`/events/${this.props.id}-${this.props.slug}/`}>
             <Card
               hoverable
               cover={

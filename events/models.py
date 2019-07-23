@@ -1,12 +1,14 @@
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
+from django.utils.text import slugify
 
 from artreart.utils import create_thumbnails, create_qrcode, create_qrcode_thumbnails
 
 
 class Event(models.Model):
     title = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255, blank=True, null=True)
     datetime = models.DateTimeField()
     location = models.ForeignKey(
         to="events.EventLocation", on_delete=models.CASCADE, related_name="events"
@@ -21,6 +23,11 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        if self.slug is None:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
 
     @property
     def month(self):

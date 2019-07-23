@@ -16,6 +16,7 @@ class ArtistEventSerializer(serializers.HyperlinkedModelSerializer):
         fields = (
             "url",
             "id",
+            "slug",
             "title",
             "datetime",
             "month",
@@ -62,6 +63,7 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
         fields = (
             "url",
             "id",
+            "slug",
             "name",
             "instagram",
             "website",

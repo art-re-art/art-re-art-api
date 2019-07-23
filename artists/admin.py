@@ -48,7 +48,8 @@ class ArtistAdmin(nested_admin.NestedModelAdmin):
     inlines = [ArtistWorkInline]
     filter_horizontal = ["medium", "events"]
     fields = (
-        ("name", "_order"),
+        ("name", "slug"),
+        "_order",
         "artist_statement",
         ("instagram", "website"),
         ("city", "state"),

@@ -40,7 +40,7 @@ class EventAdmin(nested_admin.NestedModelAdmin):
     inlines = [EventImageInline]
     readonly_fields = ["featured_image_preview"]
     fields = (
-        "title",
+        ("title", "slug"),
         ("datetime", "location"),
         ("_featured_image", "featured_image_preview"),
     )

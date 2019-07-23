@@ -1,16 +1,14 @@
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
-
-from xml.etree import ElementTree
-import qrcode
-import qrcode.image.svg
+from django.utils.text import slugify
 
 from artreart.utils import create_thumbnails, create_qrcode, create_qrcode_thumbnails
 
 
 class Artist(models.Model):
     _order = models.PositiveSmallIntegerField(default=100, blank=True, null=True)
+    slug = models.SlugField(max_length=255, blank=True, null=True)
     name = models.CharField(max_length=255)
     instagram = models.URLField(max_length=255, blank=True, null=True)
     website = models.URLField(max_length=255, blank=True, null=True)
@@ -33,6 +31,11 @@ class Artist(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if self.slug is None:
+            self.slug = slugify(self.name)
+        return super().save(*args, **kwargs)
 
     @property
     def qrcode(self):

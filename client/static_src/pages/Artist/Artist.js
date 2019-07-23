@@ -80,7 +80,7 @@ export default class Artist extends React.Component {
           {this.state.artist.events
             .map(event => {
               return (
-                <Link key={event.id} to={`/events/${event.id}/`}>
+                <Link key={event.id} to={`/events/${event.id}-${event.slug}/`}>
                   {event.title}
                 </Link>
               );

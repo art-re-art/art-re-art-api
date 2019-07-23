@@ -53,7 +53,7 @@ export default class App extends React.Component {
           <Sidebar />
           <Switch>
             <Route
-              path="/events/:id/"
+              path="/events/:id-:slug/"
               render={props => (
                 <Page {...props} component={Event} title="Show" />
               )}
@@ -65,7 +65,7 @@ export default class App extends React.Component {
               )}
             />
             <Route
-              path="/artists/:id/"
+              path="/artists/:id-:slug/"
               render={props => (
                 <Page {...props} component={Artist} title="Artist" />
               )}
