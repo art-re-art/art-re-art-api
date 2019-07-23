@@ -40,18 +40,20 @@ export default class Footer extends React.Component {
             </div>
             <List split={false}>
               <List.Item style={{ padding: 0 }}>
+                <Icon className="footer__icon" type="mail" />
                 <a href="mailto:hello@artreart.com" className="footer__link">
-                  <Icon type="mail" /> hello@artreart.com
+                  hello@artreart.com
                 </a>
               </List.Item>
               <List.Item style={{ padding: 0 }}>
+                <Icon className="footer__icon" type="instagram" />
                 <a
                   href="https://www.instagram.com/art_re_art/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer__link"
                 >
-                  <Icon type="instagram" /> art_re_art
+                  art_re_art
                 </a>
               </List.Item>
             </List>
