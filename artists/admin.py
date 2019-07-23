@@ -18,7 +18,7 @@ class ArtistWorkImageInline(
     model = ArtistWorkImage
     extra = 0
     readonly_fields = ["image_preview"]
-    fields = (("description", "is_featured"), ("_image", "image_preview"), "_order")
+    fields = (("description",), ("_image", "image_preview"), "_order")
     sortable_field_name = "_order"
 
     def image_preview(self, obj):
