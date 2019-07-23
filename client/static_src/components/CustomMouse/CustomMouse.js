@@ -27,8 +27,8 @@ export default class CustomMouse extends React.Component {
         <div
           className="cursor__pointer"
           style={{
-            top: position.pageY,
-            left: position.pageX
+            top: position.clientY,
+            left: position.clientX
           }}
         />
         <div
@@ -37,8 +37,8 @@ export default class CustomMouse extends React.Component {
             (position.target.onclick && "cursor__follower--hover")
           }
           style={{
-            top: position.pageY,
-            left: position.pageX
+            top: position.clientY,
+            left: position.clientX
           }}
         />
       </div>
