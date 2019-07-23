@@ -27,7 +27,7 @@ class ArtistSignup(models.Model):
             f"ART/RE/ART | New Artist Signup | {self.name}",
             f"{self.name} has signed up for the next ART/RE/ART event.",
             f"noreply@{settings.MAILGUN_DOMAIN}",
-            ["isaac@bythewood.me"],
+            ["nancy@artreart.com"],
         )
         return super().save(*args, **kwargs)
 
