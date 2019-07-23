@@ -77,3 +77,16 @@ REST_FRAMEWORK = {
 # https://devcenter.heroku.com/articles/django-app-configuration
 
 django_heroku.settings(locals())
+
+
+# Mailgun
+
+EMAIL_HOST = os.environ.get("MAILGUN_SMTP_SERVER", None)
+
+EMAIL_PORT = os.environ.get("MAILGUN_SMTP_PORT", None)
+
+EMAIL_HOST_USER = os.environ.get("MAILGUN_SMTP_LOGIN", None)
+
+EMAIL_HOST_PASSWORD = os.environ.get("MAILGUN_SMTP_PASSWORD", None)
+
+MAILGUN_DOMAIN = os.environ.get("MAILGUN_DOMAIN", None)

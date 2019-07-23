@@ -1,5 +1,6 @@
 from django.db import models, transaction
 from django.conf import settings
+from django.core.mail import send_mail
 
 import requests
 
@@ -20,6 +21,15 @@ class ArtistSignup(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        send_mail(
+            f"ART/RE/ART | New Artist Signup | {self.name}",
+            f"{self.name} has signed up for the next ART/RE/ART event.",
+            f"noreply@{settings.MAILGUN_DOMAIN}",
+            ["isaac@bythewood.me"],
+        )
+        return super().save(*args, **kwargs)
 
 
 class ArtistSignupWork(models.Model):
