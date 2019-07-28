@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Typography } from "antd";
 
 import Background from "../../images/bg.jpg";
+import Logo from "../../images/artreart-white.png";
 import "./Home.less";
 
 const { Paragraph } = Typography;
@@ -95,6 +96,7 @@ export default class Home extends React.Component {
               and photography.
             </Paragraph>
           </div>
+          <img src={Logo} className="home__logo" />
         </div>
       </div>
     );
