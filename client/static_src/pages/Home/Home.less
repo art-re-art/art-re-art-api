@@ -2,6 +2,10 @@
   background-color: black;
   padding-bottom: 5em;
 
+  &__header {
+    padding-bottom: 5em;
+  }
+
   &__link {
     background: red;
     color: white;
@@ -9,7 +13,7 @@
     font-size: 2.5rem;
     padding: 0.5rem 1rem;
     transform: translateX(0) skewY(-10deg);
-    transition: transform 500ms, color 500ms;
+    transition: transform 350ms, color 350ms;
 
     &:hover {
       color: black;
@@ -23,25 +27,42 @@
     }
   }
 
-  &__header,
-  &__content {
-    transform: skewY(-10deg);
-  }
+  // &__header-content,
+  // &__content {
+  //   transform: skewY(-10deg);
+  // }
 
-  &__skewfix {
-    transform: skewY(10deg) translateY(70px);
-  }
+  // &__skewfix {
+  //   transform: skewY(10deg) translateY(70px);
+  // }
 
   &__content {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     background: black;
+    position: relative;
+
+    &::before {
+      content: '';
+      background: black;
+      transform: skewY(-10deg) translateY(-50%);
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 350px;
+      z-index: 1;
+      // margin-top: -50px;
+    }
   }
 }
 
 .homecontent {
   max-width: 800px;
   padding: 4em 2em;
+  padding-top: 2em;
+  position: relative;
+  z-index: 2;
 
   &__paragraph {
     color: white;

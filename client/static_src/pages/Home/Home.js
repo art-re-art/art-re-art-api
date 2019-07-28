@@ -29,54 +29,52 @@ export default class Home extends React.Component {
               backgroundPosition: "center center"
             }}
           >
-            <div className="home__skewfix">
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "end",
-                  flexDirection: "column",
-                  height: "500px",
-                  padding: "2em"
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "end",
+                flexDirection: "column",
+                height: "500px",
+                padding: "2em"
+              }}
+            >
+              <Link
+                to="/events/"
+                className="home__link"
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Home Nav",
+                    action: "Events Button"
+                  });
                 }}
               >
-                <Link
-                  to="/events/"
-                  className="home__link"
-                  onClick={() => {
-                    ReactGA.event({
-                      category: "Home Nav",
-                      action: "Events Button"
-                    });
-                  }}
-                >
-                  Shows
-                </Link>
-                <Link
-                  to="/artists/"
-                  className="home__link"
-                  onClick={() => {
-                    ReactGA.event({
-                      category: "Home Nav",
-                      action: "Artists Button"
-                    });
-                  }}
-                >
-                  Artists
-                </Link>
-                <Link
-                  to="/about/"
-                  className="home__link"
-                  onClick={() => {
-                    ReactGA.event({
-                      category: "Home Nav",
-                      action: "About Button"
-                    });
-                  }}
-                >
-                  About
-                </Link>
-              </div>
+                Shows
+              </Link>
+              <Link
+                to="/artists/"
+                className="home__link"
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Home Nav",
+                    action: "Artists Button"
+                  });
+                }}
+              >
+                Artists
+              </Link>
+              <Link
+                to="/about/"
+                className="home__link"
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Home Nav",
+                    action: "About Button"
+                  });
+                }}
+              >
+                About
+              </Link>
             </div>
           </div>
         </header>
