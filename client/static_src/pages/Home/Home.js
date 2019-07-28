@@ -27,7 +27,8 @@ export default class Home extends React.Component {
               backgroundColor: "black",
               backgroundImage: `url('${Background}')`,
               backgroundSize: "cover",
-              backgroundPosition: "center center"
+              backgroundPosition: "center center",
+              position: "relative"
             }}
           >
             <div
@@ -76,6 +77,11 @@ export default class Home extends React.Component {
               >
                 About
               </Link>
+            </div>
+            <div className="home__event">
+              <h5>Fall Edition 2019</h5>
+              <p>October 5th, 5-9pm</p>
+              <p>202 S. Sterling St.<br/>Morganton, NC 28655</p>
             </div>
           </div>
         </header>

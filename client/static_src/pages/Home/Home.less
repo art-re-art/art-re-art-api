@@ -7,6 +7,41 @@
     padding-bottom: 5em;
   }
 
+  &__event {
+    position: absolute;
+    right: 55px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid #ff0000;
+    z-index: 5;
+    color: #ff0000;
+    padding: 2rem;
+    text-align: center;
+    transition: background .35s;
+
+    @media (max-width: 992px) {
+      position: relative;
+      background: white;
+      // margin-left: auto;
+      // margin-right: 55px;
+      right: 0;
+      left: auto;
+      max-width: 222px;
+      margin-left: auto;
+      margin-right: 55px;
+      display: block;
+    }
+
+    h5 {
+      color: #ff0000;
+      text-transform: uppercase;
+    }
+
+    &:hover {
+      background: white;
+    }
+  }
+
   &__link {
     background: red;
     color: white;
