@@ -78,16 +78,23 @@
     color: white;
     font-size: 1.8em;
     margin-right: 0.5em;
+    display: flex;
+    align-items: flex-start;
+
     @media (max-width: 767.98px) {
       font-size: 1.5em;
     }
   }
 
   &__badge {
-    font-size: 0.5em;
-    background: red;
-    padding: 3px 6px;
-    margin-left: 15px;
+    font-size: 0.9rem;
+    color: #ff0000;
+    transition: color .2s, font-size .2s;
+
+    .overlay__link:hover & {
+      font-size: 1.2rem;
+      color: white;
+    }
   }
 
   &__list {
