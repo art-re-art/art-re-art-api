@@ -62,7 +62,7 @@ export default class Footer extends React.Component {
             <Mailchimp />
           </Col>
         </Row>
-        <Row>
+        <Row style={{ marginTop: "2rem" }}>
           <Col style={{ textAlign: "center", marginTop: "1em" }}>
             <Link to="/privacy/" style={{ color: "rgba(255, 255, 255, 0.6)" }}>
               Privacy Policy
@@ -81,6 +81,7 @@ export default class Footer extends React.Component {
             </Link>
           </Col>
         </Row>
+        <div className="footer__copyright">Copyright 2019 ART/RE/ART, LLC.</div>
       </Layout.Footer>
     );
   }
