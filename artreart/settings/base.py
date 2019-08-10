@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     "sorl.thumbnail",
     "nested_admin",
     "rest_framework",
+    "corsheaders",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -31,6 +32,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -110,4 +112,15 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 # Grappelli
 # https://django-grappelli.readthedocs.io/en/latest/customization.html
 
-GRAPPELLI_ADMIN_TITLE = "Art/Re/Art Admin"
+GRAPPELLI_ADMIN_TITLE = "ART/RE/ART Admin"
+
+
+# CORS Headers
+# https://pypi.org/project/django-cors-headers/
+
+CORS_ORIGIN_WHITELIST = [
+    "https://new.artreart.com",  # TODO: Remove this on go live of new frontend
+    "https://artreart.com",
+    "http://localhost:8080",
+    "http://127.0.0.1:9000"
+]
