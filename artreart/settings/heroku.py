@@ -68,9 +68,10 @@ MEDIA_URL = "https://static.artreart.com/"
 # Django rest framework
 # https://www.django-rest-framework.org/
 
-REST_FRAMEWORK = {
-    "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",)
-}
+# TODO: Turns off the browsable API, re-enable in the future
+# REST_FRAMEWORK = {
+#     "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",)
+# }
 
 
 # Heroku
