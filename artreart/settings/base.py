@@ -31,8 +31,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
     "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -118,9 +118,4 @@ GRAPPELLI_ADMIN_TITLE = "ART/RE/ART Admin"
 # CORS Headers
 # https://pypi.org/project/django-cors-headers/
 
-CORS_ORIGIN_WHITELIST = [
-    "https://new.artreart.com",  # TODO: Remove this on go live of new frontend
-    "https://artreart.com",
-    "http://localhost:8080",
-    "http://127.0.0.1:9000"
-]
+CORS_ORIGIN_ALLOW_ALL = True  # TODO: Eventually lock this down?
