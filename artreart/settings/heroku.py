@@ -16,8 +16,6 @@ ALLOWED_HOSTS = ["artreart.com", "www.artreart.com"]
 # STD
 # https://docs.djangoproject.com/en/2.2/ref/settings/
 
-PREPEND_WWW = True
-
 SECURE_SSL_REDIRECT = True
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTOCOL", "https")
