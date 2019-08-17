@@ -17,18 +17,16 @@ export default class Artist extends React.Component {
 
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
-    axios
-      .get(`/api/artists/artists/${this.props.match.params.id}/`)
-      .then(response => {
-        let data = response.data;
-        this.setState({
-          artist: data,
-          isLoading: false
-        });
-        this.props.setTitle(`${data.name}`);
-        this._descriptions();
-        this.props.finishLoading();
+    axios.get(`/api/artists/${this.props.match.params.id}/`).then(response => {
+      let data = response.data;
+      this.setState({
+        artist: data,
+        isLoading: false
       });
+      this.props.setTitle(`${data.name}`);
+      this._descriptions();
+      this.props.finishLoading();
+    });
   }
 
   _descriptions = () => {

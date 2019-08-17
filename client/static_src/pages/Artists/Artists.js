@@ -15,7 +15,7 @@ export default class Artists extends React.Component {
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
     this.props.setTitle("Artists");
-    axios.get("/api/artists/artists/").then(response => {
+    axios.get("/api/artists/").then(response => {
       let data = response.data;
       this.setState({
         artists: data,

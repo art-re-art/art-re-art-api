@@ -4,17 +4,16 @@ from events.models import Event
 from artists.models import Artist, ArtistMedium, ArtistWork, ArtistWorkImage
 
 
-class ArtistMediumSerializer(serializers.HyperlinkedModelSerializer):
+class ArtistMediumSerializer(serializers.ModelSerializer):
     class Meta:
         model = ArtistMedium
-        fields = ("url", "id", "title")
+        fields = ("id", "title")
 
 
-class ArtistEventSerializer(serializers.HyperlinkedModelSerializer):
+class ArtistEventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = (
-            "url",
             "id",
             "slug",
             "title",
@@ -28,20 +27,19 @@ class ArtistEventSerializer(serializers.HyperlinkedModelSerializer):
         )
 
 
-class ArtistWorkImageSerializer(serializers.HyperlinkedModelSerializer):
+class ArtistWorkImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ArtistWorkImage
-        fields = ("url", "id", "image", "description")
+        fields = ("id", "image", "description")
 
 
-class ArtistWorkArtistSerializer(serializers.HyperlinkedModelSerializer):
+class ArtistWorkSerializer(serializers.ModelSerializer):
     medium = ArtistMediumSerializer(many=True, read_only=True)
     images = ArtistWorkImageSerializer(many=True, read_only=True)
 
     class Meta:
         model = ArtistWork
         fields = (
-            "url",
             "id",
             "artist",
             "title",
@@ -56,7 +54,7 @@ class ArtistWorkArtistSerializer(serializers.HyperlinkedModelSerializer):
 class ArtistSerializer(serializers.HyperlinkedModelSerializer):
     medium = ArtistMediumSerializer(many=True, read_only=True)
     events = ArtistEventSerializer(many=True, read_only=True)
-    works = ArtistWorkArtistSerializer(many=True, read_only=True)
+    works = ArtistWorkSerializer(many=True, read_only=True)
 
     class Meta:
         model = Artist
@@ -75,30 +73,4 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
             "state",
             "works",
             "image",
-        )
-
-
-class ArtistWorkInlineSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Artist
-        fields = ("url", "id", "name")
-
-
-class ArtistWorkSerializer(serializers.HyperlinkedModelSerializer):
-    artist = ArtistWorkInlineSerializer(read_only=True)
-    medium = ArtistMediumSerializer(many=True, read_only=True)
-    images = ArtistWorkImageSerializer(many=True, read_only=True)
-
-    class Meta:
-        model = ArtistWork
-        fields = (
-            "url",
-            "id",
-            "artist",
-            "title",
-            "year",
-            "medium",
-            "dimensions",
-            "description",
-            "images",
         )
