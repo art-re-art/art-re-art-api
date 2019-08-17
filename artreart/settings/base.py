@@ -15,7 +15,7 @@ INSTALLED_APPS = [
     "artists",
     "about",
     "forms",
-    "cosmics",
+    "globals",
     "grappelli",
     "crispy_forms",
     "sorl.thumbnail",

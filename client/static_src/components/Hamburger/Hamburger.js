@@ -10,14 +10,14 @@ import "./Hamburger.less";
 export default class Hamburger extends React.Component {
   state = {
     overlayVisible: false,
-    cosmics: null,
+    globals: null,
     isLoading: true
   };
 
   componentDidMount() {
-    axios.get("/api/cosmics/").then(response => {
+    axios.get("/api/globals/").then(response => {
       this.setState({
-        cosmics: response.data,
+        globals: response.data,
         isLoading: false
       });
     });
@@ -38,7 +38,7 @@ export default class Hamburger extends React.Component {
   };
 
   render() {
-    const cosmics = this.state.cosmics;
+    const globals = this.state.globals;
 
     if (this.state.isLoading) return null;
 
@@ -102,7 +102,7 @@ export default class Hamburger extends React.Component {
                     className="overlay__link"
                   >
                     Artists
-                    <span class="overlay__badge">{cosmics.artist_count}</span>
+                    <span class="overlay__badge">{globals.artist_count}</span>
                   </Link>
                 </li>
                 <li className="overlay__item">
@@ -112,7 +112,7 @@ export default class Hamburger extends React.Component {
                     className="overlay__link"
                   >
                     Events
-                    <span class="overlay__badge">{cosmics.event_count}</span>
+                    <span class="overlay__badge">{globals.event_count}</span>
                   </Link>
                 </li>
                 <li className="overlay__item">

@@ -10,7 +10,7 @@ from forms.urls import router as forms_router
 from about.urls import router as about_router
 from events.urls import router as events_router
 from artists.urls import router as artists_router
-from cosmics.urls import router as cosmics_router
+from globals.urls import router as globals_router
 
 
 # API router setup from all our apps
@@ -19,7 +19,7 @@ router.registry.extend(about_router.registry)
 router.registry.extend(events_router.registry)
 router.registry.extend(artists_router.registry)
 router.registry.extend(forms_router.registry)
-router.registry.extend(cosmics_router.registry)
+router.registry.extend(globals_router.registry)
 
 
 # Standard Django URL patterns

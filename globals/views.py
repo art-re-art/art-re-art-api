@@ -7,7 +7,7 @@ from artists.models import Artist
 from events.models import Event
 
 
-class CosmicsView(viewsets.ViewSet):
+class GlobalsView(viewsets.ViewSet):
     def list(self, request):
         csrf_token = get_token(request)
         artist_count = Artist.objects.count()

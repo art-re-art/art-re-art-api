@@ -3,8 +3,8 @@ from rest_framework import routers
 from . import views
 
 
-basename = "cosmics"
+basename = "globals"
 
 
 router = routers.DefaultRouter()
-router.register(r"cosmics", views.CosmicsView, basename=basename)
+router.register(r"globals", views.GlobalsView, basename=basename)
