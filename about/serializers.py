@@ -21,20 +21,11 @@ class AboutDeveloperSerializer(serializers.ModelSerializer):
         fields = ("id", "name", "website")
 
 
-class AboutSerializer(serializers.HyperlinkedModelSerializer):
+class AboutSerializer(serializers.ModelSerializer):
     faqs = AboutFAQSerializer(many=True, read_only=True)
     developers = AboutDeveloperSerializer(many=True, read_only=True)
     organizers = AboutDeveloperSerializer(many=True, read_only=True)
 
     class Meta:
         model = About
-        fields = (
-            "url",
-            "id",
-            "title",
-            "website",
-            "description",
-            "faqs",
-            "developers",
-            "organizers",
-        )
+        fields = ("title", "website", "description", "faqs", "developers", "organizers")

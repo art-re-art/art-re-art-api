@@ -21,10 +21,10 @@ export default class About extends React.Component {
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
     this.props.setTitle("About");
-    axios.get("/api/about/about/").then(response => {
+    axios.get("/api/about/").then(response => {
       let data = response.data;
       this.setState({
-        about: data[0],
+        about: data,
         isLoading: false
       });
       this.props.finishLoading();
