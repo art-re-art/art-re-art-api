@@ -18,17 +18,15 @@ export default class Event extends React.Component {
 
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
-    axios
-      .get(`/api/events/events/${this.props.match.params.id}/`)
-      .then(response => {
-        let data = response.data;
-        this.setState({
-          event: data,
-          isLoading: false
-        });
-        this.props.setTitle(`${data.title}`);
-        this.props.finishLoading();
+    axios.get(`/api/events/${this.props.match.params.id}/`).then(response => {
+      let data = response.data;
+      this.setState({
+        event: data,
+        isLoading: false
       });
+      this.props.setTitle(`${data.title}`);
+      this.props.finishLoading();
+    });
   }
 
   _getEmbedSrc = () => {

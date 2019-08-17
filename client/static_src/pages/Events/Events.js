@@ -15,7 +15,7 @@ export default class Events extends React.Component {
   componentDidMount() {
     ReactGA.pageview(window.location.pathname + window.location.search);
     this.props.setTitle("Shows");
-    axios.get("/api/events/events/").then(response => {
+    axios.get("/api/events/").then(response => {
       let data = response.data;
       this.setState({
         events: data,

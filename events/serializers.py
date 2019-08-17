@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from events.models import Event, EventLocation, EventImage
-from artists.models import Artist, ArtistMedium, ArtistWorkImage
+from artists.models import Artist, ArtistMedium
 
 
 class ArtistMediumSerializer(serializers.ModelSerializer):
@@ -18,6 +18,7 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
         fields = (
             "url",
             "id",
+            "slug",
             "name",
             "instagram",
             "website",
@@ -33,11 +34,10 @@ class EventImageSerializer(serializers.ModelSerializer):
         fields = ("id", "image", "description")
 
 
-class EventLocationSerializer(serializers.HyperlinkedModelSerializer):
+class EventLocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = EventLocation
         fields = (
-            "url",
             "id",
             "title",
             "street",
