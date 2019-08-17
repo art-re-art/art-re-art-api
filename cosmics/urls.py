@@ -7,4 +7,4 @@ basename = "cosmics"
 
 
 router = routers.DefaultRouter()
-router.register(r"cosmics/cosmics", views.CosmicsView, basename=basename)
+router.register(r"cosmics", views.CosmicsView, basename=basename)

@@ -15,7 +15,7 @@ export default class Hamburger extends React.Component {
   };
 
   componentDidMount() {
-    axios.get("/api/cosmics/cosmics/").then(response => {
+    axios.get("/api/cosmics/").then(response => {
       this.setState({
         cosmics: response.data,
         isLoading: false
