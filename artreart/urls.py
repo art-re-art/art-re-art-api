@@ -6,6 +6,7 @@ from django.views.generic.base import RedirectView
 
 from rest_framework import routers
 
+from hunt.urls import router as hunt_router
 from forms.urls import router as forms_router
 from about.urls import router as about_router
 from events.urls import router as events_router
@@ -15,6 +16,7 @@ from globals.urls import router as globals_router
 
 # API router setup from all our apps
 router = routers.DefaultRouter()
+router.registry.extend(hunt_router.registry)
 router.registry.extend(about_router.registry)
 router.registry.extend(events_router.registry)
 router.registry.extend(artists_router.registry)

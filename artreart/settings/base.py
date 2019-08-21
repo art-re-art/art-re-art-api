@@ -15,6 +15,7 @@ INSTALLED_APPS = [
     "artists",
     "about",
     "forms",
+    "hunt",
     "globals",
     "grappelli",
     "crispy_forms",
