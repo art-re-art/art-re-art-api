@@ -1,13 +1,11 @@
 from rest_framework import viewsets
 
-from hunt.models import HuntItem
+from hunt.models import Hunt
 
-from .serializers import (
-    HuntItemSerializer,
-)
+from .serializers import HuntSerializer
 
 
 class HuntViewSet(viewsets.ModelViewSet):
-    queryset = HuntItem.objects.all()
-    serializer_class = HuntItemSerializer
+    queryset = Hunt.objects.all()
+    serializer_class = HuntSerializer
     http_method_names = ["get"]
