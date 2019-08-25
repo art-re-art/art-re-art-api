@@ -6,7 +6,7 @@ from hunt.models import Hunt, HuntItem
 class HuntItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = HuntItem
-        fields = ("id", "_order", "question", "answer_type", "answer")
+        fields = ("id", "question", "answer_type", "answer")
 
 
 class HuntSerializer(serializers.HyperlinkedModelSerializer):

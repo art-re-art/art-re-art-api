@@ -70,4 +70,5 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
             "featured_image",
             "artists",
             "images",
+            "hunt",
         )
