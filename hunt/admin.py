@@ -1,11 +1,23 @@
 from django.contrib import admin
-from django.utils.html import mark_safe
 
-from .models import (
-    HuntItem,
-)
+from grappelli.forms import GrappelliSortableHiddenMixin
+import nested_admin
 
-@admin.register(HuntItem)
-class HuntItemAdmin(admin.ModelAdmin):
-    list_display = ["_order", "question", "answer", "answer_type"]
+from .models import Hunt, HuntItem
+
+
+class HuntItemeInline(GrappelliSortableHiddenMixin, nested_admin.NestedStackedInline):
+    model = HuntItem
+    extra = 0
     sortable_field_name = "_order"
+    fields = ("question", ("answer_type", "answer"), "_order")
+
+
+@admin.register(Hunt)
+class HuntAdmin(nested_admin.NestedModelAdmin):
+    list_display = ["event", "number_of_items"]
+    inlines = [HuntItemeInline]
+    fields = ("event",)
+
+    def number_of_items(self, obj):
+        return str(obj.items.count())
