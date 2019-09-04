@@ -1,7 +1,7 @@
 import React from "react";
 import ReactGA from "react-ga";
 import { Link, withRouter } from "react-router-dom";
-import { Layout, Menu, Icon } from "antd";
+import { Layout, Menu, Icon, Tooltip } from "antd";
 
 import LogoRotated from "../../images/artreart-red-rotated.png";
 import "./Sidebar.less";
@@ -26,82 +26,94 @@ class Sidebar extends React.Component {
           selectedKeys={[this.props.location.pathname]}
         >
           <Menu.Item key="/">
-            <Link
-              to="/"
-              onClick={() => {
-                ReactGA.event({
-                  category: "Side Nav",
-                  action: "Home Button"
-                });
-              }}
-            >
-              <Icon type="home" />
-            </Link>
+            <Tooltip placement="right" title="Home">
+              <Link
+                to="/"
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Side Nav",
+                    action: "Home Button"
+                  });
+                }}
+              >
+                <Icon type="home" />
+              </Link>
+            </Tooltip>
           </Menu.Item>
           <Menu.Item key="/about/">
-            <Link
-              to="/about/"
-              onClick={() => {
-                ReactGA.event({
-                  category: "Side Nav",
-                  action: "About Button"
-                });
-              }}
-            >
-              <Icon type="question-circle" />
-            </Link>
+            <Tooltip placement="right" title="About">
+              <Link
+                to="/about/"
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Side Nav",
+                    action: "About Button"
+                  });
+                }}
+              >
+                <Icon type="question-circle" />
+              </Link>
+            </Tooltip>
           </Menu.Item>
           <Menu.Item key="/artists/">
-            <Link
-              to="/artists/"
-              onClick={() => {
-                ReactGA.event({
-                  category: "Side Nav",
-                  action: "Artists Button"
-                });
-              }}
-            >
-              <Icon type="user" />
-            </Link>
+            <Tooltip placement="right" title="Artists">
+              <Link
+                to="/artists/"
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Side Nav",
+                    action: "Artists Button"
+                  });
+                }}
+              >
+                <Icon type="user" />
+              </Link>
+            </Tooltip>
           </Menu.Item>
           <Menu.Item key="/events/">
-            <Link
-              to="/events/"
-              onClick={() => {
-                ReactGA.event({
-                  category: "Side Nav",
-                  action: "Events Button"
-                });
-              }}
-            >
-              <Icon type="calendar" />
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="/mobile/">
-            <Link
-              to="/mobile/"
-              onClick={() => {
-                ReactGA.event({
-                  category: "Side Nav",
-                  action: "Mobile Button"
-                });
-              }}
-            >
-              <Icon type="mobile" />
-            </Link>
+            <Tooltip placement="right" title="Events">
+              <Link
+                to="/events/"
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Side Nav",
+                    action: "Events Button"
+                  });
+                }}
+              >
+                <Icon type="calendar" />
+              </Link>
+            </Tooltip>
           </Menu.Item>
           <Menu.Item key="/signup/">
-            <Link
-              to="/signup/"
-              onClick={() => {
-                ReactGA.event({
-                  category: "Side Nav",
-                  action: "Signup Button"
-                });
-              }}
-            >
-              <Icon type="plus" />
-            </Link>
+            <Tooltip placement="right" title="Sign Up!">
+              <Link
+                to="/signup/"
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Side Nav",
+                    action: "Signup Button"
+                  });
+                }}
+              >
+                <Icon type="plus" />
+              </Link>
+            </Tooltip>
+          </Menu.Item>
+          <Menu.Item key="/mobile/">
+            <Tooltip placement="right" title="Mobile">
+              <Link
+                to="/mobile/"
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Side Nav",
+                    action: "Mobile Button"
+                  });
+                }}
+              >
+                <Icon type="mobile" />
+              </Link>
+            </Tooltip>
           </Menu.Item>
         </Menu>
       </Sider>
