@@ -56,6 +56,17 @@ export default class Footer extends React.Component {
                   art_re_art
                 </a>
               </List.Item>
+              <List.Item style={{ padding: 0 }}>
+                <Icon className="footer__icon" type="facebook" />
+                <a
+                  href="https://www.facebook.com/artreartnc/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer__link"
+                >
+                  artreartnc
+                </a>
+              </List.Item>
             </List>
           </Col>
           <Col xl={12} lg={24}>
