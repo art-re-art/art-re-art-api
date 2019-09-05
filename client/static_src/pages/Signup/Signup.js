@@ -235,14 +235,22 @@ export default class Signup extends React.Component {
         </Row>
         {this.state.current === 0 && (
           <div className="signup-forms">
-            <Row gutter={48}>
-              <Col>
+            <Row gutter={24}>
+              <Col lg={16} md={24}>
                 <Title level={2}>Artist</Title>
                 <Paragraph>Tell us about you!</Paragraph>
                 <ArtistForm
                   wrappedComponentRef={this._updateArtistForm}
                   data={this.state.dataArtist}
                 />
+              </Col>
+              <Col lg={8} md={24}>
+                <div style={{ borderLeft: "2px solid red", paddingLeft: "1rem" }}>
+                  <Title level={3}>Things to Note</Title>
+                  <Paragraph>No submission fees.</Paragraph>
+                  <Paragraph>No commission fees.</Paragraph>
+                  <Paragraph>Artists are responsible for installing and uninstalling their own work.</Paragraph>
+                </div>
               </Col>
             </Row>
             <Row style={{ marginTop: "2em" }}>
