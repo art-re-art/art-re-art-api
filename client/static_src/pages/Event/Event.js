@@ -68,10 +68,10 @@ export default class Event extends React.Component {
               }}
             >
               <Title level={2} style={{ color: "white", marginBottom: 0 }}>
-                {this.state.event.title}
+                {moment(this.state.event.datetime).format("LLLL")}
               </Title>
               <Paragraph style={{ color: "white", marginBottom: 0 }}>
-                {moment(this.state.event.datetime).format("LLLL")}
+                {this.state.event.location.street}, {this.state.event.location.city}, {this.state.event.location.state}, {this.state.event.location.postal}
               </Paragraph>
             </div>
           </Col>
