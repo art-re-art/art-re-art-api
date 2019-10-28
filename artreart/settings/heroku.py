@@ -1,4 +1,8 @@
-from .base import *
+import os
+
+import django_heroku
+
+from .base import *  # noqa: F401,F403
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,6 +29,8 @@ USE_X_FORWARDED_HOST = True
 SESSION_COOKIE_SECURE = True
 
 CSRF_COOKIE_SECURE = True
+
+PREPEND_WWW = True
 
 
 # Custom
