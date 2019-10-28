@@ -1,8 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "start": "concurrently -r \"pipenv run python manage.py runserver\" \"nodemon --watch webpack.config.js --watch antd.theme.js --exec 'webpack --watch'\"",
-    "build": "webpack --mode \"production\"",
+    "start": "concurrently -r 'npm:start:django' 'npm:start:webpack'",
+    "start:django": "pipenv run python manage.py runserver",
+    "start:webpack": "nodemon --watch webpack.config.js --watch antd.theme.js --exec 'webpack --watch'",
+    "build": "webpack --mode 'production'",
     "manage:migrate": "pipenv run python manage.py migrate",
     "manage:makemigrations": "pipenv run python manage.py makemigrations",
     "manage:createsuperuser": "pipenv run python manage.py createsuperuser",
