@@ -6,19 +6,18 @@ import django.utils.timezone
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('forms', '0007_auto_20190622_1719'),
-    ]
+    dependencies = [("forms", "0007_auto_20190622_1719")]
 
     operations = [
         migrations.AlterModelOptions(
-            name='mailchimpsignup',
-            options={'ordering': ['-submitted']},
+            name="mailchimpsignup", options={"ordering": ["-submitted"]}
         ),
         migrations.AddField(
-            model_name='mailchimpsignup',
-            name='submitted',
-            field=models.DateTimeField(auto_now_add=True, default=django.utils.timezone.now),
+            model_name="mailchimpsignup",
+            name="submitted",
+            field=models.DateTimeField(
+                auto_now_add=True, default=django.utils.timezone.now
+            ),
             preserve_default=False,
         ),
     ]

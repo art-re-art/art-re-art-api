@@ -8,30 +8,71 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-        ('events', '0011_event_slug'),
-    ]
+    dependencies = [("events", "0011_event_slug")]
 
     operations = [
         migrations.CreateModel(
-            name='Hunt',
+            name="Hunt",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('event', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='hunt', to='events.Event')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "event",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="hunt",
+                        to="events.Event",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='HuntItem',
+            name="HuntItem",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('_order', models.PositiveSmallIntegerField(blank=True, default=100, null=True)),
-                ('question', models.CharField(max_length=255)),
-                ('answer_type', models.CharField(choices=[('int', 'Integer'), ('qr', 'QR Code'), ('str', 'String')], max_length=255)),
-                ('answer', models.CharField(max_length=255)),
-                ('hunt', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='items', to='hunt.Hunt')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "_order",
+                    models.PositiveSmallIntegerField(
+                        blank=True, default=100, null=True
+                    ),
+                ),
+                ("question", models.CharField(max_length=255)),
+                (
+                    "answer_type",
+                    models.CharField(
+                        choices=[
+                            ("int", "Integer"),
+                            ("qr", "QR Code"),
+                            ("str", "String"),
+                        ],
+                        max_length=255,
+                    ),
+                ),
+                ("answer", models.CharField(max_length=255)),
+                (
+                    "hunt",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="items",
+                        to="hunt.Hunt",
+                    ),
+                ),
             ],
-            options={
-                'ordering': ['_order'],
-            },
+            options={"ordering": ["_order"]},
         ),
     ]
